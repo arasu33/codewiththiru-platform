@@ -1,0 +1,26 @@
+# Gradle files
+.gradle/
+build/
+/*/build/
+
+# Kotlin
+.kotlin/
+
+# IDEs and editors
+.idea/
+*.iml
+*.ipr
+*.iws
+.navigation/
+
+# Local configuration files
+local.properties
+
+# Secrets & keystores
+*.jks
+*.keystore
+*.p12
+
+# OS files
+.DS_Store
+Thumbs.db

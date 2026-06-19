@@ -33,3 +33,4 @@ plugins {
 rootProject.name = "codewiththiru-platform"
 include(":core")
 include(":core-android")
+include(":designsystem")

@@ -1,9 +1,0 @@
-com.codewiththiru.platform.android.core-android-pngs-0 C:\Workspace\Dev\Android\codewiththiru-platform\core-android\build\generated\res\pngs\release
-com.codewiththiru.platform.android.core-android-updated_navigation_xml-1 C:\Workspace\Dev\Android\codewiththiru-platform\core-android\build\generated\updated_navigation_xml\release
-com.codewiththiru.platform.android.core-android-mergeReleaseResources-2 C:\Workspace\Dev\Android\codewiththiru-platform\core-android\build\intermediates\incremental\release\mergeReleaseResources\merged.dir
-com.codewiththiru.platform.android.core-android-mergeReleaseResources-3 C:\Workspace\Dev\Android\codewiththiru-platform\core-android\build\intermediates\incremental\release\mergeReleaseResources\stripped.dir
-com.codewiththiru.platform.android.core-android-release-4 C:\Workspace\Dev\Android\codewiththiru-platform\core-android\build\intermediates\merged_res\release\mergeReleaseResources
-com.codewiththiru.platform.android.core-android-release-5 C:\Workspace\Dev\Android\codewiththiru-platform\core-android\build\intermediates\packaged_res\release\packageReleaseResources
-com.codewiththiru.platform.android.core-android-main-6 C:\Workspace\Dev\Android\codewiththiru-platform\core-android\src\main\res
-com.codewiththiru.platform.android.core-android-release-7 C:\Workspace\Dev\Android\codewiththiru-platform\core-android\src\release\res
-gradleHome-0 C:\Users\arasu\.gradle
