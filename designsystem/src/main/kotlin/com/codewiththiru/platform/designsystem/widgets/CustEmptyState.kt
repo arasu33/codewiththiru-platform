@@ -16,6 +16,15 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.codewiththiru.platform.designsystem.components.CustText
 
+/**
+ * A standardized presentation component mapping null or empty data payloads to user-friendly graphics.
+ * 
+ * @param title Core semantic header explicitly communicating the missing state natively.
+ * @param modifier Applied structure properties bridging parent elements.
+ * @param message Clarifying textual guidance.
+ * @param illustration Optional graphic mapped above the text nodes.
+ * @param actionButton Optional call-to-action block recovering workflows.
+ */
 @Composable
 fun CustEmptyState(
     title: String,

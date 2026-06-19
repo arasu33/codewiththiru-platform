@@ -4,6 +4,7 @@ plugins {
     id("codewiththiru.detekt")
     id("codewiththiru.ktlint")
     alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.roborazzi)
     alias(libs.plugins.dokka)
 }
 
@@ -20,6 +21,9 @@ android {
     testOptions {
         unitTests {
             isIncludeAndroidResources = true
+            all { test ->
+                test.systemProperty("robolectric.graphicsMode", "NATIVE")
+            }
         }
     }
 }
@@ -41,4 +45,7 @@ dependencies {
     testImplementation(libs.androidx.test.ext.junit)
     testImplementation(libs.androidx.test.espresso.core)
     testImplementation(libs.androidx.compose.ui.test.junit4)
+    testImplementation(libs.roborazzi)
+    testImplementation(libs.roborazzi.compose)
+    testImplementation(libs.roborazzi.junit.rule)
 }

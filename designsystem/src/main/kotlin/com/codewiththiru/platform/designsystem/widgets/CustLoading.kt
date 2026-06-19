@@ -26,6 +26,14 @@ enum class LoadingType {
     Linear
 }
 
+/**
+ * Synchronous infinite loading dialog/card widget bounding an internal `CircularProgressIndicator`.
+ *
+ * @param modifier Structure configuration traversing layouts.
+ * @param message Clarifying textual readout explicitly parsed below the active spinner.
+ * @param type The style of progress indicator to display (Circular or Linear).
+ * @param color The color of the progress indicator.
+ */
 @Composable
 fun CustLoading(
     modifier: Modifier = Modifier,

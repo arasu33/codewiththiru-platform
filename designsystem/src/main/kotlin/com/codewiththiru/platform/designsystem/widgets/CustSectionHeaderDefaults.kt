@@ -7,6 +7,9 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
+/**
+ * Default metric tokens structuring visual bindings for [CustSectionHeader].
+ */
 object CustSectionHeaderDefaults {
     val horizontalPadding: Dp = 16.dp
     val verticalPadding: Dp = 16.dp

@@ -13,6 +13,9 @@ enum class AvatarSize(val dimension: Dp) {
     Large(72.dp)
 }
 
+/**
+ * Default metric tokens structuring visual bindings for [CustAvatar].
+ */
 object CustAvatarDefaults {
     val containerColor: Color
         @Composable get() = MaterialTheme.colorScheme.primaryContainer

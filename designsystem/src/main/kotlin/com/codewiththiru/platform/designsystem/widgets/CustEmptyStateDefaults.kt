@@ -7,6 +7,9 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
+/**
+ * Default internal values bound to the [CustEmptyState] architecture.
+ */
 object CustEmptyStateDefaults {
     val illustrationSpacing: Dp = 24.dp
     val titleSpacing: Dp = 8.dp

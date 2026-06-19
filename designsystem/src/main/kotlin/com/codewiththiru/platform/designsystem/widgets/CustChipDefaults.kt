@@ -6,6 +6,9 @@ import androidx.compose.material3.FilterChipDefaults
 import androidx.compose.material3.SelectableChipColors
 import androidx.compose.runtime.Composable
 
+/**
+ * Token resolutions orchestrating internal state structures inside [CustAssistChip] and [CustFilterChip].
+ */
 object CustChipDefaults {
     @Composable
     fun assistChipColors(): ChipColors = AssistChipDefaults.assistChipColors()

@@ -18,6 +18,19 @@ import androidx.compose.ui.unit.dp
 import com.codewiththiru.platform.designsystem.components.CustButton
 import com.codewiththiru.platform.designsystem.components.CustText
 
+/**
+ * A rigorous error block mapping fatal or non-fatal boundaries securely to the UI layer.
+ * 
+ * Integrates explicitly structured TalkBack logic that merges the error code, title,
+ * and descriptive message into a cohesive sequence.
+ * 
+ * @param title Primary categorization string bounding the fault.
+ * @param modifier Structure configuration traversing layouts.
+ * @param message Verbose localized sequence explaining the fault explicitly.
+ * @param errorCode Secondary identifier for internal telemetry.
+ * @param onRetry Optional closure executing retry workflows visually bound to a button.
+ * @param retryText Overridable textual constraint for the action layer.
+ */
 @Composable
 fun CustErrorState(
     title: String,

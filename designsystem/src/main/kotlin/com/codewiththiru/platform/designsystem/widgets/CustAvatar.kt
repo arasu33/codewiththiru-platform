@@ -1,4 +1,4 @@
-@file:Suppress("FunctionNaming")
+@file:Suppress("FunctionNaming", "MatchingDeclarationName")
 
 package com.codewiththiru.platform.designsystem.widgets
 
@@ -16,8 +16,25 @@ import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.unit.dp
 import com.codewiththiru.platform.designsystem.components.CustText
 
+
+
+/**
+ * Represents a user profile image natively scaling content types.
+ *
+ * It seamlessly supports visual fallback chains:
+ * 1. An explicitly provided `painter` mapping images directly.
+ * 2. An `initials` string cropped to the first two letters dynamically.
+ * 3. A fallback baseline empty `Icon` if both payload params evaluate `null`.
+ *
+ * @param modifier Optional modifier to configure the base surface.
+ * @param painter Primary image payload.
+ * @param initials String payload mapped dynamically if `painter` is null.
+ * @param size Enum layout constraints bound to predefined metric tokens.
+ * @param contentDescription Semantic string mapping for TalkBack.
+ */
 @Composable
 fun CustAvatar(
     modifier: Modifier = Modifier,

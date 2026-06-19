@@ -7,6 +7,9 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
+/**
+ * Default internal values bound to the [CustErrorState] architecture.
+ */
 object CustErrorStateDefaults {
     val iconSpacing: Dp = 16.dp
     val titleSpacing: Dp = 8.dp

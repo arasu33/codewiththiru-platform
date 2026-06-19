@@ -17,6 +17,16 @@ import androidx.compose.ui.semantics.heading
 import androidx.compose.ui.semantics.semantics
 import com.codewiththiru.platform.designsystem.components.CustText
 
+/**
+ * A highly resilient structural header separating lists or form segments gracefully.
+ *
+ * Implicitly maps TalkBack properties traversing layout `.heading()` bounds securely.
+ *
+ * @param title Core title literal parsed explicitly.
+ * @param modifier Applied structure properties bridging parent elements.
+ * @param subtitle Secondary clarification span traversing directly below the title.
+ * @param action Optional action node bounds (usually a TextButton) slotted laterally right.
+ */
 @Composable
 fun CustSectionHeader(
     title: String,

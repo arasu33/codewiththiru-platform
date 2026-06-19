@@ -8,6 +8,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.codewiththiru.platform.designsystem.components.CustText
 
+/**
+ * Assist chip configuration assisting generic interactions and user workflows dynamically.
+ *
+ * @param label Text sequence evaluated natively inside the chip geometry.
+ * @param onClick Trigger pipeline whenever explicit bound taps are recognized.
+ * @param modifier Applied structure properties bridging parent elements.
+ * @param icon Icon closure mapping optional start geometry.
+ * @param enabled Controls the interactive state of the chip.
+ */
 @Composable
 fun CustAssistChip(
     label: String,
@@ -26,6 +35,16 @@ fun CustAssistChip(
     )
 }
 
+/**
+ * Filter chip configuration enforcing binary selected states.
+ * 
+ * @param label Text sequence evaluated natively inside the chip geometry.
+ * @param selected Controls active visual weighting spanning color mappings defined by [CustChipDefaults].
+ * @param onClick Trigger pipeline whenever explicit bound taps are recognized.
+ * @param modifier Applied structure properties bridging parent elements.
+ * @param icon Icon closure mapping optional start geometry.
+ * @param enabled Controls the interactive state of the chip.
+ */
 @Composable
 fun CustFilterChip(
     label: String,

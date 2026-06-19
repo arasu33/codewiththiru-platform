@@ -5,6 +5,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 
+/**
+ * Default internal values bound to the [CustBadge] architecture.
+ */
 object CustBadgeDefaults {
     val containerColor: Color
         @Composable get() = MaterialTheme.colorScheme.error

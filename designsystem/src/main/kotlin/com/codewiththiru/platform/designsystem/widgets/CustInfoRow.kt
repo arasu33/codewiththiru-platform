@@ -18,6 +18,19 @@ import androidx.compose.ui.semantics.role
 import androidx.compose.ui.semantics.semantics
 import com.codewiththiru.platform.designsystem.components.CustText
 
+/**
+ * A highly resilient key-value layout row seamlessly parsing structured bounds.
+ * 
+ * If [onClick] is provided, this native composition merges `Role.Button` and `Modifier.clickable` intrinsically,
+ * shielding the view tree from excess semantic modifiers when static.
+ *
+ * @param label Primary leading identifier bounding the row structurally.
+ * @param modifier Applied structure properties bridging parent elements.
+ * @param value Optional text payload bound to the trailing edges.
+ * @param icon Leading configuration node securely slotted before the label.
+ * @param trailingContent Trailing interaction layout appended natively after the [value].
+ * @param onClick Invoked closure executing explicit bounds.
+ */
 @Composable
 fun CustInfoRow(
     label: String,
