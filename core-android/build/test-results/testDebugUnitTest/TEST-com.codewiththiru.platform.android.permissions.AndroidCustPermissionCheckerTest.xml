@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.codewiththiru.platform.android.permissions.AndroidCustPermissionCheckerTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2026-06-19T04:48:44.869Z" hostname="ARASUSARAN" time="0.57">
+  <properties/>
+  <testcase name="hasPermission returns true when granted" classname="com.codewiththiru.platform.android.permissions.AndroidCustPermissionCheckerTest" time="0.129"/>
+  <testcase name="hasPermissions returns true when all granted" classname="com.codewiththiru.platform.android.permissions.AndroidCustPermissionCheckerTest" time="0.087"/>
+  <testcase name="missingPermissions returns empty list when all granted" classname="com.codewiththiru.platform.android.permissions.AndroidCustPermissionCheckerTest" time="0.097"/>
+  <testcase name="missingPermissions returns list of denied permissions" classname="com.codewiththiru.platform.android.permissions.AndroidCustPermissionCheckerTest" time="0.079"/>
+  <testcase name="hasPermission returns false when denied" classname="com.codewiththiru.platform.android.permissions.AndroidCustPermissionCheckerTest" time="0.088"/>
+  <testcase name="hasPermissions returns false when any denied" classname="com.codewiththiru.platform.android.permissions.AndroidCustPermissionCheckerTest" time="0.089"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

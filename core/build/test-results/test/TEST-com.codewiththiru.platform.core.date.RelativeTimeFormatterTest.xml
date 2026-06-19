@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.codewiththiru.platform.core.date.RelativeTimeFormatterTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2026-06-19T04:39:12.486Z" hostname="ARASUSARAN" time="0.015">
+  <properties/>
+  <testcase name="testJustNow" classname="com.codewiththiru.platform.core.date.RelativeTimeFormatterTest" time="0.005"/>
+  <testcase name="testYesterday" classname="com.codewiththiru.platform.core.date.RelativeTimeFormatterTest" time="0.001"/>
+  <testcase name="testYearsAgo" classname="com.codewiththiru.platform.core.date.RelativeTimeFormatterTest" time="0.003"/>
+  <testcase name="testCustomRelativeTimeStrings" classname="com.codewiththiru.platform.core.date.RelativeTimeFormatterTest" time="0.002"/>
+  <testcase name="testMonthsAgo" classname="com.codewiththiru.platform.core.date.RelativeTimeFormatterTest" time="0.0"/>
+  <testcase name="testWeeksAgo" classname="com.codewiththiru.platform.core.date.RelativeTimeFormatterTest" time="0.001"/>
+  <testcase name="testHoursAgo" classname="com.codewiththiru.platform.core.date.RelativeTimeFormatterTest" time="0.0"/>
+  <testcase name="testDaysAgo" classname="com.codewiththiru.platform.core.date.RelativeTimeFormatterTest" time="0.001"/>
+  <testcase name="testMinutesAgo" classname="com.codewiththiru.platform.core.date.RelativeTimeFormatterTest" time="0.0"/>
+  <testcase name="testFutureOrNegativeDuration" classname="com.codewiththiru.platform.core.date.RelativeTimeFormatterTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

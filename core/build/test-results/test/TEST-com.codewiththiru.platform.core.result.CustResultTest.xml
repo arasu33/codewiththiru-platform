@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.codewiththiru.platform.core.result.CustResultTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2026-06-19T04:39:12.728Z" hostname="ARASUSARAN" time="0.008">
+  <properties/>
+  <testcase name="testCustRunCatchingFatalJvmErrorOutOfMemory" classname="com.codewiththiru.platform.core.result.CustResultTest" time="0.003"/>
+  <testcase name="testCustRunCatchingFatalJvmErrorVirtualMachineError" classname="com.codewiththiru.platform.core.result.CustResultTest" time="0.001"/>
+  <testcase name="testCustRunCatchingSuccess" classname="com.codewiththiru.platform.core.result.CustResultTest" time="0.0"/>
+  <testcase name="testCustRunCatchingCancellationException" classname="com.codewiththiru.platform.core.result.CustResultTest" time="0.0"/>
+  <testcase name="testFailureMonadFlow" classname="com.codewiththiru.platform.core.result.CustResultTest" time="0.002"/>
+  <testcase name="testCustRunCatchingFailure" classname="com.codewiththiru.platform.core.result.CustResultTest" time="0.0"/>
+  <testcase name="testSuccessMonadFlow" classname="com.codewiththiru.platform.core.result.CustResultTest" time="0.0"/>
+  <testcase name="testCustRunCatchingFatalJvmErrorStackOverflow" classname="com.codewiththiru.platform.core.result.CustResultTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
