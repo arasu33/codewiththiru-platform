@@ -95,3 +95,101 @@ CustAlertDialog(
     isDestructive = true
 )
 ```
+
+## Widgets
+
+### CustLoading
+Displays a loading indicator with an optional semantic message.
+```kotlin
+CustLoading(
+    type = LoadingType.Circular,
+    message = "Authenticating..."
+)
+```
+
+### CustShimmer
+Skeleton loading placeholder to mask data before rendering.
+```kotlin
+// Box variant
+CustShimmerBox(
+    modifier = Modifier.width(200.dp).height(24.dp)
+)
+
+// Modifier extension
+Box(modifier = Modifier.custShimmer().fillMaxWidth().height(100.dp))
+```
+
+### CustEmptyState
+Used to depict zero-data views clearly to the user.
+```kotlin
+CustEmptyState(
+    title = "No Matches Found",
+    message = "Try clearing your filters to see more results.",
+    illustration = { CustAvatar(painter = null) }, // Use placeholder or icon here
+    actionButton = {
+        CustButton(onClick = { /* ... */ }) {
+            CustText("Clear Filters")
+        }
+    }
+)
+```
+
+### CustErrorState
+Used for terminal or network errors requiring user intervention.
+```kotlin
+CustErrorState(
+    title = "Network Timeout",
+    message = "We couldn't reach the server.",
+    errorCode = "504_GATEWAY",
+    onRetry = { /* ... */ },
+    retryText = "Try Again"
+)
+```
+
+### CustBadge
+Notification badging capable of max limit rendering.
+```kotlin
+CustBadge(count = 105, maxCount = 99) {
+    Icon(imageVector = Icons.Default.Notifications, contentDescription = null)
+}
+```
+
+### CustAvatar
+Robust avatar scaling without heavy image loading dependencies.
+```kotlin
+CustAvatar(
+    initials = "John Doe",
+    size = AvatarSize.Medium
+)
+```
+
+### CustChip
+Filtering and assisting actions.
+```kotlin
+CustFilterChip(
+    label = "Active",
+    selected = true,
+    onClick = { /* ... */ }
+)
+```
+
+### CustSectionHeader
+Used to demarcate major areas in lists or settings. Automatically triggers `heading()` semantics for TalkBack.
+```kotlin
+CustSectionHeader(
+    title = "Settings",
+    subtitle = "Version 1.0",
+    action = { CustButton(onClick = {}) { CustText("Edit") } }
+)
+```
+
+### CustInfoRow
+Versatile row mapper for settings and lists.
+```kotlin
+CustInfoRow(
+    label = "Privacy Policy",
+    value = "Updated",
+    onClick = { /* Navigates */ },
+    trailingContent = { Icon(Icons.Default.KeyboardArrowRight, null) }
+)
+```
