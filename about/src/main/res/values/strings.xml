@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="about_section_developer">Developer</string>
+    <string name="about_section_device">Device Information</string>
+    <string name="about_section_legal">Legal</string>
+    <string name="about_section_actions">Actions</string>
+    
+    <string name="about_action_share_app">Share App</string>
+    <string name="about_action_copy_diagnostics">Copy Diagnostics</string>
+    <string name="about_action_contact_support">Contact Support</string>
+    
+    <string name="about_label_name">Name</string>
+    <string name="about_label_website">Website</string>
+    <string name="about_label_email">Email</string>
+    <string name="about_label_model">Model</string>
+    <string name="about_label_android_version">Android Version</string>
+    <string name="about_label_privacy_policy">Privacy Policy</string>
+    <string name="about_label_terms_of_service">Terms of Service</string>
+    <string name="about_label_open_source_licenses">Open Source Licenses</string>
+    
+    <string name="about_value_view">View</string>
+</resources>
