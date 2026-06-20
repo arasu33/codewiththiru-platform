@@ -12,11 +12,13 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.launch
 
+import kotlinx.coroutines.flow.Flow
+
 class UpdatesViewModel(
     private val updateManager: UpdateManager
 ) : ViewModel() {
 
-    val updateState: StateFlow<UpdateResult?> = updateManager.updateState
+    val updateState: Flow<UpdateResult?> = updateManager.updateState
 
     private val _updateEffect = MutableSharedFlow<UpdateEffect>()
     val updateEffect: SharedFlow<UpdateEffect> = _updateEffect.asSharedFlow()

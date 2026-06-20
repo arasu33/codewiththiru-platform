@@ -10,13 +10,12 @@ class PushPayloadMapper {
         return NotificationPayload(
             id = data["id"] ?: UUID.randomUUID().toString(),
             title = data["title"] ?: "",
-            message = data["message"] ?: "",
+            body = data["message"] ?: "",
             category = runCatching { NotificationCategory.valueOf(data["category"] ?: "") }.getOrDefault(NotificationCategory.GENERAL),
             priority = runCatching { NotificationPriority.valueOf(data["priority"] ?: "") }.getOrDefault(NotificationPriority.DEFAULT),
             deepLink = data["deepLink"],
             imageUrl = data["imageUrl"],
-            campaignId = data["campaignId"],
-            extraData = data
+            data = data
         )
     }
 }

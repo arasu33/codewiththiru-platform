@@ -29,7 +29,6 @@ interface RatingRepository {
 
 class DefaultRatingRepository(
     private val storageProvider: RatingStorageProvider,
-    private val analyticsProvider: RatingAnalyticsProvider?,
     private val clock: CustClock
 ) : RatingRepository {
 
@@ -63,6 +62,6 @@ class DefaultRatingRepository(
     }
 
     override fun logAnalyticsEvent(event: RatingAnalyticsEvent, source: RatingTriggerSource?, params: Map<String, Any>) {
-        analyticsProvider?.logEvent(event, source, params)
+        // Analytics disabled for now
     }
 }

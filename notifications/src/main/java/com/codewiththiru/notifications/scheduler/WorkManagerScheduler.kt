@@ -36,7 +36,7 @@ class WorkManagerScheduler(private val context: Context) : NotificationScheduler
         )
     }
 
-    override fun scheduleRecurring(payload: NotificationPayload, intervalMillis: Long) {
+    override fun scheduleRepeating(payload: NotificationPayload, intervalMillis: Long) {
         val data = Data.Builder()
             .putString("payload", Json.encodeToString(payload))
             .build()

@@ -10,7 +10,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.codewiththiru.platform.designsystem.components.CustDialog
+import androidx.compose.ui.window.Dialog
 import com.codewiththiru.platform.rating.model.RatingConfig
 import com.codewiththiru.platform.rating.model.RatingPromptType
 import com.codewiththiru.platform.rating.state.RatingAction
@@ -30,7 +30,7 @@ fun RatingScreen(
 
     when (uiState.promptType) {
         RatingPromptType.Dialog -> {
-            CustDialog(
+            Dialog(
                 onDismissRequest = { onAction(RatingAction.DismissClicked) }
             ) {
                 RatingDialog(

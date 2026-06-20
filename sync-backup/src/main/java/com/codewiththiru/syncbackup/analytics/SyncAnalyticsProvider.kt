@@ -8,7 +8,7 @@ class SyncAnalyticsProvider(private val analyticsManager: AnalyticsManager) {
         analyticsManager.track(
             AnalyticsEvent(
                 name = "sync_completed",
-                params = mapOf(
+                parameters = mapOf(
                     "items_synced" to metrics.itemsSynced.toString(),
                     "duration_ms" to metrics.durationMillis.toString(),
                     "conflicts_resolved" to metrics.conflictsResolved.toString()
@@ -21,7 +21,7 @@ class SyncAnalyticsProvider(private val analyticsManager: AnalyticsManager) {
         analyticsManager.track(
             AnalyticsEvent(
                 name = "backup_completed",
-                params = mapOf(
+                parameters = mapOf(
                     "size_bytes" to metrics.sizeBytes.toString(),
                     "duration_ms" to metrics.durationMillis.toString()
                 )
@@ -33,7 +33,7 @@ class SyncAnalyticsProvider(private val analyticsManager: AnalyticsManager) {
         analyticsManager.track(
             AnalyticsEvent(
                 name = "restore_completed",
-                params = mapOf(
+                parameters = mapOf(
                     "items_restored" to metrics.itemsRestored.toString(),
                     "duration_ms" to metrics.durationMillis.toString()
                 )

@@ -9,7 +9,6 @@ import com.google.android.play.core.appupdate.AppUpdateManager
 import com.google.android.play.core.install.model.AppUpdateType
 import com.google.android.play.core.install.model.UpdateAvailability
 import com.google.android.play.core.ktx.requestAppUpdateInfo
-import kotlinx.coroutines.tasks.await
 
 class PlayStoreUpdateSource(
     private val appUpdateManager: AppUpdateManager

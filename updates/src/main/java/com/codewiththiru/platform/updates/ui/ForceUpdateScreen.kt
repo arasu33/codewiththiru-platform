@@ -1,8 +1,6 @@
 package com.codewiththiru.platform.updates.ui
 
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Warning
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -39,15 +37,6 @@ fun ForceUpdateScreen(
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
-            Icon(
-                imageVector = Icons.Default.Warning,
-                contentDescription = null,
-                modifier = Modifier
-                    .size(72.dp)
-                    .padding(bottom = 24.dp),
-                tint = MaterialTheme.colorScheme.primary
-            )
-
             Text(
                 text = "Update Required",
                 style = MaterialTheme.typography.headlineMedium,

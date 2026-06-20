@@ -7,7 +7,7 @@ class AttributionEngine(private val analyticsManager: AnalyticsManager) {
     suspend fun attributeConversion(campaignId: String, conversionValue: Double) {
         val event = AnalyticsEvent(
             name = "campaign_conversion",
-            params = mapOf(
+            parameters = mapOf(
                 "campaign_id" to campaignId,
                 "value" to conversionValue
             )

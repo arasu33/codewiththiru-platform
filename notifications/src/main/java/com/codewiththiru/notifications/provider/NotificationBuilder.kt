@@ -15,9 +15,9 @@ class NotificationBuilder(
         return NotificationCompat.Builder(context, payload.category.channelId)
             .setSmallIcon(config.smallIconResId)
             .setContentTitle(payload.title)
-            .setContentText(payload.message)
+            .setContentText(payload.body)
             .setAutoCancel(true)
-            .setStyle(NotificationCompat.BigTextStyle().bigText(payload.message))
+            .setStyle(NotificationCompat.BigTextStyle().bigText(payload.body))
             .build()
     }
 }

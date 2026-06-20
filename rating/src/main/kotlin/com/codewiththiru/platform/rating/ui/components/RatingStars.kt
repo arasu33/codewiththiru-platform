@@ -6,10 +6,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Star
-import androidx.compose.material.icons.outlined.Star
-import androidx.compose.material3.Icon
+import androidx.compose.material3.Text
 import androidx.compose.material3.IconButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -55,11 +52,10 @@ fun RatingStars(
                         contentDescription = contentDesc
                     }
             ) {
-                Icon(
-                    imageVector = if (isSelected) Icons.Filled.Star else Icons.Outlined.Star,
-                    contentDescription = null, // Handled by modifier semantics
-                    tint = if (isSelected) Color(AMBER_COLOR) else Color.Gray,
-                    modifier = Modifier.size(STAR_ICON_SIZE_DP.dp)
+                Text(
+                    text = if (isSelected) "★" else "☆",
+                    color = if (isSelected) Color(AMBER_COLOR) else Color.Gray,
+                    style = androidx.compose.material3.MaterialTheme.typography.headlineMedium
                 )
             }
         }

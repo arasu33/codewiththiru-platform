@@ -13,6 +13,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.material3.MaterialTheme
 import com.codewiththiru.platform.designsystem.components.CustButton
 import com.codewiththiru.platform.designsystem.components.CustCard
 import com.codewiththiru.platform.designsystem.components.CustText
@@ -37,13 +39,13 @@ fun RatingDialog(
         ) {
             CustText(
                 text = stringResource(id = uiCustomization.titleRes),
-                style = com.codewiththiru.platform.designsystem.theme.CustTypography.headlineSmall
+                style = MaterialTheme.typography.headlineSmall
             )
             Spacer(modifier = Modifier.height(8.dp))
             CustText(
                 text = stringResource(id = uiCustomization.messageRes),
-                style = com.codewiththiru.platform.designsystem.theme.CustTypography.bodyMedium,
-                color = com.codewiththiru.platform.designsystem.theme.CustTheme.colors.onSurfaceVariant
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant
             )
             Spacer(modifier = Modifier.height(24.dp))
             
