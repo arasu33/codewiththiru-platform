@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="rating_default_title">Enjoying the app?</string>
+    <string name="rating_default_message">Tap a star to rate it on the App Store.</string>
+    <string name="rating_default_submit">Submit</string>
+    <string name="rating_default_dismiss">Not Now</string>
+    <string name="rating_star_selected_cd">Star %1$d selected</string>
+    <string name="rating_star_unselected_cd">Rate %1$d stars</string>
+</resources>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application>
+        <!-- AdMob application ID is typically provided by the app consuming the library via manifest merger, 
+             but declaring the meta-data node here as a template or allowing the host app to provide it. -->
+    </application>
+
+</manifest>
