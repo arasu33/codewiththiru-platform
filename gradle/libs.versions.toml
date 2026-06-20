@@ -15,6 +15,8 @@ nav3Core = "1.0.1"
 lifecycleViewmodelNav3 = "2.10.0"
 robolectric = "4.12.2"
 mockk = "1.13.11"
+androidxDatastore = "1.1.1"
+androidxSecurityCrypto = "1.0.0"
 
 # Static Analysis & Tooling
 detekt = "1.23.6"
@@ -52,6 +54,8 @@ mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
 roborazzi = { module = "io.github.takahirom.roborazzi:roborazzi", version.ref = "roborazzi" }
 roborazzi-compose = { module = "io.github.takahirom.roborazzi:roborazzi-compose", version.ref = "roborazzi" }
 roborazzi-junit-rule = { module = "io.github.takahirom.roborazzi:roborazzi-junit-rule", version.ref = "roborazzi" }
+androidx-datastore-preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "androidxDatastore" }
+androidx-security-crypto = { module = "androidx.security:security-crypto", version.ref = "androidxSecurityCrypto" }
 
 # Detekt formatting rule set
 detekt-formatting = { module = "io.gitlab.arturbosch.detekt:detekt-formatting", version.ref = "detekt" }
