@@ -6,8 +6,9 @@ import kotlinx.coroutines.flow.first
 class NotificationSecurityValidator(private val consentManager: NotificationConsentManager) {
     suspend fun validatePayload(payload: NotificationPayload): Boolean {
         // Validate payload doesn't contain malicious deep links or unauthorized PII
-        if (payload.deepLink != null && !payload.deepLink.startsWith("codewiththiru://")) {
-            if (!payload.deepLink.startsWith("https://")) {
+        val deepLink = payload.deepLink
+        if (deepLink != null && !deepLink.startsWith("codewiththiru://")) {
+            if (!deepLink.startsWith("https://")) {
                 return false
             }
         }

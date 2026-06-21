@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.android.library)
+    id("codewiththiru.publishing")
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.compose.compiler)
 }
@@ -39,10 +40,10 @@ android {
 
 dependencies {
     implementation(project(":core"))
-    implementation(project(":analytics"))
-    implementation(project(":remote-config"))
-    implementation(project(":notifications"))
-    implementation(project(":billing"))
+    implementation(project(":analytics-api"))
+    implementation(project(":remote-config-api"))
+    implementation(project(":notifications-api"))
+    implementation(project(":billing-api"))
     implementation(project(":identity"))
     implementation(project(":gamification"))
     implementation(project(":sync-backup"))

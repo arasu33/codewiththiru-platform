@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.android.library)
+    id("codewiththiru.publishing")
     alias(libs.plugins.kotlin.serialization)
 }
 
@@ -30,8 +31,9 @@ android {
 }
 
 dependencies {
+    implementation(project(":remote-config-api"))
     implementation(project(":core"))
-    implementation(project(":analytics"))
+    implementation(project(":analytics-api"))
 
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.config.ktx)

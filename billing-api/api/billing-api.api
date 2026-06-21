@@ -1,0 +1,91 @@
+public final class com/codewiththiru/billing/api/BillingEnvironment : java/lang/Enum {
+	public static final field Beta Lcom/codewiththiru/billing/api/BillingEnvironment;
+	public static final field Debug Lcom/codewiththiru/billing/api/BillingEnvironment;
+	public static final field Internal Lcom/codewiththiru/billing/api/BillingEnvironment;
+	public static final field Production Lcom/codewiththiru/billing/api/BillingEnvironment;
+	public static final field QA Lcom/codewiththiru/billing/api/BillingEnvironment;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun isTestEnvironment ()Z
+	public static fun valueOf (Ljava/lang/String;)Lcom/codewiththiru/billing/api/BillingEnvironment;
+	public static fun values ()[Lcom/codewiththiru/billing/api/BillingEnvironment;
+}
+
+public final class com/codewiththiru/billing/api/BillingError {
+	public fun <init> (ILjava/lang/String;)V
+	public final fun component1 ()I
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (ILjava/lang/String;)Lcom/codewiththiru/billing/api/BillingError;
+	public static synthetic fun copy$default (Lcom/codewiththiru/billing/api/BillingError;ILjava/lang/String;ILjava/lang/Object;)Lcom/codewiththiru/billing/api/BillingError;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCode ()I
+	public final fun getMessage ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/codewiththiru/billing/api/BillingException : java/lang/Exception {
+	public fun <init> (Lcom/codewiththiru/billing/api/BillingError;Ljava/lang/Throwable;)V
+	public synthetic fun <init> (Lcom/codewiththiru/billing/api/BillingError;Ljava/lang/Throwable;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getError ()Lcom/codewiththiru/billing/api/BillingError;
+}
+
+public abstract interface class com/codewiththiru/billing/api/BillingManager {
+	public abstract fun disconnect (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getConnectionState ()Lkotlinx/coroutines/flow/StateFlow;
+	public abstract fun initialize (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public abstract class com/codewiththiru/billing/api/BillingResult {
+}
+
+public final class com/codewiththiru/billing/api/BillingResult$Failure : com/codewiththiru/billing/api/BillingResult {
+	public fun <init> (Lcom/codewiththiru/billing/api/BillingError;Ljava/lang/Throwable;)V
+	public synthetic fun <init> (Lcom/codewiththiru/billing/api/BillingError;Ljava/lang/Throwable;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lcom/codewiththiru/billing/api/BillingError;
+	public final fun component2 ()Ljava/lang/Throwable;
+	public final fun copy (Lcom/codewiththiru/billing/api/BillingError;Ljava/lang/Throwable;)Lcom/codewiththiru/billing/api/BillingResult$Failure;
+	public static synthetic fun copy$default (Lcom/codewiththiru/billing/api/BillingResult$Failure;Lcom/codewiththiru/billing/api/BillingError;Ljava/lang/Throwable;ILjava/lang/Object;)Lcom/codewiththiru/billing/api/BillingResult$Failure;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getError ()Lcom/codewiththiru/billing/api/BillingError;
+	public final fun getException ()Ljava/lang/Throwable;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/codewiththiru/billing/api/BillingResult$Success : com/codewiththiru/billing/api/BillingResult {
+	public fun <init> (Ljava/lang/Object;)V
+	public final fun component1 ()Ljava/lang/Object;
+	public final fun copy (Ljava/lang/Object;)Lcom/codewiththiru/billing/api/BillingResult$Success;
+	public static synthetic fun copy$default (Lcom/codewiththiru/billing/api/BillingResult$Success;Ljava/lang/Object;ILjava/lang/Object;)Lcom/codewiththiru/billing/api/BillingResult$Success;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getData ()Ljava/lang/Object;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract class com/codewiththiru/billing/api/BillingState {
+}
+
+public final class com/codewiththiru/billing/api/BillingState$Connected : com/codewiththiru/billing/api/BillingState {
+	public static final field INSTANCE Lcom/codewiththiru/billing/api/BillingState$Connected;
+}
+
+public final class com/codewiththiru/billing/api/BillingState$Connecting : com/codewiththiru/billing/api/BillingState {
+	public static final field INSTANCE Lcom/codewiththiru/billing/api/BillingState$Connecting;
+}
+
+public final class com/codewiththiru/billing/api/BillingState$Disconnected : com/codewiththiru/billing/api/BillingState {
+	public static final field INSTANCE Lcom/codewiththiru/billing/api/BillingState$Disconnected;
+}
+
+public final class com/codewiththiru/billing/api/BillingState$Error : com/codewiththiru/billing/api/BillingState {
+	public fun <init> (Lcom/codewiththiru/billing/api/BillingError;)V
+	public final fun component1 ()Lcom/codewiththiru/billing/api/BillingError;
+	public final fun copy (Lcom/codewiththiru/billing/api/BillingError;)Lcom/codewiththiru/billing/api/BillingState$Error;
+	public static synthetic fun copy$default (Lcom/codewiththiru/billing/api/BillingState$Error;Lcom/codewiththiru/billing/api/BillingError;ILjava/lang/Object;)Lcom/codewiththiru/billing/api/BillingState$Error;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getError ()Lcom/codewiththiru/billing/api/BillingError;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+

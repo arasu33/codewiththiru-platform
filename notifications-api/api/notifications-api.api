@@ -1,0 +1,149 @@
+public final class com/codewiththiru/notifications/api/NotificationCategory : java/lang/Enum {
+	public static final field GAMES Lcom/codewiththiru/notifications/api/NotificationCategory;
+	public static final field GENERAL Lcom/codewiththiru/notifications/api/NotificationCategory;
+	public static final field LEARNING_REMINDERS Lcom/codewiththiru/notifications/api/NotificationCategory;
+	public static final field PROMOTIONS Lcom/codewiththiru/notifications/api/NotificationCategory;
+	public static final field SYSTEM Lcom/codewiththiru/notifications/api/NotificationCategory;
+	public final fun getChannelDesc ()Ljava/lang/String;
+	public final fun getChannelId ()Ljava/lang/String;
+	public final fun getChannelName ()Ljava/lang/String;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/codewiththiru/notifications/api/NotificationCategory;
+	public static fun values ()[Lcom/codewiththiru/notifications/api/NotificationCategory;
+}
+
+public abstract class com/codewiththiru/notifications/api/NotificationException : java/lang/Exception {
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Throwable;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Throwable;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+
+public final class com/codewiththiru/notifications/api/NotificationException$DeliveryFailedException : com/codewiththiru/notifications/api/NotificationException {
+	public fun <init> (Ljava/lang/String;Ljava/lang/Throwable;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Throwable;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+
+public final class com/codewiththiru/notifications/api/NotificationException$MissingConsentException : com/codewiththiru/notifications/api/NotificationException {
+	public fun <init> (Ljava/lang/String;)V
+}
+
+public final class com/codewiththiru/notifications/api/NotificationException$PermissionDeniedException : com/codewiththiru/notifications/api/NotificationException {
+	public fun <init> (Ljava/lang/String;)V
+}
+
+public final class com/codewiththiru/notifications/api/NotificationException$ProviderNotInitializedException : com/codewiththiru/notifications/api/NotificationException {
+	public fun <init> (Ljava/lang/String;)V
+}
+
+public abstract interface class com/codewiththiru/notifications/api/NotificationManager {
+	public abstract fun cancelAll ()V
+	public abstract fun cancelNotification (Ljava/lang/String;)V
+	public abstract fun getActiveChannels ()Ljava/util/List;
+	public abstract fun getState ()Lkotlinx/coroutines/flow/StateFlow;
+	public abstract fun initialize ()V
+	public abstract fun scheduleNotification (Lcom/codewiththiru/notifications/api/NotificationPayload;JLkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun showNotification (Lcom/codewiththiru/notifications/api/NotificationPayload;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/codewiththiru/notifications/api/NotificationPayload {
+	public static final field Companion Lcom/codewiththiru/notifications/api/NotificationPayload$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/codewiththiru/notifications/api/NotificationPriority;Lcom/codewiththiru/notifications/api/NotificationCategory;Ljava/lang/String;Ljava/util/Map;JZZ)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/codewiththiru/notifications/api/NotificationPriority;Lcom/codewiththiru/notifications/api/NotificationCategory;Ljava/lang/String;Ljava/util/Map;JZZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component10 ()Z
+	public final fun component11 ()Z
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()Lcom/codewiththiru/notifications/api/NotificationPriority;
+	public final fun component6 ()Lcom/codewiththiru/notifications/api/NotificationCategory;
+	public final fun component7 ()Ljava/lang/String;
+	public final fun component8 ()Ljava/util/Map;
+	public final fun component9 ()J
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/codewiththiru/notifications/api/NotificationPriority;Lcom/codewiththiru/notifications/api/NotificationCategory;Ljava/lang/String;Ljava/util/Map;JZZ)Lcom/codewiththiru/notifications/api/NotificationPayload;
+	public static synthetic fun copy$default (Lcom/codewiththiru/notifications/api/NotificationPayload;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/codewiththiru/notifications/api/NotificationPriority;Lcom/codewiththiru/notifications/api/NotificationCategory;Ljava/lang/String;Ljava/util/Map;JZZILjava/lang/Object;)Lcom/codewiththiru/notifications/api/NotificationPayload;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBody ()Ljava/lang/String;
+	public final fun getCategory ()Lcom/codewiththiru/notifications/api/NotificationCategory;
+	public final fun getData ()Ljava/util/Map;
+	public final fun getDeepLink ()Ljava/lang/String;
+	public final fun getId ()Ljava/lang/String;
+	public final fun getImageUrl ()Ljava/lang/String;
+	public final fun getPriority ()Lcom/codewiththiru/notifications/api/NotificationPriority;
+	public final fun getRequiresConsent ()Z
+	public final fun getTimestamp ()J
+	public final fun getTitle ()Ljava/lang/String;
+	public fun hashCode ()I
+	public final fun isSilent ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class com/codewiththiru/notifications/api/NotificationPayload$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lcom/codewiththiru/notifications/api/NotificationPayload$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcom/codewiththiru/notifications/api/NotificationPayload;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/codewiththiru/notifications/api/NotificationPayload;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/codewiththiru/notifications/api/NotificationPayload$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/codewiththiru/notifications/api/NotificationPriority : java/lang/Enum {
+	public static final field DEFAULT Lcom/codewiththiru/notifications/api/NotificationPriority;
+	public static final field HIGH Lcom/codewiththiru/notifications/api/NotificationPriority;
+	public static final field LOW Lcom/codewiththiru/notifications/api/NotificationPriority;
+	public static final field MAX Lcom/codewiththiru/notifications/api/NotificationPriority;
+	public static final field MIN Lcom/codewiththiru/notifications/api/NotificationPriority;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/codewiththiru/notifications/api/NotificationPriority;
+	public static fun values ()[Lcom/codewiththiru/notifications/api/NotificationPriority;
+}
+
+public abstract class com/codewiththiru/notifications/api/NotificationResult {
+}
+
+public final class com/codewiththiru/notifications/api/NotificationResult$Failure : com/codewiththiru/notifications/api/NotificationResult {
+	public fun <init> (Ljava/lang/Throwable;)V
+	public final fun component1 ()Ljava/lang/Throwable;
+	public final fun copy (Ljava/lang/Throwable;)Lcom/codewiththiru/notifications/api/NotificationResult$Failure;
+	public static synthetic fun copy$default (Lcom/codewiththiru/notifications/api/NotificationResult$Failure;Ljava/lang/Throwable;ILjava/lang/Object;)Lcom/codewiththiru/notifications/api/NotificationResult$Failure;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getError ()Ljava/lang/Throwable;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/codewiththiru/notifications/api/NotificationResult$Success : com/codewiththiru/notifications/api/NotificationResult {
+	public static final field INSTANCE Lcom/codewiththiru/notifications/api/NotificationResult$Success;
+}
+
+public final class com/codewiththiru/notifications/api/NotificationResult$Suppressed : com/codewiththiru/notifications/api/NotificationResult {
+	public static final field INSTANCE Lcom/codewiththiru/notifications/api/NotificationResult$Suppressed;
+}
+
+public abstract class com/codewiththiru/notifications/api/NotificationState {
+}
+
+public final class com/codewiththiru/notifications/api/NotificationState$Error : com/codewiththiru/notifications/api/NotificationState {
+	public fun <init> (Ljava/lang/Throwable;)V
+	public final fun component1 ()Ljava/lang/Throwable;
+	public final fun copy (Ljava/lang/Throwable;)Lcom/codewiththiru/notifications/api/NotificationState$Error;
+	public static synthetic fun copy$default (Lcom/codewiththiru/notifications/api/NotificationState$Error;Ljava/lang/Throwable;ILjava/lang/Object;)Lcom/codewiththiru/notifications/api/NotificationState$Error;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getThrowable ()Ljava/lang/Throwable;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/codewiththiru/notifications/api/NotificationState$Ready : com/codewiththiru/notifications/api/NotificationState {
+	public static final field INSTANCE Lcom/codewiththiru/notifications/api/NotificationState$Ready;
+}
+
+public final class com/codewiththiru/notifications/api/NotificationState$Uninitialized : com/codewiththiru/notifications/api/NotificationState {
+	public static final field INSTANCE Lcom/codewiththiru/notifications/api/NotificationState$Uninitialized;
+}
+

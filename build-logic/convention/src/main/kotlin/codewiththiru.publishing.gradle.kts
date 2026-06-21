@@ -3,6 +3,9 @@ plugins {
     id("signing")
 }
 
+val gprUser: String? = (project.findProperty("gpr.user") as? String) ?: System.getenv("GITHUB_ACTOR") ?: System.getenv("GPR_USER")
+val gprKey: String? = (project.findProperty("gpr.key") as? String) ?: System.getenv("GITHUB_TOKEN") ?: System.getenv("GPR_KEY")
+
 if (pluginManager.hasPlugin("com.android.library")) {
     configure<com.android.build.api.dsl.LibraryExtension> {
         publishing {
@@ -23,8 +26,8 @@ if (pluginManager.hasPlugin("com.android.library")) {
 
                     pom {
                         name.set("CodeWithThiru Platform ${project.name}")
-                        description.set("Android-specific extension of the CodeWithThiru core platform library.")
-                        url.set("https://github.com/codewiththiru/platform")
+                        description.set("Android library component of the CodeWithThiru platform.")
+                        url.set("https://github.com/arasu33/codewiththiru-platform")
                         licenses {
                             license {
                                 name.set("The Apache License, Version 2.0")
@@ -33,15 +36,15 @@ if (pluginManager.hasPlugin("com.android.library")) {
                         }
                         developers {
                             developer {
-                                id.set("codewiththiru")
+                                id.set("arasu33")
                                 name.set("Thiru")
                                 email.set("info@codewiththiru.com")
                             }
                         }
                         scm {
-                            connection.set("scm:git:github.com/codewiththiru/platform.git")
-                            developerConnection.set("scm:git:ssh://github.com/codewiththiru/platform.git")
-                            url.set("https://github.com/codewiththiru/platform/tree/main")
+                            connection.set("scm:git:github.com/arasu33/codewiththiru-platform.git")
+                            developerConnection.set("scm:git:ssh://github.com/arasu33/codewiththiru-platform.git")
+                            url.set("https://github.com/arasu33/codewiththiru-platform/tree/main")
                         }
                     }
                 }
@@ -66,8 +69,8 @@ if (pluginManager.hasPlugin("com.android.library")) {
 
                 pom {
                     name.set("CodeWithThiru Platform ${project.name}")
-                    description.set("Pure Kotlin core library providing essential utilities.")
-                    url.set("https://github.com/codewiththiru/platform")
+                    description.set("Kotlin core library component of the CodeWithThiru platform.")
+                    url.set("https://github.com/arasu33/codewiththiru-platform")
                     licenses {
                         license {
                             name.set("The Apache License, Version 2.0")
@@ -76,15 +79,50 @@ if (pluginManager.hasPlugin("com.android.library")) {
                     }
                     developers {
                         developer {
-                            id.set("codewiththiru")
+                            id.set("arasu33")
                             name.set("Thiru")
                             email.set("info@codewiththiru.com")
                         }
                     }
                     scm {
-                        connection.set("scm:git:github.com/codewiththiru/platform.git")
-                        developerConnection.set("scm:git:ssh://github.com/codewiththiru/platform.git")
-                        url.set("https://github.com/codewiththiru/platform/tree/main")
+                        connection.set("scm:git:github.com/arasu33/codewiththiru-platform.git")
+                        developerConnection.set("scm:git:ssh://github.com/arasu33/codewiththiru-platform.git")
+                        url.set("https://github.com/arasu33/codewiththiru-platform/tree/main")
+                    }
+                }
+            }
+        }
+    }
+} else if (pluginManager.hasPlugin("java-platform")) {
+    publishing {
+        publications {
+            create<MavenPublication>("bom") {
+                from(components.findByName("javaPlatform"))
+                groupId = project.group.toString()
+                artifactId = project.name
+                version = project.version.toString()
+
+                pom {
+                    name.set("CodeWithThiru Platform BOM")
+                    description.set("Bill of Materials (BOM) for the CodeWithThiru platform modules.")
+                    url.set("https://github.com/arasu33/codewiththiru-platform")
+                    licenses {
+                        license {
+                            name.set("The Apache License, Version 2.0")
+                            url.set("http://www.apache.org/licenses/LICENSE-2.0.txt")
+                        }
+                    }
+                    developers {
+                        developer {
+                            id.set("arasu33")
+                            name.set("Thiru")
+                            email.set("info@codewiththiru.com")
+                        }
+                    }
+                    scm {
+                        connection.set("scm:git:github.com/arasu33/codewiththiru-platform.git")
+                        developerConnection.set("scm:git:ssh://github.com/arasu33/codewiththiru-platform.git")
+                        url.set("https://github.com/arasu33/codewiththiru-platform/tree/main")
                     }
                 }
             }
@@ -96,10 +134,10 @@ publishing {
     repositories {
         maven {
             name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/codewiththiru/platform")
+            url = uri("https://maven.pkg.github.com/arasu33/codewiththiru-platform")
             credentials {
-                username = System.getenv("GITHUB_ACTOR") ?: ""
-                password = System.getenv("GITHUB_TOKEN") ?: ""
+                username = gprUser ?: ""
+                password = gprKey ?: ""
             }
         }
     }
@@ -110,7 +148,9 @@ signing {
     val signingPassword = System.getenv("GPG_SIGNING_PASSWORD")
     if (!signingKey.isNullOrEmpty() && !signingPassword.isNullOrEmpty()) {
         useInMemoryPgpKeys(signingKey, signingPassword)
-        val publication = publishing.publications.findByName("release") ?: publishing.publications.findByName("mavenJava")
+        val publication = publishing.publications.findByName("release") 
+            ?: publishing.publications.findByName("mavenJava")
+            ?: publishing.publications.findByName("bom")
         if (publication != null) {
             sign(publication)
         }

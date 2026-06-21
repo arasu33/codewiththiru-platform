@@ -23,6 +23,7 @@ dependencyResolutionManagement {
             }
         }
         mavenCentral()
+        mavenLocal()
     }
 }
 
@@ -40,11 +41,16 @@ include(":rating")
 include(":more-apps")
 include(":coupons")
 include(":updates")
+include(":analytics-api")
 include(":analytics")
 include(":identity")
+include(":ads-api")
 include(":ads")
+include(":remote-config-api")
 include(":remote-config")
+include(":notifications-api")
 include(":notifications")
+include(":billing-api")
 include(":billing")
 include(":ai-platform")
 include(":security-platform")
@@ -56,4 +62,5 @@ include(":platform-governance")
 include(":developer-platform")
 include(":platform-framework")
 include(":ai-native-platform")
+include(":platform-bom")
 include(":sample-app")

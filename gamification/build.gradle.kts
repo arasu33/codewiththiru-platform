@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.android.library)
+    id("codewiththiru.publishing")
     alias(libs.plugins.kotlin.serialization)
 }
 
@@ -30,9 +31,9 @@ android {
 
 dependencies {
     implementation(project(":core"))
-    implementation(project(":analytics"))
-    implementation(project(":remote-config"))
-    implementation(project(":notifications"))
+    implementation(project(":analytics-api"))
+    implementation(project(":remote-config-api"))
+    implementation(project(":notifications-api"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.kotlinx.coroutines.core)

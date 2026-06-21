@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.android.library)
+    id("codewiththiru.publishing")
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.compose.compiler)
 }
@@ -42,8 +43,9 @@ android {
 }
 
 dependencies {
+    implementation(project(":ads-api"))
     implementation(project(":core"))
-    implementation(project(":analytics"))
+    implementation(project(":analytics-api"))
     
     implementation(libs.androidx.core.ktx)
     implementation(libs.kotlinx.coroutines.core)

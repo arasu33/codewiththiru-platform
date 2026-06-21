@@ -1,0 +1,187 @@
+public final class com/codewiththiru/ads/api/AdType : java/lang/Enum {
+	public static final field AdaptiveBanner Lcom/codewiththiru/ads/api/AdType;
+	public static final field AppOpen Lcom/codewiththiru/ads/api/AdType;
+	public static final field Banner Lcom/codewiththiru/ads/api/AdType;
+	public static final field Interstitial Lcom/codewiththiru/ads/api/AdType;
+	public static final field Native Lcom/codewiththiru/ads/api/AdType;
+	public static final field Rewarded Lcom/codewiththiru/ads/api/AdType;
+	public static final field RewardedInterstitial Lcom/codewiththiru/ads/api/AdType;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/codewiththiru/ads/api/AdType;
+	public static fun values ()[Lcom/codewiththiru/ads/api/AdType;
+}
+
+public abstract interface class com/codewiththiru/ads/api/AdUnitResolver {
+	public abstract fun resolve (Lcom/codewiththiru/ads/api/AdsEnvironment;Lcom/codewiththiru/ads/config/AdsConfig;Lcom/codewiththiru/ads/api/AdType;)Ljava/lang/String;
+}
+
+public final class com/codewiththiru/ads/api/AdsEnvironment : java/lang/Enum {
+	public static final field Beta Lcom/codewiththiru/ads/api/AdsEnvironment;
+	public static final field Debug Lcom/codewiththiru/ads/api/AdsEnvironment;
+	public static final field Internal Lcom/codewiththiru/ads/api/AdsEnvironment;
+	public static final field Production Lcom/codewiththiru/ads/api/AdsEnvironment;
+	public static final field QA Lcom/codewiththiru/ads/api/AdsEnvironment;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun isTestEnvironment ()Z
+	public static fun valueOf (Ljava/lang/String;)Lcom/codewiththiru/ads/api/AdsEnvironment;
+	public static fun values ()[Lcom/codewiththiru/ads/api/AdsEnvironment;
+}
+
+public abstract interface class com/codewiththiru/ads/api/AdsManager {
+	public abstract fun destroy ()V
+	public abstract fun initialize (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun load (Lcom/codewiththiru/ads/api/AdType;)V
+	public abstract fun observeState (Lcom/codewiththiru/ads/api/AdType;)Lkotlinx/coroutines/flow/StateFlow;
+	public abstract fun preload ()V
+	public abstract fun refresh ()V
+	public abstract fun reset ()V
+	public abstract fun show (Lcom/codewiththiru/ads/api/AdType;)V
+}
+
+public final class com/codewiththiru/ads/config/AdsConfig {
+	public static final field Companion Lcom/codewiththiru/ads/config/AdsConfig$Companion;
+	public fun <init> ()V
+	public fun <init> (ZZZZZZZZZZZILjava/util/Map;Z)V
+	public synthetic fun <init> (ZZZZZZZZZZZILjava/util/Map;ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Z
+	public final fun component10 ()Z
+	public final fun component11 ()Z
+	public final fun component12 ()I
+	public final fun component13 ()Ljava/util/Map;
+	public final fun component14 ()Z
+	public final fun component2 ()Z
+	public final fun component3 ()Z
+	public final fun component4 ()Z
+	public final fun component5 ()Z
+	public final fun component6 ()Z
+	public final fun component7 ()Z
+	public final fun component8 ()Z
+	public final fun component9 ()Z
+	public final fun copy (ZZZZZZZZZZZILjava/util/Map;Z)Lcom/codewiththiru/ads/config/AdsConfig;
+	public static synthetic fun copy$default (Lcom/codewiththiru/ads/config/AdsConfig;ZZZZZZZZZZZILjava/util/Map;ZILjava/lang/Object;)Lcom/codewiththiru/ads/config/AdsConfig;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAdRefreshIntervalSeconds ()I
+	public final fun getAdsEnabled ()Z
+	public final fun getAppOpenEnabled ()Z
+	public final fun getBannerEnabled ()Z
+	public final fun getConsentRequired ()Z
+	public final fun getFrequencyCapEnabled ()Z
+	public final fun getInterstitialEnabled ()Z
+	public final fun getKillSwitch ()Z
+	public final fun getNativeEnabled ()Z
+	public final fun getPreloadCounts ()Ljava/util/Map;
+	public final fun getRevenueTrackingEnabled ()Z
+	public final fun getRewardedEnabled ()Z
+	public final fun getRewardedInterstitialEnabled ()Z
+	public final fun getTestMode ()Z
+	public fun hashCode ()I
+	public final fun isFormatEnabled (Lcom/codewiththiru/ads/api/AdType;Lcom/codewiththiru/ads/config/AdsRemoteConfig;)Z
+	public final fun isGlobalEnabled (Lcom/codewiththiru/ads/config/AdsRemoteConfig;)Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class com/codewiththiru/ads/config/AdsConfig$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lcom/codewiththiru/ads/config/AdsConfig$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcom/codewiththiru/ads/config/AdsConfig;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/codewiththiru/ads/config/AdsConfig;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/codewiththiru/ads/config/AdsConfig$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract interface class com/codewiththiru/ads/config/AdsRemoteConfig {
+	public abstract fun getAdUnitIdOverride (Lcom/codewiththiru/ads/api/AdType;Ljava/lang/String;)Ljava/lang/String;
+	public abstract fun isAdFormatEnabled (Lcom/codewiththiru/ads/api/AdType;)Ljava/lang/Boolean;
+	public abstract fun isAdsGlobalEnabled ()Ljava/lang/Boolean;
+}
+
+public abstract interface class com/codewiththiru/ads/state/AdState {
+}
+
+public final class com/codewiththiru/ads/state/AdState$BlockedByConsent : com/codewiththiru/ads/state/AdState {
+	public static final field INSTANCE Lcom/codewiththiru/ads/state/AdState$BlockedByConsent;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/codewiththiru/ads/state/AdState$BlockedByFrequencyCap : com/codewiththiru/ads/state/AdState {
+	public static final field INSTANCE Lcom/codewiththiru/ads/state/AdState$BlockedByFrequencyCap;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/codewiththiru/ads/state/AdState$BlockedByRemoteConfig : com/codewiththiru/ads/state/AdState {
+	public static final field INSTANCE Lcom/codewiththiru/ads/state/AdState$BlockedByRemoteConfig;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/codewiththiru/ads/state/AdState$Dismissed : com/codewiththiru/ads/state/AdState {
+	public static final field INSTANCE Lcom/codewiththiru/ads/state/AdState$Dismissed;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/codewiththiru/ads/state/AdState$Expired : com/codewiththiru/ads/state/AdState {
+	public static final field INSTANCE Lcom/codewiththiru/ads/state/AdState$Expired;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/codewiththiru/ads/state/AdState$Failed : com/codewiththiru/ads/state/AdState {
+	public fun <init> (Ljava/lang/Throwable;)V
+	public final fun component1 ()Ljava/lang/Throwable;
+	public final fun copy (Ljava/lang/Throwable;)Lcom/codewiththiru/ads/state/AdState$Failed;
+	public static synthetic fun copy$default (Lcom/codewiththiru/ads/state/AdState$Failed;Ljava/lang/Throwable;ILjava/lang/Object;)Lcom/codewiththiru/ads/state/AdState$Failed;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getError ()Ljava/lang/Throwable;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/codewiththiru/ads/state/AdState$Idle : com/codewiththiru/ads/state/AdState {
+	public static final field INSTANCE Lcom/codewiththiru/ads/state/AdState$Idle;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/codewiththiru/ads/state/AdState$Loaded : com/codewiththiru/ads/state/AdState {
+	public static final field INSTANCE Lcom/codewiththiru/ads/state/AdState$Loaded;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/codewiththiru/ads/state/AdState$Loading : com/codewiththiru/ads/state/AdState {
+	public static final field INSTANCE Lcom/codewiththiru/ads/state/AdState$Loading;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/codewiththiru/ads/state/AdState$Showing : com/codewiththiru/ads/state/AdState {
+	public static final field INSTANCE Lcom/codewiththiru/ads/state/AdState$Showing;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/codewiththiru/ads/state/AdState$Used : com/codewiththiru/ads/state/AdState {
+	public static final field INSTANCE Lcom/codewiththiru/ads/state/AdState$Used;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+

@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.android.library)
+    id("codewiththiru.publishing")
     alias(libs.plugins.kotlin.serialization)
 }
 
@@ -30,7 +31,7 @@ android {
 
 dependencies {
     implementation(project(":core"))
-    implementation(project(":analytics"))
+    implementation(project(":analytics-api"))
     implementation(project(":ai-platform"))
     implementation(project(":observability-platform"))
     implementation(project(":platform-governance"))
