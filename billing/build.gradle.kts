@@ -68,4 +68,11 @@ dependencies {
     
     // Play Billing (will be added via toml later)
     implementation("com.android.billingclient:billing-ktx:7.0.0") // Replace with 8+ later if available, sticking to recent version
+    
+    testImplementation(libs.junit)
+    testImplementation(libs.kotlinx.coroutines.test)
+    testImplementation(libs.mockk)
+    testImplementation(libs.robolectric)
+    testImplementation(libs.androidx.test.core)
+    testImplementation(libs.androidx.test.ext.junit)
 }

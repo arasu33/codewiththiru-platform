@@ -16,6 +16,7 @@ import com.codewiththiru.platform.moreapps.presentation.state.MoreAppsUiState
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.test.StandardTestDispatcher
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runTest
@@ -30,8 +31,8 @@ import org.junit.Test
 class MoreAppsViewModelTest {
 
     private val testDispatcher = StandardTestDispatcher()
-    private lateinit val repository: FakeMoreAppsRepository
-    private lateinit val viewModel: MoreAppsViewModel
+    private lateinit var repository: FakeMoreAppsRepository
+    private lateinit var viewModel: MoreAppsViewModel
 
     private val dummyConfig = MoreAppsConfig(
         displayType = MoreAppsDisplayType.Grid,
@@ -88,7 +89,7 @@ class MoreAppsViewModelTest {
         viewModel = MoreAppsViewModel(repository, stubInstallResolver, dummyAnalytics, dummyConfig)
         
         // Launch collection
-        val job = kotlinx.coroutines.launch {
+        val job = launch {
             val effect = viewModel.effect.first()
             assertTrue(effect is MoreAppsEffect.OpenStore)
             assertEquals(app, (effect as MoreAppsEffect.OpenStore).app)

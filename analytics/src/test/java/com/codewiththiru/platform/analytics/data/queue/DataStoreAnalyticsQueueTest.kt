@@ -24,6 +24,9 @@ class DataStoreAnalyticsQueueTest {
         // Ensure clean state
         File(context.filesDir, "datastore").deleteRecursively()
         queue = DataStoreAnalyticsQueue(context, AnalyticsConfig(maxQueuedEvents = 5))
+        kotlinx.coroutines.runBlocking {
+            queue.clear()
+        }
     }
 
     @Test

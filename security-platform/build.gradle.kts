@@ -56,4 +56,8 @@ dependencies {
 
     // Security Crypto
     implementation("androidx.security:security-crypto:1.1.0-alpha06")
+    
+    testImplementation(libs.junit)
+    testImplementation(libs.androidx.test.core)
+    testImplementation(libs.androidx.test.ext.junit)
 }

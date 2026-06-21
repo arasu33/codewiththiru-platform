@@ -5,11 +5,11 @@ import com.codewiththiru.platform.updates.internal.DefaultUpdatePolicy
 import kotlinx.coroutines.test.runTest
 import org.junit.Assert.assertEquals
 import org.junit.Test
-import org.mockito.Mockito.mock
+import io.mockk.mockk
 
 class UpdateManagerTest {
 
-    private val mockActivity = mock(Activity::class.java)
+    private val mockActivity = mockk<Activity>(relaxed = true)
 
     private val mockStorage = object : UpdateStorageProvider {
         var lastPrompt: Long = 0L
@@ -24,7 +24,7 @@ class UpdateManagerTest {
     }
 
     private val mockClock = object : UpdateClock {
-        override fun now(): Long = 0L
+        override fun now(): Long = 100000000000L
     }
 
     private val mockSource = object : UpdateSource {

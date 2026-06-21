@@ -15,7 +15,7 @@ class RatingTriggerEngineTest {
 
     private val repository: RatingRepository = mockk()
     
-    private val clock: CustClock = object : CustClock {
+    private val clock = object : CustClock {
         var mockedTime = 0L
         override fun currentTimeMillis(): Long = mockedTime
     }
@@ -51,13 +51,10 @@ class RatingTriggerEngineTest {
         coEvery { repository.getLastReviewDate() } returns 0L
         coEvery { repository.getLastFeedbackDate() } returns 0L
         
-        (clock as CustClockImpl).mockedTime = TimeUnit.DAYS.toMillis(4)
+        clock.mockedTime = TimeUnit.DAYS.toMillis(4)
         
         val result = engine.evaluateEligibility(rules, cooldown)
         assertEquals(RatingEligibilityResult.Eligible, result)
     }
     
-    private abstract class CustClockImpl : CustClock {
-        abstract var mockedTime: Long
-    }
 }

@@ -51,7 +51,7 @@ class CouponViewModelTest {
         }
     }
 
-    private lateinit classUnderTest: CouponViewModel
+    private lateinit var classUnderTest: CouponViewModel
 
     @Before
     fun setup() {

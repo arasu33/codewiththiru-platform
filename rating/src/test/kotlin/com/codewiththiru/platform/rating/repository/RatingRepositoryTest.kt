@@ -17,10 +17,9 @@ import org.junit.Test
 class RatingRepositoryTest {
 
     private val storageProvider: RatingStorageProvider = mockk(relaxed = true)
-    private val analyticsProvider: RatingAnalyticsProvider = mockk(relaxed = true)
     private val clock: CustClock = mockk()
 
-    private val repository = DefaultRatingRepository(storageProvider, analyticsProvider, clock)
+    private val repository = DefaultRatingRepository(storageProvider, clock)
 
     @Test
     fun `recordAppLaunch increments launch count and sets install date`() = runTest {
@@ -32,12 +31,7 @@ class RatingRepositoryTest {
         coVerify { storageProvider.incrementLaunchCount() }
     }
 
-    @Test
-    fun `logAnalyticsEvent delegates to analytics provider`() = runTest {
-        repository.logAnalyticsEvent(RatingAnalyticsEvent.PromptShown, RatingTriggerSource.AppLaunch, mapOf("key" to "value"))
-        
-        verify { analyticsProvider.logEvent(RatingAnalyticsEvent.PromptShown, RatingTriggerSource.AppLaunch, mapOf("key" to "value")) }
-    }
+
     
     @Test
     fun `get functions delegate to storage provider`() = runTest {

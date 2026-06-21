@@ -1,6 +1,6 @@
 package com.codewiththiru.platform.rating.state
 
-import com.codewiththiru.platform.rating.model.RatingAction
+import com.codewiththiru.platform.rating.state.RatingAction
 import com.codewiththiru.platform.rating.model.RatingConfig
 import com.codewiththiru.platform.rating.model.RatingPromptType
 import com.codewiththiru.platform.rating.repository.RatingRepository

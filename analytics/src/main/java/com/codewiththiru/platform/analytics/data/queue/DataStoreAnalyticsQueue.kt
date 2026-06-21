@@ -18,15 +18,19 @@ import kotlinx.serialization.json.longOrNull
 import kotlinx.serialization.json.doubleOrNull
 import java.util.UUID
 
+private val dataStoreCache = java.util.concurrent.ConcurrentHashMap<String, DataStore<Preferences>>()
+
 public class DataStoreAnalyticsQueue(
     private val context: Context,
     private val config: AnalyticsConfig,
     queueName: String = "analytics_queue"
 ) : AnalyticsQueue {
 
-    private val dataStore = androidx.datastore.preferences.core.PreferenceDataStoreFactory.create(
-        produceFile = { java.io.File(context.filesDir, "datastore/$queueName.preferences_pb") }
-    )
+    private val dataStore = dataStoreCache.computeIfAbsent(queueName) {
+        androidx.datastore.preferences.core.PreferenceDataStoreFactory.create(
+            produceFile = { java.io.File(context.filesDir, "datastore/$queueName.preferences_pb") }
+        )
+    }
 
     private val json = Json { ignoreUnknownKeys = true }
     private val queueKey = stringPreferencesKey("analytics_events")

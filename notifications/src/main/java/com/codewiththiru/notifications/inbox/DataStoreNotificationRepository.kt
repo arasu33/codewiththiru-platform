@@ -41,7 +41,7 @@ class DataStoreNotificationRepository(private val context: Context) : Notificati
             if (current.none { it.payload.id == item.payload.id }) {
                 current.add(0, item) // Add to top
                 // Limit to 100 items max
-                if (current.size > 100) current.removeLast()
+                if (current.size > 100) current.removeAt(current.lastIndex)
                 prefs[INBOX_KEY] = json.encodeToString(current)
             }
         }
