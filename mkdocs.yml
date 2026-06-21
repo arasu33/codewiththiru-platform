@@ -1,0 +1,100 @@
+site_name: CodeWithThiru Platform
+site_url: https://arasu33.github.io/codewiththiru-platform/
+repo_name: arasu33/codewiththiru-platform
+repo_url: https://github.com/arasu33/codewiththiru-platform
+
+theme:
+  name: material
+  palette:
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+nav:
+  - Home: index.md
+  - Platform Overview: PLATFORM_OVERVIEW.md
+  - Getting Started: GETTING_STARTED.md
+  - Architecture:
+      - Architecture Overview: ARCHITECTURE.md
+      - Module Dependency Graph: MODULE_DEPENDENCY_GRAPH.md
+      - Platform Layers: PLATFORM_LAYERS.md
+  - Integration Guides:
+      - SDK Integration Guide: INTEGRATION_GUIDE.md
+      - Host App Requirements: HOST_APP_REQUIREMENTS.md
+      - Remote Config Catalog: REMOTE_CONFIG_CATALOG.md
+      - Event Catalog: EVENT_CATALOG.md
+  - Modules Reference:
+      - Core & Foundation:
+          - Core: modules/core.md
+          - Security: modules/security.md
+          - Observability: modules/observability.md
+          - Developer Platform: modules/developer-platform.md
+      - UI & Design System:
+          - Design System: modules/designsystem.md
+          - Widgets: modules/widgets.md
+          - About Screen: modules/about.md
+          - Feedback Screen: modules/feedback.md
+          - More Apps Screen: modules/more-apps.md
+      - Growth & Engagement:
+          - Analytics: modules/analytics.md
+          - Remote Config: modules/remote-config.md
+          - Push Notifications: modules/notifications.md
+          - App Updates: modules/updates.md
+          - Coupons & Offers: modules/coupons.md
+          - Ratings & Reviews: modules/rating.md
+          - Gamification: modules/gamification.md
+      - Monetization:
+          - Ads (AdMob): modules/ads.md
+          - Billing (In-App Purchases): modules/billing.md
+      - Intelligence:
+          - AI (Gemini): modules/ai.md
+  - Standards & Governance:
+      - Platform Vision: 01_PLATFORM_VISION.md
+      - Architecture Rules: 02_ARCHITECTURE_RULES.md
+      - API Guidelines: 03_API_GUIDELINES.md
+      - Versioning Rules: 04_VERSIONING.md
+      - Release Process: 05_RELEASE_PROCESS.md
+      - Module Standards: 06_MODULE_STANDARDS.md
+      - Dependency Rules: 07_DEPENDENCY_RULES.md
+      - Testing Strategy: 08_TESTING_STRATEGY.md
+      - Documentation Guidelines: 09_DOCUMENTATION_GUIDELINES.md
+      - GitHub Packages Guide: 10_GITHUB_PACKAGES.md
+  - Compliance & Support:
+      - Security & Threat Model: SECURITY_GUIDE.md
+      - Accessibility (a11y) Guide: ACCESSIBILITY_GUIDE.md
+      - Testing & Test Runner: TESTING_GUIDE.md
+      - Play Store Compliance: PLAYSTORE_GUIDE.md
+      - Sample App & Showcase: SAMPLE_APP_GUIDE.md
+      - Troubleshooting: TROUBLESHOOTING.md
