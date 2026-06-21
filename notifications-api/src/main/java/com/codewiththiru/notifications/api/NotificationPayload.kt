@@ -14,5 +14,5 @@ data class NotificationPayload(
     val data: Map<String, String> = emptyMap(),
     val timestamp: Long = System.currentTimeMillis(),
     val isSilent: Boolean = false,
-    val requiresConsent: Boolean = true
+    val requiresConsent: Boolean = true,
 )

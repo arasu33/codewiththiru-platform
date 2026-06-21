@@ -7,5 +7,5 @@ enum class AdType {
     Rewarded,
     RewardedInterstitial,
     AppOpen,
-    Native
+    Native,
 }

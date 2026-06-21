@@ -1,13 +1,12 @@
 package com.codewiththiru.ads.api
 
-import kotlinx.coroutines.flow.StateFlow
 import com.codewiththiru.ads.state.AdState
+import kotlinx.coroutines.flow.StateFlow
 
 /**
  * Public SDK entry point for Ads.
  */
 interface AdsManager {
-    
     /**
      * Initializes the Ads SDK.
      */

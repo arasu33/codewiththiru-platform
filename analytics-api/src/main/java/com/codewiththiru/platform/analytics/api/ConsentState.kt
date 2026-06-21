@@ -6,10 +6,10 @@ package com.codewiththiru.platform.analytics.api
 public enum class ConsentState {
     /** Consent has been explicitly granted. */
     Granted,
-    
+
     /** Consent has been explicitly denied. */
     Denied,
-    
+
     /** Consent has not yet been determined. */
-    Unknown
+    Unknown,
 }

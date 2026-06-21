@@ -5,8 +5,9 @@ enum class BillingEnvironment {
     Internal,
     QA,
     Beta,
-    Production;
-    
+    Production,
+    ;
+
     val isTestEnvironment: Boolean
         get() = this != Production
 }

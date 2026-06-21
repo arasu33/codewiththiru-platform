@@ -9,5 +9,5 @@ package com.codewiththiru.platform.analytics.domain.event
 @ConsistentCopyVisibility
 public data class AnalyticsScreen(
     public val name: String,
-    public val className: String? = null
+    public val className: String? = null,
 )

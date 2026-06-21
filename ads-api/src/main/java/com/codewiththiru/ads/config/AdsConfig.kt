@@ -1,7 +1,7 @@
 package com.codewiththiru.ads.config
 
-import kotlinx.serialization.Serializable
 import com.codewiththiru.ads.api.AdType
+import kotlinx.serialization.Serializable
 
 /**
  * Configuration for the Ads SDK, generally populated from Remote Config.
@@ -21,7 +21,7 @@ data class AdsConfig(
     val consentRequired: Boolean = true,
     val adRefreshIntervalSeconds: Int = 30,
     val preloadCounts: Map<String, Int> = emptyMap(),
-    val killSwitch: Boolean = false
+    val killSwitch: Boolean = false,
 ) {
     /**
      * Resolves whether ads are enabled globally, respecting the remote kill switch override.
@@ -35,7 +35,10 @@ data class AdsConfig(
     /**
      * Resolves whether a specific ad format is enabled.
      */
-    fun isFormatEnabled(adType: AdType, remoteConfig: AdsRemoteConfig?): Boolean {
+    fun isFormatEnabled(
+        adType: AdType,
+        remoteConfig: AdsRemoteConfig?,
+    ): Boolean {
         if (!isGlobalEnabled(remoteConfig)) return false
 
         val remoteFormatEnabled = remoteConfig?.isAdFormatEnabled(adType)

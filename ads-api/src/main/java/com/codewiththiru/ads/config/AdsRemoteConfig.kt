@@ -22,5 +22,8 @@ interface AdsRemoteConfig {
      * @return The overridden Ad Unit ID for the given [adType] and [network].
      * Null if no override exists.
      */
-    fun getAdUnitIdOverride(adType: AdType, network: String): String?
+    fun getAdUnitIdOverride(
+        adType: AdType,
+        network: String,
+    ): String?
 }

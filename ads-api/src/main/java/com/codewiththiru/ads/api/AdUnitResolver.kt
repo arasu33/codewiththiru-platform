@@ -6,7 +6,6 @@ import com.codewiththiru.ads.config.AdsConfig
  * Interface responsible for resolving Ad Unit IDs based on the environment and ad type.
  */
 interface AdUnitResolver {
-    
     /**
      * Resolves the Ad Unit ID for the given [adType].
      *
@@ -18,6 +17,6 @@ interface AdUnitResolver {
     fun resolve(
         environment: AdsEnvironment,
         config: AdsConfig,
-        adType: AdType
+        adType: AdType,
     ): String
 }

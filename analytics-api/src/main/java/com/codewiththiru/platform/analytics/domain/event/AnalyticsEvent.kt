@@ -11,5 +11,5 @@ package com.codewiththiru.platform.analytics.domain.event
 public data class AnalyticsEvent(
     public val name: String,
     public val parameters: Map<String, Any?> = emptyMap(),
-    public val timestamp: Long = System.currentTimeMillis()
+    public val timestamp: Long = System.currentTimeMillis(),
 )

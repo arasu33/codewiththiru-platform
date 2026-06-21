@@ -12,7 +12,8 @@ enum class AdsEnvironment {
     Internal,
     QA,
     Beta,
-    Production;
+    Production,
+    ;
 
     val isTestEnvironment: Boolean
         get() = this != Production

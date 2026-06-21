@@ -9,5 +9,5 @@ package com.codewiththiru.platform.analytics.domain.event
 @ConsistentCopyVisibility
 public data class AnalyticsUserProperty(
     public val key: String,
-    public val value: String
+    public val value: String,
 )
