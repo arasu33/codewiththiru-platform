@@ -39,12 +39,12 @@ data class AdsConfig(
         adType: AdType,
         remoteConfig: AdsRemoteConfig?,
     ): Boolean {
-        if (!isGlobalEnabled(remoteConfig)) return false
+        if (!isGlobalEnabled(remoteConfig)) {
+            return false
+        }
 
         val remoteFormatEnabled = remoteConfig?.isAdFormatEnabled(adType)
-        if (remoteFormatEnabled != null) return remoteFormatEnabled
-
-        return when (adType) {
+        return remoteFormatEnabled ?: when (adType) {
             AdType.Banner, AdType.AdaptiveBanner -> bannerEnabled
             AdType.Interstitial -> interstitialEnabled
             AdType.Rewarded -> rewardedEnabled
