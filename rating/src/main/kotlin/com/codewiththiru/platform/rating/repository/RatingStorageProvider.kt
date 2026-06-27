@@ -8,7 +8,6 @@ import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.preferencesDataStore
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 
 /**
@@ -36,9 +35,15 @@ class RatingStorageProviderImpl(private val context: Context) : RatingStoragePro
     override val launchCount: Flow<Int> = context.ratingDataStore.data.map { it[RatingStorageKeys.LAUNCH_COUNT] ?: 0 }
     override val eventCount: Flow<Int> = context.ratingDataStore.data.map { it[RatingStorageKeys.EVENT_COUNT] ?: 0 }
     override val installDate: Flow<Long> = context.ratingDataStore.data.map { it[RatingStorageKeys.INSTALL_DATE] ?: 0L }
-    override val lastPromptDate: Flow<Long> = context.ratingDataStore.data.map { it[RatingStorageKeys.LAST_PROMPT_DATE] ?: 0L }
-    override val lastReviewDate: Flow<Long> = context.ratingDataStore.data.map { it[RatingStorageKeys.LAST_REVIEW_DATE] ?: 0L }
-    override val lastFeedbackDate: Flow<Long> = context.ratingDataStore.data.map { it[RatingStorageKeys.LAST_FEEDBACK_DATE] ?: 0L }
+    override val lastPromptDate: Flow<Long> = context.ratingDataStore.data.map {
+        it[RatingStorageKeys.LAST_PROMPT_DATE] ?: 0L
+    }
+    override val lastReviewDate: Flow<Long> = context.ratingDataStore.data.map {
+        it[RatingStorageKeys.LAST_REVIEW_DATE] ?: 0L
+    }
+    override val lastFeedbackDate: Flow<Long> = context.ratingDataStore.data.map {
+        it[RatingStorageKeys.LAST_FEEDBACK_DATE] ?: 0L
+    }
 
     override suspend fun incrementLaunchCount() {
         context.ratingDataStore.edit { prefs ->

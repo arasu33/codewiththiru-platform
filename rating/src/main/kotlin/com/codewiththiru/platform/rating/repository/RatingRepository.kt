@@ -4,12 +4,12 @@ package com.codewiththiru.platform.rating.repository
 
 import com.codewiththiru.platform.rating.model.RatingAnalyticsEvent
 import com.codewiththiru.platform.rating.model.RatingTriggerSource
-import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
 
 /**
  * Central orchestrator for rating persistence, analytics, and metadata.
  */
+@Suppress("TooManyFunctions")
 interface RatingRepository {
     suspend fun getLaunchCount(): Int
     suspend fun getEventCount(): Int

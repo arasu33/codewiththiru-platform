@@ -1,16 +1,13 @@
 package com.codewiththiru.platform.rating.state
 
-import com.codewiththiru.platform.rating.state.RatingAction
 import com.codewiththiru.platform.rating.model.RatingConfig
 import com.codewiththiru.platform.rating.model.RatingPromptType
 import com.codewiththiru.platform.rating.repository.RatingRepository
-import io.mockk.coVerify
 import io.mockk.mockk
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.StandardTestDispatcher
 import kotlinx.coroutines.test.resetMain
-import kotlinx.coroutines.test.runTest
 import kotlinx.coroutines.test.setMain
 import org.junit.After
 import org.junit.Assert.assertEquals
@@ -22,7 +19,7 @@ class RatingViewModelTest {
 
     private val testDispatcher = StandardTestDispatcher()
     private val repository: RatingRepository = mockk(relaxed = true)
-    
+
     private val config = RatingConfig.Builder()
         .setPlayReviewThreshold(5)
         .setPromptType(RatingPromptType.Dialog)

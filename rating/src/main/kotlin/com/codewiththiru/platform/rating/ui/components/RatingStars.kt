@@ -5,9 +5,8 @@ package com.codewiththiru.platform.rating.ui.components
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.material3.Text
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -20,7 +19,6 @@ import androidx.compose.ui.unit.dp
 import com.codewiththiru.platform.rating.model.RatingUiCustomization
 
 private const val MAX_STARS = 5
-private const val STAR_ICON_SIZE_DP = 48
 private const val AMBER_COLOR = 0xFFFFC107
 
 @Composable

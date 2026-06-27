@@ -8,28 +8,36 @@ import com.google.firebase.remoteconfig.ktx.remoteConfigSettings
 import kotlinx.coroutines.tasks.await
 
 class FirebaseConfigAdapter {
-    private val remoteConfig: FirebaseRemoteConfig by lazy { Firebase.remoteConfig }
+    private val remoteConfig: FirebaseRemoteConfig? by lazy {
+        try {
+            Firebase.remoteConfig
+        } catch (e: Exception) {
+            android.util.Log.e("CWT_PLATFORM", "Firebase Remote Config is not initialized.", e)
+            null
+        }
+    }
 
     suspend fun initialize() {
+        val config = remoteConfig ?: return
         val configSettings = remoteConfigSettings {
             minimumFetchIntervalInSeconds = 3600
         }
-        remoteConfig.setConfigSettingsAsync(configSettings).await()
+        config.setConfigSettingsAsync(configSettings).await()
     }
 
     suspend fun fetch() {
-        remoteConfig.fetch().await()
+        remoteConfig?.fetch()?.await()
     }
 
     suspend fun activate(): Boolean {
-        return remoteConfig.activate().await()
+        return remoteConfig?.activate()?.await() ?: false
     }
 
     suspend fun fetchAndActivate(): Boolean {
-        return remoteConfig.fetchAndActivate().await()
+        return remoteConfig?.fetchAndActivate()?.await() ?: false
     }
 
-    fun getValue(key: String): FirebaseRemoteConfigValue {
-        return remoteConfig.getValue(key)
+    fun getValue(key: String): FirebaseRemoteConfigValue? {
+        return remoteConfig?.getValue(key)
     }
 }

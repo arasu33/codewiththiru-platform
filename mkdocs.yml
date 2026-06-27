@@ -52,6 +52,8 @@ nav:
       - Platform Layers: PLATFORM_LAYERS.md
   - Integration Guides:
       - SDK Integration Guide: INTEGRATION_GUIDE.md
+      - Configuration & Setup Requirements: CONFIGURATION_AND_SETUP_REQUIREMENTS.md
+      - All Modules Integration Guide: ALL_MODULES_INTEGRATION.md
       - Host App Requirements: HOST_APP_REQUIREMENTS.md
       - Remote Config Catalog: REMOTE_CONFIG_CATALOG.md
       - Event Catalog: EVENT_CATALOG.md

@@ -8,7 +8,6 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.Robolectric
 import org.robolectric.RobolectricTestRunner
-
 import org.robolectric.annotation.Config
 
 @RunWith(RobolectricTestRunner::class)
@@ -27,7 +26,7 @@ class PlayReviewProviderTest {
     fun `launchReview returns Success when provider succeeds`() = runTest {
         val provider = FakePlayReviewProvider()
         val activity = Robolectric.buildActivity(Activity::class.java).get()
-        
+
         val result = provider.launchReview(activity)
         assertEquals(ReviewLaunchResult.Success, result)
     }
@@ -37,7 +36,7 @@ class PlayReviewProviderTest {
         val provider = FakePlayReviewProvider()
         provider.shouldSucceed = false
         val activity = Robolectric.buildActivity(Activity::class.java).get()
-        
+
         val result = provider.launchReview(activity)
         assertEquals(ReviewLaunchResult.PlayServicesUnavailable, result)
     }

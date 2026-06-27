@@ -14,18 +14,18 @@ import java.util.concurrent.TimeUnit
 class RatingTriggerEngineTest {
 
     private val repository: RatingRepository = mockk()
-    
+
     private val clock = object : CustClock {
         var mockedTime = 0L
         override fun currentTimeMillis(): Long = mockedTime
     }
-    
+
     private val rules = RatingTriggerRules(
         minimumAppLaunches = 5,
         minimumDaysInstalled = 3,
         requiredSignificantEvents = 1
     )
-    
+
     private val cooldown = RatingCooldownPolicy(
         daysAfterDismissal = 14,
         daysAfterFeedbackRedirect = 30,
@@ -37,7 +37,7 @@ class RatingTriggerEngineTest {
     @Test
     fun `returns MinimumLaunchesNotMet when launches are insufficient`() = runTest {
         coEvery { repository.getLaunchCount() } returns 2
-        
+
         val result = engine.evaluateEligibility(rules, cooldown)
         assertTrue(result is RatingEligibilityResult.MinimumLaunchesNotMet)
     }
@@ -50,11 +50,10 @@ class RatingTriggerEngineTest {
         coEvery { repository.getLastPromptDate() } returns 0L
         coEvery { repository.getLastReviewDate() } returns 0L
         coEvery { repository.getLastFeedbackDate() } returns 0L
-        
+
         clock.mockedTime = TimeUnit.DAYS.toMillis(4)
-        
+
         val result = engine.evaluateEligibility(rules, cooldown)
         assertEquals(RatingEligibilityResult.Eligible, result)
     }
-    
 }

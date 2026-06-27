@@ -27,7 +27,7 @@ Before cloning the repository, ensure your system meets the following requiremen
     *   Wait for Android Studio to index the files and sync the Gradle project. This may take a few minutes depending on your internet connection (downloading dependencies).
 
 3.  **Configure Environment Variables (If Applicable)**
-    If the project requires specific API keys (e.g., Firebase `google-services.json`, AdMob App IDs), ensure they are placed in the respective application module directories or set in your `local.properties` file:
+    If the project requires specific API keys (e.g., Firebase `google-services.json`, AdMob App IDs), ensure they are placed in the respective application module directories or set in your `local.properties` file. For a complete detailed list of required files, credentials, and permissions per module, refer to the **[Module Setup Requirements Guide](CONFIGURATION_AND_SETUP_REQUIREMENTS.md)**.
     ```properties
     # local.properties
     # Do not check this file into version control

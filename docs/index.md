@@ -11,6 +11,7 @@ By leveraging this platform, development teams can focus on building unique feat
 ## 🚀 Quick Navigation
 
 *   **[Getting Started](GETTING_STARTED.md)**: Setup your environment and run the showcase application.
+*   **[Module Setup Requirements](CONFIGURATION_AND_SETUP_REQUIREMENTS.md)**: Credentials, metadata, configuration files, and permissions required per module.
 *   **[Architecture Overview](ARCHITECTURE.md)**: Deep dive into the modular layer architecture and dependency rules.
 *   **[Integration Guide](INTEGRATION_GUIDE.md)**: Step-by-step instructions on incorporating platform modules.
 *   **[Modules Reference](modules/core.md)**: Detailed technical specifications for every library and feature module.

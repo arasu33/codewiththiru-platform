@@ -29,15 +29,32 @@ class AdMobAdsProvider(
     private val rewardedInterstitialLoader = AdMobRewardedInterstitialLoader(context)
 
     override suspend fun initialize() {
-        if (environment.isTestEnvironment || config.testMode) {
-            val requestConfiguration = RequestConfiguration.Builder()
-                .setTestDeviceIds(listOf(com.google.android.gms.ads.AdRequest.DEVICE_ID_EMULATOR))
-                .build()
-            MobileAds.setRequestConfiguration(requestConfiguration)
-        }
-        
-        MobileAds.initialize(context) { status ->
-            // Diagnostics can be collected from this status if needed
+        try {
+            val appInfo = context.packageManager.getApplicationInfo(
+                context.packageName,
+                android.content.pm.PackageManager.GET_META_DATA
+            )
+            val appId = appInfo.metaData?.getString("com.google.android.gms.ads.APPLICATION_ID")
+            if (appId.isNullOrEmpty()) {
+                android.util.Log.e(
+                    "CWT_PLATFORM",
+                    "AdMob initialization skipped: 'com.google.android.gms.ads.APPLICATION_ID' metadata tag is missing or empty in AndroidManifest.xml"
+                )
+                return
+            }
+
+            if (environment.isTestEnvironment || config.testMode) {
+                val requestConfiguration = RequestConfiguration.Builder()
+                    .setTestDeviceIds(listOf(com.google.android.gms.ads.AdRequest.DEVICE_ID_EMULATOR))
+                    .build()
+                MobileAds.setRequestConfiguration(requestConfiguration)
+            }
+            
+            MobileAds.initialize(context) { status ->
+                // Diagnostics can be collected from this status if needed
+            }
+        } catch (e: Exception) {
+            android.util.Log.e("CWT_PLATFORM", "Failed to initialize MobileAds SDK gracefully", e)
         }
     }
 

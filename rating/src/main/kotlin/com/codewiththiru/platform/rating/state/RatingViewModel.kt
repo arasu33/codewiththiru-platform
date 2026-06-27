@@ -42,8 +42,8 @@ class RatingViewModel(
             is RatingAction.StarSelected -> {
                 _uiState.update { it.copy(selectedStars = action.stars) }
                 repository.logAnalyticsEvent(
-                    RatingAnalyticsEvent.StarSelected, 
-                    triggerSource, 
+                    RatingAnalyticsEvent.StarSelected,
+                    triggerSource,
                     mapOf("stars" to action.stars)
                 )
             }
@@ -63,37 +63,41 @@ class RatingViewModel(
     private fun handleSubmit() {
         val stars = _uiState.value.selectedStars
         if (stars == 0) return // Cannot submit 0 stars
-        
+
         _uiState.update { it.copy(isSubmitting = true) }
         repository.logAnalyticsEvent(
-            RatingAnalyticsEvent.SubmitClicked, 
-            triggerSource, 
+            RatingAnalyticsEvent.SubmitClicked,
+            triggerSource,
             mapOf("stars" to stars)
         )
 
         viewModelScope.launch {
             if (stars >= config.playReviewThreshold) {
                 // Flow A: Launch Play Review
-                _effect.emit(RatingEffect.LaunchPlayReview {
-                    viewModelScope.launch {
-                        repository.recordReviewLaunched()
-                        repository.logAnalyticsEvent(RatingAnalyticsEvent.ReviewLaunched, triggerSource)
-                        _result.emit(RatingResult.SuccessReview(stars))
-                        _uiState.update { it.copy(isSubmitting = false) }
-                        _effect.emit(RatingEffect.ClosePrompt)
+                _effect.emit(
+                    RatingEffect.LaunchPlayReview {
+                        viewModelScope.launch {
+                            repository.recordReviewLaunched()
+                            repository.logAnalyticsEvent(RatingAnalyticsEvent.ReviewLaunched, triggerSource)
+                            _result.emit(RatingResult.SuccessReview(stars))
+                            _uiState.update { it.copy(isSubmitting = false) }
+                            _effect.emit(RatingEffect.ClosePrompt)
+                        }
                     }
-                })
+                )
             } else {
                 // Flow B: Redirect to Feedback
-                _effect.emit(RatingEffect.RedirectToFeedback(stars) {
-                    viewModelScope.launch {
-                        repository.recordFeedbackRedirected()
-                        repository.logAnalyticsEvent(RatingAnalyticsEvent.FeedbackRedirected, triggerSource)
-                        _result.emit(RatingResult.FeedbackRequested(stars))
-                        _uiState.update { it.copy(isSubmitting = false) }
-                        _effect.emit(RatingEffect.ClosePrompt)
+                _effect.emit(
+                    RatingEffect.RedirectToFeedback(stars) {
+                        viewModelScope.launch {
+                            repository.recordFeedbackRedirected()
+                            repository.logAnalyticsEvent(RatingAnalyticsEvent.FeedbackRedirected, triggerSource)
+                            _result.emit(RatingResult.FeedbackRequested(stars))
+                            _uiState.update { it.copy(isSubmitting = false) }
+                            _effect.emit(RatingEffect.ClosePrompt)
+                        }
                     }
-                })
+                )
             }
         }
     }

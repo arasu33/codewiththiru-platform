@@ -18,7 +18,6 @@ class RatingTriggerEngine(
         rules: RatingTriggerRules,
         cooldown: RatingCooldownPolicy
     ): RatingEligibilityResult {
-        
         val launchCount = repository.getLaunchCount()
         if (launchCount < rules.minimumAppLaunches) {
             return RatingEligibilityResult.MinimumLaunchesNotMet(launchCount, rules.minimumAppLaunches)
