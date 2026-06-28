@@ -11,6 +11,7 @@ import kotlinx.serialization.json.JsonPrimitive
  */
 public object AnyValueSerializer {
     
+    @Suppress("TooGenericExceptionCaught", "SwallowedException")
     public fun toJsonElement(value: Any?): JsonElement {
         if (value == null) return JsonNull
 

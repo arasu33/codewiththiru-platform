@@ -1,0 +1,306 @@
+public abstract class com/codewiththiru/platform/game/challenges/api/ChallengeEvent {
+}
+
+public final class com/codewiththiru/platform/game/challenges/api/ChallengeEvent$ChallengeCompleted : com/codewiththiru/platform/game/challenges/api/ChallengeEvent {
+	public fun <init> (Ljava/lang/String;Lcom/codewiththiru/platform/game/challenges/api/ChallengeType;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Lcom/codewiththiru/platform/game/challenges/api/ChallengeType;
+	public final fun copy (Ljava/lang/String;Lcom/codewiththiru/platform/game/challenges/api/ChallengeType;)Lcom/codewiththiru/platform/game/challenges/api/ChallengeEvent$ChallengeCompleted;
+	public static synthetic fun copy$default (Lcom/codewiththiru/platform/game/challenges/api/ChallengeEvent$ChallengeCompleted;Ljava/lang/String;Lcom/codewiththiru/platform/game/challenges/api/ChallengeType;ILjava/lang/Object;)Lcom/codewiththiru/platform/game/challenges/api/ChallengeEvent$ChallengeCompleted;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getChallengeId ()Ljava/lang/String;
+	public final fun getType ()Lcom/codewiththiru/platform/game/challenges/api/ChallengeType;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/codewiththiru/platform/game/challenges/api/ChallengeEvent$ChallengeExpired : com/codewiththiru/platform/game/challenges/api/ChallengeEvent {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lcom/codewiththiru/platform/game/challenges/api/ChallengeEvent$ChallengeExpired;
+	public static synthetic fun copy$default (Lcom/codewiththiru/platform/game/challenges/api/ChallengeEvent$ChallengeExpired;Ljava/lang/String;ILjava/lang/Object;)Lcom/codewiththiru/platform/game/challenges/api/ChallengeEvent$ChallengeExpired;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getChallengeId ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/codewiththiru/platform/game/challenges/api/ChallengeEvent$ChallengeFailed : com/codewiththiru/platform/game/challenges/api/ChallengeEvent {
+	public fun <init> (Ljava/lang/String;Lcom/codewiththiru/platform/game/challenges/api/ChallengeType;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Lcom/codewiththiru/platform/game/challenges/api/ChallengeType;
+	public final fun copy (Ljava/lang/String;Lcom/codewiththiru/platform/game/challenges/api/ChallengeType;)Lcom/codewiththiru/platform/game/challenges/api/ChallengeEvent$ChallengeFailed;
+	public static synthetic fun copy$default (Lcom/codewiththiru/platform/game/challenges/api/ChallengeEvent$ChallengeFailed;Ljava/lang/String;Lcom/codewiththiru/platform/game/challenges/api/ChallengeType;ILjava/lang/Object;)Lcom/codewiththiru/platform/game/challenges/api/ChallengeEvent$ChallengeFailed;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getChallengeId ()Ljava/lang/String;
+	public final fun getType ()Lcom/codewiththiru/platform/game/challenges/api/ChallengeType;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/codewiththiru/platform/game/challenges/api/ChallengeEvent$ChallengeStarted : com/codewiththiru/platform/game/challenges/api/ChallengeEvent {
+	public fun <init> (Ljava/lang/String;Lcom/codewiththiru/platform/game/challenges/api/ChallengeType;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Lcom/codewiththiru/platform/game/challenges/api/ChallengeType;
+	public final fun copy (Ljava/lang/String;Lcom/codewiththiru/platform/game/challenges/api/ChallengeType;)Lcom/codewiththiru/platform/game/challenges/api/ChallengeEvent$ChallengeStarted;
+	public static synthetic fun copy$default (Lcom/codewiththiru/platform/game/challenges/api/ChallengeEvent$ChallengeStarted;Ljava/lang/String;Lcom/codewiththiru/platform/game/challenges/api/ChallengeType;ILjava/lang/Object;)Lcom/codewiththiru/platform/game/challenges/api/ChallengeEvent$ChallengeStarted;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getChallengeId ()Ljava/lang/String;
+	public final fun getType ()Lcom/codewiththiru/platform/game/challenges/api/ChallengeType;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/codewiththiru/platform/game/challenges/api/ChallengeEvent$RewardClaimed : com/codewiththiru/platform/game/challenges/api/ChallengeEvent {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;)Lcom/codewiththiru/platform/game/challenges/api/ChallengeEvent$RewardClaimed;
+	public static synthetic fun copy$default (Lcom/codewiththiru/platform/game/challenges/api/ChallengeEvent$RewardClaimed;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/codewiththiru/platform/game/challenges/api/ChallengeEvent$RewardClaimed;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getChallengeId ()Ljava/lang/String;
+	public final fun getRewardId ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/codewiththiru/platform/game/challenges/api/ChallengeEvent$SeasonEnded : com/codewiththiru/platform/game/challenges/api/ChallengeEvent {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lcom/codewiththiru/platform/game/challenges/api/ChallengeEvent$SeasonEnded;
+	public static synthetic fun copy$default (Lcom/codewiththiru/platform/game/challenges/api/ChallengeEvent$SeasonEnded;Ljava/lang/String;ILjava/lang/Object;)Lcom/codewiththiru/platform/game/challenges/api/ChallengeEvent$SeasonEnded;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getSeasonId ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/codewiththiru/platform/game/challenges/api/ChallengeEvent$SeasonStarted : com/codewiththiru/platform/game/challenges/api/ChallengeEvent {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lcom/codewiththiru/platform/game/challenges/api/ChallengeEvent$SeasonStarted;
+	public static synthetic fun copy$default (Lcom/codewiththiru/platform/game/challenges/api/ChallengeEvent$SeasonStarted;Ljava/lang/String;ILjava/lang/Object;)Lcom/codewiththiru/platform/game/challenges/api/ChallengeEvent$SeasonStarted;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getSeasonId ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/codewiththiru/platform/game/challenges/api/ChallengeStatus : java/lang/Enum {
+	public static final field ACTIVE Lcom/codewiththiru/platform/game/challenges/api/ChallengeStatus;
+	public static final field CLAIMED Lcom/codewiththiru/platform/game/challenges/api/ChallengeStatus;
+	public static final field COMPLETED Lcom/codewiththiru/platform/game/challenges/api/ChallengeStatus;
+	public static final field Companion Lcom/codewiththiru/platform/game/challenges/api/ChallengeStatus$Companion;
+	public static final field EXPIRED Lcom/codewiththiru/platform/game/challenges/api/ChallengeStatus;
+	public static final field FAILED Lcom/codewiththiru/platform/game/challenges/api/ChallengeStatus;
+	public static final field LOCKED Lcom/codewiththiru/platform/game/challenges/api/ChallengeStatus;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/codewiththiru/platform/game/challenges/api/ChallengeStatus;
+	public static fun values ()[Lcom/codewiththiru/platform/game/challenges/api/ChallengeStatus;
+}
+
+public final class com/codewiththiru/platform/game/challenges/api/ChallengeStatus$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/codewiththiru/platform/game/challenges/api/ChallengeType : java/lang/Enum {
+	public static final field CUSTOM Lcom/codewiththiru/platform/game/challenges/api/ChallengeType;
+	public static final field Companion Lcom/codewiththiru/platform/game/challenges/api/ChallengeType$Companion;
+	public static final field DAILY Lcom/codewiththiru/platform/game/challenges/api/ChallengeType;
+	public static final field ENDLESS Lcom/codewiththiru/platform/game/challenges/api/ChallengeType;
+	public static final field EVENT Lcom/codewiththiru/platform/game/challenges/api/ChallengeType;
+	public static final field LIMITED_TIME Lcom/codewiththiru/platform/game/challenges/api/ChallengeType;
+	public static final field MILESTONE Lcom/codewiththiru/platform/game/challenges/api/ChallengeType;
+	public static final field MONTHLY Lcom/codewiththiru/platform/game/challenges/api/ChallengeType;
+	public static final field PROGRESSIVE Lcom/codewiththiru/platform/game/challenges/api/ChallengeType;
+	public static final field SEASONAL Lcom/codewiththiru/platform/game/challenges/api/ChallengeType;
+	public static final field TUTORIAL Lcom/codewiththiru/platform/game/challenges/api/ChallengeType;
+	public static final field WEEKLY Lcom/codewiththiru/platform/game/challenges/api/ChallengeType;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/codewiththiru/platform/game/challenges/api/ChallengeType;
+	public static fun values ()[Lcom/codewiththiru/platform/game/challenges/api/ChallengeType;
+}
+
+public final class com/codewiththiru/platform/game/challenges/api/ChallengeType$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/codewiththiru/platform/game/challenges/definition/ChallengeCondition {
+	public static final field Companion Lcom/codewiththiru/platform/game/challenges/definition/ChallengeCondition$Companion;
+	public fun <init> (Ljava/lang/String;JZ)V
+	public synthetic fun <init> (Ljava/lang/String;JZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()J
+	public final fun component3 ()Z
+	public final fun copy (Ljava/lang/String;JZ)Lcom/codewiththiru/platform/game/challenges/definition/ChallengeCondition;
+	public static synthetic fun copy$default (Lcom/codewiththiru/platform/game/challenges/definition/ChallengeCondition;Ljava/lang/String;JZILjava/lang/Object;)Lcom/codewiththiru/platform/game/challenges/definition/ChallengeCondition;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getStatisticKey ()Ljava/lang/String;
+	public final fun getTargetValue ()J
+	public fun hashCode ()I
+	public final fun isCumulative ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class com/codewiththiru/platform/game/challenges/definition/ChallengeCondition$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lcom/codewiththiru/platform/game/challenges/definition/ChallengeCondition$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcom/codewiththiru/platform/game/challenges/definition/ChallengeCondition;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/codewiththiru/platform/game/challenges/definition/ChallengeCondition;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/codewiththiru/platform/game/challenges/definition/ChallengeCondition$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/codewiththiru/platform/game/challenges/definition/ChallengeDefinition {
+	public static final field Companion Lcom/codewiththiru/platform/game/challenges/definition/ChallengeDefinition$Companion;
+	public fun <init> (Ljava/lang/String;Lcom/codewiththiru/platform/game/challenges/api/ChallengeType;Ljava/util/List;Ljava/util/List;JZ)V
+	public synthetic fun <init> (Ljava/lang/String;Lcom/codewiththiru/platform/game/challenges/api/ChallengeType;Ljava/util/List;Ljava/util/List;JZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Lcom/codewiththiru/platform/game/challenges/api/ChallengeType;
+	public final fun component3 ()Ljava/util/List;
+	public final fun component4 ()Ljava/util/List;
+	public final fun component5 ()J
+	public final fun component6 ()Z
+	public final fun copy (Ljava/lang/String;Lcom/codewiththiru/platform/game/challenges/api/ChallengeType;Ljava/util/List;Ljava/util/List;JZ)Lcom/codewiththiru/platform/game/challenges/definition/ChallengeDefinition;
+	public static synthetic fun copy$default (Lcom/codewiththiru/platform/game/challenges/definition/ChallengeDefinition;Ljava/lang/String;Lcom/codewiththiru/platform/game/challenges/api/ChallengeType;Ljava/util/List;Ljava/util/List;JZILjava/lang/Object;)Lcom/codewiththiru/platform/game/challenges/definition/ChallengeDefinition;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getConditions ()Ljava/util/List;
+	public final fun getCooldownMs ()J
+	public final fun getId ()Ljava/lang/String;
+	public final fun getRewardIds ()Ljava/util/List;
+	public final fun getType ()Lcom/codewiththiru/platform/game/challenges/api/ChallengeType;
+	public fun hashCode ()I
+	public final fun isRepeatable ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class com/codewiththiru/platform/game/challenges/definition/ChallengeDefinition$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lcom/codewiththiru/platform/game/challenges/definition/ChallengeDefinition$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcom/codewiththiru/platform/game/challenges/definition/ChallengeDefinition;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/codewiththiru/platform/game/challenges/definition/ChallengeDefinition;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/codewiththiru/platform/game/challenges/definition/ChallengeDefinition$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract interface class com/codewiththiru/platform/game/challenges/engine/ChallengeEngine {
+	public abstract fun evaluateCompletion (Lcom/codewiththiru/platform/game/challenges/definition/ChallengeDefinition;Lcom/codewiththiru/platform/game/challenges/progress/ChallengeProgress;)Z
+	public abstract fun processStatistic (Lcom/codewiththiru/platform/game/challenges/definition/ChallengeDefinition;Lcom/codewiththiru/platform/game/challenges/progress/ChallengeProgress;Ljava/lang/String;J)Lcom/codewiththiru/platform/game/challenges/progress/ChallengeProgress;
+}
+
+public abstract interface class com/codewiththiru/platform/game/challenges/manager/ChallengeManager {
+	public abstract fun checkRotations (JLkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun claimReward (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getActiveChallenges ()Lkotlinx/coroutines/flow/StateFlow;
+	public abstract fun getDefinition (Ljava/lang/String;)Lcom/codewiththiru/platform/game/challenges/definition/ChallengeDefinition;
+	public abstract fun trackStatistic (Ljava/lang/String;JLkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/codewiththiru/platform/game/challenges/progress/ChallengeProgress {
+	public static final field Companion Lcom/codewiththiru/platform/game/challenges/progress/ChallengeProgress$Companion;
+	public fun <init> (Ljava/lang/String;Lcom/codewiththiru/platform/game/challenges/api/ChallengeStatus;Ljava/util/Map;JLjava/lang/Long;)V
+	public synthetic fun <init> (Ljava/lang/String;Lcom/codewiththiru/platform/game/challenges/api/ChallengeStatus;Ljava/util/Map;JLjava/lang/Long;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Lcom/codewiththiru/platform/game/challenges/api/ChallengeStatus;
+	public final fun component3 ()Ljava/util/Map;
+	public final fun component4 ()J
+	public final fun component5 ()Ljava/lang/Long;
+	public final fun copy (Ljava/lang/String;Lcom/codewiththiru/platform/game/challenges/api/ChallengeStatus;Ljava/util/Map;JLjava/lang/Long;)Lcom/codewiththiru/platform/game/challenges/progress/ChallengeProgress;
+	public static synthetic fun copy$default (Lcom/codewiththiru/platform/game/challenges/progress/ChallengeProgress;Ljava/lang/String;Lcom/codewiththiru/platform/game/challenges/api/ChallengeStatus;Ljava/util/Map;JLjava/lang/Long;ILjava/lang/Object;)Lcom/codewiththiru/platform/game/challenges/progress/ChallengeProgress;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getActivationTimeMs ()J
+	public final fun getChallengeId ()Ljava/lang/String;
+	public final fun getCurrentValues ()Ljava/util/Map;
+	public final fun getExpirationTimeMs ()Ljava/lang/Long;
+	public final fun getStatus ()Lcom/codewiththiru/platform/game/challenges/api/ChallengeStatus;
+	public fun hashCode ()I
+	public final fun isConditionMet (Ljava/lang/String;J)Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class com/codewiththiru/platform/game/challenges/progress/ChallengeProgress$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lcom/codewiththiru/platform/game/challenges/progress/ChallengeProgress$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcom/codewiththiru/platform/game/challenges/progress/ChallengeProgress;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/codewiththiru/platform/game/challenges/progress/ChallengeProgress;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/codewiththiru/platform/game/challenges/progress/ChallengeProgress$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract interface class com/codewiththiru/platform/game/challenges/scheduler/ChallengeScheduler {
+	public abstract fun calculateExpirationTime (Lcom/codewiththiru/platform/game/challenges/api/ChallengeType;J)J
+	public abstract fun isInGracePeriod (JJ)Z
+	public abstract fun isUnderCooldown (JJJ)Z
+}
+
+public final class com/codewiththiru/platform/game/challenges/streak/StreakData {
+	public static final field Companion Lcom/codewiththiru/platform/game/challenges/streak/StreakData$Companion;
+	public fun <init> ()V
+	public fun <init> (IIJI)V
+	public synthetic fun <init> (IIJIILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()I
+	public final fun component2 ()I
+	public final fun component3 ()J
+	public final fun component4 ()I
+	public final fun copy (IIJI)Lcom/codewiththiru/platform/game/challenges/streak/StreakData;
+	public static synthetic fun copy$default (Lcom/codewiththiru/platform/game/challenges/streak/StreakData;IIJIILjava/lang/Object;)Lcom/codewiththiru/platform/game/challenges/streak/StreakData;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBestStreak ()I
+	public final fun getCurrentStreak ()I
+	public final fun getFreezeTokensAvailable ()I
+	public final fun getLastCompletionTimeMs ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class com/codewiththiru/platform/game/challenges/streak/StreakData$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lcom/codewiththiru/platform/game/challenges/streak/StreakData$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcom/codewiththiru/platform/game/challenges/streak/StreakData;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/codewiththiru/platform/game/challenges/streak/StreakData;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/codewiththiru/platform/game/challenges/streak/StreakData$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract interface class com/codewiththiru/platform/game/challenges/streak/StreakEngine {
+	public abstract fun evaluateDecay (Lcom/codewiththiru/platform/game/challenges/streak/StreakData;J)Lcom/codewiththiru/platform/game/challenges/streak/StreakData;
+	public abstract fun recordCompletion (Lcom/codewiththiru/platform/game/challenges/streak/StreakData;J)Lcom/codewiththiru/platform/game/challenges/streak/StreakData;
+}
+
+public final class com/codewiththiru/platform/game/challenges/testing/FakeChallengeManager : com/codewiththiru/platform/game/challenges/manager/ChallengeManager {
+	public fun <init> ()V
+	public fun checkRotations (JLkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun claimReward (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getActiveChallenges ()Lkotlinx/coroutines/flow/StateFlow;
+	public fun getDefinition (Ljava/lang/String;)Lcom/codewiththiru/platform/game/challenges/definition/ChallengeDefinition;
+	public final fun getLastTrackedDelta ()J
+	public final fun getLastTrackedStatistic ()Ljava/lang/String;
+	public final fun setLastTrackedDelta (J)V
+	public final fun setLastTrackedStatistic (Ljava/lang/String;)V
+	public fun trackStatistic (Ljava/lang/String;JLkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+

@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<SmellBaseline>
+  <ManuallySuppressedIssues/>
+  <CurrentIssues>
+    <ID>MagicNumber:EventPriority.kt$EventPriority.HIGH$75</ID>
+    <ID>MagicNumber:EventPriority.kt$EventPriority.LOW$25</ID>
+    <ID>MagicNumber:EventPriority.kt$EventPriority.NORMAL$50</ID>
+  </CurrentIssues>
+</SmellBaseline>

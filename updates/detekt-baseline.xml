@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<SmellBaseline>
+  <ManuallySuppressedIssues/>
+  <CurrentIssues>
+    <ID>FunctionNaming:ForceUpdateScreen.kt$@Composable fun ForceUpdateScreen( onUpdateClicked: () -> Unit, modifier: Modifier = Modifier )</ID>
+    <ID>FunctionNaming:WhatsNewDialog.kt$@Composable fun WhatsNewDialog( releaseNotes: String, onDismiss: () -> Unit, modifier: Modifier = Modifier )</ID>
+    <ID>MaxLineLength:ForceUpdateScreen.kt$text = "A critical update is required to continue using the app. Please update to the latest version to ensure security and stability."</ID>
+    <ID>MaxLineLength:UpdateManagerTest.kt$UpdateManagerTest.&lt;no name provided>$override suspend</ID>
+    <ID>ReturnCount:DefaultUpdatePolicy.kt$DefaultUpdatePolicy$override suspend fun evaluate( currentVersion: Int, availableVersion: Int, isForceUpdateRequired: Boolean, clientStalenessDays: Int? ): UpdateEligibilityResult</ID>
+    <ID>ReturnCount:DefaultVersionComparator.kt$DefaultVersionComparator$override fun compare(version1: String, version2: String): Int</ID>
+    <ID>ReturnCount:PlayStoreUpdateSource.kt$PlayStoreUpdateSource$override suspend fun startUpdate( activity: Activity, availabilityInfo: UpdateAvailabilityInfo, updateType: UpdateType ): Result&lt;Unit></ID>
+    <ID>ReturnCount:UpdateManager.kt$UpdateManager$suspend fun checkAndPrompt(activity: Activity, currentVersionCode: Int): UpdateEffect</ID>
+    <ID>TooGenericExceptionCaught:PlayStoreUpdateSource.kt$PlayStoreUpdateSource$e: Exception</ID>
+    <ID>WildcardImport:ForceUpdateScreen.kt$import androidx.compose.foundation.layout.*</ID>
+    <ID>WildcardImport:ForceUpdateScreen.kt$import androidx.compose.material3.*</ID>
+    <ID>WildcardImport:ForceUpdateScreen.kt$import androidx.compose.ui.semantics.*</ID>
+    <ID>WildcardImport:WhatsNewDialog.kt$import androidx.compose.foundation.layout.*</ID>
+    <ID>WildcardImport:WhatsNewDialog.kt$import androidx.compose.material3.*</ID>
+    <ID>WildcardImport:WhatsNewDialog.kt$import androidx.compose.ui.semantics.*</ID>
+  </CurrentIssues>
+</SmellBaseline>

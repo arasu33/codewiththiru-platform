@@ -1,0 +1,264 @@
+public final class com/codewiththiru/platform/game/save/api/ConflictResolutionStrategy : java/lang/Enum {
+	public static final field MANUAL Lcom/codewiththiru/platform/game/save/api/ConflictResolutionStrategy;
+	public static final field MERGE Lcom/codewiththiru/platform/game/save/api/ConflictResolutionStrategy;
+	public static final field NEWEST_WINS Lcom/codewiththiru/platform/game/save/api/ConflictResolutionStrategy;
+	public static final field OLDEST_WINS Lcom/codewiththiru/platform/game/save/api/ConflictResolutionStrategy;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/codewiththiru/platform/game/save/api/ConflictResolutionStrategy;
+	public static fun values ()[Lcom/codewiththiru/platform/game/save/api/ConflictResolutionStrategy;
+}
+
+public final class com/codewiththiru/platform/game/save/api/SaveMetadata {
+	public static final field Companion Lcom/codewiththiru/platform/game/save/api/SaveMetadata$Companion;
+	public fun <init> (JIJLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;)V
+	public synthetic fun <init> (JIJLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()J
+	public final fun component2 ()I
+	public final fun component3 ()J
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()Ljava/lang/String;
+	public final fun component6 ()Ljava/lang/String;
+	public final fun component7 ()Ljava/util/Map;
+	public final fun copy (JIJLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;)Lcom/codewiththiru/platform/game/save/api/SaveMetadata;
+	public static synthetic fun copy$default (Lcom/codewiththiru/platform/game/save/api/SaveMetadata;JIJLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;ILjava/lang/Object;)Lcom/codewiththiru/platform/game/save/api/SaveMetadata;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getChecksum ()Ljava/lang/String;
+	public final fun getExtraData ()Ljava/util/Map;
+	public final fun getGameId ()Ljava/lang/String;
+	public final fun getGameVersion ()Ljava/lang/String;
+	public final fun getPlaytimeSeconds ()J
+	public final fun getSchemaVersion ()I
+	public final fun getTimestampMs ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class com/codewiththiru/platform/game/save/api/SaveMetadata$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lcom/codewiththiru/platform/game/save/api/SaveMetadata$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcom/codewiththiru/platform/game/save/api/SaveMetadata;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/codewiththiru/platform/game/save/api/SaveMetadata;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/codewiththiru/platform/game/save/api/SaveMetadata$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/codewiththiru/platform/game/save/api/SavePolicy {
+	public fun <init> ()V
+	public fun <init> (IILcom/codewiththiru/platform/game/save/api/ConflictResolutionStrategy;)V
+	public synthetic fun <init> (IILcom/codewiththiru/platform/game/save/api/ConflictResolutionStrategy;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()I
+	public final fun component2 ()I
+	public final fun component3 ()Lcom/codewiththiru/platform/game/save/api/ConflictResolutionStrategy;
+	public final fun copy (IILcom/codewiththiru/platform/game/save/api/ConflictResolutionStrategy;)Lcom/codewiththiru/platform/game/save/api/SavePolicy;
+	public static synthetic fun copy$default (Lcom/codewiththiru/platform/game/save/api/SavePolicy;IILcom/codewiththiru/platform/game/save/api/ConflictResolutionStrategy;ILjava/lang/Object;)Lcom/codewiththiru/platform/game/save/api/SavePolicy;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getConflictResolution ()Lcom/codewiththiru/platform/game/save/api/ConflictResolutionStrategy;
+	public final fun getMaxAutoSaves ()I
+	public final fun getMaxQuickSaves ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/codewiththiru/platform/game/save/api/SaveRequest {
+	public fun <init> (Lcom/codewiththiru/platform/game/save/api/SaveSlot;Ljava/lang/Object;Lcom/codewiththiru/platform/game/save/api/SaveMetadata;Z)V
+	public synthetic fun <init> (Lcom/codewiththiru/platform/game/save/api/SaveSlot;Ljava/lang/Object;Lcom/codewiththiru/platform/game/save/api/SaveMetadata;ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lcom/codewiththiru/platform/game/save/api/SaveSlot;
+	public final fun component2 ()Ljava/lang/Object;
+	public final fun component3 ()Lcom/codewiththiru/platform/game/save/api/SaveMetadata;
+	public final fun component4 ()Z
+	public final fun copy (Lcom/codewiththiru/platform/game/save/api/SaveSlot;Ljava/lang/Object;Lcom/codewiththiru/platform/game/save/api/SaveMetadata;Z)Lcom/codewiththiru/platform/game/save/api/SaveRequest;
+	public static synthetic fun copy$default (Lcom/codewiththiru/platform/game/save/api/SaveRequest;Lcom/codewiththiru/platform/game/save/api/SaveSlot;Ljava/lang/Object;Lcom/codewiththiru/platform/game/save/api/SaveMetadata;ZILjava/lang/Object;)Lcom/codewiththiru/platform/game/save/api/SaveRequest;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getMetadata ()Lcom/codewiththiru/platform/game/save/api/SaveMetadata;
+	public final fun getOverwrite ()Z
+	public final fun getSlot ()Lcom/codewiththiru/platform/game/save/api/SaveSlot;
+	public final fun getState ()Ljava/lang/Object;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract class com/codewiththiru/platform/game/save/api/SaveResponse {
+}
+
+public final class com/codewiththiru/platform/game/save/api/SaveResponse$Failure : com/codewiththiru/platform/game/save/api/SaveResponse {
+	public fun <init> (Ljava/lang/Throwable;Lcom/codewiththiru/platform/game/save/api/SaveSlot;)V
+	public final fun component1 ()Ljava/lang/Throwable;
+	public final fun component2 ()Lcom/codewiththiru/platform/game/save/api/SaveSlot;
+	public final fun copy (Ljava/lang/Throwable;Lcom/codewiththiru/platform/game/save/api/SaveSlot;)Lcom/codewiththiru/platform/game/save/api/SaveResponse$Failure;
+	public static synthetic fun copy$default (Lcom/codewiththiru/platform/game/save/api/SaveResponse$Failure;Ljava/lang/Throwable;Lcom/codewiththiru/platform/game/save/api/SaveSlot;ILjava/lang/Object;)Lcom/codewiththiru/platform/game/save/api/SaveResponse$Failure;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getError ()Ljava/lang/Throwable;
+	public final fun getSlot ()Lcom/codewiththiru/platform/game/save/api/SaveSlot;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/codewiththiru/platform/game/save/api/SaveResponse$Success : com/codewiththiru/platform/game/save/api/SaveResponse {
+	public fun <init> (Lcom/codewiththiru/platform/game/save/api/SaveSlot;Lcom/codewiththiru/platform/game/save/api/SaveMetadata;Ljava/lang/Object;)V
+	public final fun component1 ()Lcom/codewiththiru/platform/game/save/api/SaveSlot;
+	public final fun component2 ()Lcom/codewiththiru/platform/game/save/api/SaveMetadata;
+	public final fun component3 ()Ljava/lang/Object;
+	public final fun copy (Lcom/codewiththiru/platform/game/save/api/SaveSlot;Lcom/codewiththiru/platform/game/save/api/SaveMetadata;Ljava/lang/Object;)Lcom/codewiththiru/platform/game/save/api/SaveResponse$Success;
+	public static synthetic fun copy$default (Lcom/codewiththiru/platform/game/save/api/SaveResponse$Success;Lcom/codewiththiru/platform/game/save/api/SaveSlot;Lcom/codewiththiru/platform/game/save/api/SaveMetadata;Ljava/lang/Object;ILjava/lang/Object;)Lcom/codewiththiru/platform/game/save/api/SaveResponse$Success;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getMetadata ()Lcom/codewiththiru/platform/game/save/api/SaveMetadata;
+	public final fun getSlot ()Lcom/codewiththiru/platform/game/save/api/SaveSlot;
+	public final fun getState ()Ljava/lang/Object;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/codewiththiru/platform/game/save/api/SaveSlot {
+	public static final field Companion Lcom/codewiththiru/platform/game/save/api/SaveSlot$Companion;
+	public fun <init> (Ljava/lang/String;Lcom/codewiththiru/platform/game/save/api/SaveType;Z)V
+	public synthetic fun <init> (Ljava/lang/String;Lcom/codewiththiru/platform/game/save/api/SaveType;ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Lcom/codewiththiru/platform/game/save/api/SaveType;
+	public final fun component3 ()Z
+	public final fun copy (Ljava/lang/String;Lcom/codewiththiru/platform/game/save/api/SaveType;Z)Lcom/codewiththiru/platform/game/save/api/SaveSlot;
+	public static synthetic fun copy$default (Lcom/codewiththiru/platform/game/save/api/SaveSlot;Ljava/lang/String;Lcom/codewiththiru/platform/game/save/api/SaveType;ZILjava/lang/Object;)Lcom/codewiththiru/platform/game/save/api/SaveSlot;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getId ()Ljava/lang/String;
+	public final fun getType ()Lcom/codewiththiru/platform/game/save/api/SaveType;
+	public fun hashCode ()I
+	public final fun isReadOnly ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class com/codewiththiru/platform/game/save/api/SaveSlot$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lcom/codewiththiru/platform/game/save/api/SaveSlot$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcom/codewiththiru/platform/game/save/api/SaveSlot;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/codewiththiru/platform/game/save/api/SaveSlot;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/codewiththiru/platform/game/save/api/SaveSlot$Companion {
+	public final fun auto (Ljava/lang/String;)Lcom/codewiththiru/platform/game/save/api/SaveSlot;
+	public static synthetic fun auto$default (Lcom/codewiththiru/platform/game/save/api/SaveSlot$Companion;Ljava/lang/String;ILjava/lang/Object;)Lcom/codewiththiru/platform/game/save/api/SaveSlot;
+	public final fun manual (Ljava/lang/String;)Lcom/codewiththiru/platform/game/save/api/SaveSlot;
+	public final fun quick (Ljava/lang/String;)Lcom/codewiththiru/platform/game/save/api/SaveSlot;
+	public static synthetic fun quick$default (Lcom/codewiththiru/platform/game/save/api/SaveSlot$Companion;Ljava/lang/String;ILjava/lang/Object;)Lcom/codewiththiru/platform/game/save/api/SaveSlot;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+	public final fun suspend (Ljava/lang/String;)Lcom/codewiththiru/platform/game/save/api/SaveSlot;
+	public static synthetic fun suspend$default (Lcom/codewiththiru/platform/game/save/api/SaveSlot$Companion;Ljava/lang/String;ILjava/lang/Object;)Lcom/codewiththiru/platform/game/save/api/SaveSlot;
+}
+
+public final class com/codewiththiru/platform/game/save/api/SaveType : java/lang/Enum {
+	public static final field AUTO Lcom/codewiththiru/platform/game/save/api/SaveType;
+	public static final field CHECKPOINT Lcom/codewiththiru/platform/game/save/api/SaveType;
+	public static final field CLOUD Lcom/codewiththiru/platform/game/save/api/SaveType;
+	public static final field CRASH_RECOVERY Lcom/codewiththiru/platform/game/save/api/SaveType;
+	public static final field MANUAL Lcom/codewiththiru/platform/game/save/api/SaveType;
+	public static final field QUICK Lcom/codewiththiru/platform/game/save/api/SaveType;
+	public static final field SUSPEND Lcom/codewiththiru/platform/game/save/api/SaveType;
+	public static final field TEMPORARY Lcom/codewiththiru/platform/game/save/api/SaveType;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/codewiththiru/platform/game/save/api/SaveType;
+	public static fun values ()[Lcom/codewiththiru/platform/game/save/api/SaveType;
+}
+
+public abstract interface class com/codewiththiru/platform/game/save/checkpoint/CheckpointManager {
+	public abstract fun clearCheckpoints (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun createCheckpoint (Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun restoreCheckpoint (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun restoreLatestCheckpoint (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public abstract interface class com/codewiththiru/platform/game/save/cloud/CloudSyncStrategy {
+	public abstract fun download (Lcom/codewiththiru/platform/game/save/api/SaveSlot;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun fetchMetadata (Lcom/codewiththiru/platform/game/save/api/SaveSlot;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun upload (Lcom/codewiththiru/platform/game/save/api/SaveSlot;Lcom/codewiththiru/platform/game/save/api/SaveMetadata;[BLkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public abstract interface class com/codewiththiru/platform/game/save/compression/CompressionStrategy {
+	public abstract fun compress ([B)[B
+	public abstract fun decompress ([B)[B
+}
+
+public abstract interface class com/codewiththiru/platform/game/save/encryption/EncryptionStrategy {
+	public abstract fun decrypt ([B)[B
+	public abstract fun encrypt ([B)[B
+}
+
+public abstract interface class com/codewiththiru/platform/game/save/manager/BackupManager {
+	public abstract fun backup (Lcom/codewiththiru/platform/game/save/api/SaveSlot;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun listBackups (Lcom/codewiththiru/platform/game/save/api/SaveSlot;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public abstract interface class com/codewiththiru/platform/game/save/manager/GameSaveManager {
+	public abstract fun delete (Lcom/codewiththiru/platform/game/save/api/SaveSlot;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getStatus ()Lkotlinx/coroutines/flow/StateFlow;
+	public abstract fun listSaves (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun load (Lcom/codewiththiru/platform/game/save/api/SaveSlot;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun save (Lcom/codewiththiru/platform/game/save/api/SaveRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun sync (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public abstract interface class com/codewiththiru/platform/game/save/manager/RestoreManager {
+	public abstract fun restore (Lcom/codewiththiru/platform/game/save/api/SaveSlot;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/codewiththiru/platform/game/save/manager/SaveSystemStatus : java/lang/Enum {
+	public static final field ERROR Lcom/codewiththiru/platform/game/save/manager/SaveSystemStatus;
+	public static final field IDLE Lcom/codewiththiru/platform/game/save/manager/SaveSystemStatus;
+	public static final field LOADING Lcom/codewiththiru/platform/game/save/manager/SaveSystemStatus;
+	public static final field SAVING Lcom/codewiththiru/platform/game/save/manager/SaveSystemStatus;
+	public static final field SYNCING Lcom/codewiththiru/platform/game/save/manager/SaveSystemStatus;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/codewiththiru/platform/game/save/manager/SaveSystemStatus;
+	public static fun values ()[Lcom/codewiththiru/platform/game/save/manager/SaveSystemStatus;
+}
+
+public abstract interface class com/codewiththiru/platform/game/save/migration/MigrationManager {
+	public abstract fun migrate ([BLcom/codewiththiru/platform/game/save/api/SaveMetadata;I)[B
+}
+
+public abstract interface class com/codewiththiru/platform/game/save/migration/VersionResolver {
+	public abstract fun isCompatible (Lcom/codewiththiru/platform/game/save/api/SaveMetadata;I)Z
+}
+
+public abstract interface class com/codewiththiru/platform/game/save/serializer/Serializer {
+	public abstract fun deserialize ([BLkotlin/reflect/KType;)Ljava/lang/Object;
+	public abstract fun getFormat ()Ljava/lang/String;
+	public abstract fun serialize (Ljava/lang/Object;Lkotlin/reflect/KType;)[B
+}
+
+public abstract interface class com/codewiththiru/platform/game/save/snapshot/SnapshotManager {
+	public abstract fun canRollback ()Z
+	public abstract fun clearSnapshots ()V
+	public abstract fun rollback ()Ljava/lang/Object;
+	public abstract fun takeSnapshot (Ljava/lang/Object;)V
+}
+
+public final class com/codewiththiru/platform/game/save/testing/FakeGameSaveManager : com/codewiththiru/platform/game/save/manager/GameSaveManager {
+	public fun <init> ()V
+	public fun delete (Lcom/codewiththiru/platform/game/save/api/SaveSlot;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getStatus ()Lkotlinx/coroutines/flow/StateFlow;
+	public fun listSaves (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun load (Lcom/codewiththiru/platform/game/save/api/SaveSlot;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun save (Lcom/codewiththiru/platform/game/save/api/SaveRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun sync (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public abstract interface class com/codewiththiru/platform/game/save/util/ChecksumGenerator {
+	public abstract fun generateChecksum ([B)Ljava/lang/String;
+}
+
+public abstract interface class com/codewiththiru/platform/game/save/util/ConflictResolver {
+	public abstract fun resolve (Lcom/codewiththiru/platform/game/save/api/SaveMetadata;Lcom/codewiththiru/platform/game/save/api/SaveMetadata;Lcom/codewiththiru/platform/game/save/api/ConflictResolutionStrategy;)Lcom/codewiththiru/platform/game/save/api/SaveMetadata;
+}
+
+public abstract interface class com/codewiththiru/platform/game/save/util/SaveValidator {
+	public abstract fun validate ([BLcom/codewiththiru/platform/game/save/api/SaveMetadata;)Z
+}
+

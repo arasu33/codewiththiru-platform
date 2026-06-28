@@ -1,0 +1,285 @@
+public final class com/codewiththiru/platform/game/audio/api/AudioCategory : java/lang/Enum {
+	public static final field AMBIENT Lcom/codewiththiru/platform/game/audio/api/AudioCategory;
+	public static final field MUSIC Lcom/codewiththiru/platform/game/audio/api/AudioCategory;
+	public static final field SOUND_EFFECT Lcom/codewiththiru/platform/game/audio/api/AudioCategory;
+	public static final field SYSTEM Lcom/codewiththiru/platform/game/audio/api/AudioCategory;
+	public static final field UI Lcom/codewiththiru/platform/game/audio/api/AudioCategory;
+	public static final field VOICE Lcom/codewiththiru/platform/game/audio/api/AudioCategory;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/codewiththiru/platform/game/audio/api/AudioCategory;
+	public static fun values ()[Lcom/codewiththiru/platform/game/audio/api/AudioCategory;
+}
+
+public abstract class com/codewiththiru/platform/game/audio/api/AudioEvent {
+}
+
+public final class com/codewiththiru/platform/game/audio/api/AudioEvent$AudioMuted : com/codewiththiru/platform/game/audio/api/AudioEvent {
+	public static final field INSTANCE Lcom/codewiththiru/platform/game/audio/api/AudioEvent$AudioMuted;
+}
+
+public final class com/codewiththiru/platform/game/audio/api/AudioEvent$AudioUnmuted : com/codewiththiru/platform/game/audio/api/AudioEvent {
+	public static final field INSTANCE Lcom/codewiththiru/platform/game/audio/api/AudioEvent$AudioUnmuted;
+}
+
+public final class com/codewiththiru/platform/game/audio/api/AudioEvent$MusicStarted : com/codewiththiru/platform/game/audio/api/AudioEvent {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lcom/codewiththiru/platform/game/audio/api/AudioEvent$MusicStarted;
+	public static synthetic fun copy$default (Lcom/codewiththiru/platform/game/audio/api/AudioEvent$MusicStarted;Ljava/lang/String;ILjava/lang/Object;)Lcom/codewiththiru/platform/game/audio/api/AudioEvent$MusicStarted;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getTrackId ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/codewiththiru/platform/game/audio/api/AudioEvent$MusicStopped : com/codewiththiru/platform/game/audio/api/AudioEvent {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lcom/codewiththiru/platform/game/audio/api/AudioEvent$MusicStopped;
+	public static synthetic fun copy$default (Lcom/codewiththiru/platform/game/audio/api/AudioEvent$MusicStopped;Ljava/lang/String;ILjava/lang/Object;)Lcom/codewiththiru/platform/game/audio/api/AudioEvent$MusicStopped;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getTrackId ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/codewiththiru/platform/game/audio/api/AudioEvent$SoundPlayed : com/codewiththiru/platform/game/audio/api/AudioEvent {
+	public fun <init> (Ljava/lang/String;Lcom/codewiththiru/platform/game/audio/api/SoundEffectType;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Lcom/codewiththiru/platform/game/audio/api/SoundEffectType;
+	public final fun copy (Ljava/lang/String;Lcom/codewiththiru/platform/game/audio/api/SoundEffectType;)Lcom/codewiththiru/platform/game/audio/api/AudioEvent$SoundPlayed;
+	public static synthetic fun copy$default (Lcom/codewiththiru/platform/game/audio/api/AudioEvent$SoundPlayed;Ljava/lang/String;Lcom/codewiththiru/platform/game/audio/api/SoundEffectType;ILjava/lang/Object;)Lcom/codewiththiru/platform/game/audio/api/AudioEvent$SoundPlayed;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getSoundId ()Ljava/lang/String;
+	public final fun getType ()Lcom/codewiththiru/platform/game/audio/api/SoundEffectType;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/codewiththiru/platform/game/audio/api/AudioEvent$VolumeChanged : com/codewiththiru/platform/game/audio/api/AudioEvent {
+	public fun <init> (Lcom/codewiththiru/platform/game/audio/api/AudioCategory;F)V
+	public final fun component1 ()Lcom/codewiththiru/platform/game/audio/api/AudioCategory;
+	public final fun component2 ()F
+	public final fun copy (Lcom/codewiththiru/platform/game/audio/api/AudioCategory;F)Lcom/codewiththiru/platform/game/audio/api/AudioEvent$VolumeChanged;
+	public static synthetic fun copy$default (Lcom/codewiththiru/platform/game/audio/api/AudioEvent$VolumeChanged;Lcom/codewiththiru/platform/game/audio/api/AudioCategory;FILjava/lang/Object;)Lcom/codewiththiru/platform/game/audio/api/AudioEvent$VolumeChanged;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCategory ()Lcom/codewiththiru/platform/game/audio/api/AudioCategory;
+	public final fun getVolume ()F
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/codewiththiru/platform/game/audio/api/AudioRequest {
+	public fun <init> (Ljava/lang/String;Lcom/codewiththiru/platform/game/audio/api/AudioCategory;ZLjava/lang/Float;JJI)V
+	public synthetic fun <init> (Ljava/lang/String;Lcom/codewiththiru/platform/game/audio/api/AudioCategory;ZLjava/lang/Float;JJIILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Lcom/codewiththiru/platform/game/audio/api/AudioCategory;
+	public final fun component3 ()Z
+	public final fun component4 ()Ljava/lang/Float;
+	public final fun component5 ()J
+	public final fun component6 ()J
+	public final fun component7 ()I
+	public final fun copy (Ljava/lang/String;Lcom/codewiththiru/platform/game/audio/api/AudioCategory;ZLjava/lang/Float;JJI)Lcom/codewiththiru/platform/game/audio/api/AudioRequest;
+	public static synthetic fun copy$default (Lcom/codewiththiru/platform/game/audio/api/AudioRequest;Ljava/lang/String;Lcom/codewiththiru/platform/game/audio/api/AudioCategory;ZLjava/lang/Float;JJIILjava/lang/Object;)Lcom/codewiththiru/platform/game/audio/api/AudioRequest;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCategory ()Lcom/codewiththiru/platform/game/audio/api/AudioCategory;
+	public final fun getFadeInMs ()J
+	public final fun getFadeOutMs ()J
+	public final fun getId ()Ljava/lang/String;
+	public final fun getLoop ()Z
+	public final fun getPriority ()I
+	public final fun getVolumeOverride ()Ljava/lang/Float;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/codewiththiru/platform/game/audio/api/AudioResponse : java/lang/Enum {
+	public static final field ERROR Lcom/codewiththiru/platform/game/audio/api/AudioResponse;
+	public static final field IGNORED_MUTED Lcom/codewiththiru/platform/game/audio/api/AudioResponse;
+	public static final field IGNORED_POLICY Lcom/codewiththiru/platform/game/audio/api/AudioResponse;
+	public static final field PLAYING Lcom/codewiththiru/platform/game/audio/api/AudioResponse;
+	public static final field QUEUED Lcom/codewiththiru/platform/game/audio/api/AudioResponse;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/codewiththiru/platform/game/audio/api/AudioResponse;
+	public static fun values ()[Lcom/codewiththiru/platform/game/audio/api/AudioResponse;
+}
+
+public final class com/codewiththiru/platform/game/audio/api/SoundEffectType : java/lang/Enum {
+	public static final field ACHIEVEMENT Lcom/codewiththiru/platform/game/audio/api/SoundEffectType;
+	public static final field CLICK Lcom/codewiththiru/platform/game/audio/api/SoundEffectType;
+	public static final field COUNTDOWN Lcom/codewiththiru/platform/game/audio/api/SoundEffectType;
+	public static final field CUSTOM Lcom/codewiththiru/platform/game/audio/api/SoundEffectType;
+	public static final field ERROR Lcom/codewiththiru/platform/game/audio/api/SoundEffectType;
+	public static final field FAILURE Lcom/codewiththiru/platform/game/audio/api/SoundEffectType;
+	public static final field MOVE Lcom/codewiththiru/platform/game/audio/api/SoundEffectType;
+	public static final field NOTIFICATION Lcom/codewiththiru/platform/game/audio/api/SoundEffectType;
+	public static final field POPUP Lcom/codewiththiru/platform/game/audio/api/SoundEffectType;
+	public static final field REWARD Lcom/codewiththiru/platform/game/audio/api/SoundEffectType;
+	public static final field SELECTION Lcom/codewiththiru/platform/game/audio/api/SoundEffectType;
+	public static final field SUCCESS Lcom/codewiththiru/platform/game/audio/api/SoundEffectType;
+	public static final field TIMER Lcom/codewiththiru/platform/game/audio/api/SoundEffectType;
+	public static final field WARNING Lcom/codewiththiru/platform/game/audio/api/SoundEffectType;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/codewiththiru/platform/game/audio/api/SoundEffectType;
+	public static fun values ()[Lcom/codewiththiru/platform/game/audio/api/SoundEffectType;
+}
+
+public abstract interface class com/codewiththiru/platform/game/audio/cache/AudioCache {
+	public abstract fun clearAll ()V
+	public abstract fun evict (Ljava/lang/String;)V
+	public abstract fun isCached (Ljava/lang/String;)Z
+	public abstract fun preload (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public abstract interface class com/codewiththiru/platform/game/audio/engine/AudioPlayer {
+	public abstract fun isPlaying ()Z
+	public abstract fun pause (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun play (Lcom/codewiththiru/platform/game/audio/api/AudioRequest;FLkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun resume (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun seekTo (JLkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun setVolume (F)V
+	public abstract fun stop (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public abstract interface class com/codewiththiru/platform/game/audio/manager/AudioManager {
+	public abstract fun getConfiguration ()Lkotlinx/coroutines/flow/StateFlow;
+	public abstract fun setMasterVolume (F)V
+	public abstract fun setMuted (Z)V
+}
+
+public abstract interface class com/codewiththiru/platform/game/audio/manager/MusicManager {
+	public abstract fun pauseMusic (JLkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun pauseMusic$default (Lcom/codewiththiru/platform/game/audio/manager/MusicManager;JLkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public abstract fun playMusic (Ljava/lang/String;ZJLkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun playMusic$default (Lcom/codewiththiru/platform/game/audio/manager/MusicManager;Ljava/lang/String;ZJLkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public abstract fun resumeMusic (JLkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun resumeMusic$default (Lcom/codewiththiru/platform/game/audio/manager/MusicManager;JLkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public abstract fun setMusicVolume (F)V
+	public abstract fun stopMusic (JLkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun stopMusic$default (Lcom/codewiththiru/platform/game/audio/manager/MusicManager;JLkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+}
+
+public final class com/codewiththiru/platform/game/audio/manager/MusicManager$DefaultImpls {
+	public static synthetic fun pauseMusic$default (Lcom/codewiththiru/platform/game/audio/manager/MusicManager;JLkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public static synthetic fun playMusic$default (Lcom/codewiththiru/platform/game/audio/manager/MusicManager;Ljava/lang/String;ZJLkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public static synthetic fun resumeMusic$default (Lcom/codewiththiru/platform/game/audio/manager/MusicManager;JLkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public static synthetic fun stopMusic$default (Lcom/codewiththiru/platform/game/audio/manager/MusicManager;JLkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+}
+
+public abstract interface class com/codewiththiru/platform/game/audio/manager/SoundEffectManager {
+	public abstract fun playEffect (Lcom/codewiththiru/platform/game/audio/api/SoundEffectType;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun preloadEffect (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun setEffectsVolume (F)V
+}
+
+public abstract interface class com/codewiththiru/platform/game/audio/policy/AudioPolicy {
+	public abstract fun getMaxConcurrentSounds (Lcom/codewiththiru/platform/game/audio/api/AudioCategory;)I
+	public abstract fun isCategoryMutedByPolicy (Lcom/codewiththiru/platform/game/audio/api/AudioCategory;)Z
+}
+
+public final class com/codewiththiru/platform/game/audio/profile/AudioConfiguration {
+	public static final field Companion Lcom/codewiththiru/platform/game/audio/profile/AudioConfiguration$Companion;
+	public fun <init> ()V
+	public fun <init> (FFFFZZ)V
+	public synthetic fun <init> (FFFFZZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()F
+	public final fun component2 ()F
+	public final fun component3 ()F
+	public final fun component4 ()F
+	public final fun component5 ()Z
+	public final fun component6 ()Z
+	public final fun computeFinalVolume (F)F
+	public final fun copy (FFFFZZ)Lcom/codewiththiru/platform/game/audio/profile/AudioConfiguration;
+	public static synthetic fun copy$default (Lcom/codewiththiru/platform/game/audio/profile/AudioConfiguration;FFFFZZILjava/lang/Object;)Lcom/codewiththiru/platform/game/audio/profile/AudioConfiguration;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getEffectsVolume ()F
+	public final fun getMasterVolume ()F
+	public final fun getMusicVolume ()F
+	public final fun getVoiceVolume ()F
+	public fun hashCode ()I
+	public final fun isMuted ()Z
+	public final fun isReducedAudioMode ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class com/codewiththiru/platform/game/audio/profile/AudioConfiguration$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lcom/codewiththiru/platform/game/audio/profile/AudioConfiguration$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcom/codewiththiru/platform/game/audio/profile/AudioConfiguration;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/codewiththiru/platform/game/audio/profile/AudioConfiguration;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/codewiththiru/platform/game/audio/profile/AudioConfiguration$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/codewiththiru/platform/game/audio/profile/AudioProfile {
+	public static final field Companion Lcom/codewiththiru/platform/game/audio/profile/AudioProfile$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lcom/codewiththiru/platform/game/audio/profile/AudioConfiguration;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Lcom/codewiththiru/platform/game/audio/profile/AudioConfiguration;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Lcom/codewiththiru/platform/game/audio/profile/AudioConfiguration;)Lcom/codewiththiru/platform/game/audio/profile/AudioProfile;
+	public static synthetic fun copy$default (Lcom/codewiththiru/platform/game/audio/profile/AudioProfile;Ljava/lang/String;Ljava/lang/String;Lcom/codewiththiru/platform/game/audio/profile/AudioConfiguration;ILjava/lang/Object;)Lcom/codewiththiru/platform/game/audio/profile/AudioProfile;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getConfiguration ()Lcom/codewiththiru/platform/game/audio/profile/AudioConfiguration;
+	public final fun getId ()Ljava/lang/String;
+	public final fun getName ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class com/codewiththiru/platform/game/audio/profile/AudioProfile$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lcom/codewiththiru/platform/game/audio/profile/AudioProfile$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcom/codewiththiru/platform/game/audio/profile/AudioProfile;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/codewiththiru/platform/game/audio/profile/AudioProfile;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/codewiththiru/platform/game/audio/profile/AudioProfile$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract interface class com/codewiththiru/platform/game/audio/queue/AudioQueue {
+	public abstract fun clear ()V
+	public abstract fun dequeue ()Lcom/codewiththiru/platform/game/audio/api/AudioRequest;
+	public abstract fun enqueue (Lcom/codewiththiru/platform/game/audio/api/AudioRequest;)V
+	public abstract fun isEmpty ()Z
+	public abstract fun peek ()Lcom/codewiththiru/platform/game/audio/api/AudioRequest;
+}
+
+public abstract interface class com/codewiththiru/platform/game/audio/session/AudioFocusManager {
+	public abstract fun abandonFocus (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun requestFocus (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public abstract interface class com/codewiththiru/platform/game/audio/session/AudioSession {
+	public abstract fun onBackground (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun onForeground (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/codewiththiru/platform/game/audio/testing/FakeAudioPlayer : com/codewiththiru/platform/game/audio/engine/AudioPlayer {
+	public fun <init> ()V
+	public final fun getCurrentRequest ()Lcom/codewiththiru/platform/game/audio/api/AudioRequest;
+	public final fun getCurrentVolume ()F
+	public final fun getPlaying ()Z
+	public fun isPlaying ()Z
+	public fun pause (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun play (Lcom/codewiththiru/platform/game/audio/api/AudioRequest;FLkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun resume (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun seekTo (JLkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun setCurrentRequest (Lcom/codewiththiru/platform/game/audio/api/AudioRequest;)V
+	public final fun setCurrentVolume (F)V
+	public final fun setPlaying (Z)V
+	public fun setVolume (F)V
+	public fun stop (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+

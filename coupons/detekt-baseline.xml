@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<SmellBaseline>
+  <ManuallySuppressedIssues/>
+  <CurrentIssues>
+    <ID>CyclomaticComplexMethod:CouponEntryScreen.kt$@Composable fun CouponEntryScreen( viewModel: CouponViewModel, onNavigateBack: () -> Unit, onLaunchReward: (CouponReward) -> Unit, modifier: Modifier = Modifier )</ID>
+    <ID>EmptyFunctionBlock:CouponViewModelTest.kt$CouponViewModelTest.&lt;no name provided>${}</ID>
+    <ID>EmptyFunctionBlock:DefaultRedemptionPolicyEvaluatorTest.kt$DefaultRedemptionPolicyEvaluatorTest.&lt;no name provided>${}</ID>
+    <ID>ForbiddenComment:EncryptedCouponStorageProvider.kt$EncryptedCouponStorageProvider$// TODO: Implement clear</ID>
+    <ID>ForbiddenComment:EncryptedCouponStorageProvider.kt$EncryptedCouponStorageProvider$// TODO: Implement encrypted read</ID>
+    <ID>ForbiddenComment:EncryptedCouponStorageProvider.kt$EncryptedCouponStorageProvider$// TODO: Implement encrypted storage using EncryptedSharedPreferences or DataStore</ID>
+    <ID>FunctionNaming:CouponEntryScreen.kt$@Composable fun CouponEntryScreen( viewModel: CouponViewModel, onNavigateBack: () -> Unit, onLaunchReward: (CouponReward) -> Unit, modifier: Modifier = Modifier )</ID>
+    <ID>FunctionNaming:CouponErrorDialog.kt$@Composable fun CouponErrorDialog( reason: String, onDismiss: () -> Unit )</ID>
+    <ID>FunctionNaming:CouponInputField.kt$@Composable fun CouponInputField( code: String, onCodeChange: (String) -> Unit, onSubmit: () -> Unit, isLoading: Boolean, modifier: Modifier = Modifier )</ID>
+    <ID>FunctionNaming:CouponSuccessDialog.kt$@Composable fun CouponSuccessDialog( reward: CouponReward, onDismiss: () -> Unit )</ID>
+    <ID>LongMethod:CouponEntryScreen.kt$@Composable fun CouponEntryScreen( viewModel: CouponViewModel, onNavigateBack: () -> Unit, onLaunchReward: (CouponReward) -> Unit, modifier: Modifier = Modifier )</ID>
+    <ID>MagicNumber:FormatValidationRule.kt$FormatValidationRule$20</ID>
+    <ID>MagicNumber:FormatValidationRule.kt$FormatValidationRule$5</ID>
+    <ID>MaxLineLength:DefaultRedemptionPolicyEvaluatorTest.kt$DefaultRedemptionPolicyEvaluatorTest$val policy = CouponRedemptionPolicy(allowMultipleRedemptions = false, allowOfflineRedemption = true, maxRedemptionsPerUser = 1)</ID>
+    <ID>MaxLineLength:DefaultRedemptionPolicyEvaluatorTest.kt$DefaultRedemptionPolicyEvaluatorTest$val policy = CouponRedemptionPolicy(allowMultipleRedemptions = true, allowOfflineRedemption = true, maxRedemptionsPerUser = 2)</ID>
+    <ID>MaxLineLength:DefaultRewardProcessor.kt$DefaultRewardProcessor$CouponResult.Failure(com.codewiththiru.platform.coupons.domain.model.CouponErrorCode.Unknown, e.message ?: "Failed to process reward")</ID>
+    <ID>ReturnCount:CampaignValidationRule.kt$CampaignValidationRule$override suspend fun validate(model: CouponModel): CouponErrorCode?</ID>
+    <ID>ReturnCount:DefaultRedemptionPolicyEvaluator.kt$DefaultRedemptionPolicyEvaluator$override suspend fun evaluate(model: CouponModel, policy: CouponRedemptionPolicy): CouponErrorCode?</ID>
+    <ID>TooGenericExceptionCaught:DefaultRewardProcessor.kt$DefaultRewardProcessor$e: Exception</ID>
+  </CurrentIssues>
+</SmellBaseline>

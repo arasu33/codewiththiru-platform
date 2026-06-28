@@ -1,0 +1,264 @@
+public abstract class com/codewiththiru/platform/game/haptics/api/HapticEvent {
+}
+
+public final class com/codewiththiru/platform/game/haptics/api/HapticEvent$CapabilityDetected : com/codewiththiru/platform/game/haptics/api/HapticEvent {
+	public fun <init> (Ljava/util/Map;)V
+	public final fun component1 ()Ljava/util/Map;
+	public final fun copy (Ljava/util/Map;)Lcom/codewiththiru/platform/game/haptics/api/HapticEvent$CapabilityDetected;
+	public static synthetic fun copy$default (Lcom/codewiththiru/platform/game/haptics/api/HapticEvent$CapabilityDetected;Ljava/util/Map;ILjava/lang/Object;)Lcom/codewiththiru/platform/game/haptics/api/HapticEvent$CapabilityDetected;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCapabilities ()Ljava/util/Map;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/codewiththiru/platform/game/haptics/api/HapticEvent$HapticPlayed : com/codewiththiru/platform/game/haptics/api/HapticEvent {
+	public fun <init> (Lcom/codewiththiru/platform/game/haptics/api/HapticPatternType;)V
+	public final fun component1 ()Lcom/codewiththiru/platform/game/haptics/api/HapticPatternType;
+	public final fun copy (Lcom/codewiththiru/platform/game/haptics/api/HapticPatternType;)Lcom/codewiththiru/platform/game/haptics/api/HapticEvent$HapticPlayed;
+	public static synthetic fun copy$default (Lcom/codewiththiru/platform/game/haptics/api/HapticEvent$HapticPlayed;Lcom/codewiththiru/platform/game/haptics/api/HapticPatternType;ILjava/lang/Object;)Lcom/codewiththiru/platform/game/haptics/api/HapticEvent$HapticPlayed;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getType ()Lcom/codewiththiru/platform/game/haptics/api/HapticPatternType;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/codewiththiru/platform/game/haptics/api/HapticEvent$HapticSuppressed : com/codewiththiru/platform/game/haptics/api/HapticEvent {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lcom/codewiththiru/platform/game/haptics/api/HapticEvent$HapticSuppressed;
+	public static synthetic fun copy$default (Lcom/codewiththiru/platform/game/haptics/api/HapticEvent$HapticSuppressed;Ljava/lang/String;ILjava/lang/Object;)Lcom/codewiththiru/platform/game/haptics/api/HapticEvent$HapticSuppressed;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getReason ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/codewiththiru/platform/game/haptics/api/HapticEvent$PatternCancelled : com/codewiththiru/platform/game/haptics/api/HapticEvent {
+	public fun <init> (Lcom/codewiththiru/platform/game/haptics/api/HapticPatternType;)V
+	public final fun component1 ()Lcom/codewiththiru/platform/game/haptics/api/HapticPatternType;
+	public final fun copy (Lcom/codewiththiru/platform/game/haptics/api/HapticPatternType;)Lcom/codewiththiru/platform/game/haptics/api/HapticEvent$PatternCancelled;
+	public static synthetic fun copy$default (Lcom/codewiththiru/platform/game/haptics/api/HapticEvent$PatternCancelled;Lcom/codewiththiru/platform/game/haptics/api/HapticPatternType;ILjava/lang/Object;)Lcom/codewiththiru/platform/game/haptics/api/HapticEvent$PatternCancelled;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getType ()Lcom/codewiththiru/platform/game/haptics/api/HapticPatternType;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/codewiththiru/platform/game/haptics/api/HapticEvent$PatternQueued : com/codewiththiru/platform/game/haptics/api/HapticEvent {
+	public fun <init> (Lcom/codewiththiru/platform/game/haptics/api/HapticPatternType;)V
+	public final fun component1 ()Lcom/codewiththiru/platform/game/haptics/api/HapticPatternType;
+	public final fun copy (Lcom/codewiththiru/platform/game/haptics/api/HapticPatternType;)Lcom/codewiththiru/platform/game/haptics/api/HapticEvent$PatternQueued;
+	public static synthetic fun copy$default (Lcom/codewiththiru/platform/game/haptics/api/HapticEvent$PatternQueued;Lcom/codewiththiru/platform/game/haptics/api/HapticPatternType;ILjava/lang/Object;)Lcom/codewiththiru/platform/game/haptics/api/HapticEvent$PatternQueued;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getType ()Lcom/codewiththiru/platform/game/haptics/api/HapticPatternType;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/codewiththiru/platform/game/haptics/api/HapticEvent$ProfileChanged : com/codewiththiru/platform/game/haptics/api/HapticEvent {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lcom/codewiththiru/platform/game/haptics/api/HapticEvent$ProfileChanged;
+	public static synthetic fun copy$default (Lcom/codewiththiru/platform/game/haptics/api/HapticEvent$ProfileChanged;Ljava/lang/String;ILjava/lang/Object;)Lcom/codewiththiru/platform/game/haptics/api/HapticEvent$ProfileChanged;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getProfileId ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/codewiththiru/platform/game/haptics/api/HapticPatternType : java/lang/Enum {
+	public static final field ACHIEVEMENT Lcom/codewiththiru/platform/game/haptics/api/HapticPatternType;
+	public static final field CLICK Lcom/codewiththiru/platform/game/haptics/api/HapticPatternType;
+	public static final field COUNTDOWN Lcom/codewiththiru/platform/game/haptics/api/HapticPatternType;
+	public static final field CUSTOM Lcom/codewiththiru/platform/game/haptics/api/HapticPatternType;
+	public static final field DRAG Lcom/codewiththiru/platform/game/haptics/api/HapticPatternType;
+	public static final field DROP Lcom/codewiththiru/platform/game/haptics/api/HapticPatternType;
+	public static final field ERROR Lcom/codewiththiru/platform/game/haptics/api/HapticPatternType;
+	public static final field FAILURE Lcom/codewiththiru/platform/game/haptics/api/HapticPatternType;
+	public static final field GAME_OVER Lcom/codewiththiru/platform/game/haptics/api/HapticPatternType;
+	public static final field LEVEL_COMPLETE Lcom/codewiththiru/platform/game/haptics/api/HapticPatternType;
+	public static final field LONG_PRESS Lcom/codewiththiru/platform/game/haptics/api/HapticPatternType;
+	public static final field MOVE Lcom/codewiththiru/platform/game/haptics/api/HapticPatternType;
+	public static final field NOTIFICATION Lcom/codewiththiru/platform/game/haptics/api/HapticPatternType;
+	public static final field PREMIUM Lcom/codewiththiru/platform/game/haptics/api/HapticPatternType;
+	public static final field REWARD Lcom/codewiththiru/platform/game/haptics/api/HapticPatternType;
+	public static final field SELECTION Lcom/codewiththiru/platform/game/haptics/api/HapticPatternType;
+	public static final field SUCCESS Lcom/codewiththiru/platform/game/haptics/api/HapticPatternType;
+	public static final field TUTORIAL Lcom/codewiththiru/platform/game/haptics/api/HapticPatternType;
+	public static final field WARNING Lcom/codewiththiru/platform/game/haptics/api/HapticPatternType;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/codewiththiru/platform/game/haptics/api/HapticPatternType;
+	public static fun values ()[Lcom/codewiththiru/platform/game/haptics/api/HapticPatternType;
+}
+
+public final class com/codewiththiru/platform/game/haptics/api/HapticRequest {
+	public fun <init> (Lcom/codewiththiru/platform/game/haptics/api/HapticPatternType;FILjava/lang/String;)V
+	public synthetic fun <init> (Lcom/codewiththiru/platform/game/haptics/api/HapticPatternType;FILjava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lcom/codewiththiru/platform/game/haptics/api/HapticPatternType;
+	public final fun component2 ()F
+	public final fun component3 ()I
+	public final fun component4 ()Ljava/lang/String;
+	public final fun copy (Lcom/codewiththiru/platform/game/haptics/api/HapticPatternType;FILjava/lang/String;)Lcom/codewiththiru/platform/game/haptics/api/HapticRequest;
+	public static synthetic fun copy$default (Lcom/codewiththiru/platform/game/haptics/api/HapticRequest;Lcom/codewiththiru/platform/game/haptics/api/HapticPatternType;FILjava/lang/String;ILjava/lang/Object;)Lcom/codewiththiru/platform/game/haptics/api/HapticRequest;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCustomPatternId ()Ljava/lang/String;
+	public final fun getIntensityScale ()F
+	public final fun getPriority ()I
+	public final fun getType ()Lcom/codewiththiru/platform/game/haptics/api/HapticPatternType;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/codewiththiru/platform/game/haptics/api/HapticResponse : java/lang/Enum {
+	public static final field ERROR Lcom/codewiththiru/platform/game/haptics/api/HapticResponse;
+	public static final field IGNORED_CAPABILITY Lcom/codewiththiru/platform/game/haptics/api/HapticResponse;
+	public static final field IGNORED_POLICY Lcom/codewiththiru/platform/game/haptics/api/HapticResponse;
+	public static final field PLAYED Lcom/codewiththiru/platform/game/haptics/api/HapticResponse;
+	public static final field QUEUED Lcom/codewiththiru/platform/game/haptics/api/HapticResponse;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/codewiththiru/platform/game/haptics/api/HapticResponse;
+	public static fun values ()[Lcom/codewiththiru/platform/game/haptics/api/HapticResponse;
+}
+
+public abstract interface class com/codewiththiru/platform/game/haptics/capabilities/HapticCapabilities {
+	public abstract fun hasAmplitudeControl ()Z
+	public abstract fun hasPrimitiveSupport ()Z
+	public abstract fun hasVibrator ()Z
+}
+
+public abstract interface class com/codewiththiru/platform/game/haptics/engine/HapticEngine {
+	public abstract fun cancelAll (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun processRequest (Lcom/codewiththiru/platform/game/haptics/api/HapticRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public abstract interface class com/codewiththiru/platform/game/haptics/manager/HapticManager {
+	public abstract fun cancel (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getConfiguration ()Lkotlinx/coroutines/flow/StateFlow;
+	public abstract fun performCustomPattern (Lcom/codewiththiru/platform/game/haptics/patterns/HapticPattern;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun performHapticFeedback (Lcom/codewiththiru/platform/game/haptics/api/HapticPatternType;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun setHapticsEnabled (Z)V
+	public abstract fun setIntensityScale (F)V
+}
+
+public final class com/codewiththiru/platform/game/haptics/patterns/HapticPattern {
+	public fun <init> ([J[II)V
+	public synthetic fun <init> ([J[IIILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()[J
+	public final fun component2 ()[I
+	public final fun component3 ()I
+	public final fun copy ([J[II)Lcom/codewiththiru/platform/game/haptics/patterns/HapticPattern;
+	public static synthetic fun copy$default (Lcom/codewiththiru/platform/game/haptics/patterns/HapticPattern;[J[IIILjava/lang/Object;)Lcom/codewiththiru/platform/game/haptics/patterns/HapticPattern;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAmplitudes ()[I
+	public final fun getRepeatIndex ()I
+	public final fun getTimings ()[J
+	public fun hashCode ()I
+	public final fun scale (F)Lcom/codewiththiru/platform/game/haptics/patterns/HapticPattern;
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/codewiththiru/platform/game/haptics/policy/HapticPolicy {
+	public abstract fun isSuppressed (Lcom/codewiththiru/platform/game/haptics/api/HapticPatternType;)Z
+}
+
+public final class com/codewiththiru/platform/game/haptics/profile/HapticConfiguration {
+	public static final field Companion Lcom/codewiththiru/platform/game/haptics/profile/HapticConfiguration$Companion;
+	public fun <init> ()V
+	public fun <init> (ZFZ)V
+	public synthetic fun <init> (ZFZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Z
+	public final fun component2 ()F
+	public final fun component3 ()Z
+	public final fun copy (ZFZ)Lcom/codewiththiru/platform/game/haptics/profile/HapticConfiguration;
+	public static synthetic fun copy$default (Lcom/codewiththiru/platform/game/haptics/profile/HapticConfiguration;ZFZILjava/lang/Object;)Lcom/codewiththiru/platform/game/haptics/profile/HapticConfiguration;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getIntensityScale ()F
+	public fun hashCode ()I
+	public final fun isAccessibilityAware ()Z
+	public final fun isEnabled ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class com/codewiththiru/platform/game/haptics/profile/HapticConfiguration$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lcom/codewiththiru/platform/game/haptics/profile/HapticConfiguration$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcom/codewiththiru/platform/game/haptics/profile/HapticConfiguration;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/codewiththiru/platform/game/haptics/profile/HapticConfiguration;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/codewiththiru/platform/game/haptics/profile/HapticConfiguration$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/codewiththiru/platform/game/haptics/profile/HapticProfile {
+	public static final field Companion Lcom/codewiththiru/platform/game/haptics/profile/HapticProfile$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lcom/codewiththiru/platform/game/haptics/profile/HapticConfiguration;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Lcom/codewiththiru/platform/game/haptics/profile/HapticConfiguration;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Lcom/codewiththiru/platform/game/haptics/profile/HapticConfiguration;)Lcom/codewiththiru/platform/game/haptics/profile/HapticProfile;
+	public static synthetic fun copy$default (Lcom/codewiththiru/platform/game/haptics/profile/HapticProfile;Ljava/lang/String;Ljava/lang/String;Lcom/codewiththiru/platform/game/haptics/profile/HapticConfiguration;ILjava/lang/Object;)Lcom/codewiththiru/platform/game/haptics/profile/HapticProfile;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getConfiguration ()Lcom/codewiththiru/platform/game/haptics/profile/HapticConfiguration;
+	public final fun getId ()Ljava/lang/String;
+	public final fun getName ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class com/codewiththiru/platform/game/haptics/profile/HapticProfile$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lcom/codewiththiru/platform/game/haptics/profile/HapticProfile$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcom/codewiththiru/platform/game/haptics/profile/HapticProfile;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/codewiththiru/platform/game/haptics/profile/HapticProfile;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/codewiththiru/platform/game/haptics/profile/HapticProfile$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract interface class com/codewiththiru/platform/game/haptics/provider/HapticProvider {
+	public abstract fun cancel (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getCapabilities ()Lcom/codewiththiru/platform/game/haptics/capabilities/HapticCapabilities;
+	public abstract fun vibrate (Lcom/codewiththiru/platform/game/haptics/patterns/HapticPattern;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public abstract interface class com/codewiththiru/platform/game/haptics/session/HapticSession {
+	public abstract fun flush ()V
+	public abstract fun pause (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun resume (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun start (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun stop (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/codewiththiru/platform/game/haptics/testing/FakeHapticCapabilities : com/codewiththiru/platform/game/haptics/capabilities/HapticCapabilities {
+	public fun <init> ()V
+	public fun <init> (ZZZ)V
+	public synthetic fun <init> (ZZZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun hasAmplitudeControl ()Z
+	public fun hasPrimitiveSupport ()Z
+	public fun hasVibrator ()Z
+}
+
+public final class com/codewiththiru/platform/game/haptics/testing/FakeHapticProvider : com/codewiththiru/platform/game/haptics/provider/HapticProvider {
+	public fun <init> ()V
+	public fun <init> (Lcom/codewiththiru/platform/game/haptics/capabilities/HapticCapabilities;)V
+	public synthetic fun <init> (Lcom/codewiththiru/platform/game/haptics/capabilities/HapticCapabilities;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun cancel (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getCapabilities ()Lcom/codewiththiru/platform/game/haptics/capabilities/HapticCapabilities;
+	public final fun getLastPlayedPattern ()Lcom/codewiththiru/platform/game/haptics/patterns/HapticPattern;
+	public final fun isCancelled ()Z
+	public final fun setCancelled (Z)V
+	public final fun setLastPlayedPattern (Lcom/codewiththiru/platform/game/haptics/patterns/HapticPattern;)V
+	public fun vibrate (Lcom/codewiththiru/platform/game/haptics/patterns/HapticPattern;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+

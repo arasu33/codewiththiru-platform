@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<SmellBaseline>
+  <ManuallySuppressedIssues/>
+  <CurrentIssues>
+    <ID>MagicNumber:RemoteConfigKey.kt$RemoteConfigKey.InterstitialFrequency$300L</ID>
+    <ID>TooManyFunctions:RemoteConfigManager.kt$RemoteConfigManager</ID>
+  </CurrentIssues>
+</SmellBaseline>

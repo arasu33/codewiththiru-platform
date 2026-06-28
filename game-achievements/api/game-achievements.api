@@ -1,0 +1,266 @@
+public final class com/codewiththiru/platform/game/achievement/api/AchievementCategory {
+	public static final field Companion Lcom/codewiththiru/platform/game/achievement/api/AchievementCategory$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/codewiththiru/platform/game/achievement/api/AchievementCategory;
+	public static synthetic fun copy$default (Lcom/codewiththiru/platform/game/achievement/api/AchievementCategory;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/codewiththiru/platform/game/achievement/api/AchievementCategory;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDescription ()Ljava/lang/String;
+	public final fun getId ()Ljava/lang/String;
+	public final fun getName ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class com/codewiththiru/platform/game/achievement/api/AchievementCategory$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lcom/codewiththiru/platform/game/achievement/api/AchievementCategory$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcom/codewiththiru/platform/game/achievement/api/AchievementCategory;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/codewiththiru/platform/game/achievement/api/AchievementCategory;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/codewiththiru/platform/game/achievement/api/AchievementCategory$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/codewiththiru/platform/game/achievement/api/AchievementDefinition {
+	public static final field Companion Lcom/codewiththiru/platform/game/achievement/api/AchievementDefinition$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/codewiththiru/platform/game/achievement/api/AchievementType;DZ)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/codewiththiru/platform/game/achievement/api/AchievementType;DZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()Lcom/codewiththiru/platform/game/achievement/api/AchievementType;
+	public final fun component6 ()D
+	public final fun component7 ()Z
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/codewiththiru/platform/game/achievement/api/AchievementType;DZ)Lcom/codewiththiru/platform/game/achievement/api/AchievementDefinition;
+	public static synthetic fun copy$default (Lcom/codewiththiru/platform/game/achievement/api/AchievementDefinition;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/codewiththiru/platform/game/achievement/api/AchievementType;DZILjava/lang/Object;)Lcom/codewiththiru/platform/game/achievement/api/AchievementDefinition;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCategoryId ()Ljava/lang/String;
+	public final fun getDescription ()Ljava/lang/String;
+	public final fun getId ()Ljava/lang/String;
+	public final fun getMaxProgress ()D
+	public final fun getName ()Ljava/lang/String;
+	public final fun getType ()Lcom/codewiththiru/platform/game/achievement/api/AchievementType;
+	public fun hashCode ()I
+	public final fun isPremium ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class com/codewiththiru/platform/game/achievement/api/AchievementDefinition$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lcom/codewiththiru/platform/game/achievement/api/AchievementDefinition$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcom/codewiththiru/platform/game/achievement/api/AchievementDefinition;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/codewiththiru/platform/game/achievement/api/AchievementDefinition;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/codewiththiru/platform/game/achievement/api/AchievementDefinition$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/codewiththiru/platform/game/achievement/api/AchievementProgress {
+	public static final field Companion Lcom/codewiththiru/platform/game/achievement/api/AchievementProgress$Companion;
+	public fun <init> (Ljava/lang/String;DLcom/codewiththiru/platform/game/achievement/api/AchievementStatus;Ljava/lang/Long;)V
+	public synthetic fun <init> (Ljava/lang/String;DLcom/codewiththiru/platform/game/achievement/api/AchievementStatus;Ljava/lang/Long;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()D
+	public final fun component3 ()Lcom/codewiththiru/platform/game/achievement/api/AchievementStatus;
+	public final fun component4 ()Ljava/lang/Long;
+	public final fun copy (Ljava/lang/String;DLcom/codewiththiru/platform/game/achievement/api/AchievementStatus;Ljava/lang/Long;)Lcom/codewiththiru/platform/game/achievement/api/AchievementProgress;
+	public static synthetic fun copy$default (Lcom/codewiththiru/platform/game/achievement/api/AchievementProgress;Ljava/lang/String;DLcom/codewiththiru/platform/game/achievement/api/AchievementStatus;Ljava/lang/Long;ILjava/lang/Object;)Lcom/codewiththiru/platform/game/achievement/api/AchievementProgress;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAchievementId ()Ljava/lang/String;
+	public final fun getCurrentProgress ()D
+	public final fun getStatus ()Lcom/codewiththiru/platform/game/achievement/api/AchievementStatus;
+	public final fun getUnlockTimeMs ()Ljava/lang/Long;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class com/codewiththiru/platform/game/achievement/api/AchievementProgress$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lcom/codewiththiru/platform/game/achievement/api/AchievementProgress$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcom/codewiththiru/platform/game/achievement/api/AchievementProgress;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/codewiththiru/platform/game/achievement/api/AchievementProgress;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/codewiththiru/platform/game/achievement/api/AchievementProgress$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/codewiththiru/platform/game/achievement/api/AchievementStatus : java/lang/Enum {
+	public static final field CLAIMED Lcom/codewiththiru/platform/game/achievement/api/AchievementStatus;
+	public static final field IN_PROGRESS Lcom/codewiththiru/platform/game/achievement/api/AchievementStatus;
+	public static final field LOCKED Lcom/codewiththiru/platform/game/achievement/api/AchievementStatus;
+	public static final field UNLOCKED Lcom/codewiththiru/platform/game/achievement/api/AchievementStatus;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/codewiththiru/platform/game/achievement/api/AchievementStatus;
+	public static fun values ()[Lcom/codewiththiru/platform/game/achievement/api/AchievementStatus;
+}
+
+public final class com/codewiththiru/platform/game/achievement/api/AchievementType : java/lang/Enum {
+	public static final field COLLECTION Lcom/codewiththiru/platform/game/achievement/api/AchievementType;
+	public static final field EVENT_BASED Lcom/codewiththiru/platform/game/achievement/api/AchievementType;
+	public static final field HIDDEN Lcom/codewiththiru/platform/game/achievement/api/AchievementType;
+	public static final field MILESTONE Lcom/codewiththiru/platform/game/achievement/api/AchievementType;
+	public static final field PROGRESSIVE Lcom/codewiththiru/platform/game/achievement/api/AchievementType;
+	public static final field SECRET Lcom/codewiththiru/platform/game/achievement/api/AchievementType;
+	public static final field STANDARD Lcom/codewiththiru/platform/game/achievement/api/AchievementType;
+	public static final field TIME_BASED Lcom/codewiththiru/platform/game/achievement/api/AchievementType;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/codewiththiru/platform/game/achievement/api/AchievementType;
+	public static fun values ()[Lcom/codewiththiru/platform/game/achievement/api/AchievementType;
+}
+
+public abstract interface class com/codewiththiru/platform/game/achievement/conditions/AchievementCondition {
+	public abstract fun evaluate (Lcom/codewiththiru/platform/game/statistics/api/StatisticsProfile;)Lkotlin/Pair;
+}
+
+public final class com/codewiththiru/platform/game/achievement/conditions/CompositeCondition : com/codewiththiru/platform/game/achievement/conditions/AchievementCondition {
+	public fun <init> (Ljava/util/List;Z)V
+	public synthetic fun <init> (Ljava/util/List;ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/util/List;
+	public final fun component2 ()Z
+	public final fun copy (Ljava/util/List;Z)Lcom/codewiththiru/platform/game/achievement/conditions/CompositeCondition;
+	public static synthetic fun copy$default (Lcom/codewiththiru/platform/game/achievement/conditions/CompositeCondition;Ljava/util/List;ZILjava/lang/Object;)Lcom/codewiththiru/platform/game/achievement/conditions/CompositeCondition;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun evaluate (Lcom/codewiththiru/platform/game/statistics/api/StatisticsProfile;)Lkotlin/Pair;
+	public final fun getConditions ()Ljava/util/List;
+	public final fun getRequireAll ()Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/codewiththiru/platform/game/achievement/conditions/StatisticCondition : com/codewiththiru/platform/game/achievement/conditions/AchievementCondition {
+	public fun <init> (Lcom/codewiththiru/platform/game/statistics/api/StatisticsMetric;DZ)V
+	public synthetic fun <init> (Lcom/codewiththiru/platform/game/statistics/api/StatisticsMetric;DZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lcom/codewiththiru/platform/game/statistics/api/StatisticsMetric;
+	public final fun component2 ()D
+	public final fun component3 ()Z
+	public final fun copy (Lcom/codewiththiru/platform/game/statistics/api/StatisticsMetric;DZ)Lcom/codewiththiru/platform/game/achievement/conditions/StatisticCondition;
+	public static synthetic fun copy$default (Lcom/codewiththiru/platform/game/achievement/conditions/StatisticCondition;Lcom/codewiththiru/platform/game/statistics/api/StatisticsMetric;DZILjava/lang/Object;)Lcom/codewiththiru/platform/game/achievement/conditions/StatisticCondition;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun evaluate (Lcom/codewiththiru/platform/game/statistics/api/StatisticsProfile;)Lkotlin/Pair;
+	public final fun getMetric ()Lcom/codewiththiru/platform/game/statistics/api/StatisticsMetric;
+	public final fun getTargetValue ()D
+	public fun hashCode ()I
+	public final fun isGreaterThan ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/codewiththiru/platform/game/achievement/engine/AchievementEngine {
+	public abstract fun evaluateAll (Lcom/codewiththiru/platform/game/statistics/api/StatisticsProfile;Ljava/util/List;)Ljava/util/List;
+	public abstract fun registerAchievement (Ljava/lang/String;Lcom/codewiththiru/platform/game/achievement/conditions/AchievementCondition;)V
+}
+
+public abstract interface class com/codewiththiru/platform/game/achievement/manager/AchievementManager {
+	public abstract fun claimReward (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getDefinitions ()Ljava/util/List;
+	public abstract fun getProgress (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun observeAllProgress ()Lkotlinx/coroutines/flow/StateFlow;
+	public abstract fun observeProgress (Ljava/lang/String;)Lkotlinx/coroutines/flow/StateFlow;
+}
+
+public abstract interface class com/codewiththiru/platform/game/achievement/rewards/AchievementReward {
+	public abstract fun getAmount ()I
+	public abstract fun getId ()Ljava/lang/String;
+}
+
+public final class com/codewiththiru/platform/game/achievement/rewards/AchievementReward$Coins : com/codewiththiru/platform/game/achievement/rewards/AchievementReward {
+	public fun <init> (Ljava/lang/String;I)V
+	public synthetic fun <init> (Ljava/lang/String;IILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()I
+	public final fun copy (Ljava/lang/String;I)Lcom/codewiththiru/platform/game/achievement/rewards/AchievementReward$Coins;
+	public static synthetic fun copy$default (Lcom/codewiththiru/platform/game/achievement/rewards/AchievementReward$Coins;Ljava/lang/String;IILjava/lang/Object;)Lcom/codewiththiru/platform/game/achievement/rewards/AchievementReward$Coins;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getAmount ()I
+	public fun getId ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/codewiththiru/platform/game/achievement/rewards/AchievementReward$Custom : com/codewiththiru/platform/game/achievement/rewards/AchievementReward {
+	public fun <init> (Ljava/lang/String;ILjava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()I
+	public final fun component3 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;ILjava/lang/String;)Lcom/codewiththiru/platform/game/achievement/rewards/AchievementReward$Custom;
+	public static synthetic fun copy$default (Lcom/codewiththiru/platform/game/achievement/rewards/AchievementReward$Custom;Ljava/lang/String;ILjava/lang/String;ILjava/lang/Object;)Lcom/codewiththiru/platform/game/achievement/rewards/AchievementReward$Custom;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getAmount ()I
+	public fun getId ()Ljava/lang/String;
+	public final fun getMetadata ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/codewiththiru/platform/game/achievement/rewards/AchievementReward$Stars : com/codewiththiru/platform/game/achievement/rewards/AchievementReward {
+	public fun <init> (Ljava/lang/String;I)V
+	public synthetic fun <init> (Ljava/lang/String;IILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()I
+	public final fun copy (Ljava/lang/String;I)Lcom/codewiththiru/platform/game/achievement/rewards/AchievementReward$Stars;
+	public static synthetic fun copy$default (Lcom/codewiththiru/platform/game/achievement/rewards/AchievementReward$Stars;Ljava/lang/String;IILjava/lang/Object;)Lcom/codewiththiru/platform/game/achievement/rewards/AchievementReward$Stars;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getAmount ()I
+	public fun getId ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/codewiththiru/platform/game/achievement/rewards/AchievementReward$XP : com/codewiththiru/platform/game/achievement/rewards/AchievementReward {
+	public fun <init> (Ljava/lang/String;I)V
+	public synthetic fun <init> (Ljava/lang/String;IILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()I
+	public final fun copy (Ljava/lang/String;I)Lcom/codewiththiru/platform/game/achievement/rewards/AchievementReward$XP;
+	public static synthetic fun copy$default (Lcom/codewiththiru/platform/game/achievement/rewards/AchievementReward$XP;Ljava/lang/String;IILjava/lang/Object;)Lcom/codewiththiru/platform/game/achievement/rewards/AchievementReward$XP;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getAmount ()I
+	public fun getId ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/codewiththiru/platform/game/achievement/testing/FakeAchievementManager : com/codewiththiru/platform/game/achievement/manager/AchievementManager {
+	public fun <init> ()V
+	public final fun addDefinition (Lcom/codewiththiru/platform/game/achievement/api/AchievementDefinition;)V
+	public fun claimReward (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getDefinitions ()Ljava/util/List;
+	public fun getProgress (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun observeAllProgress ()Lkotlinx/coroutines/flow/StateFlow;
+	public fun observeProgress (Ljava/lang/String;)Lkotlinx/coroutines/flow/StateFlow;
+	public final fun updateProgress (Lcom/codewiththiru/platform/game/achievement/api/AchievementProgress;)V
+}
+
+public abstract interface class com/codewiththiru/platform/game/achievement/tracker/AchievementTracker {
+	public abstract fun onGameEvent (Lcom/codewiththiru/platform/game/events/GameEvent;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/codewiththiru/platform/game/achievement/unlock/UnlockStrategy : java/lang/Enum {
+	public static final field AUTOMATIC Lcom/codewiththiru/platform/game/achievement/unlock/UnlockStrategy;
+	public static final field DELAYED Lcom/codewiththiru/platform/game/achievement/unlock/UnlockStrategy;
+	public static final field MANUAL Lcom/codewiththiru/platform/game/achievement/unlock/UnlockStrategy;
+	public static final field SCHEDULED Lcom/codewiththiru/platform/game/achievement/unlock/UnlockStrategy;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/codewiththiru/platform/game/achievement/unlock/UnlockStrategy;
+	public static fun values ()[Lcom/codewiththiru/platform/game/achievement/unlock/UnlockStrategy;
+}
+

@@ -41,6 +41,7 @@ public class AnalyticsQueueMaintenance(
     /**
      * Executes maintenance. Call this on App Startup and Post-Flush.
      */
+    @Suppress("TooGenericExceptionCaught")
     public suspend fun runMaintenance() {
         try {
             // Note: DataStoreAnalyticsQueue handles size eviction on enqueue.

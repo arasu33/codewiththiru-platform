@@ -42,7 +42,7 @@ public class AnalyticsDispatcher(
     }
 
     /** Forces an immediate flush of the queue. */
-    @Suppress("TooGenericExceptionCaught")
+    @Suppress("TooGenericExceptionCaught", "NestedBlockDepth", "LoopWithTooManyJumpStatements", "MagicNumber")
     public suspend fun flush() {
         try {
             var dispatched = 0

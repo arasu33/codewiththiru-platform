@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<SmellBaseline>
+  <ManuallySuppressedIssues/>
+  <CurrentIssues>
+    <ID>EmptyFunctionBlock:MoreAppsViewModelTest.kt$MoreAppsViewModelTest.&lt;no name provided>${}</ID>
+    <ID>FunctionNaming:AppCard.kt$@Composable fun AppCard( app: MoreAppModel, imageProvider: MoreAppsImageProvider, onActionClick: (AppActionType) -> Unit, modifier: Modifier = Modifier )</ID>
+    <ID>FunctionNaming:MoreAppsImageProvider.kt$MoreAppsImageProvider$@Composable fun LoadImage(url: String, contentDescription: String?, modifier: Modifier)</ID>
+    <ID>FunctionNaming:MoreAppsScreen.kt$@Composable fun MoreAppsScreen( viewModel: MoreAppsViewModel, imageProvider: MoreAppsImageProvider, navigationProvider: MoreAppsNavigationProvider, config: MoreAppsConfig, modifier: Modifier = Modifier )</ID>
+    <ID>LongMethod:AppCard.kt$@Composable fun AppCard( app: MoreAppModel, imageProvider: MoreAppsImageProvider, onActionClick: (AppActionType) -> Unit, modifier: Modifier = Modifier )</ID>
+    <ID>MaxLineLength:MoreAppsViewModelTest.kt$MoreAppsViewModelTest$MoreAppModel(id = "1", packageName = "com.test.installed", title = "App 1", description = "Desc 1", iconUrl = "")</ID>
+    <ID>MaxLineLength:MoreAppsViewModelTest.kt$MoreAppsViewModelTest$MoreAppModel(id = "2", packageName = "com.test.notinstalled", title = "App 2", description = "Desc 2", iconUrl = "")</ID>
+    <ID>MaxLineLength:MoreAppsViewModelTest.kt$MoreAppsViewModelTest$val app = MoreAppModel(id = "1", packageName = "com.test.installed", title = "App 1", description = "Desc 1", iconUrl = "")</ID>
+    <ID>UnusedPrivateProperty:MoreAppsViewModel.kt$MoreAppsViewModel$private val config: MoreAppsConfig</ID>
+    <ID>WildcardImport:MoreAppsScreen.kt$import androidx.compose.foundation.layout.*</ID>
+  </CurrentIssues>
+</SmellBaseline>

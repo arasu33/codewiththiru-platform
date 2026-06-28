@@ -58,36 +58,38 @@ if (pluginManager.hasPlugin("com.android.library")) {
         from(javaPlugin["main"].allSource)
     }
 
-    publishing {
-        publications {
-            create<MavenPublication>("mavenJava") {
-                from(components.findByName("java"))
-                artifact(sourcesJar.get())
-                groupId = project.group.toString()
-                artifactId = project.name
-                version = project.version.toString()
+    afterEvaluate {
+        publishing {
+            publications {
+                create<MavenPublication>("mavenJava") {
+                    from(components.findByName("java"))
+                    artifact(sourcesJar.get())
+                    groupId = project.group.toString()
+                    artifactId = project.name
+                    version = project.version.toString()
 
-                pom {
-                    name.set("CodeWithThiru Platform ${project.name}")
-                    description.set("Kotlin core library component of the CodeWithThiru platform.")
-                    url.set("https://github.com/arasu33/codewiththiru-platform")
-                    licenses {
-                        license {
-                            name.set("The Apache License, Version 2.0")
-                            url.set("http://www.apache.org/licenses/LICENSE-2.0.txt")
+                    pom {
+                        name.set("CodeWithThiru Platform ${project.name}")
+                        description.set("Kotlin core library component of the CodeWithThiru platform.")
+                        url.set("https://github.com/arasu33/codewiththiru-platform")
+                        licenses {
+                            license {
+                                name.set("The Apache License, Version 2.0")
+                                url.set("http://www.apache.org/licenses/LICENSE-2.0.txt")
+                            }
                         }
-                    }
-                    developers {
-                        developer {
-                            id.set("arasu33")
-                            name.set("Thiru")
-                            email.set("info@codewiththiru.com")
+                        developers {
+                            developer {
+                                id.set("arasu33")
+                                name.set("Thiru")
+                                email.set("info@codewiththiru.com")
+                            }
                         }
-                    }
-                    scm {
-                        connection.set("scm:git:github.com/arasu33/codewiththiru-platform.git")
-                        developerConnection.set("scm:git:ssh://github.com/arasu33/codewiththiru-platform.git")
-                        url.set("https://github.com/arasu33/codewiththiru-platform/tree/main")
+                        scm {
+                            connection.set("scm:git:github.com/arasu33/codewiththiru-platform.git")
+                            developerConnection.set("scm:git:ssh://github.com/arasu33/codewiththiru-platform.git")
+                            url.set("https://github.com/arasu33/codewiththiru-platform/tree/main")
+                        }
                     }
                 }
             }

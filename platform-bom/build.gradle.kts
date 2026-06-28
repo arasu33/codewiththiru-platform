@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "com.codewiththiru.platform"
-version = "1.0.0-SNAPSHOT"
+version = "1.0.0"
 
 dependencies {
     constraints {
@@ -43,5 +43,22 @@ dependencies {
         api(project(":observability-platform"))
         api(project(":developer-platform"))
         api(project(":platform-framework"))
+        api(project(":game-common"))
+        api(project(":game-save"))
+        api(project(":game-statistics"))
+        api(project(":game-achievements"))
+        api(project(":game-rewards"))
+        api(project(":game-audio"))
+        api(project(":game-haptics"))
+        api(project(":game-challenges"))
+        api(project(":game-profile"))
+        api(project(":game-settings"))
+        api(project(":game-sync"))
+        api(project(":game-leaderboard"))
+        api(project(":game-events"))
+        api(project(":developer:test-utils"))
+        api(project(":developer:game-testing"))
+        api(project(":developer:benchmark"))
+        api(project(":developer:inspection"))
     }
 }

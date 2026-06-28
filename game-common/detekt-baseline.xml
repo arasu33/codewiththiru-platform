@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<SmellBaseline>
+  <ManuallySuppressedIssues/>
+  <CurrentIssues>
+    <ID>ReturnCount:AchievementManager.kt$DefaultAchievementManager$override fun unlock(id: String): Boolean</ID>
+    <ID>ReturnCount:AchievementManager.kt$DefaultAchievementManager$override fun updateProgress( id: String, progressDelta: Int, ): Boolean</ID>
+    <ID>ReturnCount:ChallengeEngine.kt$DefaultChallengeEngine$override fun trackProgress( challengeId: String, delta: Int, ): Boolean</ID>
+    <ID>SwallowedException:AchievementManager.kt$DefaultAchievementManager$e: Exception</ID>
+    <ID>SwallowedException:ChallengeEngine.kt$DefaultChallengeEngine$e: Exception</ID>
+    <ID>SwallowedException:GameSettingsManager.kt$DefaultGameSettingsManager$e: Exception</ID>
+    <ID>SwallowedException:RewardEngine.kt$DefaultRewardManager$e: Exception</ID>
+    <ID>SwallowedException:SaveManager.kt$DefaultSaveManager$e: Exception</ID>
+    <ID>TooGenericExceptionCaught:AchievementManager.kt$DefaultAchievementManager$e: Exception</ID>
+    <ID>TooGenericExceptionCaught:ChallengeEngine.kt$DefaultChallengeEngine$e: Exception</ID>
+    <ID>TooGenericExceptionCaught:GameSettingsManager.kt$DefaultGameSettingsManager$e: Exception</ID>
+    <ID>TooGenericExceptionCaught:RewardEngine.kt$DefaultRewardManager$e: Exception</ID>
+    <ID>TooGenericExceptionCaught:SaveManager.kt$DefaultSaveManager$e: Exception</ID>
+  </CurrentIssues>
+</SmellBaseline>

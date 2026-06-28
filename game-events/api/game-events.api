@@ -1,0 +1,184 @@
+public abstract class com/codewiththiru/platform/game/events/GameEvent : com/codewiththiru/platform/game/events/api/PlatformEvent {
+	public fun getPriority ()Lcom/codewiththiru/platform/game/events/priority/EventPriority;
+	public fun getTimestamp ()J
+}
+
+public final class com/codewiththiru/platform/game/events/GameEvent$AchievementUnlocked : com/codewiththiru/platform/game/events/GameEvent {
+	public fun <init> (Ljava/lang/String;Z)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Z
+	public final fun copy (Ljava/lang/String;Z)Lcom/codewiththiru/platform/game/events/GameEvent$AchievementUnlocked;
+	public static synthetic fun copy$default (Lcom/codewiththiru/platform/game/events/GameEvent$AchievementUnlocked;Ljava/lang/String;ZILjava/lang/Object;)Lcom/codewiththiru/platform/game/events/GameEvent$AchievementUnlocked;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAchievementId ()Ljava/lang/String;
+	public fun hashCode ()I
+	public final fun isSecret ()Z
+	public fun toAnalyticsEvent ()Lcom/codewiththiru/platform/analytics/domain/event/AnalyticsEvent;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/codewiththiru/platform/game/events/GameEvent$GameCompleted : com/codewiththiru/platform/game/events/GameEvent {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;JIJ)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()J
+	public final fun component4 ()I
+	public final fun component5 ()J
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;JIJ)Lcom/codewiththiru/platform/game/events/GameEvent$GameCompleted;
+	public static synthetic fun copy$default (Lcom/codewiththiru/platform/game/events/GameEvent$GameCompleted;Ljava/lang/String;Ljava/lang/String;JIJILjava/lang/Object;)Lcom/codewiththiru/platform/game/events/GameEvent$GameCompleted;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getGameId ()Ljava/lang/String;
+	public final fun getMoves ()I
+	public final fun getResult ()Ljava/lang/String;
+	public final fun getScore ()J
+	public final fun getTimeSpentSeconds ()J
+	public fun hashCode ()I
+	public fun toAnalyticsEvent ()Lcom/codewiththiru/platform/analytics/domain/event/AnalyticsEvent;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/codewiththiru/platform/game/events/GameEvent$GamePaused : com/codewiththiru/platform/game/events/GameEvent {
+	public fun <init> (Ljava/lang/String;J)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()J
+	public final fun copy (Ljava/lang/String;J)Lcom/codewiththiru/platform/game/events/GameEvent$GamePaused;
+	public static synthetic fun copy$default (Lcom/codewiththiru/platform/game/events/GameEvent$GamePaused;Ljava/lang/String;JILjava/lang/Object;)Lcom/codewiththiru/platform/game/events/GameEvent$GamePaused;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDurationSeconds ()J
+	public final fun getGameId ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toAnalyticsEvent ()Lcom/codewiththiru/platform/analytics/domain/event/AnalyticsEvent;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/codewiththiru/platform/game/events/GameEvent$GameResumed : com/codewiththiru/platform/game/events/GameEvent {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lcom/codewiththiru/platform/game/events/GameEvent$GameResumed;
+	public static synthetic fun copy$default (Lcom/codewiththiru/platform/game/events/GameEvent$GameResumed;Ljava/lang/String;ILjava/lang/Object;)Lcom/codewiththiru/platform/game/events/GameEvent$GameResumed;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getGameId ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toAnalyticsEvent ()Lcom/codewiththiru/platform/analytics/domain/event/AnalyticsEvent;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/codewiththiru/platform/game/events/GameEvent$GameStarted : com/codewiththiru/platform/game/events/GameEvent {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/codewiththiru/platform/game/events/GameEvent$GameStarted;
+	public static synthetic fun copy$default (Lcom/codewiththiru/platform/game/events/GameEvent$GameStarted;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/codewiththiru/platform/game/events/GameEvent$GameStarted;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDifficulty ()Ljava/lang/String;
+	public final fun getGameId ()Ljava/lang/String;
+	public final fun getGameMode ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toAnalyticsEvent ()Lcom/codewiththiru/platform/analytics/domain/event/AnalyticsEvent;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/codewiththiru/platform/game/events/GameEvent$HintUsed : com/codewiththiru/platform/game/events/GameEvent {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;I)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()I
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;I)Lcom/codewiththiru/platform/game/events/GameEvent$HintUsed;
+	public static synthetic fun copy$default (Lcom/codewiththiru/platform/game/events/GameEvent$HintUsed;Ljava/lang/String;Ljava/lang/String;IILjava/lang/Object;)Lcom/codewiththiru/platform/game/events/GameEvent$HintUsed;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getGameId ()Ljava/lang/String;
+	public final fun getHintType ()Ljava/lang/String;
+	public final fun getRemainingHints ()I
+	public fun hashCode ()I
+	public fun toAnalyticsEvent ()Lcom/codewiththiru/platform/analytics/domain/event/AnalyticsEvent;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/codewiththiru/platform/game/events/GameEvent$RewardClaimed : com/codewiththiru/platform/game/events/GameEvent {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;J)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()J
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;J)Lcom/codewiththiru/platform/game/events/GameEvent$RewardClaimed;
+	public static synthetic fun copy$default (Lcom/codewiththiru/platform/game/events/GameEvent$RewardClaimed;Ljava/lang/String;Ljava/lang/String;JILjava/lang/Object;)Lcom/codewiththiru/platform/game/events/GameEvent$RewardClaimed;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAmount ()J
+	public final fun getRewardId ()Ljava/lang/String;
+	public final fun getRewardType ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toAnalyticsEvent ()Lcom/codewiththiru/platform/analytics/domain/event/AnalyticsEvent;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/codewiththiru/platform/game/events/GameEvent$UndoUsed : com/codewiththiru/platform/game/events/GameEvent {
+	public fun <init> (Ljava/lang/String;I)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()I
+	public final fun copy (Ljava/lang/String;I)Lcom/codewiththiru/platform/game/events/GameEvent$UndoUsed;
+	public static synthetic fun copy$default (Lcom/codewiththiru/platform/game/events/GameEvent$UndoUsed;Ljava/lang/String;IILjava/lang/Object;)Lcom/codewiththiru/platform/game/events/GameEvent$UndoUsed;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getGameId ()Ljava/lang/String;
+	public final fun getRemainingUndos ()I
+	public fun hashCode ()I
+	public fun toAnalyticsEvent ()Lcom/codewiththiru/platform/analytics/domain/event/AnalyticsEvent;
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/codewiththiru/platform/game/events/api/PlatformEvent {
+	public abstract fun getPriority ()Lcom/codewiththiru/platform/game/events/priority/EventPriority;
+	public abstract fun getTimestamp ()J
+	public abstract fun toAnalyticsEvent ()Lcom/codewiththiru/platform/analytics/domain/event/AnalyticsEvent;
+}
+
+public final class com/codewiththiru/platform/game/events/bus/DefaultGameEventBus : com/codewiththiru/platform/game/events/bus/GameEventBus {
+	public fun <init> ()V
+	public fun emit (Lcom/codewiththiru/platform/game/events/api/PlatformEvent;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun getEvents ()Lkotlinx/coroutines/flow/SharedFlow;
+	public fun observe ()Lkotlinx/coroutines/flow/Flow;
+}
+
+public abstract interface class com/codewiththiru/platform/game/events/bus/GameEventBus {
+	public abstract fun emit (Lcom/codewiththiru/platform/game/events/api/PlatformEvent;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun observe ()Lkotlinx/coroutines/flow/Flow;
+}
+
+public final class com/codewiththiru/platform/game/events/filter/AcceptAllFilter : com/codewiththiru/platform/game/events/filter/EventFilter {
+	public fun <init> ()V
+	public fun shouldProcess (Lcom/codewiththiru/platform/game/events/api/PlatformEvent;)Z
+}
+
+public abstract interface class com/codewiththiru/platform/game/events/filter/EventFilter {
+	public abstract fun shouldProcess (Lcom/codewiththiru/platform/game/events/api/PlatformEvent;)Z
+}
+
+public final class com/codewiththiru/platform/game/events/history/EventHistory {
+	public fun <init> ()V
+	public fun <init> (I)V
+	public synthetic fun <init> (IILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getRecentEvents ()Ljava/util/List;
+	public final fun record (Lcom/codewiththiru/platform/game/events/api/PlatformEvent;)V
+}
+
+public abstract interface class com/codewiththiru/platform/game/events/manager/EventManager {
+	public abstract fun getHistorySnapshot ()Ljava/util/List;
+	public abstract fun publish (Lcom/codewiththiru/platform/game/events/api/PlatformEvent;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun subscribe (Lcom/codewiththiru/platform/game/events/filter/EventFilter;)Lkotlinx/coroutines/flow/Flow;
+	public static synthetic fun subscribe$default (Lcom/codewiththiru/platform/game/events/manager/EventManager;Lcom/codewiththiru/platform/game/events/filter/EventFilter;ILjava/lang/Object;)Lkotlinx/coroutines/flow/Flow;
+}
+
+public final class com/codewiththiru/platform/game/events/manager/EventManager$DefaultImpls {
+	public static synthetic fun subscribe$default (Lcom/codewiththiru/platform/game/events/manager/EventManager;Lcom/codewiththiru/platform/game/events/filter/EventFilter;ILjava/lang/Object;)Lkotlinx/coroutines/flow/Flow;
+}
+
+public final class com/codewiththiru/platform/game/events/priority/EventPriority : java/lang/Enum {
+	public static final field CRITICAL Lcom/codewiththiru/platform/game/events/priority/EventPriority;
+	public static final field HIGH Lcom/codewiththiru/platform/game/events/priority/EventPriority;
+	public static final field LOW Lcom/codewiththiru/platform/game/events/priority/EventPriority;
+	public static final field NORMAL Lcom/codewiththiru/platform/game/events/priority/EventPriority;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getLevel ()I
+	public static fun valueOf (Ljava/lang/String;)Lcom/codewiththiru/platform/game/events/priority/EventPriority;
+	public static fun values ()[Lcom/codewiththiru/platform/game/events/priority/EventPriority;
+}
+

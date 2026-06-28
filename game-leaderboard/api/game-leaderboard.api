@@ -1,0 +1,224 @@
+public final class com/codewiththiru/platform/game/leaderboard/api/LeaderboardEntry {
+	public static final field Companion Lcom/codewiththiru/platform/game/leaderboard/api/LeaderboardEntry$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JJJ)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()J
+	public final fun component5 ()J
+	public final fun component6 ()J
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JJJ)Lcom/codewiththiru/platform/game/leaderboard/api/LeaderboardEntry;
+	public static synthetic fun copy$default (Lcom/codewiththiru/platform/game/leaderboard/api/LeaderboardEntry;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JJJILjava/lang/Object;)Lcom/codewiththiru/platform/game/leaderboard/api/LeaderboardEntry;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAvatarUrl ()Ljava/lang/String;
+	public final fun getDisplayName ()Ljava/lang/String;
+	public final fun getPlayerId ()Ljava/lang/String;
+	public final fun getRank ()J
+	public final fun getScore ()J
+	public final fun getTimestampMs ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class com/codewiththiru/platform/game/leaderboard/api/LeaderboardEntry$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lcom/codewiththiru/platform/game/leaderboard/api/LeaderboardEntry$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcom/codewiththiru/platform/game/leaderboard/api/LeaderboardEntry;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/codewiththiru/platform/game/leaderboard/api/LeaderboardEntry;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/codewiththiru/platform/game/leaderboard/api/LeaderboardEntry$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract class com/codewiththiru/platform/game/leaderboard/api/LeaderboardEvent {
+}
+
+public final class com/codewiththiru/platform/game/leaderboard/api/LeaderboardEvent$LeaderboardOpened : com/codewiththiru/platform/game/leaderboard/api/LeaderboardEvent {
+	public fun <init> (Ljava/lang/String;Lcom/codewiththiru/platform/game/leaderboard/api/LeaderboardType;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Lcom/codewiththiru/platform/game/leaderboard/api/LeaderboardType;
+	public final fun copy (Ljava/lang/String;Lcom/codewiththiru/platform/game/leaderboard/api/LeaderboardType;)Lcom/codewiththiru/platform/game/leaderboard/api/LeaderboardEvent$LeaderboardOpened;
+	public static synthetic fun copy$default (Lcom/codewiththiru/platform/game/leaderboard/api/LeaderboardEvent$LeaderboardOpened;Ljava/lang/String;Lcom/codewiththiru/platform/game/leaderboard/api/LeaderboardType;ILjava/lang/Object;)Lcom/codewiththiru/platform/game/leaderboard/api/LeaderboardEvent$LeaderboardOpened;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getLeaderboardId ()Ljava/lang/String;
+	public final fun getType ()Lcom/codewiththiru/platform/game/leaderboard/api/LeaderboardType;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/codewiththiru/platform/game/leaderboard/api/LeaderboardEvent$LeaderboardRefreshed : com/codewiththiru/platform/game/leaderboard/api/LeaderboardEvent {
+	public fun <init> (Ljava/lang/String;Lcom/codewiththiru/platform/game/leaderboard/api/LeaderboardType;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Lcom/codewiththiru/platform/game/leaderboard/api/LeaderboardType;
+	public final fun copy (Ljava/lang/String;Lcom/codewiththiru/platform/game/leaderboard/api/LeaderboardType;)Lcom/codewiththiru/platform/game/leaderboard/api/LeaderboardEvent$LeaderboardRefreshed;
+	public static synthetic fun copy$default (Lcom/codewiththiru/platform/game/leaderboard/api/LeaderboardEvent$LeaderboardRefreshed;Ljava/lang/String;Lcom/codewiththiru/platform/game/leaderboard/api/LeaderboardType;ILjava/lang/Object;)Lcom/codewiththiru/platform/game/leaderboard/api/LeaderboardEvent$LeaderboardRefreshed;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getLeaderboardId ()Ljava/lang/String;
+	public final fun getType ()Lcom/codewiththiru/platform/game/leaderboard/api/LeaderboardType;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/codewiththiru/platform/game/leaderboard/api/LeaderboardEvent$RankChanged : com/codewiththiru/platform/game/leaderboard/api/LeaderboardEvent {
+	public fun <init> (Ljava/lang/String;JJ)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()J
+	public final fun component3 ()J
+	public final fun copy (Ljava/lang/String;JJ)Lcom/codewiththiru/platform/game/leaderboard/api/LeaderboardEvent$RankChanged;
+	public static synthetic fun copy$default (Lcom/codewiththiru/platform/game/leaderboard/api/LeaderboardEvent$RankChanged;Ljava/lang/String;JJILjava/lang/Object;)Lcom/codewiththiru/platform/game/leaderboard/api/LeaderboardEvent$RankChanged;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getLeaderboardId ()Ljava/lang/String;
+	public final fun getNewRank ()J
+	public final fun getOldRank ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/codewiththiru/platform/game/leaderboard/api/LeaderboardEvent$ScoreSubmitted : com/codewiththiru/platform/game/leaderboard/api/LeaderboardEvent {
+	public fun <init> (Ljava/lang/String;J)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()J
+	public final fun copy (Ljava/lang/String;J)Lcom/codewiththiru/platform/game/leaderboard/api/LeaderboardEvent$ScoreSubmitted;
+	public static synthetic fun copy$default (Lcom/codewiththiru/platform/game/leaderboard/api/LeaderboardEvent$ScoreSubmitted;Ljava/lang/String;JILjava/lang/Object;)Lcom/codewiththiru/platform/game/leaderboard/api/LeaderboardEvent$ScoreSubmitted;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getLeaderboardId ()Ljava/lang/String;
+	public final fun getScore ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/codewiththiru/platform/game/leaderboard/api/LeaderboardRank {
+	public static final field Companion Lcom/codewiththiru/platform/game/leaderboard/api/LeaderboardRank$Companion;
+	public fun <init> (JDJ)V
+	public final fun component1 ()J
+	public final fun component2 ()D
+	public final fun component3 ()J
+	public final fun copy (JDJ)Lcom/codewiththiru/platform/game/leaderboard/api/LeaderboardRank;
+	public static synthetic fun copy$default (Lcom/codewiththiru/platform/game/leaderboard/api/LeaderboardRank;JDJILjava/lang/Object;)Lcom/codewiththiru/platform/game/leaderboard/api/LeaderboardRank;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCurrentRank ()J
+	public final fun getPercentile ()D
+	public final fun getTotalPlayers ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class com/codewiththiru/platform/game/leaderboard/api/LeaderboardRank$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lcom/codewiththiru/platform/game/leaderboard/api/LeaderboardRank$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcom/codewiththiru/platform/game/leaderboard/api/LeaderboardRank;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/codewiththiru/platform/game/leaderboard/api/LeaderboardRank;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/codewiththiru/platform/game/leaderboard/api/LeaderboardRank$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/codewiththiru/platform/game/leaderboard/api/LeaderboardType : java/lang/Enum {
+	public static final field COUNTRY Lcom/codewiththiru/platform/game/leaderboard/api/LeaderboardType;
+	public static final field CUSTOM Lcom/codewiththiru/platform/game/leaderboard/api/LeaderboardType;
+	public static final field Companion Lcom/codewiththiru/platform/game/leaderboard/api/LeaderboardType$Companion;
+	public static final field FRIENDS Lcom/codewiththiru/platform/game/leaderboard/api/LeaderboardType;
+	public static final field GLOBAL Lcom/codewiththiru/platform/game/leaderboard/api/LeaderboardType;
+	public static final field NEARBY Lcom/codewiththiru/platform/game/leaderboard/api/LeaderboardType;
+	public static final field REGION Lcom/codewiththiru/platform/game/leaderboard/api/LeaderboardType;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/codewiththiru/platform/game/leaderboard/api/LeaderboardType;
+	public static fun values ()[Lcom/codewiththiru/platform/game/leaderboard/api/LeaderboardType;
+}
+
+public final class com/codewiththiru/platform/game/leaderboard/api/LeaderboardType$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/codewiththiru/platform/game/leaderboard/filters/LeaderboardFilter {
+	public static final field Companion Lcom/codewiththiru/platform/game/leaderboard/filters/LeaderboardFilter$Companion;
+	public fun <init> ()V
+	public fun <init> (Lcom/codewiththiru/platform/game/leaderboard/filters/TimeFilter;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+	public synthetic fun <init> (Lcom/codewiththiru/platform/game/leaderboard/filters/TimeFilter;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lcom/codewiththiru/platform/game/leaderboard/filters/TimeFilter;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun copy (Lcom/codewiththiru/platform/game/leaderboard/filters/TimeFilter;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/codewiththiru/platform/game/leaderboard/filters/LeaderboardFilter;
+	public static synthetic fun copy$default (Lcom/codewiththiru/platform/game/leaderboard/filters/LeaderboardFilter;Lcom/codewiththiru/platform/game/leaderboard/filters/TimeFilter;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/codewiththiru/platform/game/leaderboard/filters/LeaderboardFilter;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCountryCode ()Ljava/lang/String;
+	public final fun getDifficulty ()Ljava/lang/String;
+	public final fun getGameMode ()Ljava/lang/String;
+	public final fun getTimeFilter ()Lcom/codewiththiru/platform/game/leaderboard/filters/TimeFilter;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class com/codewiththiru/platform/game/leaderboard/filters/LeaderboardFilter$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lcom/codewiththiru/platform/game/leaderboard/filters/LeaderboardFilter$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcom/codewiththiru/platform/game/leaderboard/filters/LeaderboardFilter;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/codewiththiru/platform/game/leaderboard/filters/LeaderboardFilter;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/codewiththiru/platform/game/leaderboard/filters/LeaderboardFilter$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/codewiththiru/platform/game/leaderboard/filters/TimeFilter : java/lang/Enum {
+	public static final field ALL_TIME Lcom/codewiththiru/platform/game/leaderboard/filters/TimeFilter;
+	public static final field Companion Lcom/codewiththiru/platform/game/leaderboard/filters/TimeFilter$Companion;
+	public static final field DAILY Lcom/codewiththiru/platform/game/leaderboard/filters/TimeFilter;
+	public static final field MONTHLY Lcom/codewiththiru/platform/game/leaderboard/filters/TimeFilter;
+	public static final field SEASON Lcom/codewiththiru/platform/game/leaderboard/filters/TimeFilter;
+	public static final field WEEKLY Lcom/codewiththiru/platform/game/leaderboard/filters/TimeFilter;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/codewiththiru/platform/game/leaderboard/filters/TimeFilter;
+	public static fun values ()[Lcom/codewiththiru/platform/game/leaderboard/filters/TimeFilter;
+}
+
+public final class com/codewiththiru/platform/game/leaderboard/filters/TimeFilter$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract interface class com/codewiththiru/platform/game/leaderboard/manager/LeaderboardManager {
+	public abstract fun getPlayerRank (Ljava/lang/String;Lcom/codewiththiru/platform/game/leaderboard/filters/LeaderboardFilter;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getTopEntries (Ljava/lang/String;Lcom/codewiththiru/platform/game/leaderboard/filters/LeaderboardFilter;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun refresh (Ljava/lang/String;Lcom/codewiththiru/platform/game/leaderboard/filters/LeaderboardFilter;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun submitScore (Ljava/lang/String;J)V
+}
+
+public abstract interface class com/codewiththiru/platform/game/leaderboard/provider/LeaderboardProvider {
+	public abstract fun fetchPlayerRank (Ljava/lang/String;Lcom/codewiththiru/platform/game/leaderboard/filters/LeaderboardFilter;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun fetchTopEntries (Ljava/lang/String;Lcom/codewiththiru/platform/game/leaderboard/filters/LeaderboardFilter;ILkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun fetchTopEntries$default (Lcom/codewiththiru/platform/game/leaderboard/provider/LeaderboardProvider;Ljava/lang/String;Lcom/codewiththiru/platform/game/leaderboard/filters/LeaderboardFilter;ILkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public abstract fun submitScore (Ljava/lang/String;JLjava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun submitScore$default (Lcom/codewiththiru/platform/game/leaderboard/provider/LeaderboardProvider;Ljava/lang/String;JLjava/lang/String;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+}
+
+public final class com/codewiththiru/platform/game/leaderboard/provider/LeaderboardProvider$DefaultImpls {
+	public static synthetic fun fetchTopEntries$default (Lcom/codewiththiru/platform/game/leaderboard/provider/LeaderboardProvider;Ljava/lang/String;Lcom/codewiththiru/platform/game/leaderboard/filters/LeaderboardFilter;ILkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public static synthetic fun submitScore$default (Lcom/codewiththiru/platform/game/leaderboard/provider/LeaderboardProvider;Ljava/lang/String;JLjava/lang/String;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+}
+
+public final class com/codewiththiru/platform/game/leaderboard/ranking/DefaultRankingEngine : com/codewiththiru/platform/game/leaderboard/ranking/RankingEngine {
+	public fun <init> ()V
+	public fun calculatePercentile (JJ)D
+	public fun sortEntries (Ljava/util/List;Z)Ljava/util/List;
+}
+
+public abstract interface class com/codewiththiru/platform/game/leaderboard/ranking/RankingEngine {
+	public abstract fun calculatePercentile (JJ)D
+	public abstract fun sortEntries (Ljava/util/List;Z)Ljava/util/List;
+}
+

@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<SmellBaseline>
+  <ManuallySuppressedIssues/>
+  <CurrentIssues>
+    <ID>EmptyFunctionBlock:AuthenticationMetricsTest.kt$AuthenticationMetricsTest.&lt;no name provided>${}</ID>
+    <ID>EmptyFunctionBlock:SessionManagerTest.kt$SessionManagerTest.&lt;no name provided>${}</ID>
+    <ID>EmptyFunctionBlock:TokenManagerTest.kt$TokenManagerTest.&lt;no name provided>${}</ID>
+    <ID>EmptyFunctionBlock:UserLifecycleTest.kt$UserLifecycleTest.&lt;no name provided>${}</ID>
+    <ID>MagicNumber:IdentityConfig.kt$IdentityConfig$24</ID>
+    <ID>MagicNumber:IdentityConfig.kt$IdentityConfig$60</ID>
+    <ID>MagicNumber:IdentityConfig.kt$IdentityConfig$7</ID>
+    <ID>MagicNumber:SessionPolicy.kt$SessionPolicy$24</ID>
+    <ID>MagicNumber:SessionPolicy.kt$SessionPolicy$30</ID>
+    <ID>MagicNumber:SessionPolicy.kt$SessionPolicy$60</ID>
+    <ID>MagicNumber:SessionPolicy.kt$SessionPolicy$7</ID>
+    <ID>MaxLineLength:AuthenticationManager.kt$DefaultAuthenticationManager$com.codewiththiru.platform.identity.api.IdentityException.InvalidCredentials("Provider not found for method")</ID>
+    <ID>MaxLineLength:IdentityException.kt$IdentityException$InvalidCredentials : IdentityException</ID>
+    <ID>MaxLineLength:ProfileManagerTest.kt$ProfileManagerTest.&lt;no name provided>$override suspend fun updateProfile(profile: UserProfile)</ID>
+    <ID>MaxLineLength:SessionManagerTest.kt$SessionManagerTest.&lt;no name provided>$override suspend fun refreshCurrentSession()</ID>
+    <ID>UnusedParameter:SocialLoginManager.kt$SocialLoginManager$method: AuthMethod</ID>
+    <ID>UnusedParameter:SocialLoginManager.kt$SocialLoginManager$token: String</ID>
+  </CurrentIssues>
+</SmellBaseline>

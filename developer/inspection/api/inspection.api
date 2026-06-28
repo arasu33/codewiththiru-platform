@@ -1,0 +1,5 @@
+public final class com/codewiththiru/platform/developer/inspection/ThreadInspector {
+	public static final field INSTANCE Lcom/codewiththiru/platform/developer/inspection/ThreadInspector;
+	public final fun assertNotMainThread ()V
+}
+

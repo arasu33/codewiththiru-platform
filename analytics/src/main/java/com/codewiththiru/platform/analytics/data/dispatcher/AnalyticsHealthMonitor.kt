@@ -19,6 +19,7 @@ public class AnalyticsHealthMonitor(
     private var job: Job? = null
     private val monitorIntervalMs = 60 * 1000L // 1 minute
 
+    @Suppress("TooGenericExceptionCaught", "SwallowedException")
     public fun start() {
         if (job?.isActive == true) return
         job = scope.launch {

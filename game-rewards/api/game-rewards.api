@@ -1,0 +1,243 @@
+public final class com/codewiththiru/platform/game/reward/api/RewardBalance {
+	public static final field Companion Lcom/codewiththiru/platform/game/reward/api/RewardBalance$Companion;
+	public fun <init> (Lcom/codewiththiru/platform/game/reward/api/RewardType;J)V
+	public final fun component1 ()Lcom/codewiththiru/platform/game/reward/api/RewardType;
+	public final fun component2 ()J
+	public final fun copy (Lcom/codewiththiru/platform/game/reward/api/RewardType;J)Lcom/codewiththiru/platform/game/reward/api/RewardBalance;
+	public static synthetic fun copy$default (Lcom/codewiththiru/platform/game/reward/api/RewardBalance;Lcom/codewiththiru/platform/game/reward/api/RewardType;JILjava/lang/Object;)Lcom/codewiththiru/platform/game/reward/api/RewardBalance;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getTotalAmount ()J
+	public final fun getType ()Lcom/codewiththiru/platform/game/reward/api/RewardType;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class com/codewiththiru/platform/game/reward/api/RewardBalance$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lcom/codewiththiru/platform/game/reward/api/RewardBalance$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcom/codewiththiru/platform/game/reward/api/RewardBalance;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/codewiththiru/platform/game/reward/api/RewardBalance;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/codewiththiru/platform/game/reward/api/RewardBalance$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/codewiththiru/platform/game/reward/api/RewardCategory {
+	public static final field Companion Lcom/codewiththiru/platform/game/reward/api/RewardCategory$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;)Lcom/codewiththiru/platform/game/reward/api/RewardCategory;
+	public static synthetic fun copy$default (Lcom/codewiththiru/platform/game/reward/api/RewardCategory;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/codewiththiru/platform/game/reward/api/RewardCategory;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getId ()Ljava/lang/String;
+	public final fun getName ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class com/codewiththiru/platform/game/reward/api/RewardCategory$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lcom/codewiththiru/platform/game/reward/api/RewardCategory$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcom/codewiththiru/platform/game/reward/api/RewardCategory;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/codewiththiru/platform/game/reward/api/RewardCategory;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/codewiththiru/platform/game/reward/api/RewardCategory$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/codewiththiru/platform/game/reward/api/RewardDefinition {
+	public static final field Companion Lcom/codewiththiru/platform/game/reward/api/RewardDefinition$Companion;
+	public fun <init> (Ljava/lang/String;Lcom/codewiththiru/platform/game/reward/api/RewardType;JLcom/codewiththiru/platform/game/reward/api/RewardSource;Ljava/lang/String;Ljava/util/Map;)V
+	public synthetic fun <init> (Ljava/lang/String;Lcom/codewiththiru/platform/game/reward/api/RewardType;JLcom/codewiththiru/platform/game/reward/api/RewardSource;Ljava/lang/String;Ljava/util/Map;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Lcom/codewiththiru/platform/game/reward/api/RewardType;
+	public final fun component3 ()J
+	public final fun component4 ()Lcom/codewiththiru/platform/game/reward/api/RewardSource;
+	public final fun component5 ()Ljava/lang/String;
+	public final fun component6 ()Ljava/util/Map;
+	public final fun copy (Ljava/lang/String;Lcom/codewiththiru/platform/game/reward/api/RewardType;JLcom/codewiththiru/platform/game/reward/api/RewardSource;Ljava/lang/String;Ljava/util/Map;)Lcom/codewiththiru/platform/game/reward/api/RewardDefinition;
+	public static synthetic fun copy$default (Lcom/codewiththiru/platform/game/reward/api/RewardDefinition;Ljava/lang/String;Lcom/codewiththiru/platform/game/reward/api/RewardType;JLcom/codewiththiru/platform/game/reward/api/RewardSource;Ljava/lang/String;Ljava/util/Map;ILjava/lang/Object;)Lcom/codewiththiru/platform/game/reward/api/RewardDefinition;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAmount ()J
+	public final fun getCategoryId ()Ljava/lang/String;
+	public final fun getId ()Ljava/lang/String;
+	public final fun getMetadata ()Ljava/util/Map;
+	public final fun getSource ()Lcom/codewiththiru/platform/game/reward/api/RewardSource;
+	public final fun getType ()Lcom/codewiththiru/platform/game/reward/api/RewardType;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class com/codewiththiru/platform/game/reward/api/RewardDefinition$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lcom/codewiththiru/platform/game/reward/api/RewardDefinition$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcom/codewiththiru/platform/game/reward/api/RewardDefinition;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/codewiththiru/platform/game/reward/api/RewardDefinition;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/codewiththiru/platform/game/reward/api/RewardDefinition$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/codewiththiru/platform/game/reward/api/RewardLedger {
+	public static final field Companion Lcom/codewiththiru/platform/game/reward/api/RewardLedger$Companion;
+	public fun <init> (Ljava/lang/String;JLcom/codewiththiru/platform/game/reward/api/RewardDefinition;Z)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()J
+	public final fun component3 ()Lcom/codewiththiru/platform/game/reward/api/RewardDefinition;
+	public final fun component4 ()Z
+	public final fun copy (Ljava/lang/String;JLcom/codewiththiru/platform/game/reward/api/RewardDefinition;Z)Lcom/codewiththiru/platform/game/reward/api/RewardLedger;
+	public static synthetic fun copy$default (Lcom/codewiththiru/platform/game/reward/api/RewardLedger;Ljava/lang/String;JLcom/codewiththiru/platform/game/reward/api/RewardDefinition;ZILjava/lang/Object;)Lcom/codewiththiru/platform/game/reward/api/RewardLedger;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDefinition ()Lcom/codewiththiru/platform/game/reward/api/RewardDefinition;
+	public final fun getTimestampMs ()J
+	public final fun getTransactionId ()Ljava/lang/String;
+	public fun hashCode ()I
+	public final fun isDeposit ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class com/codewiththiru/platform/game/reward/api/RewardLedger$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lcom/codewiththiru/platform/game/reward/api/RewardLedger$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcom/codewiththiru/platform/game/reward/api/RewardLedger;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/codewiththiru/platform/game/reward/api/RewardLedger;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/codewiththiru/platform/game/reward/api/RewardLedger$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/codewiththiru/platform/game/reward/api/RewardSource : java/lang/Enum {
+	public static final field ACHIEVEMENT_UNLOCK Lcom/codewiththiru/platform/game/reward/api/RewardSource;
+	public static final field ADVERTISEMENT Lcom/codewiththiru/platform/game/reward/api/RewardSource;
+	public static final field DAILY_CHALLENGE Lcom/codewiththiru/platform/game/reward/api/RewardSource;
+	public static final field DAILY_LOGIN Lcom/codewiththiru/platform/game/reward/api/RewardSource;
+	public static final field GAME_COMPLETION Lcom/codewiththiru/platform/game/reward/api/RewardSource;
+	public static final field MANUAL_GRANT Lcom/codewiththiru/platform/game/reward/api/RewardSource;
+	public static final field MONTHLY_CHALLENGE Lcom/codewiththiru/platform/game/reward/api/RewardSource;
+	public static final field PERFECT_GAME Lcom/codewiththiru/platform/game/reward/api/RewardSource;
+	public static final field PROMOTION Lcom/codewiththiru/platform/game/reward/api/RewardSource;
+	public static final field PURCHASE Lcom/codewiththiru/platform/game/reward/api/RewardSource;
+	public static final field REFERRAL Lcom/codewiththiru/platform/game/reward/api/RewardSource;
+	public static final field SEASONAL_EVENT Lcom/codewiththiru/platform/game/reward/api/RewardSource;
+	public static final field TOURNAMENT Lcom/codewiththiru/platform/game/reward/api/RewardSource;
+	public static final field UNKNOWN Lcom/codewiththiru/platform/game/reward/api/RewardSource;
+	public static final field WEEKLY_CHALLENGE Lcom/codewiththiru/platform/game/reward/api/RewardSource;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/codewiththiru/platform/game/reward/api/RewardSource;
+	public static fun values ()[Lcom/codewiththiru/platform/game/reward/api/RewardSource;
+}
+
+public final class com/codewiththiru/platform/game/reward/api/RewardType : java/lang/Enum {
+	public static final field AVATARS Lcom/codewiththiru/platform/game/reward/api/RewardType;
+	public static final field BADGES Lcom/codewiththiru/platform/game/reward/api/RewardType;
+	public static final field BOOSTERS Lcom/codewiththiru/platform/game/reward/api/RewardType;
+	public static final field COINS Lcom/codewiththiru/platform/game/reward/api/RewardType;
+	public static final field COSMETICS Lcom/codewiththiru/platform/game/reward/api/RewardType;
+	public static final field CUSTOM Lcom/codewiththiru/platform/game/reward/api/RewardType;
+	public static final field ENERGY Lcom/codewiththiru/platform/game/reward/api/RewardType;
+	public static final field FRAMES Lcom/codewiththiru/platform/game/reward/api/RewardType;
+	public static final field HINTS Lcom/codewiththiru/platform/game/reward/api/RewardType;
+	public static final field KEYS Lcom/codewiththiru/platform/game/reward/api/RewardType;
+	public static final field LIVES Lcom/codewiththiru/platform/game/reward/api/RewardType;
+	public static final field PREMIUM_TOKENS Lcom/codewiththiru/platform/game/reward/api/RewardType;
+	public static final field STARS Lcom/codewiththiru/platform/game/reward/api/RewardType;
+	public static final field THEMES Lcom/codewiththiru/platform/game/reward/api/RewardType;
+	public static final field TICKETS Lcom/codewiththiru/platform/game/reward/api/RewardType;
+	public static final field TITLES Lcom/codewiththiru/platform/game/reward/api/RewardType;
+	public static final field UNDO_TOKENS Lcom/codewiththiru/platform/game/reward/api/RewardType;
+	public static final field XP Lcom/codewiththiru/platform/game/reward/api/RewardType;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/codewiththiru/platform/game/reward/api/RewardType;
+	public static fun values ()[Lcom/codewiththiru/platform/game/reward/api/RewardType;
+}
+
+public abstract interface class com/codewiththiru/platform/game/reward/claims/ClaimEngine {
+	public abstract fun claim (Lcom/codewiththiru/platform/game/reward/api/RewardDefinition;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun deferClaim (Lcom/codewiththiru/platform/game/reward/api/RewardDefinition;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getPendingClaims (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public abstract interface class com/codewiththiru/platform/game/reward/inventory/RewardInventory {
+	public abstract fun addItem (Lcom/codewiththiru/platform/game/reward/api/RewardDefinition;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun consumeItem (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun hasItem (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public abstract interface class com/codewiththiru/platform/game/reward/manager/RewardManager {
+	public abstract fun getBalance (Lcom/codewiththiru/platform/game/reward/api/RewardType;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun grantReward (Lcom/codewiththiru/platform/game/reward/api/RewardDefinition;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun hasInventoryItem (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun observeBalance (Lcom/codewiththiru/platform/game/reward/api/RewardType;)Lkotlinx/coroutines/flow/StateFlow;
+}
+
+public final class com/codewiththiru/platform/game/reward/multiplier/Multiplier {
+	public fun <init> (Ljava/lang/String;DZ)V
+	public synthetic fun <init> (Ljava/lang/String;DZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()D
+	public final fun component3 ()Z
+	public final fun copy (Ljava/lang/String;DZ)Lcom/codewiththiru/platform/game/reward/multiplier/Multiplier;
+	public static synthetic fun copy$default (Lcom/codewiththiru/platform/game/reward/multiplier/Multiplier;Ljava/lang/String;DZILjava/lang/Object;)Lcom/codewiththiru/platform/game/reward/multiplier/Multiplier;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getFactor ()D
+	public final fun getId ()Ljava/lang/String;
+	public fun hashCode ()I
+	public final fun isActive ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/codewiththiru/platform/game/reward/multiplier/RewardMultiplierEngine {
+	public fun applyMultipliers (Lcom/codewiththiru/platform/game/reward/api/RewardDefinition;)Lcom/codewiththiru/platform/game/reward/api/RewardDefinition;
+	public abstract fun getActiveMultipliers ()Ljava/util/List;
+}
+
+public final class com/codewiththiru/platform/game/reward/multiplier/RewardMultiplierEngine$DefaultImpls {
+	public static fun applyMultipliers (Lcom/codewiththiru/platform/game/reward/multiplier/RewardMultiplierEngine;Lcom/codewiththiru/platform/game/reward/api/RewardDefinition;)Lcom/codewiththiru/platform/game/reward/api/RewardDefinition;
+}
+
+public abstract interface class com/codewiththiru/platform/game/reward/policy/RewardPolicy {
+	public fun calculateAllowedDeposit (Lcom/codewiththiru/platform/game/reward/api/RewardType;JJ)J
+	public abstract fun getMaxBalance (Lcom/codewiththiru/platform/game/reward/api/RewardType;)Ljava/lang/Long;
+}
+
+public final class com/codewiththiru/platform/game/reward/policy/RewardPolicy$DefaultImpls {
+	public static fun calculateAllowedDeposit (Lcom/codewiththiru/platform/game/reward/policy/RewardPolicy;Lcom/codewiththiru/platform/game/reward/api/RewardType;JJ)J
+}
+
+public final class com/codewiththiru/platform/game/reward/testing/FakeRewardManager : com/codewiththiru/platform/game/reward/manager/RewardManager {
+	public fun <init> ()V
+	public final fun addItemToInventory (Ljava/lang/String;)V
+	public fun getBalance (Lcom/codewiththiru/platform/game/reward/api/RewardType;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun grantReward (Lcom/codewiththiru/platform/game/reward/api/RewardDefinition;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun hasInventoryItem (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun observeBalance (Lcom/codewiththiru/platform/game/reward/api/RewardType;)Lkotlinx/coroutines/flow/StateFlow;
+}
+
+public abstract interface class com/codewiththiru/platform/game/reward/wallet/RewardWallet {
+	public abstract fun deposit (Lcom/codewiththiru/platform/game/reward/api/RewardDefinition;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getBalance (Lcom/codewiththiru/platform/game/reward/api/RewardType;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getLedger (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun withdraw (Lcom/codewiththiru/platform/game/reward/api/RewardType;JLkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+

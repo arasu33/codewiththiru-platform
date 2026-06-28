@@ -1,0 +1,246 @@
+public final class com/codewiththiru/platform/game/statistics/api/StatisticsMetric : java/lang/Enum {
+	public static final field AVERAGE_COMPLETION_SECONDS Lcom/codewiththiru/platform/game/statistics/api/StatisticsMetric;
+	public static final field AVERAGE_SCORE Lcom/codewiththiru/platform/game/statistics/api/StatisticsMetric;
+	public static final field BEST_SCORE Lcom/codewiththiru/platform/game/statistics/api/StatisticsMetric;
+	public static final field COINS_EARNED Lcom/codewiththiru/platform/game/statistics/api/StatisticsMetric;
+	public static final field CURRENT_STREAK Lcom/codewiththiru/platform/game/statistics/api/StatisticsMetric;
+	public static final field FASTEST_COMPLETION_SECONDS Lcom/codewiththiru/platform/game/statistics/api/StatisticsMetric;
+	public static final field GAMES_ABANDONED Lcom/codewiththiru/platform/game/statistics/api/StatisticsMetric;
+	public static final field GAMES_COMPLETED Lcom/codewiththiru/platform/game/statistics/api/StatisticsMetric;
+	public static final field GAMES_LOST Lcom/codewiththiru/platform/game/statistics/api/StatisticsMetric;
+	public static final field GAMES_PLAYED Lcom/codewiththiru/platform/game/statistics/api/StatisticsMetric;
+	public static final field GAMES_WON Lcom/codewiththiru/platform/game/statistics/api/StatisticsMetric;
+	public static final field HINTS_USED Lcom/codewiththiru/platform/game/statistics/api/StatisticsMetric;
+	public static final field LONGEST_STREAK Lcom/codewiththiru/platform/game/statistics/api/StatisticsMetric;
+	public static final field MISTAKES_MADE Lcom/codewiththiru/platform/game/statistics/api/StatisticsMetric;
+	public static final field MOVES_MADE Lcom/codewiththiru/platform/game/statistics/api/StatisticsMetric;
+	public static final field PAUSE_TIME_SECONDS Lcom/codewiththiru/platform/game/statistics/api/StatisticsMetric;
+	public static final field PERFECT_GAMES Lcom/codewiththiru/platform/game/statistics/api/StatisticsMetric;
+	public static final field RESTARTS Lcom/codewiththiru/platform/game/statistics/api/StatisticsMetric;
+	public static final field RESUME_COUNT Lcom/codewiththiru/platform/game/statistics/api/StatisticsMetric;
+	public static final field RETRIES Lcom/codewiththiru/platform/game/statistics/api/StatisticsMetric;
+	public static final field SESSIONS_PLAYED Lcom/codewiththiru/platform/game/statistics/api/StatisticsMetric;
+	public static final field SLOWEST_COMPLETION_SECONDS Lcom/codewiththiru/platform/game/statistics/api/StatisticsMetric;
+	public static final field STARS_EARNED Lcom/codewiththiru/platform/game/statistics/api/StatisticsMetric;
+	public static final field TOTAL_PLAY_TIME_SECONDS Lcom/codewiththiru/platform/game/statistics/api/StatisticsMetric;
+	public static final field UNDOS_USED Lcom/codewiththiru/platform/game/statistics/api/StatisticsMetric;
+	public static final field XP_EARNED Lcom/codewiththiru/platform/game/statistics/api/StatisticsMetric;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/codewiththiru/platform/game/statistics/api/StatisticsMetric;
+	public static fun values ()[Lcom/codewiththiru/platform/game/statistics/api/StatisticsMetric;
+}
+
+public final class com/codewiththiru/platform/game/statistics/api/StatisticsProfile {
+	public static final field Companion Lcom/codewiththiru/platform/game/statistics/api/StatisticsProfile$Companion;
+	public fun <init> (Ljava/lang/String;Lcom/codewiththiru/platform/game/statistics/api/StatisticsProfileScope;JLjava/lang/Long;Ljava/util/Map;)V
+	public synthetic fun <init> (Ljava/lang/String;Lcom/codewiththiru/platform/game/statistics/api/StatisticsProfileScope;JLjava/lang/Long;Ljava/util/Map;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Lcom/codewiththiru/platform/game/statistics/api/StatisticsProfileScope;
+	public final fun component3 ()J
+	public final fun component4 ()Ljava/lang/Long;
+	public final fun component5 ()Ljava/util/Map;
+	public final fun copy (Ljava/lang/String;Lcom/codewiththiru/platform/game/statistics/api/StatisticsProfileScope;JLjava/lang/Long;Ljava/util/Map;)Lcom/codewiththiru/platform/game/statistics/api/StatisticsProfile;
+	public static synthetic fun copy$default (Lcom/codewiththiru/platform/game/statistics/api/StatisticsProfile;Ljava/lang/String;Lcom/codewiththiru/platform/game/statistics/api/StatisticsProfileScope;JLjava/lang/Long;Ljava/util/Map;ILjava/lang/Object;)Lcom/codewiththiru/platform/game/statistics/api/StatisticsProfile;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getEndTimeMs ()Ljava/lang/Long;
+	public final fun getGameId ()Ljava/lang/String;
+	public final fun getMetrics ()Ljava/util/Map;
+	public final fun getScope ()Lcom/codewiththiru/platform/game/statistics/api/StatisticsProfileScope;
+	public final fun getStartTimeMs ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class com/codewiththiru/platform/game/statistics/api/StatisticsProfile$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lcom/codewiththiru/platform/game/statistics/api/StatisticsProfile$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcom/codewiththiru/platform/game/statistics/api/StatisticsProfile;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/codewiththiru/platform/game/statistics/api/StatisticsProfile;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/codewiththiru/platform/game/statistics/api/StatisticsProfile$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/codewiththiru/platform/game/statistics/api/StatisticsProfileScope : java/lang/Enum {
+	public static final field CUSTOM Lcom/codewiththiru/platform/game/statistics/api/StatisticsProfileScope;
+	public static final field DAILY Lcom/codewiththiru/platform/game/statistics/api/StatisticsProfileScope;
+	public static final field LIFETIME Lcom/codewiththiru/platform/game/statistics/api/StatisticsProfileScope;
+	public static final field MONTHLY Lcom/codewiththiru/platform/game/statistics/api/StatisticsProfileScope;
+	public static final field WEEKLY Lcom/codewiththiru/platform/game/statistics/api/StatisticsProfileScope;
+	public static final field YEARLY Lcom/codewiththiru/platform/game/statistics/api/StatisticsProfileScope;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/codewiththiru/platform/game/statistics/api/StatisticsProfileScope;
+	public static fun values ()[Lcom/codewiththiru/platform/game/statistics/api/StatisticsProfileScope;
+}
+
+public final class com/codewiththiru/platform/game/statistics/api/StatisticsSession {
+	public static final field Companion Lcom/codewiththiru/platform/game/statistics/api/StatisticsSession$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;JLjava/util/Map;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;JLjava/util/Map;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()J
+	public final fun component4 ()Ljava/util/Map;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;JLjava/util/Map;)Lcom/codewiththiru/platform/game/statistics/api/StatisticsSession;
+	public static synthetic fun copy$default (Lcom/codewiththiru/platform/game/statistics/api/StatisticsSession;Ljava/lang/String;Ljava/lang/String;JLjava/util/Map;ILjava/lang/Object;)Lcom/codewiththiru/platform/game/statistics/api/StatisticsSession;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCurrentMetrics ()Ljava/util/Map;
+	public final fun getGameId ()Ljava/lang/String;
+	public final fun getSessionId ()Ljava/lang/String;
+	public final fun getStartTimeMs ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class com/codewiththiru/platform/game/statistics/api/StatisticsSession$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lcom/codewiththiru/platform/game/statistics/api/StatisticsSession$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcom/codewiththiru/platform/game/statistics/api/StatisticsSession;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/codewiththiru/platform/game/statistics/api/StatisticsSession;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/codewiththiru/platform/game/statistics/api/StatisticsSession$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/codewiththiru/platform/game/statistics/api/StatisticsSnapshot {
+	public static final field Companion Lcom/codewiththiru/platform/game/statistics/api/StatisticsSnapshot$Companion;
+	public fun <init> (JLcom/codewiththiru/platform/game/statistics/api/StatisticsProfile;)V
+	public final fun component1 ()J
+	public final fun component2 ()Lcom/codewiththiru/platform/game/statistics/api/StatisticsProfile;
+	public final fun copy (JLcom/codewiththiru/platform/game/statistics/api/StatisticsProfile;)Lcom/codewiththiru/platform/game/statistics/api/StatisticsSnapshot;
+	public static synthetic fun copy$default (Lcom/codewiththiru/platform/game/statistics/api/StatisticsSnapshot;JLcom/codewiththiru/platform/game/statistics/api/StatisticsProfile;ILjava/lang/Object;)Lcom/codewiththiru/platform/game/statistics/api/StatisticsSnapshot;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getProfile ()Lcom/codewiththiru/platform/game/statistics/api/StatisticsProfile;
+	public final fun getTimestampMs ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class com/codewiththiru/platform/game/statistics/api/StatisticsSnapshot$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lcom/codewiththiru/platform/game/statistics/api/StatisticsSnapshot$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcom/codewiththiru/platform/game/statistics/api/StatisticsSnapshot;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/codewiththiru/platform/game/statistics/api/StatisticsSnapshot;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/codewiththiru/platform/game/statistics/api/StatisticsSnapshot$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract interface class com/codewiththiru/platform/game/statistics/export/StatisticsExporter {
+	public abstract fun exportToBytes (Lcom/codewiththiru/platform/game/statistics/api/StatisticsProfile;)[B
+	public abstract fun exportToString (Lcom/codewiththiru/platform/game/statistics/api/StatisticsProfile;)Ljava/lang/String;
+}
+
+public abstract interface class com/codewiththiru/platform/game/statistics/export/StatisticsImporter {
+	public abstract fun importFromBytes ([B)Lcom/codewiththiru/platform/game/statistics/api/StatisticsProfile;
+	public abstract fun importFromString (Ljava/lang/String;)Lcom/codewiththiru/platform/game/statistics/api/StatisticsProfile;
+}
+
+public final class com/codewiththiru/platform/game/statistics/leaderboard/LeaderboardData {
+	public fun <init> (Ljava/lang/String;Ljava/util/List;Ljava/lang/Long;Ljava/lang/Long;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/util/List;
+	public final fun component3 ()Ljava/lang/Long;
+	public final fun component4 ()Ljava/lang/Long;
+	public final fun copy (Ljava/lang/String;Ljava/util/List;Ljava/lang/Long;Ljava/lang/Long;)Lcom/codewiththiru/platform/game/statistics/leaderboard/LeaderboardData;
+	public static synthetic fun copy$default (Lcom/codewiththiru/platform/game/statistics/leaderboard/LeaderboardData;Ljava/lang/String;Ljava/util/List;Ljava/lang/Long;Ljava/lang/Long;ILjava/lang/Object;)Lcom/codewiththiru/platform/game/statistics/leaderboard/LeaderboardData;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getLeaderboardId ()Ljava/lang/String;
+	public final fun getPlayerRank ()Ljava/lang/Long;
+	public final fun getPlayerScore ()Ljava/lang/Long;
+	public final fun getTopEntries ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/codewiththiru/platform/game/statistics/leaderboard/LeaderboardEntry {
+	public fun <init> (JLjava/lang/String;JLjava/lang/String;)V
+	public final fun component1 ()J
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()J
+	public final fun component4 ()Ljava/lang/String;
+	public final fun copy (JLjava/lang/String;JLjava/lang/String;)Lcom/codewiththiru/platform/game/statistics/leaderboard/LeaderboardEntry;
+	public static synthetic fun copy$default (Lcom/codewiththiru/platform/game/statistics/leaderboard/LeaderboardEntry;JLjava/lang/String;JLjava/lang/String;ILjava/lang/Object;)Lcom/codewiththiru/platform/game/statistics/leaderboard/LeaderboardEntry;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDisplayName ()Ljava/lang/String;
+	public final fun getPlayerId ()Ljava/lang/String;
+	public final fun getRank ()J
+	public final fun getScore ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/codewiththiru/platform/game/statistics/leaderboard/LeaderboardManager {
+	public abstract fun getLeaderboard (Ljava/lang/String;Ljava/lang/String;ILkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun getLeaderboard$default (Lcom/codewiththiru/platform/game/statistics/leaderboard/LeaderboardManager;Ljava/lang/String;Ljava/lang/String;ILkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public abstract fun submitScore (Ljava/lang/String;Ljava/lang/String;JLkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/codewiththiru/platform/game/statistics/leaderboard/LeaderboardManager$DefaultImpls {
+	public static synthetic fun getLeaderboard$default (Lcom/codewiththiru/platform/game/statistics/leaderboard/LeaderboardManager;Ljava/lang/String;Ljava/lang/String;ILkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+}
+
+public abstract interface class com/codewiththiru/platform/game/statistics/manager/StatisticsManager {
+	public abstract fun getLifetimeProfile (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getProfile (Ljava/lang/String;Lcom/codewiththiru/platform/game/statistics/api/StatisticsProfileScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun observeLifetimeProfile (Ljava/lang/String;)Lkotlinx/coroutines/flow/StateFlow;
+	public abstract fun observeProfile (Ljava/lang/String;Lcom/codewiththiru/platform/game/statistics/api/StatisticsProfileScope;)Lkotlinx/coroutines/flow/StateFlow;
+	public abstract fun resetStatistics (Ljava/lang/String;Lcom/codewiththiru/platform/game/statistics/api/StatisticsProfileScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/codewiththiru/platform/game/statistics/metrics/PerformanceMetrics {
+	public static final field INSTANCE Lcom/codewiththiru/platform/game/statistics/metrics/PerformanceMetrics;
+	public final fun calculateHintRatio (Ljava/util/Map;)D
+	public final fun calculateMoveEfficiency (JJ)D
+	public final fun calculateWinRate (Ljava/util/Map;)D
+}
+
+public final class com/codewiththiru/platform/game/statistics/testing/FakeStatisticsManager : com/codewiththiru/platform/game/statistics/manager/StatisticsManager {
+	public fun <init> ()V
+	public fun getLifetimeProfile (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getProfile (Ljava/lang/String;Lcom/codewiththiru/platform/game/statistics/api/StatisticsProfileScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun observeLifetimeProfile (Ljava/lang/String;)Lkotlinx/coroutines/flow/StateFlow;
+	public fun observeProfile (Ljava/lang/String;Lcom/codewiththiru/platform/game/statistics/api/StatisticsProfileScope;)Lkotlinx/coroutines/flow/StateFlow;
+	public fun resetStatistics (Ljava/lang/String;Lcom/codewiththiru/platform/game/statistics/api/StatisticsProfileScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun updateMetrics (Ljava/lang/String;Lcom/codewiththiru/platform/game/statistics/api/StatisticsProfileScope;Ljava/util/Map;)V
+}
+
+public abstract interface class com/codewiththiru/platform/game/statistics/tracker/StatisticsTracker {
+	public abstract fun onGameEvent (Lcom/codewiththiru/platform/game/events/GameEvent;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public abstract interface class com/codewiththiru/platform/game/statistics/util/StatisticsAggregator {
+	public abstract fun aggregate (Ljava/util/List;)Ljava/util/Map;
+}
+
+public abstract interface class com/codewiththiru/platform/game/statistics/util/StatisticsCalculator {
+	public abstract fun calculateMovingAverage (Ljava/util/List;I)D
+	public abstract fun calculatePercentile (Ljava/util/List;D)D
+	public abstract fun detectTrend (Ljava/util/List;)Lcom/codewiththiru/platform/game/statistics/util/TrendDirection;
+}
+
+public final class com/codewiththiru/platform/game/statistics/util/TrendDirection : java/lang/Enum {
+	public static final field IMPROVING Lcom/codewiththiru/platform/game/statistics/util/TrendDirection;
+	public static final field INSUFFICIENT_DATA Lcom/codewiththiru/platform/game/statistics/util/TrendDirection;
+	public static final field REGRESSING Lcom/codewiththiru/platform/game/statistics/util/TrendDirection;
+	public static final field STABLE Lcom/codewiththiru/platform/game/statistics/util/TrendDirection;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/codewiththiru/platform/game/statistics/util/TrendDirection;
+	public static fun values ()[Lcom/codewiththiru/platform/game/statistics/util/TrendDirection;
+}
+

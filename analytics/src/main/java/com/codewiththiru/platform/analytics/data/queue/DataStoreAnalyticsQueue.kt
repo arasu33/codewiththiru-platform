@@ -20,6 +20,7 @@ import java.util.UUID
 
 private val dataStoreCache = java.util.concurrent.ConcurrentHashMap<String, DataStore<Preferences>>()
 
+@Suppress("TooGenericExceptionCaught")
 public class DataStoreAnalyticsQueue(
     private val context: Context,
     private val config: AnalyticsConfig,

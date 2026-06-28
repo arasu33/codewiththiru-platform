@@ -1,0 +1,190 @@
+public abstract class com/codewiththiru/platform/game/sync/api/SyncEvent {
+}
+
+public final class com/codewiththiru/platform/game/sync/api/SyncEvent$ConflictDetected : com/codewiththiru/platform/game/sync/api/SyncEvent {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lcom/codewiththiru/platform/game/sync/api/SyncEvent$ConflictDetected;
+	public static synthetic fun copy$default (Lcom/codewiththiru/platform/game/sync/api/SyncEvent$ConflictDetected;Ljava/lang/String;ILjava/lang/Object;)Lcom/codewiththiru/platform/game/sync/api/SyncEvent$ConflictDetected;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCollection ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/codewiththiru/platform/game/sync/api/SyncEvent$ConflictResolved : com/codewiththiru/platform/game/sync/api/SyncEvent {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;)Lcom/codewiththiru/platform/game/sync/api/SyncEvent$ConflictResolved;
+	public static synthetic fun copy$default (Lcom/codewiththiru/platform/game/sync/api/SyncEvent$ConflictResolved;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/codewiththiru/platform/game/sync/api/SyncEvent$ConflictResolved;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCollection ()Ljava/lang/String;
+	public final fun getResolutionStrategy ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/codewiththiru/platform/game/sync/api/SyncEvent$SyncCompleted : com/codewiththiru/platform/game/sync/api/SyncEvent {
+	public fun <init> (Lcom/codewiththiru/platform/game/sync/api/SyncType;J)V
+	public final fun component1 ()Lcom/codewiththiru/platform/game/sync/api/SyncType;
+	public final fun component2 ()J
+	public final fun copy (Lcom/codewiththiru/platform/game/sync/api/SyncType;J)Lcom/codewiththiru/platform/game/sync/api/SyncEvent$SyncCompleted;
+	public static synthetic fun copy$default (Lcom/codewiththiru/platform/game/sync/api/SyncEvent$SyncCompleted;Lcom/codewiththiru/platform/game/sync/api/SyncType;JILjava/lang/Object;)Lcom/codewiththiru/platform/game/sync/api/SyncEvent$SyncCompleted;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDurationMs ()J
+	public final fun getType ()Lcom/codewiththiru/platform/game/sync/api/SyncType;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/codewiththiru/platform/game/sync/api/SyncEvent$SyncFailed : com/codewiththiru/platform/game/sync/api/SyncEvent {
+	public fun <init> (Lcom/codewiththiru/platform/game/sync/api/SyncType;Ljava/lang/String;)V
+	public final fun component1 ()Lcom/codewiththiru/platform/game/sync/api/SyncType;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Lcom/codewiththiru/platform/game/sync/api/SyncType;Ljava/lang/String;)Lcom/codewiththiru/platform/game/sync/api/SyncEvent$SyncFailed;
+	public static synthetic fun copy$default (Lcom/codewiththiru/platform/game/sync/api/SyncEvent$SyncFailed;Lcom/codewiththiru/platform/game/sync/api/SyncType;Ljava/lang/String;ILjava/lang/Object;)Lcom/codewiththiru/platform/game/sync/api/SyncEvent$SyncFailed;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getReason ()Ljava/lang/String;
+	public final fun getType ()Lcom/codewiththiru/platform/game/sync/api/SyncType;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/codewiththiru/platform/game/sync/api/SyncEvent$SyncStarted : com/codewiththiru/platform/game/sync/api/SyncEvent {
+	public fun <init> (Lcom/codewiththiru/platform/game/sync/api/SyncType;)V
+	public final fun component1 ()Lcom/codewiththiru/platform/game/sync/api/SyncType;
+	public final fun copy (Lcom/codewiththiru/platform/game/sync/api/SyncType;)Lcom/codewiththiru/platform/game/sync/api/SyncEvent$SyncStarted;
+	public static synthetic fun copy$default (Lcom/codewiththiru/platform/game/sync/api/SyncEvent$SyncStarted;Lcom/codewiththiru/platform/game/sync/api/SyncType;ILjava/lang/Object;)Lcom/codewiththiru/platform/game/sync/api/SyncEvent$SyncStarted;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getType ()Lcom/codewiththiru/platform/game/sync/api/SyncType;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/codewiththiru/platform/game/sync/api/SyncStatus : java/lang/Enum {
+	public static final field COMPLETED Lcom/codewiththiru/platform/game/sync/api/SyncStatus;
+	public static final field CONFLICT Lcom/codewiththiru/platform/game/sync/api/SyncStatus;
+	public static final field Companion Lcom/codewiththiru/platform/game/sync/api/SyncStatus$Companion;
+	public static final field FAILED Lcom/codewiththiru/platform/game/sync/api/SyncStatus;
+	public static final field IN_PROGRESS Lcom/codewiththiru/platform/game/sync/api/SyncStatus;
+	public static final field PENDING Lcom/codewiththiru/platform/game/sync/api/SyncStatus;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/codewiththiru/platform/game/sync/api/SyncStatus;
+	public static fun values ()[Lcom/codewiththiru/platform/game/sync/api/SyncStatus;
+}
+
+public final class com/codewiththiru/platform/game/sync/api/SyncStatus$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/codewiththiru/platform/game/sync/api/SyncType : java/lang/Enum {
+	public static final field Companion Lcom/codewiththiru/platform/game/sync/api/SyncType$Companion;
+	public static final field DELTA Lcom/codewiththiru/platform/game/sync/api/SyncType;
+	public static final field FULL Lcom/codewiththiru/platform/game/sync/api/SyncType;
+	public static final field INCREMENTAL Lcom/codewiththiru/platform/game/sync/api/SyncType;
+	public static final field PULL Lcom/codewiththiru/platform/game/sync/api/SyncType;
+	public static final field PUSH Lcom/codewiththiru/platform/game/sync/api/SyncType;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/codewiththiru/platform/game/sync/api/SyncType;
+	public static fun values ()[Lcom/codewiththiru/platform/game/sync/api/SyncType;
+}
+
+public final class com/codewiththiru/platform/game/sync/api/SyncType$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract interface class com/codewiththiru/platform/game/sync/conflict/ConflictResolver {
+	public abstract fun resolve (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JJ)Ljava/lang/String;
+}
+
+public final class com/codewiththiru/platform/game/sync/conflict/NewestWinsResolver : com/codewiththiru/platform/game/sync/conflict/ConflictResolver {
+	public fun <init> ()V
+	public fun resolve (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JJ)Ljava/lang/String;
+}
+
+public abstract interface class com/codewiththiru/platform/game/sync/engine/SyncEngine {
+	public abstract fun getCurrentStatus ()Lkotlinx/coroutines/flow/StateFlow;
+	public abstract fun processQueue (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun pullAndMerge (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public abstract interface class com/codewiththiru/platform/game/sync/manager/SyncManager {
+	public abstract fun cancelAllPending ()V
+	public abstract fun forceSyncNow (Lcom/codewiththiru/platform/game/sync/api/SyncType;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getGlobalStatus ()Lkotlinx/coroutines/flow/StateFlow;
+	public abstract fun scheduleSync (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+}
+
+public abstract interface class com/codewiththiru/platform/game/sync/merge/MergeEngine {
+	public abstract fun deepMerge (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+}
+
+public abstract interface class com/codewiththiru/platform/game/sync/network/NetworkMonitor {
+	public abstract fun isConnected ()Lkotlinx/coroutines/flow/StateFlow;
+	public abstract fun isMetered ()Lkotlinx/coroutines/flow/StateFlow;
+}
+
+public abstract interface class com/codewiththiru/platform/game/sync/provider/SyncProvider {
+	public abstract fun getRemoteVersion (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun isAvailable (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun pullData (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun pushData (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public abstract interface class com/codewiththiru/platform/game/sync/queue/SyncQueueEngine {
+	public abstract fun enqueue (Lcom/codewiththiru/platform/game/sync/queue/SyncRequest;)V
+	public abstract fun getPendingCount ()I
+	public abstract fun markFailed (Ljava/lang/String;)V
+	public abstract fun peekNext ()Lcom/codewiththiru/platform/game/sync/queue/SyncRequest;
+	public abstract fun remove (Ljava/lang/String;)V
+}
+
+public final class com/codewiththiru/platform/game/sync/queue/SyncRequest {
+	public static final field Companion Lcom/codewiththiru/platform/game/sync/queue/SyncRequest$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JI)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JIILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()J
+	public final fun component6 ()I
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JI)Lcom/codewiththiru/platform/game/sync/queue/SyncRequest;
+	public static synthetic fun copy$default (Lcom/codewiththiru/platform/game/sync/queue/SyncRequest;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JIILjava/lang/Object;)Lcom/codewiththiru/platform/game/sync/queue/SyncRequest;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCollection ()Ljava/lang/String;
+	public final fun getDocumentId ()Ljava/lang/String;
+	public final fun getId ()Ljava/lang/String;
+	public final fun getJsonPayload ()Ljava/lang/String;
+	public final fun getRetryCount ()I
+	public final fun getTimestampMs ()J
+	public fun hashCode ()I
+	public final fun setRetryCount (I)V
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class com/codewiththiru/platform/game/sync/queue/SyncRequest$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lcom/codewiththiru/platform/game/sync/queue/SyncRequest$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcom/codewiththiru/platform/game/sync/queue/SyncRequest;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/codewiththiru/platform/game/sync/queue/SyncRequest;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/codewiththiru/platform/game/sync/queue/SyncRequest$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/codewiththiru/platform/game/sync/testing/FakeSyncQueueEngine : com/codewiththiru/platform/game/sync/queue/SyncQueueEngine {
+	public fun <init> ()V
+	public fun enqueue (Lcom/codewiththiru/platform/game/sync/queue/SyncRequest;)V
+	public fun getPendingCount ()I
+	public fun markFailed (Ljava/lang/String;)V
+	public fun peekNext ()Lcom/codewiththiru/platform/game/sync/queue/SyncRequest;
+	public fun remove (Ljava/lang/String;)V
+}
+
