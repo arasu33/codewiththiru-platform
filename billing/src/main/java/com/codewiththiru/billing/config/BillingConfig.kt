@@ -5,7 +5,8 @@ import com.codewiththiru.billing.api.BillingEnvironment
 data class BillingConfig(
     val environment: BillingEnvironment = BillingEnvironment.Production,
     val retryPolicy: RetryPolicy = RetryPolicy(),
-    val connectionTimeoutMs: Long = 10000L
+    val connectionTimeoutMs: Long = 10000L,
+    val base64PublicKey: String? = null
 )
 
 data class RetryPolicy(

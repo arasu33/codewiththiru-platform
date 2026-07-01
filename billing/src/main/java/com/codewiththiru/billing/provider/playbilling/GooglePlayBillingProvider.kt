@@ -18,7 +18,7 @@ class GooglePlayBillingProvider(
     override val connectionState: StateFlow<BillingState> = _connectionState.asStateFlow()
 
     // Using a wrapper to encapsulate the Play BillingClient
-    private val billingClientWrapper = BillingClientWrapper(context, _connectionState)
+    private val billingClientWrapper = BillingClientWrapper(context, _connectionState, config)
 
     override suspend fun connect(): BillingResult<Unit> {
         _connectionState.value = BillingState.Connecting

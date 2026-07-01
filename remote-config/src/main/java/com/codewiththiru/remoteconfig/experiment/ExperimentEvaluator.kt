@@ -28,6 +28,7 @@ class ExperimentEvaluator(
             return variant
         }
 
+        exposureTracker.trackExposure(userId, experiment.id, experiment.controlGroup.id)
         return experiment.controlGroup
     }
 }

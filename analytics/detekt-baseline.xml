@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<SmellBaseline>
+  <ManuallySuppressedIssues/>
+  <CurrentIssues>
+    <ID>MaxLineLength:AnalyticsDispatcher.kt$AnalyticsDispatcher$@Suppress("TooGenericExceptionCaught", "NestedBlockDepth", "LoopWithTooManyJumpStatements", "MagicNumber", "CyclomaticComplexMethod")</ID>
+  </CurrentIssues>
+</SmellBaseline>

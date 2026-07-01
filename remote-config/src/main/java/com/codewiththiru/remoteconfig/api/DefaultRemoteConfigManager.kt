@@ -25,6 +25,8 @@ class DefaultRemoteConfigManager(
     private val _state = MutableStateFlow<RemoteConfigState>(RemoteConfigState.Idle)
     override val state: StateFlow<RemoteConfigState> = _state.asStateFlow()
 
+    private val localOverrides = java.util.concurrent.ConcurrentHashMap<String, Any>()
+
     private val refreshMutex = Mutex()
     private var lastFetchTime = 0L
     private val REFRESH_INTERVAL_MS = 6 * 60 * 60 * 1000L // 6 Hours
@@ -56,6 +58,14 @@ class DefaultRemoteConfigManager(
     override suspend fun clearCache() {
         memoryCache.clear()
         dataStoreCache.clear()
+    }
+
+    override suspend fun <T> setOverride(key: com.codewiththiru.remoteconfig.api.RemoteConfigKey<T>, value: T) {
+        localOverrides[key.key] = value as Any
+    }
+
+    override suspend fun clearOverrides() {
+        localOverrides.clear()
     }
 
     private suspend fun performFetch() {
@@ -91,6 +101,12 @@ class DefaultRemoteConfigManager(
         if (killSwitchManager.isKillSwitchActive(key.key)) {
             analyticsProvider.trackEvent(RemoteConfigEvent.KILL_SWITCH_TRIGGERED, mapOf("key" to key.key))
             return key.defaultValue
+        }
+
+        if (localOverrides.containsKey(key.key)) {
+            // Suppress standard telemetry for overrides to avoid polluting production data
+            android.util.Log.d("CWT_PLATFORM", "Using local override for RemoteConfig key: ${key.key}")
+            return localOverrides[key.key] as T
         }
 
         val memValue = readFromCache(memoryCache, key)

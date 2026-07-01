@@ -15,4 +15,13 @@ data class NotificationPayload(
     val timestamp: Long = System.currentTimeMillis(),
     val isSilent: Boolean = false,
     val requiresConsent: Boolean = true,
+    val groupId: String? = null,
+    val actions: List<NotificationAction> = emptyList(),
+)
+
+@Serializable
+data class NotificationAction(
+    val actionId: String,
+    val title: String,
+    val deepLink: String? = null
 )

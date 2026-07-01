@@ -14,10 +14,31 @@ class FirebasePushProvider : PushNotificationProvider {
         }
     }
 
+    private suspend fun <T> withRetry(
+        maxRetries: Int = 3,
+        initialDelayMs: Long = 1000,
+        block: suspend () -> T
+    ): T {
+        var currentDelay = initialDelayMs
+        var lastException: Exception? = null
+        for (attempt in 0 until maxRetries) {
+            try {
+                return block()
+            } catch (e: Exception) {
+                lastException = e
+                if (attempt < maxRetries - 1) {
+                    kotlinx.coroutines.delay(currentDelay)
+                    currentDelay *= 2
+                }
+            }
+        }
+        throw lastException ?: Exception("Unknown error in withRetry")
+    }
+
     override suspend fun subscribeToTopic(topic: String): Boolean {
         val fcm = firebaseMessaging ?: return false
         return try {
-            fcm.subscribeToTopic(topic).await()
+            withRetry { fcm.subscribeToTopic(topic).await() }
             true
         } catch (e: Exception) {
             false
@@ -27,7 +48,7 @@ class FirebasePushProvider : PushNotificationProvider {
     override suspend fun unsubscribeFromTopic(topic: String): Boolean {
         val fcm = firebaseMessaging ?: return false
         return try {
-            fcm.unsubscribeFromTopic(topic).await()
+            withRetry { fcm.unsubscribeFromTopic(topic).await() }
             true
         } catch (e: Exception) {
             false
@@ -37,7 +58,7 @@ class FirebasePushProvider : PushNotificationProvider {
     override suspend fun getToken(): String? {
         val fcm = firebaseMessaging ?: return null
         return try {
-            fcm.token.await()
+            withRetry { fcm.token.await() }
         } catch (e: Exception) {
             null
         }
