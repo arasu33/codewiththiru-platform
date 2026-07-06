@@ -77,14 +77,7 @@ class AdMobRewardedLoader(private val context: Context) {
                 }
 
                 override fun onAdShowedFullScreenContent() {
-                    // Note: We don't resume here immediately for Rewarded ads typically, 
-                    // we usually wait for dismissal to return the full result, but for AdShowResult
-                    // we just mark it as success. Actually, let's resume on dismiss or fail.
-                    // Or we could return success here and handle rewards via a separate callback.
-                    // For consistency with Interstitial, let's just return Success when it shows.
-                    if (continuation.isActive) {
-                        continuation.resume(AdShowResult.Success(AdType.Rewarded.name))
-                    }
+                    // Do nothing here to keep the coroutine suspended until the ad is dismissed.
                 }
             }
             

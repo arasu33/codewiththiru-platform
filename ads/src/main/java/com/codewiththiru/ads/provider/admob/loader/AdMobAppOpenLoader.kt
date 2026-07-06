@@ -77,9 +77,7 @@ class AdMobAppOpenLoader(private val context: Context) {
                 }
 
                 override fun onAdShowedFullScreenContent() {
-                    if (continuation.isActive) {
-                        continuation.resume(AdShowResult.Success(AdType.AppOpen.name))
-                    }
+                    // Do nothing here to keep the coroutine suspended until the ad is dismissed.
                 }
             }
             ad.show(activity)

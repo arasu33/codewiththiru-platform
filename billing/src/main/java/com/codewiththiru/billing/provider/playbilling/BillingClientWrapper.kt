@@ -55,10 +55,12 @@ class BillingClientWrapper(
             return BillingResult.Success(Unit)
         }
 
-        val result = suspendCoroutine<PlayBillingResult> { continuation ->
+        val result = kotlinx.coroutines.suspendCancellableCoroutine<PlayBillingResult> { continuation ->
             billingClient.startConnection(object : BillingClientStateListener {
                 override fun onBillingSetupFinished(billingResult: PlayBillingResult) {
-                    continuation.resume(billingResult)
+                    if (continuation.isActive) {
+                        continuation.resume(billingResult)
+                    }
                 }
 
                 override fun onBillingServiceDisconnected() {
@@ -66,6 +68,10 @@ class BillingClientWrapper(
                     // Disconnected - handled by ConnectionManager usually
                 }
             })
+            
+            continuation.invokeOnCancellation {
+                disconnect()
+            }
         }
 
         if (result.responseCode == BillingClient.BillingResponseCode.OK) {
