@@ -14,25 +14,25 @@ class DeepMergeConflictResolver : ConflictResolver {
         localJson: String,
         remoteJson: String,
         localTimestampMs: Long,
-        remoteTimestampMs: Long
+        remoteTimestampMs: Long,
     ): String {
         return try {
             val localObj = Json.parseToJsonElement(localJson) as JsonObject
             val remoteObj = Json.parseToJsonElement(remoteJson) as JsonObject
-            
+
             val localWins = localTimestampMs >= remoteTimestampMs
-            
+
             val primary = if (localWins) localObj else remoteObj
             val secondary = if (localWins) remoteObj else localObj
-            
+
             val mergedMap = mutableMapOf<String, kotlinx.serialization.json.JsonElement>()
-            
+
             // 1. Copy all fields from the older payload
             mergedMap.putAll(secondary)
-            
+
             // 2. Overwrite with fields from the newer payload (primary wins collisions)
             mergedMap.putAll(primary)
-            
+
             JsonObject(mergedMap).toString()
         } catch (e: Exception) {
             // If JSON parsing fails, fallback to simple string replacement
