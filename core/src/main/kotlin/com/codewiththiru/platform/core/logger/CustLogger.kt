@@ -266,6 +266,7 @@ object CustLogger {
      * Exposes package-private access to permit inline compilation checks.
      */
     @PublishedApi
+    @Suppress("TooGenericExceptionCaught", "SwallowedException")
     internal fun log(
         level: CustLogLevel,
         tag: String,
@@ -275,7 +276,11 @@ object CustLogger {
         if (!isLoggable(level)) return
         val currentState = state.get()
         currentState.printers.forEach { printer ->
-            printer.printLog(level, tag, message, throwable)
+            try {
+                printer.printLog(level, tag, message, throwable)
+            } catch (e: Exception) {
+                // Ignore printer exceptions to prevent app crash
+            }
         }
     }
 

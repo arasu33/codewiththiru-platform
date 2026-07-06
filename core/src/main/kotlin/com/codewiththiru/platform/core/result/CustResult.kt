@@ -171,10 +171,6 @@ inline fun <T> custRunCatching(block: () -> T): CustResult<T> {
         throw e
     } catch (e: VirtualMachineError) {
         throw e
-    } catch (e: OutOfMemoryError) {
-        throw e
-    } catch (e: StackOverflowError) {
-        throw e
     } catch (e: Exception) {
         CustResult.Failure(e)
     }
