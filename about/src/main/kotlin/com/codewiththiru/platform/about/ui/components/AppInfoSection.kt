@@ -43,6 +43,13 @@ internal fun AppInfoSection(
             modifier = Modifier.padding(bottom = 8.dp)
         )
         
+        if (appInfo.appDescription != null) {
+            CustText(
+                text = appInfo.appDescription,
+                modifier = Modifier.padding(bottom = 8.dp)
+            )
+        }
+        
         CustText(
             text = "Version ${appInfo.versionName} (${appInfo.versionCode})",
             modifier = Modifier.padding(bottom = 4.dp)

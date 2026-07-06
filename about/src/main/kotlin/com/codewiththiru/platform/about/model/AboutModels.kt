@@ -62,6 +62,7 @@ data class AppInfo(
     val versionName: String,
     val versionCode: Long,
     val buildType: String,
+    val appDescription: String? = null,
     val appIcon: Painter? = null
 )
 
