@@ -44,3 +44,16 @@ jobs:
         env:
           GPR_USER: ${{ github.actor }}
           GPR_KEY: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Auto-Update README Version
+        run: |
+          VERSION=$(grep -E '^PLATFORM_VERSION_NAME=' gradle.properties | cut -d '=' -f 2)
+          sed -i -E "s/## Version: v[0-9]+\.[0-9]+\.[0-9]+/## Version: v$VERSION/" README.md
+          sed -i -E "s/platform-bom:[0-9]+\.[0-9]+\.[0-9]+/platform-bom:$VERSION/" README.md
+
+      - name: Commit README Update
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "docs: auto-sync version in README [skip ci]"
+          branch: prod
+          file_pattern: "README.md"
