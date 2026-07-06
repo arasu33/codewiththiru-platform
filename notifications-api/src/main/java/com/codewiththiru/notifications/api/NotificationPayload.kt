@@ -23,5 +23,5 @@ data class NotificationPayload(
 data class NotificationAction(
     val actionId: String,
     val title: String,
-    val deepLink: String? = null
+    val deepLink: String? = null,
 )

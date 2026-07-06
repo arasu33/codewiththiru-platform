@@ -45,8 +45,11 @@ interface RemoteConfigManager {
     ): String
 
     suspend fun <T> getValue(key: RemoteConfigKey<T>): T
-    
-    suspend fun <T> setOverride(key: RemoteConfigKey<T>, value: T)
-    
+
+    suspend fun <T> setOverride(
+        key: RemoteConfigKey<T>,
+        value: T,
+    )
+
     suspend fun clearOverrides()
 }
