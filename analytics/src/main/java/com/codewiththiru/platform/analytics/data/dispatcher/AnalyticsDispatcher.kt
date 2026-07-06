@@ -56,6 +56,8 @@ public class AnalyticsDispatcher(
                     // Track all events in the batch
                     batch.forEach { provider.trackEvent(it) }
                     provider.flush()
+                } catch (e: kotlinx.coroutines.CancellationException) {
+                    throw e
                 } catch (e: Exception) {
                     success = false
                     Log.e("AnalyticsDispatcher", "Provider failed during dispatch. Entering backoff.", e)
@@ -89,6 +91,8 @@ public class AnalyticsDispatcher(
             if (dispatched > 0) {
                 Log.d("AnalyticsDispatcher", "Flushed $dispatched events")
             }
+        } catch (e: kotlinx.coroutines.CancellationException) {
+            throw e
         } catch (e: Exception) {
             Log.e("AnalyticsDispatcher", "Error during flush", e)
         }

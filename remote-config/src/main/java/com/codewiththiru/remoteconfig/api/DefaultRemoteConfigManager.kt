@@ -83,6 +83,8 @@ class DefaultRemoteConfigManager(
             } else {
                 handleFetchFailure(result.exceptionOrNull())
             }
+        } catch (e: kotlinx.coroutines.CancellationException) {
+            throw e
         } catch (e: Exception) {
             handleFetchFailure(e)
         }
