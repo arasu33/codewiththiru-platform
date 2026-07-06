@@ -6,7 +6,6 @@ plugins {
 }
 
 group = "com.codewiththiru.platform.developer"
-version = "1.0.0"
 
 dependencies {
     api(project(":developer:game-testing"))

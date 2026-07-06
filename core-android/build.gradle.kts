@@ -8,7 +8,6 @@ plugins {
 }
 
 group = "com.codewiththiru.platform"
-version = "1.0.0"
 
 android {
     namespace = "com.codewiththiru.platform.android"
