@@ -41,13 +41,13 @@ class DefaultSyncQueueEngine : SyncQueueEngine {
         request: SyncRequest,
         currentTimeMs: Long,
     ): Boolean {
-        if (request.retryCount == 0) return true
-
-        val lastFailureTime = failureTimestamps[request.id] ?: return true
+        val lastFailureTime = failureTimestamps[request.id]
+        if (request.retryCount == 0 || lastFailureTime == null) {
+            return true
+        }
 
         // Exponential backoff: (2^retryCount) * 1000 ms
         val backoffDelayMs = (2.0.pow(request.retryCount.toDouble()) * 1000).toLong()
-
         return currentTimeMs >= (lastFailureTime + backoffDelayMs)
     }
 }

@@ -9,6 +9,7 @@ import kotlinx.serialization.json.JsonObject
  * the payload with the newer timestamp takes precedence.
  */
 class DeepMergeConflictResolver : ConflictResolver {
+    @Suppress("SwallowedException", "TooGenericExceptionCaught")
     override fun resolve(
         collection: String,
         localJson: String,
