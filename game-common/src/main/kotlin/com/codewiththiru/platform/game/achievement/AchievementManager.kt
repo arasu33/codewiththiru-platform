@@ -44,23 +44,29 @@ class DefaultAchievementManager(
     private val onUnlocked: (Achievement) -> Unit = {},
 ) : AchievementManager {
     private val achievementsKey = "game_achievements_list"
+    private val lock = java.util.concurrent.locks.ReentrantLock()
 
     override fun registerAchievements(achievements: List<Achievement>) {
-        if (!saveStorage.hasKey(achievementsKey)) {
-            saveList(achievements)
-        } else {
-            // Merge existing save state with new registered definitions if any
-            val existing = getAchievements()
-            val merged =
-                achievements.map { def ->
-                    existing.find { it.id == def.id }?.let { saved ->
-                        def.copy(
-                            currentProgress = saved.currentProgress,
-                            isUnlocked = saved.isUnlocked,
-                        )
-                    } ?: def
-                }
-            saveList(merged)
+        lock.lock()
+        try {
+            if (!saveStorage.hasKey(achievementsKey)) {
+                saveList(achievements)
+            } else {
+                // Merge existing save state with new registered definitions if any
+                val existing = getAchievements()
+                val merged =
+                    achievements.map { def ->
+                        existing.find { it.id == def.id }?.let { saved ->
+                            def.copy(
+                                currentProgress = saved.currentProgress,
+                                isUnlocked = saved.isUnlocked,
+                            )
+                        } ?: def
+                    }
+                saveList(merged)
+            }
+        } finally {
+            lock.unlock()
         }
     }
 
@@ -68,6 +74,8 @@ class DefaultAchievementManager(
         val serialized = saveStorage.getString(achievementsKey) ?: return emptyList()
         return try {
             serializer.deserialize(serialized, kotlin.reflect.typeOf<List<Achievement>>())
+        } catch (e: kotlinx.coroutines.CancellationException) {
+            throw e
         } catch (e: Exception) {
             emptyList()
         }
@@ -81,47 +89,63 @@ class DefaultAchievementManager(
         id: String,
         progressDelta: Int,
     ): Boolean {
-        val currentList = getAchievements().toMutableList()
-        val index = currentList.indexOfFirst { it.id == id }
-        if (index == -1) return false
+        var shouldUnlock = false
+        var updated: Achievement? = null
 
-        val achievement = currentList[index]
-        if (achievement.isUnlocked) return false
+        lock.lock()
+        try {
+            val currentList = getAchievements().toMutableList()
+            val index = currentList.indexOfFirst { it.id == id }
+            if (index == -1) return false
 
-        val newProgress = minOf(achievement.targetProgress, achievement.currentProgress + progressDelta)
-        val shouldUnlock = newProgress >= achievement.targetProgress
+            val achievement = currentList[index]
+            if (achievement.isUnlocked) return false
 
-        val updated =
-            achievement.copy(
-                currentProgress = newProgress,
-                isUnlocked = shouldUnlock,
-            )
-        currentList[index] = updated
-        saveList(currentList)
+            val newProgress = minOf(achievement.targetProgress, achievement.currentProgress + progressDelta)
+            shouldUnlock = newProgress >= achievement.targetProgress
 
-        if (shouldUnlock) {
+            updated =
+                achievement.copy(
+                    currentProgress = newProgress,
+                    isUnlocked = shouldUnlock,
+                )
+            currentList[index] = updated
+            saveList(currentList)
+        } finally {
+            lock.unlock()
+        }
+
+        if (shouldUnlock && updated != null) {
             onUnlocked(updated)
         }
         return shouldUnlock
     }
 
     override fun unlock(id: String): Boolean {
-        val currentList = getAchievements().toMutableList()
-        val index = currentList.indexOfFirst { it.id == id }
-        if (index == -1) return false
+        var updated: Achievement? = null
+        lock.lock()
+        try {
+            val currentList = getAchievements().toMutableList()
+            val index = currentList.indexOfFirst { it.id == id }
+            if (index == -1) return false
 
-        val achievement = currentList[index]
-        if (achievement.isUnlocked) return false
+            val achievement = currentList[index]
+            if (achievement.isUnlocked) return false
 
-        val updated =
-            achievement.copy(
-                currentProgress = achievement.targetProgress,
-                isUnlocked = true,
-            )
-        currentList[index] = updated
-        saveList(currentList)
+            updated =
+                achievement.copy(
+                    currentProgress = achievement.targetProgress,
+                    isUnlocked = true,
+                )
+            currentList[index] = updated
+            saveList(currentList)
+        } finally {
+            lock.unlock()
+        }
 
-        onUnlocked(updated)
+        if (updated != null) {
+            onUnlocked(updated)
+        }
         return true
     }
 

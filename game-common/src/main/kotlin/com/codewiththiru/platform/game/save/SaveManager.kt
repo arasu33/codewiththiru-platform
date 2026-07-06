@@ -20,7 +20,7 @@ interface GameStorage {
 }
 
 class InMemoryGameStorage : GameStorage {
-    private val map = mutableMapOf<String, String>()
+    private val map = java.util.concurrent.ConcurrentHashMap<String, String>()
 
     override fun getString(
         key: String,
@@ -83,6 +83,8 @@ class DefaultSaveManager(
         val serialized = storage.getString("save_$saveId") ?: return null
         return try {
             serializer.deserialize(serialized, typeOf<GameState>())
+        } catch (e: kotlinx.coroutines.CancellationException) {
+            throw e
         } catch (e: Exception) {
             null
         }
@@ -112,6 +114,8 @@ class DefaultSaveManager(
         val serialized = storage.getString(resumeKey) ?: return null
         return try {
             serializer.deserialize(serialized, typeOf<GameState>())
+        } catch (e: kotlinx.coroutines.CancellationException) {
+            throw e
         } catch (e: Exception) {
             null
         }
