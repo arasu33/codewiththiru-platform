@@ -100,9 +100,9 @@ data class DiagnosticsConfig(
 
 data class AboutVisibility(
     val showAppIcon: Boolean = true,
-    val showDeviceSection: Boolean = true,
-    val showLegalSection: Boolean = true,
-    val showDiagnostics: Boolean = true
+    val showDeviceSection: Boolean = false,
+    val showLegalSection: Boolean = false,
+    val showDiagnostics: Boolean = false
 )
 
 data class AboutThemeConfig(
