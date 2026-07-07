@@ -2,6 +2,7 @@
 
 package com.codewiththiru.platform.designsystem.components
 
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
@@ -13,6 +14,7 @@ import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
@@ -29,14 +31,18 @@ fun CustButton(
     colors: ButtonColors = CustButtonDefaults.buttonColors(),
     content: @Composable RowScope.() -> Unit,
 ) {
+    val interactionSource = remember { MutableInteractionSource() }
     Button(
         onClick = { if (!loading) onClick() },
         modifier =
-            modifier.semantics {
-                if (loading) stateDescription = "Loading"
-            },
+            modifier
+                .bounceClick(interactionSource = interactionSource, enabled = enabled)
+                .semantics {
+                    if (loading) stateDescription = "Loading"
+                },
         enabled = enabled,
         colors = colors,
+        interactionSource = interactionSource,
     ) {
         ButtonContent(loading = loading, content = content)
     }
@@ -51,14 +57,18 @@ fun CustOutlinedButton(
     colors: ButtonColors = CustButtonDefaults.outlinedButtonColors(),
     content: @Composable RowScope.() -> Unit,
 ) {
+    val interactionSource = remember { MutableInteractionSource() }
     OutlinedButton(
         onClick = { if (!loading) onClick() },
         modifier =
-            modifier.semantics {
-                if (loading) stateDescription = "Loading"
-            },
+            modifier
+                .bounceClick(interactionSource = interactionSource, enabled = enabled)
+                .semantics {
+                    if (loading) stateDescription = "Loading"
+                },
         enabled = enabled,
         colors = colors,
+        interactionSource = interactionSource,
     ) {
         ButtonContent(loading = loading, content = content)
     }
@@ -73,14 +83,18 @@ fun CustTextButton(
     colors: ButtonColors = CustButtonDefaults.textButtonColors(),
     content: @Composable RowScope.() -> Unit,
 ) {
+    val interactionSource = remember { MutableInteractionSource() }
     TextButton(
         onClick = { if (!loading) onClick() },
         modifier =
-            modifier.semantics {
-                if (loading) stateDescription = "Loading"
-            },
+            modifier
+                .bounceClick(interactionSource = interactionSource, enabled = enabled)
+                .semantics {
+                    if (loading) stateDescription = "Loading"
+                },
         enabled = enabled,
         colors = colors,
+        interactionSource = interactionSource,
     ) {
         ButtonContent(loading = loading, content = content)
     }
