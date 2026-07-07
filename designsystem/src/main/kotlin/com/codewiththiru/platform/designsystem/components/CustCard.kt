@@ -3,6 +3,7 @@
 package com.codewiththiru.platform.designsystem.components
 
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardColors
@@ -11,8 +12,11 @@ import androidx.compose.material3.CardElevation
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.OutlinedCard
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
+import androidx.compose.ui.unit.dp
 
 @Composable
 fun CustCard(
@@ -44,14 +48,16 @@ fun CustCard(
     border: BorderStroke? = null,
     content: @Composable ColumnScope.() -> Unit,
 ) {
+    val interactionSource = remember { MutableInteractionSource() }
     Card(
         onClick = onClick,
-        modifier = modifier,
+        modifier = modifier.bounceClick(interactionSource = interactionSource, enabled = enabled),
         enabled = enabled,
         shape = shape,
         colors = colors,
         elevation = elevation,
         border = border,
+        interactionSource = interactionSource,
         content = content,
     )
 }
@@ -86,14 +92,16 @@ fun CustOutlinedCard(
     border: BorderStroke = CardDefaults.outlinedCardBorder(),
     content: @Composable ColumnScope.() -> Unit,
 ) {
+    val interactionSource = remember { MutableInteractionSource() }
     OutlinedCard(
         onClick = onClick,
-        modifier = modifier,
+        modifier = modifier.bounceClick(interactionSource = interactionSource, enabled = enabled),
         enabled = enabled,
         shape = shape,
         colors = colors,
         elevation = elevation,
         border = border,
+        interactionSource = interactionSource,
         content = content,
     )
 }
@@ -125,13 +133,32 @@ fun CustElevatedCard(
     elevation: CardElevation = CardDefaults.elevatedCardElevation(),
     content: @Composable ColumnScope.() -> Unit,
 ) {
+    val interactionSource = remember { MutableInteractionSource() }
     ElevatedCard(
         onClick = onClick,
-        modifier = modifier,
+        modifier = modifier.bounceClick(interactionSource = interactionSource, enabled = enabled),
         enabled = enabled,
         shape = shape,
         colors = colors,
         elevation = elevation,
+        interactionSource = interactionSource,
+        content = content,
+    )
+}
+
+@Composable
+fun CustGlassCard(
+    modifier: Modifier = Modifier,
+    shape: Shape = CardDefaults.shape,
+    tint: Color = Color.White.copy(alpha = 0.2f),
+    blurRadius: Float = 50f,
+    content: @Composable ColumnScope.() -> Unit,
+) {
+    Card(
+        modifier = modifier.glassmorphic(shape = shape, tint = tint, blurRadius = blurRadius),
+        shape = shape,
+        colors = CardDefaults.cardColors(containerColor = Color.Transparent),
+        elevation = CardDefaults.cardElevation(defaultElevation = 0.dp),
         content = content,
     )
 }
