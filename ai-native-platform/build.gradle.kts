@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.codewiththiru.ai.platform"
-    compileSdk = 36
+    compileSdk = 37
 
     defaultConfig {
         minSdk = 24

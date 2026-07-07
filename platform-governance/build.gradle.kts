@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.codewiththiru.governance"
-    compileSdk = 36
+    compileSdk = 37
 
     defaultConfig {
         minSdk = 24

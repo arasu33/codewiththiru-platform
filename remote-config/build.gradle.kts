@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace = "com.codewiththiru.remoteconfig"
-    compileSdk = 36
+    compileSdk = 37
 
     defaultConfig {
         minSdk = 24
@@ -36,7 +36,7 @@ dependencies {
     implementation(project(":analytics-api"))
 
     implementation(platform(libs.firebase.bom))
-    implementation(libs.firebase.config.ktx)
+    implementation(libs.firebase.config)
     
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.datastore.preferences)

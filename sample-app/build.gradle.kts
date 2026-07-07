@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.codewiththiru.platform.showcase"
-    compileSdk = 36
+    compileSdk = 37
 
     defaultConfig {
         applicationId = "com.codewiththiru.platform.showcase"

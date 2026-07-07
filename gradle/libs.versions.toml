@@ -16,7 +16,7 @@ lifecycleViewmodelNav3 = "2.10.0"
 robolectric = "4.12.2"
 mockk = "1.14.11"
 androidxDatastore = "1.2.1"
-androidxSecurityCrypto = "1.0.0"
+androidxSecurityCrypto = "1.1.0-alpha06"
 playReview = "2.0.2"
 playAppUpdate = "2.1.0"
 firebaseBom = "34.15.0"
@@ -67,10 +67,10 @@ androidx-security-crypto = { module = "androidx.security:security-crypto", versi
 play-review-ktx = { module = "com.google.android.play:review-ktx", version.ref = "playReview" }
 play-app-update-ktx = { module = "com.google.android.play:app-update-ktx", version.ref = "playAppUpdate" }
 firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
-firebase-config-ktx = { module = "com.google.firebase:firebase-config-ktx" }
+firebase-config = { module = "com.google.firebase:firebase-config" }
 androidx-work-runtime-ktx = { module = "androidx.work:work-runtime-ktx", version.ref = "workRuntime" }
-firebase-analytics-ktx = { module = "com.google.firebase:firebase-analytics-ktx" }
-firebase-messaging-ktx = { module = "com.google.firebase:firebase-messaging-ktx" }
+firebase-analytics = { module = "com.google.firebase:firebase-analytics" }
+firebase-messaging = { module = "com.google.firebase:firebase-messaging" }
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxSerialization" }
 play-services-ads = { module = "com.google.android.gms:play-services-ads", version = "23.1.0" }
 user-messaging-platform = { module = "com.google.android.ump:user-messaging-platform", version = "2.2.0" }

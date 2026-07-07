@@ -12,7 +12,7 @@ group = "com.codewiththiru.platform"
 
 android {
     namespace = "com.codewiththiru.platform.rating"
-    compileSdk = 36
+    compileSdk = 37
 
     defaultConfig {
         minSdk = 26

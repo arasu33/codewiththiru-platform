@@ -7,7 +7,7 @@ plugins {
 
 android {
     namespace = "com.codewiththiru.notifications"
-    compileSdk = 36
+    compileSdk = 37
 
     defaultConfig {
         minSdk = 24
@@ -49,7 +49,7 @@ dependencies {
     implementation(project(":designsystem"))
 
     implementation(platform(libs.firebase.bom))
-    implementation(libs.firebase.messaging.ktx)
+    implementation(libs.firebase.messaging)
 
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.compose.ui)

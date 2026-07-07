@@ -185,6 +185,16 @@ public abstract interface class com/codewiththiru/platform/game/save/compression
 	public abstract fun decompress ([B)[B
 }
 
+public final class com/codewiththiru/platform/game/save/encryption/AesGcmEncryptionStrategy : com/codewiththiru/platform/game/save/encryption/EncryptionStrategy {
+	public static final field Companion Lcom/codewiththiru/platform/game/save/encryption/AesGcmEncryptionStrategy$Companion;
+	public fun <init> (Ljavax/crypto/SecretKey;)V
+	public fun decrypt ([B)[B
+	public fun encrypt ([B)[B
+}
+
+public final class com/codewiththiru/platform/game/save/encryption/AesGcmEncryptionStrategy$Companion {
+}
+
 public abstract interface class com/codewiththiru/platform/game/save/encryption/EncryptionStrategy {
 	public abstract fun decrypt ([B)[B
 	public abstract fun encrypt ([B)[B
@@ -193,6 +203,16 @@ public abstract interface class com/codewiththiru/platform/game/save/encryption/
 public abstract interface class com/codewiththiru/platform/game/save/manager/BackupManager {
 	public abstract fun backup (Lcom/codewiththiru/platform/game/save/api/SaveSlot;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun listBackups (Lcom/codewiththiru/platform/game/save/api/SaveSlot;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/codewiththiru/platform/game/save/manager/EncryptedGameSaveManager : com/codewiththiru/platform/game/save/manager/GameSaveManager {
+	public fun <init> (Ljava/io/File;Lcom/codewiththiru/platform/game/save/encryption/EncryptionStrategy;Lcom/codewiththiru/platform/game/save/manager/SignatureValidator;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)V
+	public fun delete (Lcom/codewiththiru/platform/game/save/api/SaveSlot;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getStatus ()Lkotlinx/coroutines/flow/StateFlow;
+	public fun listSaves (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun load (Lcom/codewiththiru/platform/game/save/api/SaveSlot;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun save (Lcom/codewiththiru/platform/game/save/api/SaveRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun sync (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 }
 
 public abstract interface class com/codewiththiru/platform/game/save/manager/GameSaveManager {
@@ -217,6 +237,16 @@ public final class com/codewiththiru/platform/game/save/manager/SaveSystemStatus
 	public static fun getEntries ()Lkotlin/enums/EnumEntries;
 	public static fun valueOf (Ljava/lang/String;)Lcom/codewiththiru/platform/game/save/manager/SaveSystemStatus;
 	public static fun values ()[Lcom/codewiththiru/platform/game/save/manager/SaveSystemStatus;
+}
+
+public final class com/codewiththiru/platform/game/save/manager/SignatureValidator {
+	public static final field Companion Lcom/codewiththiru/platform/game/save/manager/SignatureValidator$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
+	public final fun generateSignature ([B)Ljava/lang/String;
+	public final fun validateSignature ([BLjava/lang/String;)Z
+}
+
+public final class com/codewiththiru/platform/game/save/manager/SignatureValidator$Companion {
 }
 
 public abstract interface class com/codewiththiru/platform/game/save/migration/MigrationManager {
