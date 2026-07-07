@@ -7,7 +7,7 @@ plugins {
 
 android {
     namespace = "com.codewiththiru.security"
-    compileSdk = 36
+    compileSdk = 37
 
     defaultConfig {
         minSdk = 24
@@ -56,6 +56,7 @@ dependencies {
 
     // Security Crypto
     implementation("androidx.security:security-crypto:1.1.0-alpha06")
+    implementation("com.squareup.okhttp3:okhttp:4.12.0")
     
     testImplementation(libs.junit)
     testImplementation(libs.androidx.test.core)

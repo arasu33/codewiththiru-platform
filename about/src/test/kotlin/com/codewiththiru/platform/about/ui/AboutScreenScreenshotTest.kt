@@ -25,61 +25,59 @@ import org.robolectric.annotation.GraphicsMode
 @GraphicsMode(GraphicsMode.Mode.NATIVE)
 @Config(sdk = [34], instrumentedPackages = ["androidx.loader.content"])
 class AboutScreenScreenshotTest {
-
     @get:Rule
     val composeTestRule = createComposeRule()
 
     @Test
     @Config(qualifiers = RobolectricDeviceQualifiers.Pixel5)
     fun captureFullAboutScreen() {
-        val config = AboutConfig.Builder()
-            .setAppInfo(
-                AppInfo(
-                    appName = "Test App",
-                    versionName = "1.0.0",
-                    versionCode = 1L,
-                    buildType = "Release",
-                    packageName = "com.test.app"
-                )
-            )
-            .setDeveloperInfo(
-                DeveloperInfo(
-                    developerName = "CodeWithThiru",
-                    websiteUrl = "https://example.com",
-                    socialLinks = listOf(
-                        SocialLink("GitHub", "https://github.com/codewiththiru")
-                    )
-                )
-            )
-            .setDeviceInfo(
-                DeviceInfo(
-                    osVersion = "14",
-                    apiLevel = 34,
-                    manufacturer = "Google",
-                    model = "Pixel 5"
-                )
-            )
-            .setLegalInfo(
-                LegalInfo(
-                    privacyPolicyUrl = "https://example.com/privacy",
-                    termsOfServiceUrl = "https://example.com/terms",
-                    showOssLicenses = true
-                )
-            )
-            .setDiagnosticsConfig(DiagnosticsConfig(includeDeviceInfo = true))
-            .setVisibility(AboutDefaults.visibility())
-            .build()
+        val config =
+            AboutConfig
+                .Builder()
+                .setAppInfo(
+                    AppInfo(
+                        appName = "Test App",
+                        versionName = "1.0.0",
+                        versionCode = 1L,
+                        buildType = "Release",
+                        packageName = "com.test.app",
+                    ),
+                ).setDeveloperInfo(
+                    DeveloperInfo(
+                        developerName = "CodeWithThiru",
+                        websiteUrl = "https://example.com",
+                        socialLinks =
+                            listOf(
+                                SocialLink("GitHub", "https://github.com/codewiththiru"),
+                            ),
+                    ),
+                ).setDeviceInfo(
+                    DeviceInfo(
+                        osVersion = "14",
+                        apiLevel = 34,
+                        manufacturer = "Google",
+                        model = "Pixel 5",
+                    ),
+                ).setLegalInfo(
+                    LegalInfo(
+                        privacyPolicyUrl = "https://example.com/privacy",
+                        termsOfServiceUrl = "https://example.com/terms",
+                        showOssLicenses = true,
+                    ),
+                ).setDiagnosticsConfig(DiagnosticsConfig(includeDeviceInfo = true))
+                .setVisibility(AboutDefaults.visibility())
+                .build()
 
         composeTestRule.setContent {
             CustTheme {
                 AboutScreen(
                     uiState = AboutUiState.Success(config),
                     eventListener = AboutDefaults.eventListener(),
-                    licenseProvider = null
+                    licenseProvider = null,
                 )
             }
         }
-        
+
         composeTestRule.onRoot().captureRoboImage()
     }
 }

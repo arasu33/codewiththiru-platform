@@ -6,8 +6,14 @@ import com.codewiththiru.platform.coupons.domain.model.CouponReward
 import com.codewiththiru.platform.coupons.domain.model.CouponTriggerContext
 
 interface CouponRepository {
-    suspend fun validateCoupon(code: String, context: CouponTriggerContext): CouponResult<CouponModel>
+    suspend fun validateCoupon(
+        code: String,
+        context: CouponTriggerContext,
+    ): CouponResult<CouponModel>
+
     suspend fun redeemCoupon(code: String): CouponResult<CouponReward>
+
     suspend fun getCachedCoupon(code: String): CouponModel?
+
     suspend fun saveCoupon(coupon: CouponModel)
 }

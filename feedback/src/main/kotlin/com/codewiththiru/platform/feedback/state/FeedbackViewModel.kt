@@ -21,9 +21,8 @@ class FeedbackViewModel(
     private val config: FeedbackConfig,
     private val submissionProvider: FeedbackSubmissionProvider,
     private val draftProvider: FeedbackDraftProvider?,
-    private val submissionPolicy: FeedbackSubmissionPolicy
+    private val submissionPolicy: FeedbackSubmissionPolicy,
 ) : ViewModel() {
-
     private val _uiState = MutableStateFlow<FeedbackUiState>(FeedbackUiState.Idle)
     val uiState: StateFlow<FeedbackUiState> = _uiState.asStateFlow()
 
@@ -40,22 +39,25 @@ class FeedbackViewModel(
     fun onAction(action: FeedbackAction) {
         when (action) {
             is FeedbackAction.CategorySelected -> _formState.update { it.copy(category = action.category) }
-            is FeedbackAction.SubjectChanged -> _formState.update {
-                it.copy(subject = action.subject, subjectError = null)
-            }
-            is FeedbackAction.DescriptionChanged -> _formState.update {
-                it.copy(description = action.description, descriptionError = null)
-            }
-            is FeedbackAction.EmailChanged -> _formState.update {
-                it.copy(email = action.email, emailError = null)
-            }
+            is FeedbackAction.SubjectChanged ->
+                _formState.update {
+                    it.copy(subject = action.subject, subjectError = null)
+                }
+            is FeedbackAction.DescriptionChanged ->
+                _formState.update {
+                    it.copy(description = action.description, descriptionError = null)
+                }
+            is FeedbackAction.EmailChanged ->
+                _formState.update {
+                    it.copy(email = action.email, emailError = null)
+                }
             is FeedbackAction.NameChanged -> _formState.update { it.copy(name = action.name) }
             is FeedbackAction.AttachmentAdded -> { /* Handle Attachment */ }
             is FeedbackAction.AttachmentRemoved -> { /* Handle Attachment */ }
             is FeedbackAction.SubmitClicked -> submitFeedback()
             is FeedbackAction.DismissErrorClicked -> _uiState.value = FeedbackUiState.Idle
         }
-        
+
         // Auto-save draft on every key action if configured
         val skipSave = action is FeedbackAction.SubmitClicked || action is FeedbackAction.DismissErrorClicked
         if (config.offlineConfig.autoSaveDrafts && !skipSave) {
@@ -74,7 +76,7 @@ class FeedbackViewModel(
                         subject = draft.subject,
                         description = draft.description,
                         email = draft.userEmail ?: "",
-                        name = draft.userName ?: ""
+                        name = draft.userName ?: "",
                     )
                 }
             }
@@ -93,8 +95,8 @@ class FeedbackViewModel(
                     description = currentForm.description,
                     userEmail = currentForm.email.takeIf { it.isNotBlank() },
                     userName = currentForm.name.takeIf { it.isNotBlank() },
-                    attachments = emptyList()
-                )
+                    attachments = emptyList(),
+                ),
             )
         }
     }
@@ -130,18 +132,19 @@ class FeedbackViewModel(
     @Suppress("ReturnCount")
     private fun submitFeedback() {
         if (!validateForm()) return
-        
+
         val form = _formState.value
         val cat = form.category ?: return
-        
-        val payload = FeedbackPayload(
-            category = cat,
-            subject = form.subject,
-            description = form.description,
-            userEmail = form.email.takeIf { it.isNotBlank() },
-            userName = form.name.takeIf { it.isNotBlank() },
-            attachments = emptyList() // To be handled
-        )
+
+        val payload =
+            FeedbackPayload(
+                category = cat,
+                subject = form.subject,
+                description = form.description,
+                userEmail = form.email.takeIf { it.isNotBlank() },
+                userName = form.name.takeIf { it.isNotBlank() },
+                attachments = emptyList(), // To be handled
+            )
 
         if (!submissionPolicy.canSubmit(payload)) {
             _uiState.value = FeedbackUiState.Error("Submission not allowed by policy")

@@ -7,7 +7,7 @@ import java.util.concurrent.CopyOnWriteArrayList
 
 class CouponCooldownEngine(
     private val clock: CouponClock,
-    private val policy: CouponCooldownPolicy
+    private val policy: CouponCooldownPolicy,
 ) {
     // Maps a user or device identifier to their attempt timestamps
     private val attempts = ConcurrentHashMap<String, CopyOnWriteArrayList<Long>>()
@@ -28,7 +28,7 @@ class CouponCooldownEngine(
         val list = attempts[identifier] ?: return
         val now = clock.currentTimeMillis()
         val cooldownMillis = policy.cooldownMinutes * 60 * 1000L
-        
+
         list.removeIf { attemptTime ->
             now - attemptTime > cooldownMillis
         }

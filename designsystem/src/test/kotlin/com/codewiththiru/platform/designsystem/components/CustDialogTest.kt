@@ -4,7 +4,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createComposeRule
-import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import com.codewiththiru.platform.designsystem.theme.CustTheme
@@ -18,7 +17,6 @@ import org.robolectric.annotation.Config
 @RunWith(RobolectricTestRunner::class)
 @Config(sdk = [34], instrumentedPackages = ["androidx.loader.content"])
 class CustDialogTest {
-
     @get:Rule
     val composeTestRule = createComposeRule()
 
@@ -32,7 +30,7 @@ class CustDialogTest {
                     confirmButtonText = "Confirm",
                     dismissButtonText = "Dismiss",
                     onConfirm = {},
-                    onDismiss = {}
+                    onDismiss = {},
                 )
             }
         }
@@ -56,7 +54,7 @@ class CustDialogTest {
                     confirmButtonText = "Confirm",
                     dismissButtonText = "Dismiss",
                     onConfirm = { confirmClicked = true },
-                    onDismiss = { dismissClicked = true }
+                    onDismiss = { dismissClicked = true },
                 )
             }
         }
@@ -79,7 +77,7 @@ class CustDialogTest {
                     confirmButtonText = "Confirm",
                     onConfirm = {},
                     onDismiss = {},
-                    modifier = Modifier.testTag("dialog")
+                    modifier = Modifier.testTag("dialog"),
                 )
             }
         }
@@ -96,7 +94,7 @@ class CustDialogTest {
                     message = "Message",
                     confirmButtonText = "Confirm",
                     onConfirm = {},
-                    onDismiss = {}
+                    onDismiss = {},
                 )
             }
         }
@@ -113,7 +111,7 @@ class CustDialogTest {
                     message = "Message",
                     confirmButtonText = "Confirm",
                     onConfirm = {},
-                    onDismiss = {}
+                    onDismiss = {},
                 )
             }
         }
@@ -124,12 +122,13 @@ class CustDialogTest {
     fun dialog_largeFontSupport() {
         composeTestRule.setContent {
             val currentDensity = androidx.compose.ui.platform.LocalDensity.current
-            val customDensity = androidx.compose.ui.unit.Density(
-                density = currentDensity.density,
-                fontScale = 1.5f
-            )
+            val customDensity =
+                androidx.compose.ui.unit.Density(
+                    density = currentDensity.density,
+                    fontScale = 1.5f,
+                )
             androidx.compose.runtime.CompositionLocalProvider(
-                androidx.compose.ui.platform.LocalDensity provides customDensity
+                androidx.compose.ui.platform.LocalDensity provides customDensity,
             ) {
                 CustTheme {
                     CustAlertDialog(
@@ -137,7 +136,7 @@ class CustDialogTest {
                         message = "Message",
                         confirmButtonText = "Confirm",
                         onConfirm = {},
-                        onDismiss = {}
+                        onDismiss = {},
                     )
                 }
             }

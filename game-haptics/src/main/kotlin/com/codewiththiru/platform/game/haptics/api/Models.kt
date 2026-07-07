@@ -50,15 +50,27 @@ enum class HapticResponse {
  * Events for Analytics tracking.
  */
 sealed class HapticEvent {
-    data class HapticPlayed(val type: HapticPatternType) : HapticEvent()
+    data class HapticPlayed(
+        val type: HapticPatternType,
+    ) : HapticEvent()
 
-    data class HapticSuppressed(val reason: String) : HapticEvent()
+    data class HapticSuppressed(
+        val reason: String,
+    ) : HapticEvent()
 
-    data class ProfileChanged(val profileId: String) : HapticEvent()
+    data class ProfileChanged(
+        val profileId: String,
+    ) : HapticEvent()
 
-    data class CapabilityDetected(val capabilities: Map<String, Boolean>) : HapticEvent()
+    data class CapabilityDetected(
+        val capabilities: Map<String, Boolean>,
+    ) : HapticEvent()
 
-    data class PatternQueued(val type: HapticPatternType) : HapticEvent()
+    data class PatternQueued(
+        val type: HapticPatternType,
+    ) : HapticEvent()
 
-    data class PatternCancelled(val type: HapticPatternType) : HapticEvent()
+    data class PatternCancelled(
+        val type: HapticPatternType,
+    ) : HapticEvent()
 }

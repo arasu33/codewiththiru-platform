@@ -46,7 +46,7 @@ fun CustTextField(
     singleLine: Boolean = false,
     minLines: Int = 1,
     colors: TextFieldColors = CustTextFieldDefaults.outlinedTextFieldColors(),
-    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() }
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     val isError = errorText != null
 
@@ -70,7 +70,7 @@ fun CustTextField(
             if (errorText != null || helperText != null || maxLength != null) {
                 Row(
                     modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceBetween
+                    horizontalArrangement = Arrangement.SpaceBetween,
                 ) {
                     val message = errorText ?: helperText
                     if (message != null) {
@@ -92,7 +92,7 @@ fun CustTextField(
         maxLines = if (singleLine) 1 else Int.MAX_VALUE,
         minLines = minLines,
         colors = colors,
-        interactionSource = interactionSource
+        interactionSource = interactionSource,
     )
 }
 
@@ -109,12 +109,13 @@ fun CustPasswordTextField(
     errorText: String? = null,
     maxLength: Int? = null,
     initiallyVisible: Boolean = false,
-    keyboardOptions: KeyboardOptions = KeyboardOptions(
-        keyboardType = KeyboardType.Password,
-        imeAction = ImeAction.Done
-    ),
+    keyboardOptions: KeyboardOptions =
+        KeyboardOptions(
+            keyboardType = KeyboardType.Password,
+            imeAction = ImeAction.Done,
+        ),
     keyboardActions: KeyboardActions = KeyboardActions.Default,
-    colors: TextFieldColors = CustTextFieldDefaults.outlinedTextFieldColors()
+    colors: TextFieldColors = CustTextFieldDefaults.outlinedTextFieldColors(),
 ) {
     var passwordVisible by remember { mutableStateOf(initiallyVisible) }
 
@@ -136,15 +137,16 @@ fun CustPasswordTextField(
         colors = colors,
         trailingIcon = {
             val description = if (passwordVisible) "Hide password" else "Show password"
-            
+
             IconButton(onClick = { passwordVisible = !passwordVisible }) {
                 CustText(
                     text = if (passwordVisible) "Hide" else "Show",
-                    modifier = Modifier.semantics {
-                        contentDescription = description
-                    }
+                    modifier =
+                        Modifier.semantics {
+                            contentDescription = description
+                        },
                 )
             }
-        }
+        },
     )
 }

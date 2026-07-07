@@ -1,7 +1,7 @@
 package com.codewiththiru.platform.identity.analytics
 
 class SessionMetrics(
-    private val analytics: IdentityAnalyticsProvider
+    private val analytics: IdentityAnalyticsProvider,
 ) {
     fun trackSessionCreated(sessionId: String) {
         analytics.logEvent("session_created", mapOf("sessionId" to sessionId))

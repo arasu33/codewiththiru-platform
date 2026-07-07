@@ -6,7 +6,7 @@ import com.codewiththiru.platform.coupons.domain.validator.CouponModelValidator
 import com.codewiththiru.platform.coupons.provider.CouponClock
 
 class ExpiryValidationRule(
-    private val clock: CouponClock
+    private val clock: CouponClock,
 ) : CouponModelValidator {
     override suspend fun validate(model: CouponModel): CouponErrorCode? {
         val now = clock.currentTimeMillis()

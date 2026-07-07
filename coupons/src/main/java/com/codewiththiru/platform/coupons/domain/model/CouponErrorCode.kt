@@ -8,5 +8,5 @@ enum class CouponErrorCode {
     CooldownActive,
     NetworkError,
     IntegrityFailure,
-    Unknown
+    Unknown,
 }

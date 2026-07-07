@@ -8,5 +8,5 @@ package com.codewiththiru.platform.analytics.config
  */
 public data class AnalyticsBatchConfig(
     public val batchSize: Int = 50,
-    public val flushIntervalMinutes: Int = 15
+    public val flushIntervalMinutes: Int = 15,
 )

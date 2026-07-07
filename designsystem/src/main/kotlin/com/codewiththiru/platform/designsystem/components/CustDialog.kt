@@ -18,7 +18,7 @@ fun CustDialog(
     icon: @Composable (() -> Unit)? = null,
     title: @Composable (() -> Unit)? = null,
     content: @Composable (() -> Unit)? = null,
-    properties: DialogProperties = CustDialogDefaults.properties()
+    properties: DialogProperties = CustDialogDefaults.properties(),
 ) {
     AlertDialog(
         onDismissRequest = onDismissRequest,
@@ -34,7 +34,7 @@ fun CustDialog(
         titleContentColor = CustDialogDefaults.titleContentColor,
         textContentColor = CustDialogDefaults.textContentColor,
         tonalElevation = CustDialogDefaults.tonalElevation,
-        properties = properties
+        properties = properties,
     )
 }
 
@@ -49,7 +49,7 @@ fun CustAlertDialog(
     dismissButtonText: String? = null,
     icon: @Composable (() -> Unit)? = null,
     isDestructive: Boolean = false,
-    properties: DialogProperties = CustDialogDefaults.properties()
+    properties: DialogProperties = CustDialogDefaults.properties(),
 ) {
     CustDialog(
         onDismissRequest = onDismiss,
@@ -64,25 +64,27 @@ fun CustAlertDialog(
         confirmButton = {
             CustTextButton(
                 onClick = onConfirm,
-                colors = if (isDestructive) {
-                    ButtonDefaults.textButtonColors(contentColor = MaterialTheme.colorScheme.error)
-                } else {
-                    CustButtonDefaults.textButtonColors()
-                }
+                colors =
+                    if (isDestructive) {
+                        ButtonDefaults.textButtonColors(contentColor = MaterialTheme.colorScheme.error)
+                    } else {
+                        CustButtonDefaults.textButtonColors()
+                    },
             ) {
                 CustText(text = confirmButtonText)
             }
         },
-        dismissButton = dismissButtonText?.let { text ->
-            {
-                CustTextButton(
-                    onClick = onDismiss,
-                    colors = CustButtonDefaults.textButtonColors()
-                ) {
-                    CustText(text = text)
+        dismissButton =
+            dismissButtonText?.let { text ->
+                {
+                    CustTextButton(
+                        onClick = onDismiss,
+                        colors = CustButtonDefaults.textButtonColors(),
+                    ) {
+                        CustText(text = text)
+                    }
                 }
-            }
-        },
-        properties = properties
+            },
+        properties = properties,
     )
 }

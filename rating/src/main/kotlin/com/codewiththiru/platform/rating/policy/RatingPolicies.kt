@@ -6,7 +6,7 @@ package com.codewiththiru.platform.rating.policy
 data class RatingTriggerRules(
     val minimumAppLaunches: Int = 5,
     val minimumDaysInstalled: Int = 3,
-    val requiredSignificantEvents: Int = 1
+    val requiredSignificantEvents: Int = 1,
 )
 
 /**
@@ -15,5 +15,5 @@ data class RatingTriggerRules(
 data class RatingCooldownPolicy(
     val daysAfterDismissal: Int = 14,
     val daysAfterFeedbackRedirect: Int = 30,
-    val daysAfterPlayReviewLaunch: Int = 90
+    val daysAfterPlayReviewLaunch: Int = 90,
 )

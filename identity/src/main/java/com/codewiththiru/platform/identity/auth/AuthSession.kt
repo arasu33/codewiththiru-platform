@@ -5,5 +5,5 @@ data class AuthSession(
     val userId: String,
     val deviceId: String,
     val expiresAt: Long,
-    val isAnonymous: Boolean
+    val isAnonymous: Boolean,
 )

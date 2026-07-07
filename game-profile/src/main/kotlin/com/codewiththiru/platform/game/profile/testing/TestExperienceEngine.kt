@@ -5,9 +5,7 @@ import com.codewiththiru.platform.game.profile.level.PlayerLevel
 
 class TestExperienceEngine : ExperienceEngine {
     // Simple mock formula: next level requires (currentLevel * 1000) XP
-    override fun calculateXpRequiredForLevel(level: Int): Long {
-        return (level * 1000L)
-    }
+    override fun calculateXpRequiredForLevel(level: Int): Long = (level * 1000L)
 
     override fun applyXp(
         current: PlayerLevel,

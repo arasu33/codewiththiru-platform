@@ -4,5 +4,5 @@ enum class CachePolicy {
     CacheFirst,
     NetworkFirst,
     CacheOnly,
-    NetworkOnly
+    NetworkOnly,
 }

@@ -33,7 +33,8 @@ complexity:
     threshold: 60
   LongParameterList:
     ignoreDefaultParameters: true
-    threshold: 6
+    functionThreshold: 6
+    constructorThreshold: 7
 
 naming:
   FunctionNaming:

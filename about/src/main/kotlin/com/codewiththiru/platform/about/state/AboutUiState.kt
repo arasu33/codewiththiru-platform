@@ -7,6 +7,12 @@ import com.codewiththiru.platform.about.model.AboutConfig
  */
 sealed interface AboutUiState {
     data object Loading : AboutUiState
-    data class Success(val config: AboutConfig) : AboutUiState
-    data class Error(val message: String) : AboutUiState
+
+    data class Success(
+        val config: AboutConfig,
+    ) : AboutUiState
+
+    data class Error(
+        val message: String,
+    ) : AboutUiState
 }

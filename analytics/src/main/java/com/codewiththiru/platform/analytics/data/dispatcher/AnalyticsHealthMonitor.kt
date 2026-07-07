@@ -14,7 +14,7 @@ public class AnalyticsHealthMonitor(
     private val queue: AnalyticsQueue,
     private val deadLetterQueue: AnalyticsQueue?,
     private val metricsTracker: MetricsTracker,
-    private val scope: CoroutineScope
+    private val scope: CoroutineScope,
 ) {
     private var job: Job? = null
     private val monitorIntervalMs = 60 * 1000L // 1 minute
@@ -22,24 +22,25 @@ public class AnalyticsHealthMonitor(
     @Suppress("TooGenericExceptionCaught", "SwallowedException")
     public fun start() {
         if (job?.isActive == true) return
-        job = scope.launch {
-            while (isActive) {
-                try {
-                    val size = queue.size()
-                    metricsTracker.trackQueueSize(size)
-                    
-                    deadLetterQueue?.let {
-                        val dlqSize = it.size()
-                        if (dlqSize > 0) {
-                            metricsTracker.trackDeadLetter(dlqSize)
+        job =
+            scope.launch {
+                while (isActive) {
+                    try {
+                        val size = queue.size()
+                        metricsTracker.trackQueueSize(size)
+
+                        deadLetterQueue?.let {
+                            val dlqSize = it.size()
+                            if (dlqSize > 0) {
+                                metricsTracker.trackDeadLetter(dlqSize)
+                            }
                         }
+                    } catch (e: Exception) {
+                        // Ignore exceptions during monitoring
                     }
-                } catch (e: Exception) {
-                    // Ignore exceptions during monitoring
+                    delay(monitorIntervalMs)
                 }
-                delay(monitorIntervalMs)
             }
-        }
     }
 
     public fun stop() {

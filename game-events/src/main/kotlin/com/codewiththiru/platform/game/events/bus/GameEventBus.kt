@@ -23,7 +23,5 @@ class DefaultGameEventBus : GameEventBus {
         _events.emit(event)
     }
 
-    override fun observe(): Flow<PlatformEvent> {
-        return events
-    }
+    override fun observe(): Flow<PlatformEvent> = events
 }

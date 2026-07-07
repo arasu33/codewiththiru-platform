@@ -19,13 +19,14 @@ import org.robolectric.annotation.GraphicsMode
 @GraphicsMode(GraphicsMode.Mode.NATIVE)
 @Config(sdk = [33], qualifiers = RobolectricDeviceQualifiers.Pixel5)
 class RatingScreenRoborazziTest {
-
     @get:Rule
     val composeTestRule = createAndroidComposeRule<ComponentActivity>()
 
-    private val config = RatingConfig.Builder()
-        .setPromptType(RatingPromptType.Dialog)
-        .build()
+    private val config =
+        RatingConfig
+            .Builder()
+            .setPromptType(RatingPromptType.Dialog)
+            .build()
 
     @Test
     fun `capture dialog default state`() {
@@ -33,7 +34,7 @@ class RatingScreenRoborazziTest {
             RatingScreen(
                 uiState = RatingUiState(selectedStars = 0),
                 config = config,
-                onAction = {}
+                onAction = {},
             )
         }
         composeTestRule.onRoot().captureRoboImage()
@@ -45,7 +46,7 @@ class RatingScreenRoborazziTest {
             RatingScreen(
                 uiState = RatingUiState(selectedStars = 4),
                 config = config,
-                onAction = {}
+                onAction = {},
             )
         }
         composeTestRule.onRoot().captureRoboImage()

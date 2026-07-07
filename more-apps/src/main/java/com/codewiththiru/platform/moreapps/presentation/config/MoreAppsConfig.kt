@@ -5,5 +5,5 @@ data class MoreAppsConfig(
     val enableSearch: Boolean = true,
     val enableCategories: Boolean = true,
     val cachePolicy: CachePolicy = CachePolicy.CacheFirst,
-    val emptyStateConfig: MoreAppsEmptyStateConfig
+    val emptyStateConfig: MoreAppsEmptyStateConfig,
 )

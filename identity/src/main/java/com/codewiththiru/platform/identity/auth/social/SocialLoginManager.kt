@@ -8,21 +8,19 @@ import com.codewiththiru.platform.identity.auth.LoginRequest
 import com.codewiththiru.platform.identity.auth.LoginResponse
 
 class SocialLoginManager(
-    private val authManager: AuthenticationManager
+    private val authManager: AuthenticationManager,
 ) {
-    suspend fun loginWithGoogle(idToken: String): IdentityResult<LoginResponse> {
-        return authManager.login(LoginRequest(AuthMethod.GOOGLE, token = idToken))
-    }
+    suspend fun loginWithGoogle(idToken: String): IdentityResult<LoginResponse> =
+        authManager.login(LoginRequest(AuthMethod.GOOGLE, token = idToken))
 
-    suspend fun loginWithApple(identityToken: String): IdentityResult<LoginResponse> {
-        return authManager.login(LoginRequest(AuthMethod.APPLE, token = identityToken))
-    }
+    suspend fun loginWithApple(identityToken: String): IdentityResult<LoginResponse> =
+        authManager.login(LoginRequest(AuthMethod.APPLE, token = identityToken))
 
-    suspend fun loginWithFacebook(accessToken: String): IdentityResult<LoginResponse> {
-        return authManager.login(LoginRequest(AuthMethod.FACEBOOK, token = accessToken))
-    }
-    
-    suspend fun linkAccount(method: AuthMethod, token: String): IdentityResult<Unit> {
-        return IdentityResult.Failure(IdentityException("Not implemented"))
-    }
+    suspend fun loginWithFacebook(accessToken: String): IdentityResult<LoginResponse> =
+        authManager.login(LoginRequest(AuthMethod.FACEBOOK, token = accessToken))
+
+    suspend fun linkAccount(
+        method: AuthMethod,
+        token: String,
+    ): IdentityResult<Unit> = IdentityResult.Failure(IdentityException("Not implemented"))
 }

@@ -12,16 +12,13 @@ import kotlinx.coroutines.flow.map
 
 private val Context.consentDataStore: DataStore<Preferences> by preferencesDataStore(name = "analytics_consent")
 
-
-
 /**
  * Default implementation of [AnalyticsConsentManager].
  */
 public class DefaultAnalyticsConsentManager(
     private val context: Context,
-    private val queue: AnalyticsQueue
+    private val queue: AnalyticsQueue,
 ) : AnalyticsConsentManager {
-
     private val consentKey = intPreferencesKey("consent_state")
 
     override suspend fun grant() {
@@ -34,15 +31,15 @@ public class DefaultAnalyticsConsentManager(
         context.consentDataStore.edit { prefs ->
             prefs[consentKey] = ConsentState.Denied.ordinal
         }
-        
+
         // Enforce privacy: Clear queue of all pending events to prevent dispatch
         queue.clear()
     }
 
-    override suspend fun getConsent(): ConsentState {
-        return context.consentDataStore.data.map { prefs ->
-            val ordinal = prefs[consentKey] ?: ConsentState.Unknown.ordinal
-            ConsentState.values().getOrNull(ordinal) ?: ConsentState.Unknown
-        }.first()
-    }
+    override suspend fun getConsent(): ConsentState =
+        context.consentDataStore.data
+            .map { prefs ->
+                val ordinal = prefs[consentKey] ?: ConsentState.Unknown.ordinal
+                ConsentState.values().getOrNull(ordinal) ?: ConsentState.Unknown
+            }.first()
 }

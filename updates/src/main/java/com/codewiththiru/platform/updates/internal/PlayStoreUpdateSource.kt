@@ -11,16 +11,15 @@ import com.google.android.play.core.install.model.UpdateAvailability
 import com.google.android.play.core.ktx.requestAppUpdateInfo
 
 class PlayStoreUpdateSource(
-    private val appUpdateManager: AppUpdateManager
+    private val appUpdateManager: AppUpdateManager,
 ) : UpdateSource {
-
-    override suspend fun checkForUpdate(): Result<UpdateAvailabilityInfo> {
-        return try {
+    override suspend fun checkForUpdate(): Result<UpdateAvailabilityInfo> =
+        try {
             val appUpdateInfo: AppUpdateInfo = appUpdateManager.requestAppUpdateInfo()
             val isAvailable = appUpdateInfo.updateAvailability() == UpdateAvailability.UPDATE_AVAILABLE
             val isFlexibleAllowed = appUpdateInfo.isUpdateTypeAllowed(AppUpdateType.FLEXIBLE)
             val isImmediateAllowed = appUpdateInfo.isUpdateTypeAllowed(AppUpdateType.IMMEDIATE)
-            
+
             Result.success(
                 UpdateAvailabilityInfo(
                     isUpdateAvailable = isAvailable,
@@ -28,36 +27,38 @@ class PlayStoreUpdateSource(
                     clientStalenessDays = appUpdateInfo.clientVersionStalenessDays(),
                     isFlexibleAllowed = isFlexibleAllowed,
                     isImmediateAllowed = isImmediateAllowed,
-                    rawPayload = appUpdateInfo
-                )
+                    rawPayload = appUpdateInfo,
+                ),
             )
         } catch (e: Exception) {
             Result.failure(e)
         }
-    }
 
     override suspend fun startUpdate(
         activity: Activity,
         availabilityInfo: UpdateAvailabilityInfo,
-        updateType: UpdateType
+        updateType: UpdateType,
     ): Result<Unit> {
         return try {
-            val appUpdateInfo = availabilityInfo.rawPayload as? AppUpdateInfo
-                ?: return Result.failure(IllegalStateException("Missing AppUpdateInfo payload"))
-                
-            val playCoreType = when (updateType) {
-                UpdateType.Flexible -> AppUpdateType.FLEXIBLE
-                UpdateType.Immediate, UpdateType.Force -> AppUpdateType.IMMEDIATE
-                UpdateType.WhatsNewOnly -> return Result.success(Unit) // Does not apply here
-            }
+            val appUpdateInfo =
+                availabilityInfo.rawPayload as? AppUpdateInfo
+                    ?: return Result.failure(IllegalStateException("Missing AppUpdateInfo payload"))
 
-            val started = appUpdateManager.startUpdateFlowForResult(
-                appUpdateInfo,
-                playCoreType,
-                activity,
-                PLAY_CORE_UPDATE_REQUEST_CODE
-            )
-            
+            val playCoreType =
+                when (updateType) {
+                    UpdateType.Flexible -> AppUpdateType.FLEXIBLE
+                    UpdateType.Immediate, UpdateType.Force -> AppUpdateType.IMMEDIATE
+                    UpdateType.WhatsNewOnly -> return Result.success(Unit) // Does not apply here
+                }
+
+            val started =
+                appUpdateManager.startUpdateFlowForResult(
+                    appUpdateInfo,
+                    playCoreType,
+                    activity,
+                    PLAY_CORE_UPDATE_REQUEST_CODE,
+                )
+
             if (started) {
                 Result.success(Unit)
             } else {
@@ -67,7 +68,7 @@ class PlayStoreUpdateSource(
             Result.failure(e)
         }
     }
-    
+
     companion object {
         const val PLAY_CORE_UPDATE_REQUEST_CODE = 4531
     }

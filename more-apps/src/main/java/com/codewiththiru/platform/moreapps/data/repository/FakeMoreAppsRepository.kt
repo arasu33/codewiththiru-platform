@@ -1,6 +1,5 @@
 package com.codewiththiru.platform.moreapps.data.repository
 
-import com.codewiththiru.platform.moreapps.domain.model.MoreAppModel
 import com.codewiththiru.platform.moreapps.domain.model.MoreAppsResult
 import com.codewiththiru.platform.moreapps.domain.repository.MoreAppsRepository
 
@@ -10,9 +9,10 @@ class FakeMoreAppsRepository : MoreAppsRepository {
 
     override suspend fun getApps(): MoreAppsResult = appsResult
 
-    override suspend fun getAppsPage(page: Int, pageSize: Int): MoreAppsResult {
-        return appsByPage[page] ?: MoreAppsResult.Empty
-    }
+    override suspend fun getAppsPage(
+        page: Int,
+        pageSize: Int,
+    ): MoreAppsResult = appsByPage[page] ?: MoreAppsResult.Empty
 
     override suspend fun getFeaturedApps(): MoreAppsResult = appsResult
 

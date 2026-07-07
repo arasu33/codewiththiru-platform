@@ -62,13 +62,23 @@ enum class AudioResponse {
  * Events for Analytics tracking.
  */
 sealed class AudioEvent {
-    data class MusicStarted(val trackId: String) : AudioEvent()
+    data class MusicStarted(
+        val trackId: String,
+    ) : AudioEvent()
 
-    data class MusicStopped(val trackId: String) : AudioEvent()
+    data class MusicStopped(
+        val trackId: String,
+    ) : AudioEvent()
 
-    data class SoundPlayed(val soundId: String, val type: SoundEffectType) : AudioEvent()
+    data class SoundPlayed(
+        val soundId: String,
+        val type: SoundEffectType,
+    ) : AudioEvent()
 
-    data class VolumeChanged(val category: AudioCategory, val volume: Float) : AudioEvent()
+    data class VolumeChanged(
+        val category: AudioCategory,
+        val volume: Float,
+    ) : AudioEvent()
 
     object AudioMuted : AudioEvent()
 

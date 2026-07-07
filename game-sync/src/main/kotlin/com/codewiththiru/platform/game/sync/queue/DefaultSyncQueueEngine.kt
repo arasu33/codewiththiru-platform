@@ -33,9 +33,7 @@ class DefaultSyncQueueEngine : SyncQueueEngine {
         }
     }
 
-    override fun getPendingCount(): Int {
-        return queue.size
-    }
+    override fun getPendingCount(): Int = queue.size
 
     private fun isReady(
         request: SyncRequest,

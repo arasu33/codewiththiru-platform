@@ -15,7 +15,10 @@ interface SettingValidator {
 /**
  * Range validator for Integer settings.
  */
-class IntRangeValidator(private val min: Int, private val max: Int) : SettingValidator {
+class IntRangeValidator(
+    private val min: Int,
+    private val max: Int,
+) : SettingValidator {
     override fun isValid(value: SettingValue): Boolean {
         if (value !is SettingValue.IntValue) return false
         return value.value in min..max

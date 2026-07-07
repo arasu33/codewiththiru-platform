@@ -15,9 +15,7 @@ class FakeAchievementManager : AchievementManager {
 
     override fun getDefinitions(): List<AchievementDefinition> = definitions
 
-    override suspend fun getProgress(achievementId: String): AchievementProgress? {
-        return progresses[achievementId]
-    }
+    override suspend fun getProgress(achievementId: String): AchievementProgress? = progresses[achievementId]
 
     override fun observeAllProgress(): StateFlow<List<AchievementProgress>> = allProgressFlow.asStateFlow()
 

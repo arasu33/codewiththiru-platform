@@ -10,7 +10,6 @@ import com.codewiththiru.platform.identity.auth.LoginResponse
 class FacebookAuthProvider : AuthProvider {
     override val method = AuthMethod.FACEBOOK
 
-    override suspend fun authenticate(request: LoginRequest): IdentityResult<LoginResponse> {
-        return IdentityResult.Failure(IdentityException("Not implemented"))
-    }
+    override suspend fun authenticate(request: LoginRequest): IdentityResult<LoginResponse> =
+        IdentityResult.Failure(IdentityException("Not implemented"))
 }

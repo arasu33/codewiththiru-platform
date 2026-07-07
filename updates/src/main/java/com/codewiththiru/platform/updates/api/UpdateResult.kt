@@ -5,7 +5,12 @@ package com.codewiththiru.platform.updates.api
  */
 sealed interface UpdateResult {
     data object Success : UpdateResult
+
     data object Cancelled : UpdateResult
+
     data object Deferred : UpdateResult
-    data class Failure(val reason: String) : UpdateResult
+
+    data class Failure(
+        val reason: String,
+    ) : UpdateResult
 }

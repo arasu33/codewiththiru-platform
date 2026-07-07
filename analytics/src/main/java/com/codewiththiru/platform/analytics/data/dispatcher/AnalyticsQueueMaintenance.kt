@@ -16,21 +16,22 @@ import kotlinx.coroutines.launch
 public class AnalyticsQueueMaintenance(
     private val queue: AnalyticsQueue,
     private val config: AnalyticsBatchConfig,
-    private val scope: CoroutineScope
+    private val scope: CoroutineScope,
 ) {
     private var job: Job? = null
-    
+
     // 6 hours
     private val maintenanceIntervalMs = 6 * 60 * 60 * 1000L
 
     public fun startPeriodicMaintenance() {
         if (job?.isActive == true) return
-        job = scope.launch {
-            while (isActive) {
-                delay(maintenanceIntervalMs)
-                runMaintenance()
+        job =
+            scope.launch {
+                while (isActive) {
+                    delay(maintenanceIntervalMs)
+                    runMaintenance()
+                }
             }
-        }
     }
 
     public fun stopPeriodicMaintenance() {
@@ -46,15 +47,15 @@ public class AnalyticsQueueMaintenance(
         try {
             // Note: DataStoreAnalyticsQueue handles size eviction on enqueue.
             // TTL cleanup logic would ideally be done inside the queue implementations directly
-            // or by fetching all events and removing old ones. 
-            // Since we don't have access to timestamps directly from the AnalyticsQueue interface 
+            // or by fetching all events and removing old ones.
+            // Since we don't have access to timestamps directly from the AnalyticsQueue interface
             // (AnalyticsEvent does not expose a timestamp), we will need to either augment AnalyticsEvent
             // or perform it directly inside DataStoreAnalyticsQueue.
-            
+
             // For now, this is a placeholder where queue-agnostic maintenance can happen.
             // Real TTL cleanup will be integrated inside the specific queues if timestamps are tracked.
             Log.d("AnalyticsQueueMaintenance", "Running periodic maintenance checks.")
-            
+
             // Just verifying queue size limit
             val currentSize = queue.size()
             if (currentSize > config.batchSize * 1000) { // Arbitrary massive size check

@@ -8,12 +8,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
-import androidx.compose.ui.unit.dp
 import com.codewiththiru.platform.designsystem.components.CustText
 
 /**
  * A notification badge wrapper that manages visual thresholds for dense integer states.
- * 
+ *
  * Generates an automatic `"99+"` textual truncation bounding if the active count exceeds [maxCount].
  * Crucially, TalkBack strings bypass this truncation via explicit semantic merging (e.g. `"105 notifications"`).
  *
@@ -27,28 +26,29 @@ fun CustBadge(
     count: Int,
     modifier: Modifier = Modifier,
     maxCount: Int = 99,
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 ) {
     val displayCount = if (count > maxCount) "$maxCount+" else count.toString()
     val description = "$count notifications"
 
     BadgedBox(
-        modifier = modifier.semantics {
-            contentDescription = description
-        },
+        modifier =
+            modifier.semantics {
+                contentDescription = description
+            },
         badge = {
             if (count > 0) {
                 Badge(
                     containerColor = CustBadgeDefaults.containerColor,
-                    contentColor = CustBadgeDefaults.contentColor
+                    contentColor = CustBadgeDefaults.contentColor,
                 ) {
                     CustText(
                         text = displayCount,
-                        style = CustBadgeDefaults.textStyle
+                        style = CustBadgeDefaults.textStyle,
                     )
                 }
             }
-        }
+        },
     ) {
         content()
     }

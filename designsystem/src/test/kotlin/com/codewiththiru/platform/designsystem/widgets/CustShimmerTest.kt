@@ -19,7 +19,6 @@ import org.robolectric.annotation.Config
 @RunWith(RobolectricTestRunner::class)
 @Config(sdk = [34], instrumentedPackages = ["androidx.loader.content"])
 class CustShimmerTest {
-
     @get:Rule
     val composeTestRule = createComposeRule()
 
@@ -28,7 +27,7 @@ class CustShimmerTest {
         composeTestRule.setContent {
             CustTheme {
                 CustShimmerBox(
-                    modifier = Modifier.width(100.dp).height(24.dp).testTag("shimmerBox")
+                    modifier = Modifier.width(100.dp).height(24.dp).testTag("shimmerBox"),
                 )
             }
         }
@@ -39,7 +38,14 @@ class CustShimmerTest {
     fun shimmer_modifierDoesNotCrash() {
         composeTestRule.setContent {
             CustTheme {
-                Box(modifier = Modifier.custShimmer().width(50.dp).height(50.dp).testTag("shimmerModifier"))
+                Box(
+                    modifier =
+                        Modifier
+                            .custShimmer()
+                            .width(50.dp)
+                            .height(50.dp)
+                            .testTag("shimmerModifier"),
+                )
             }
         }
         composeTestRule.onNodeWithTag("shimmerModifier").assertIsDisplayed()

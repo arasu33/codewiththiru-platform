@@ -10,5 +10,5 @@ enum class RatingAnalyticsEvent {
     ReviewLaunched,
     FeedbackRedirected,
     Dismissed,
-    EligibilityFailed
+    EligibilityFailed,
 }

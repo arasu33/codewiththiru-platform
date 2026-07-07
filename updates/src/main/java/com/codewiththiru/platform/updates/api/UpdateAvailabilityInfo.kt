@@ -12,5 +12,5 @@ data class UpdateAvailabilityInfo(
     /**
      * Opaque payload required by the underlying update mechanism (e.g. AppUpdateInfo).
      */
-    val rawPayload: Any? = null
+    val rawPayload: Any? = null,
 )

@@ -1,5 +1,9 @@
 package com.codewiththiru.platform.designsystem.components
 
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
@@ -22,16 +26,10 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
 import org.robolectric.annotation.Config
-import androidx.compose.runtime.CompositionLocalProvider
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 
 @RunWith(RobolectricTestRunner::class)
 @Config(sdk = [34], instrumentedPackages = ["androidx.loader.content"])
 class CustTextFieldTest {
-
     @get:Rule
     val composeTestRule = createComposeRule()
 
@@ -43,9 +41,10 @@ class CustTextFieldTest {
                 CustTextField(
                     value = "",
                     onValueChange = {},
-                    modifier = Modifier
-                        .testTag("textField")
-                        .focusRequester(focusRequester)
+                    modifier =
+                        Modifier
+                            .testTag("textField")
+                            .focusRequester(focusRequester),
                 )
             }
         }
@@ -67,7 +66,7 @@ class CustTextFieldTest {
                 CustTextField(
                     value = "",
                     onValueChange = {},
-                    errorText = "Invalid input"
+                    errorText = "Invalid input",
                 )
             }
         }
@@ -83,7 +82,7 @@ class CustTextFieldTest {
                 CustPasswordTextField(
                     value = value,
                     onValueChange = { value = it },
-                    modifier = Modifier.testTag("passwordField")
+                    modifier = Modifier.testTag("passwordField"),
                 )
             }
         }
@@ -106,7 +105,7 @@ class CustTextFieldTest {
                     CustTextField(
                         value = "RTL Test",
                         onValueChange = {},
-                        modifier = Modifier.testTag("rtlTextField")
+                        modifier = Modifier.testTag("rtlTextField"),
                     )
                 }
             }
@@ -125,19 +124,19 @@ class CustTextFieldTest {
                     value = value,
                     onValueChange = { value = it },
                     modifier = Modifier.testTag("textField"),
-                    maxLength = 5
+                    maxLength = 5,
                 )
             }
         }
 
         val node = composeTestRule.onNodeWithTag("textField")
-        
+
         // Type exactly max length
         node.performTextInput("12345")
         composeTestRule.runOnIdle {
             assertEquals("12345", value)
         }
-        
+
         // Try to add one more character (should be ignored)
         node.performTextInput("6")
         composeTestRule.runOnIdle {

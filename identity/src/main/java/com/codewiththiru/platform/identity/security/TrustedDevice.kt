@@ -5,5 +5,5 @@ data class TrustedDevice(
     val deviceName: String,
     val osVersion: String,
     val addedAt: Long,
-    val lastSeenAt: Long
+    val lastSeenAt: Long,
 )

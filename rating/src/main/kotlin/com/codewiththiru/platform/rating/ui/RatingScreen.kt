@@ -22,7 +22,7 @@ fun RatingScreen(
     uiState: RatingUiState,
     config: RatingConfig,
     onAction: (RatingAction) -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     LaunchedEffect(Unit) {
         onAction(RatingAction.PromptShown)
@@ -31,14 +31,14 @@ fun RatingScreen(
     when (uiState.promptType) {
         RatingPromptType.Dialog -> {
             Dialog(
-                onDismissRequest = { onAction(RatingAction.DismissClicked) }
+                onDismissRequest = { onAction(RatingAction.DismissClicked) },
             ) {
                 RatingDialog(
                     selectedStars = uiState.selectedStars,
                     isSubmitting = uiState.isSubmitting,
                     uiCustomization = config.uiCustomization,
                     onAction = onAction,
-                    modifier = modifier
+                    modifier = modifier,
                 )
             }
         }
@@ -52,7 +52,7 @@ fun RatingScreen(
                     isSubmitting = uiState.isSubmitting,
                     uiCustomization = config.uiCustomization,
                     onAction = onAction,
-                    modifier = modifier.padding(16.dp)
+                    modifier = modifier.padding(16.dp),
                 )
             }
         }

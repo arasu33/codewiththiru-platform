@@ -17,7 +17,6 @@ import org.robolectric.annotation.Config
 @RunWith(RobolectricTestRunner::class)
 @Config(sdk = [34], instrumentedPackages = ["androidx.loader.content"])
 class CustAvatarTest {
-
     @get:Rule
     val composeTestRule = createComposeRule()
 
@@ -27,7 +26,7 @@ class CustAvatarTest {
             CustTheme {
                 CustAvatar(
                     initials = "John Doe",
-                    contentDescription = "Profile Avatar"
+                    contentDescription = "Profile Avatar",
                 )
             }
         }
@@ -42,7 +41,7 @@ class CustAvatarTest {
             CustTheme {
                 CustAvatar(
                     modifier = Modifier.testTag("placeholderAvatar"),
-                    contentDescription = "Empty Avatar"
+                    contentDescription = "Empty Avatar",
                 )
             }
         }
@@ -58,7 +57,7 @@ class CustAvatarTest {
                 CustAvatar(
                     initials = "TB",
                     size = AvatarSize.Large,
-                    modifier = Modifier.testTag("tabletAvatar")
+                    modifier = Modifier.testTag("tabletAvatar"),
                 )
             }
         }

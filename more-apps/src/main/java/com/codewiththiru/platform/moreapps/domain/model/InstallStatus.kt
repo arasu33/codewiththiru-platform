@@ -4,5 +4,5 @@ enum class InstallStatus {
     Installed,
     NotInstalled,
     UpdateAvailable,
-    Unknown
+    Unknown,
 }

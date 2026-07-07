@@ -21,7 +21,6 @@ import org.robolectric.annotation.Config
 @RunWith(RobolectricTestRunner::class)
 @Config(sdk = [34], instrumentedPackages = ["androidx.loader.content"])
 class CustTopBarTest {
-
     @get:Rule
     val composeTestRule = createComposeRule()
 
@@ -32,7 +31,7 @@ class CustTopBarTest {
                 CustTopBar(
                     title = { CustText("Main Title") },
                     subtitle = { CustText("Sub Title") },
-                    modifier = Modifier.testTag("topBar")
+                    modifier = Modifier.testTag("topBar"),
                 )
             }
         }
@@ -60,13 +59,21 @@ class CustTopBarTest {
                         CustButton(onClick = { actionClicked = true }, modifier = Modifier.testTag("actionIcon")) {
                             CustText("Action")
                         }
-                    }
+                    },
                 )
             }
         }
 
-        composeTestRule.onNodeWithTag("navIcon").assertIsDisplayed().assertHasClickAction().performClick()
-        composeTestRule.onNodeWithTag("actionIcon").assertIsDisplayed().assertHasClickAction().performClick()
+        composeTestRule
+            .onNodeWithTag("navIcon")
+            .assertIsDisplayed()
+            .assertHasClickAction()
+            .performClick()
+        composeTestRule
+            .onNodeWithTag("actionIcon")
+            .assertIsDisplayed()
+            .assertHasClickAction()
+            .performClick()
 
         assertTrue(navClicked)
         assertTrue(actionClicked)
@@ -79,7 +86,7 @@ class CustTopBarTest {
             CustTheme {
                 CustTopBar(
                     title = { CustText("RTL Title") },
-                    modifier = Modifier.testTag("rtlTopBar")
+                    modifier = Modifier.testTag("rtlTopBar"),
                 )
             }
         }
@@ -94,7 +101,7 @@ class CustTopBarTest {
             CustTheme {
                 CustCenterAlignedTopBar(
                     title = { CustText("Tablet Title") },
-                    modifier = Modifier.testTag("tabletTopBar")
+                    modifier = Modifier.testTag("tabletTopBar"),
                 )
             }
         }

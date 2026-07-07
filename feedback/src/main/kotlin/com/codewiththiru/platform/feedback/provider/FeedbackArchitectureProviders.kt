@@ -1,6 +1,5 @@
 package com.codewiththiru.platform.feedback.provider
 
-import com.codewiththiru.platform.feedback.model.Attachment
 import com.codewiththiru.platform.feedback.model.FeedbackPayload
 
 interface FeedbackAttachmentProvider {

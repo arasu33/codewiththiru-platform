@@ -8,7 +8,11 @@ enum class NotificationPriority {
     MAX,
 }
 
-enum class NotificationCategory(val channelId: String, val channelName: String, val channelDesc: String) {
+enum class NotificationCategory(
+    val channelId: String,
+    val channelName: String,
+    val channelDesc: String,
+) {
     GENERAL("channel_general", "General", "General app notifications"),
     PROMOTIONS("channel_promotions", "Promotions", "Offers, discounts, and campaigns"),
     LEARNING_REMINDERS("channel_learning", "Learning Reminders", "Reminders to keep your streak alive"),

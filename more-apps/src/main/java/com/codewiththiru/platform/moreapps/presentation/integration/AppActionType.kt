@@ -4,5 +4,5 @@ enum class AppActionType {
     View,
     Install,
     Open,
-    Share
+    Share,
 }

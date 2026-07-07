@@ -30,7 +30,5 @@ class NewestWinsResolver : ConflictResolver {
         remoteJson: String,
         localTimestampMs: Long,
         remoteTimestampMs: Long,
-    ): String {
-        return if (localTimestampMs >= remoteTimestampMs) localJson else remoteJson
-    }
+    ): String = if (localTimestampMs >= remoteTimestampMs) localJson else remoteJson
 }

@@ -9,15 +9,16 @@ import com.codewiththiru.platform.coupons.domain.model.CouponReward
 @Composable
 fun CouponSuccessDialog(
     reward: CouponReward,
-    onDismiss: () -> Unit
+    onDismiss: () -> Unit,
 ) {
     // In a real app, you'd map CouponReward to user-friendly text
-    val rewardText = when (reward) {
-        is CouponReward.CoinsReward -> "You received ${reward.amount} coins!"
-        is CouponReward.DiscountReward -> "Discount applied successfully!"
-        is CouponReward.PremiumUnlock -> "Premium unlocked for ${reward.durationDays} days!"
-        is CouponReward.TrialExtension -> "Trial extended by ${reward.extraDays} days!"
-    }
+    val rewardText =
+        when (reward) {
+            is CouponReward.CoinsReward -> "You received ${reward.amount} coins!"
+            is CouponReward.DiscountReward -> "Discount applied successfully!"
+            is CouponReward.PremiumUnlock -> "Premium unlocked for ${reward.durationDays} days!"
+            is CouponReward.TrialExtension -> "Trial extended by ${reward.extraDays} days!"
+        }
 
     AlertDialog(
         onDismissRequest = onDismiss,
@@ -27,6 +28,6 @@ fun CouponSuccessDialog(
             Button(onClick = onDismiss) {
                 Text("Awesome")
             }
-        }
+        },
     )
 }

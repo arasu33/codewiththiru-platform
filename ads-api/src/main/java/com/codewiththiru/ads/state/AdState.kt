@@ -14,7 +14,9 @@ sealed interface AdState {
 
     data object Dismissed : AdState
 
-    data class Failed(val error: Throwable) : AdState
+    data class Failed(
+        val error: Throwable,
+    ) : AdState
 
     data object Expired : AdState
 

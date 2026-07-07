@@ -4,5 +4,5 @@ enum class MoreAppsDisplayType {
     Grid,
     List,
     Carousel,
-    Featured
+    Featured,
 }

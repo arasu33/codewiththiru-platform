@@ -7,7 +7,9 @@ import java.util.concurrent.ConcurrentLinkedDeque
  * A bounded buffer that retains the last N events for debugging, crash reporting,
  * and replay mechanics.
  */
-class EventHistory(private val maxCapacity: Int = 100) {
+class EventHistory(
+    private val maxCapacity: Int = 100,
+) {
     private val buffer = ConcurrentLinkedDeque<PlatformEvent>()
 
     fun record(event: PlatformEvent) {
@@ -17,7 +19,5 @@ class EventHistory(private val maxCapacity: Int = 100) {
         buffer.addLast(event)
     }
 
-    fun getRecentEvents(): List<PlatformEvent> {
-        return buffer.toList()
-    }
+    fun getRecentEvents(): List<PlatformEvent> = buffer.toList()
 }

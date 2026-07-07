@@ -22,6 +22,6 @@ interface UpdateSource {
     suspend fun startUpdate(
         activity: Activity,
         availabilityInfo: UpdateAvailabilityInfo,
-        updateType: UpdateType
+        updateType: UpdateType,
     ): Result<Unit>
 }

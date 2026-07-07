@@ -7,5 +7,5 @@ enum class AuthMethod {
     GOOGLE,
     APPLE,
     FACEBOOK,
-    ANONYMOUS
+    ANONYMOUS,
 }

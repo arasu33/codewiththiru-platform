@@ -1,7 +1,7 @@
 package com.codewiththiru.platform.identity.analytics
 
 class UserLifecycleTracker(
-    private val analytics: IdentityAnalyticsProvider
+    private val analytics: IdentityAnalyticsProvider,
 ) {
     fun trackAccountCreated(userId: String) {
         analytics.logEvent("account_created", mapOf("userId" to userId))

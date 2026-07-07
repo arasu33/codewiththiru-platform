@@ -12,31 +12,48 @@ import kotlinx.coroutines.flow.first
 @Suppress("TooManyFunctions")
 interface RatingRepository {
     suspend fun getLaunchCount(): Int
+
     suspend fun getEventCount(): Int
+
     suspend fun getInstallDate(): Long
+
     suspend fun getLastPromptDate(): Long
+
     suspend fun getLastReviewDate(): Long
+
     suspend fun getLastFeedbackDate(): Long
 
     suspend fun recordAppLaunch()
+
     suspend fun recordSignificantEvent()
+
     suspend fun recordPromptShown()
+
     suspend fun recordReviewLaunched()
+
     suspend fun recordFeedbackRedirected()
 
-    fun logAnalyticsEvent(event: RatingAnalyticsEvent, source: RatingTriggerSource?, params: Map<String, Any> = emptyMap())
+    fun logAnalyticsEvent(
+        event: RatingAnalyticsEvent,
+        source: RatingTriggerSource?,
+        params: Map<String, Any> = emptyMap(),
+    )
 }
 
 class DefaultRatingRepository(
     private val storageProvider: RatingStorageProvider,
-    private val clock: CustClock
+    private val clock: CustClock,
 ) : RatingRepository {
-
     override suspend fun getLaunchCount(): Int = storageProvider.launchCount.first()
+
     override suspend fun getEventCount(): Int = storageProvider.eventCount.first()
+
     override suspend fun getInstallDate(): Long = storageProvider.installDate.first()
+
     override suspend fun getLastPromptDate(): Long = storageProvider.lastPromptDate.first()
+
     override suspend fun getLastReviewDate(): Long = storageProvider.lastReviewDate.first()
+
     override suspend fun getLastFeedbackDate(): Long = storageProvider.lastFeedbackDate.first()
 
     override suspend fun recordAppLaunch() {
@@ -61,7 +78,11 @@ class DefaultRatingRepository(
         storageProvider.setLastFeedbackDate(clock.currentTimeMillis())
     }
 
-    override fun logAnalyticsEvent(event: RatingAnalyticsEvent, source: RatingTriggerSource?, params: Map<String, Any>) {
+    override fun logAnalyticsEvent(
+        event: RatingAnalyticsEvent,
+        source: RatingTriggerSource?,
+        params: Map<String, Any>,
+    ) {
         // Analytics disabled for now
     }
 }

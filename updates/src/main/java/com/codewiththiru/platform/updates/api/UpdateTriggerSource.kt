@@ -8,5 +8,5 @@ enum class UpdateTriggerSource {
     Resume,
     Settings,
     ManualCheck,
-    BackgroundSync
+    BackgroundSync,
 }

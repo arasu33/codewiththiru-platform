@@ -13,8 +13,9 @@ import kotlinx.coroutines.flow.map
 
 val Context.feedbackDataStore: DataStore<Preferences> by preferencesDataStore(name = "feedback_drafts")
 
-class DataStoreDraftProvider(private val context: Context) : FeedbackDraftProvider {
-
+class DataStoreDraftProvider(
+    private val context: Context,
+) : FeedbackDraftProvider {
     private object Keys {
         val CATEGORY_ID = stringPreferencesKey("draft_category_id")
         val CATEGORY_NAME = stringPreferencesKey("draft_category_name")
@@ -36,19 +37,20 @@ class DataStoreDraftProvider(private val context: Context) : FeedbackDraftProvid
     }
 
     override suspend fun loadDraft(): FeedbackPayload? {
-        return context.feedbackDataStore.data.map { prefs ->
-            val catId = prefs[Keys.CATEGORY_ID] ?: return@map null
-            val catName = prefs[Keys.CATEGORY_NAME] ?: return@map null
-            
-            FeedbackPayload(
-                category = FeedbackCategory(catId, catName),
-                subject = prefs[Keys.SUBJECT] ?: "",
-                description = prefs[Keys.DESCRIPTION] ?: "",
-                userEmail = prefs[Keys.EMAIL],
-                userName = prefs[Keys.NAME],
-                attachments = emptyList() // Attachments are generally not safe to draft via DataStore simple prefs
-            )
-        }.firstOrNull()
+        return context.feedbackDataStore.data
+            .map { prefs ->
+                val catId = prefs[Keys.CATEGORY_ID] ?: return@map null
+                val catName = prefs[Keys.CATEGORY_NAME] ?: return@map null
+
+                FeedbackPayload(
+                    category = FeedbackCategory(catId, catName),
+                    subject = prefs[Keys.SUBJECT] ?: "",
+                    description = prefs[Keys.DESCRIPTION] ?: "",
+                    userEmail = prefs[Keys.EMAIL],
+                    userName = prefs[Keys.NAME],
+                    attachments = emptyList(), // Attachments are generally not safe to draft via DataStore simple prefs
+                )
+            }.firstOrNull()
     }
 
     override suspend fun clearDraft() {

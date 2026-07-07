@@ -17,7 +17,6 @@ import org.robolectric.annotation.Config
 @RunWith(RobolectricTestRunner::class)
 @Config(sdk = [34], instrumentedPackages = ["androidx.loader.content"])
 class CustTextTest {
-
     @get:Rule
     val composeTestRule = createComposeRule()
 
@@ -27,7 +26,7 @@ class CustTextTest {
             CustTheme {
                 CustText(
                     text = "Hello String",
-                    modifier = Modifier.testTag("textTag")
+                    modifier = Modifier.testTag("textTag"),
                 )
             }
         }
@@ -42,7 +41,7 @@ class CustTextTest {
             CustTheme {
                 CustText(
                     annotatedString = AnnotatedString("Hello Annotated"),
-                    modifier = Modifier.testTag("textTag")
+                    modifier = Modifier.testTag("textTag"),
                 )
             }
         }

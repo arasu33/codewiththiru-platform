@@ -22,9 +22,8 @@ import kotlinx.coroutines.launch
 class CouponViewModel(
     private val repository: CouponRepository,
     private val analyticsProvider: CouponAnalyticsProvider,
-    private val appPackageName: String
+    private val appPackageName: String,
 ) : ViewModel() {
-
     private val _uiState = MutableStateFlow(CouponUIState())
     val uiState: StateFlow<CouponUIState> = _uiState.asStateFlow()
 
@@ -49,16 +48,17 @@ class CouponViewModel(
         if (currentCode.isEmpty()) return
 
         _uiState.update { it.copy(isLoading = true) }
-        
+
         analyticsProvider.logEvent(CouponAnalyticsEvent.CouponEntered(currentCode, intent.source))
 
         viewModelScope.launch {
-            val context = CouponTriggerContext(
-                appPackage = appPackageName,
-                feature = "coupon_entry",
-                source = intent.source
-            )
-            
+            val context =
+                CouponTriggerContext(
+                    appPackage = appPackageName,
+                    feature = "coupon_entry",
+                    source = intent.source,
+                )
+
             when (val validationResult = repository.validateCoupon(currentCode, context)) {
                 is CouponResult.Success -> {
                     analyticsProvider.logEvent(CouponAnalyticsEvent.CouponValidated(validationResult.value))
@@ -89,7 +89,7 @@ class CouponViewModel(
     }
 
     private fun dismissError() {
-        // Handle error dismissal if state-based, but since we use effects for dialogs, this might be a no-op 
+        // Handle error dismissal if state-based, but since we use effects for dialogs, this might be a no-op
         // or clear any lingering error state if we move from effects to state.
     }
 

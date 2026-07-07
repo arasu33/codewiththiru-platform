@@ -15,19 +15,19 @@ import com.codewiththiru.platform.designsystem.widgets.CustSectionHeader
 @Composable
 internal fun DeviceSection(
     deviceInfo: DeviceInfo,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     Column(modifier = modifier.fillMaxWidth()) {
         CustSectionHeader(title = stringResource(id = R.string.about_section_device))
-        
+
         CustInfoRow(
             label = stringResource(id = R.string.about_label_model),
-            value = "${deviceInfo.manufacturer} ${deviceInfo.model}"
+            value = "${deviceInfo.manufacturer} ${deviceInfo.model}",
         )
-        
+
         CustInfoRow(
             label = stringResource(id = R.string.about_label_android_version),
-            value = "${deviceInfo.osVersion} (API ${deviceInfo.apiLevel})"
+            value = "${deviceInfo.osVersion} (API ${deviceInfo.apiLevel})",
         )
     }
 }

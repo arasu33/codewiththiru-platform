@@ -19,7 +19,6 @@ import org.robolectric.annotation.Config
 @RunWith(RobolectricTestRunner::class)
 @Config(sdk = [34], instrumentedPackages = ["androidx.loader.content"])
 class CustInfoRowTest {
-
     @get:Rule
     val composeTestRule = createComposeRule()
 
@@ -29,7 +28,7 @@ class CustInfoRowTest {
             CustTheme {
                 CustInfoRow(
                     label = "Version",
-                    value = "1.0.0"
+                    value = "1.0.0",
                 )
             }
         }
@@ -44,7 +43,7 @@ class CustInfoRowTest {
             CustTheme {
                 CustInfoRow(
                     label = "Privacy Policy",
-                    onClick = { clicked = true }
+                    onClick = { clicked = true },
                 )
             }
         }
@@ -58,7 +57,7 @@ class CustInfoRowTest {
             CustTheme {
                 CustInfoRow(
                     label = "Developer",
-                    value = "Google"
+                    value = "Google",
                 )
             }
         }
@@ -73,7 +72,7 @@ class CustInfoRowTest {
             CustTheme {
                 CustInfoRow(
                     label = "Settings",
-                    modifier = Modifier.testTag("infoRowTabletRtl")
+                    modifier = Modifier.testTag("infoRowTabletRtl"),
                 )
             }
         }

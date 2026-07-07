@@ -6,9 +6,8 @@ import android.content.res.Configuration
 import android.os.Build
 
 class AndroidCustDeviceInfoProvider(
-    private val context: Context
+    private val context: Context,
 ) : CustDeviceInfoProvider {
-
     override val manufacturer: String
         get() = Build.MANUFACTURER
 
@@ -28,29 +27,33 @@ class AndroidCustDeviceInfoProvider(
         get() = Build.VERSION.RELEASE
 
     override val isEmulator: Boolean
-        get() = Build.FINGERPRINT.startsWith("generic") ||
-            Build.FINGERPRINT.startsWith("unknown") ||
-            Build.MODEL.contains("google_sdk") ||
-            Build.MODEL.contains("Emulator") ||
-            Build.MODEL.contains("Android SDK built for x86") ||
-            Build.MANUFACTURER.contains("Genymotion") ||
-            (Build.BRAND.startsWith("generic") && Build.DEVICE.startsWith("generic")) ||
-            "google_sdk" == Build.PRODUCT
+        get() =
+            Build.FINGERPRINT.startsWith("generic") ||
+                Build.FINGERPRINT.startsWith("unknown") ||
+                Build.MODEL.contains("google_sdk") ||
+                Build.MODEL.contains("Emulator") ||
+                Build.MODEL.contains("Android SDK built for x86") ||
+                Build.MANUFACTURER.contains("Genymotion") ||
+                (Build.BRAND.startsWith("generic") && Build.DEVICE.startsWith("generic")) ||
+                "google_sdk" == Build.PRODUCT
 
     override val isTablet: Boolean
         get() {
-            return (context.resources.configuration.screenLayout and
-                Configuration.SCREENLAYOUT_SIZE_MASK) >= Configuration.SCREENLAYOUT_SIZE_LARGE
+            return (
+                context.resources.configuration.screenLayout and
+                    Configuration.SCREENLAYOUT_SIZE_MASK
+            ) >= Configuration.SCREENLAYOUT_SIZE_LARGE
         }
 
     override val formFactor: CustDeviceFormFactor
         get() {
             val packageManager = context.packageManager
-            val isFoldable = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-                packageManager.hasSystemFeature(PackageManager.FEATURE_SENSOR_HINGE_ANGLE)
-            } else {
-                false
-            }
+            val isFoldable =
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                    packageManager.hasSystemFeature(PackageManager.FEATURE_SENSOR_HINGE_ANGLE)
+                } else {
+                    false
+                }
 
             return when {
                 isFoldable -> CustDeviceFormFactor.FOLDABLE

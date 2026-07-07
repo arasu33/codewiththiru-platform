@@ -12,12 +12,15 @@ class UpdateManager(
     private val updateSource: UpdateSource,
     private val updatePolicy: UpdatePolicy,
     private val storage: UpdateStorageProvider,
-    private val clock: UpdateClock
+    private val clock: UpdateClock,
 ) {
     private val _updateState = MutableStateFlow<UpdateResult?>(null)
     val updateState: Flow<UpdateResult?> = _updateState.asStateFlow()
 
-    suspend fun checkAndPrompt(activity: Activity, currentVersionCode: Int): UpdateEffect {
+    suspend fun checkAndPrompt(
+        activity: Activity,
+        currentVersionCode: Int,
+    ): UpdateEffect {
         val availabilityResult = updateSource.checkForUpdate()
         if (availabilityResult.isFailure) {
             return UpdateEffect.ShowError("Failed to check for updates")
@@ -25,12 +28,13 @@ class UpdateManager(
 
         val info = availabilityResult.getOrNull() ?: return UpdateEffect.ShowError("No info")
 
-        val eligibility = updatePolicy.evaluate(
-            currentVersion = currentVersionCode,
-            availableVersion = info.availableVersionCode,
-            isForceUpdateRequired = false, // Could be injected from remote config
-            clientStalenessDays = info.clientStalenessDays
-        )
+        val eligibility =
+            updatePolicy.evaluate(
+                currentVersion = currentVersionCode,
+                availableVersion = info.availableVersionCode,
+                isForceUpdateRequired = false, // Could be injected from remote config
+                clientStalenessDays = info.clientStalenessDays,
+            )
 
         return when (eligibility) {
             UpdateEligibilityResult.ForceUpdateRequired -> {
@@ -52,7 +56,8 @@ class UpdateManager(
                 }
             }
             UpdateEligibilityResult.CooldownActive,
-            UpdateEligibilityResult.AlreadyShown -> {
+            UpdateEligibilityResult.AlreadyShown,
+            -> {
                 // Determine if we should show What's New instead
                 val lastShownNotes = storage.getLastShownReleaseNotesVersion()
                 if (lastShownNotes < currentVersionCode) {

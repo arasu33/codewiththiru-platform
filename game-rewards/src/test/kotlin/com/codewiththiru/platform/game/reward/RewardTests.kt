@@ -30,13 +30,12 @@ class RewardTests {
     fun `test Multiplier Engine compounding`() {
         val engine =
             object : RewardMultiplierEngine {
-                override fun getActiveMultipliers(): List<Multiplier> {
-                    return listOf(
+                override fun getActiveMultipliers(): List<Multiplier> =
+                    listOf(
                         Multiplier("vip", 1.5, true),
                         Multiplier("weekend", 2.0, true),
                         Multiplier("inactive", 5.0, false),
                     )
-                }
             }
 
         val baseReward = RewardDefinition("test_2", RewardType.XP, 100L, RewardSource.DAILY_LOGIN)
@@ -50,9 +49,7 @@ class RewardTests {
     fun `test RewardPolicy max balance cap`() {
         val policy =
             object : RewardPolicy {
-                override fun getMaxBalance(type: RewardType): Long? {
-                    return if (type == RewardType.LIVES) 5L else null
-                }
+                override fun getMaxBalance(type: RewardType): Long? = if (type == RewardType.LIVES) 5L else null
             }
 
         // Current lives = 3, trying to deposit 4. Should only allow 2.

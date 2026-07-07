@@ -15,13 +15,14 @@ data class HapticPattern(
         if (amplitudes == null) return this
 
         val scaledAmplitudes =
-            amplitudes.map { amp ->
-                when (amp) {
-                    -1 -> -1 // -1 means DEFAULT_AMPLITUDE
-                    0 -> 0 // 0 means OFF
-                    else -> (amp * factor).toInt().coerceIn(1, 255)
-                }
-            }.toIntArray()
+            amplitudes
+                .map { amp ->
+                    when (amp) {
+                        -1 -> -1 // -1 means DEFAULT_AMPLITUDE
+                        0 -> 0 // 0 means OFF
+                        else -> (amp * factor).toInt().coerceIn(1, 255)
+                    }
+                }.toIntArray()
 
         return this.copy(amplitudes = scaledAmplitudes)
     }

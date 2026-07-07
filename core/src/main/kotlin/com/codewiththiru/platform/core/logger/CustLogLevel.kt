@@ -9,7 +9,9 @@ package com.codewiththiru.platform.core.logger
  * @property priority Integer representing the severity weight. Higher values denote higher severity.
  */
 @Suppress("MagicNumber")
-enum class CustLogLevel(val priority: Int) {
+enum class CustLogLevel(
+    val priority: Int,
+) {
     /** Detailed and high-volume diagnostic information. */
     VERBOSE(2),
 

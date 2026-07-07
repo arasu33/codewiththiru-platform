@@ -16,8 +16,8 @@ class DeepMergeConflictResolver : ConflictResolver {
         remoteJson: String,
         localTimestampMs: Long,
         remoteTimestampMs: Long,
-    ): String {
-        return try {
+    ): String =
+        try {
             val localObj = Json.parseToJsonElement(localJson) as JsonObject
             val remoteObj = Json.parseToJsonElement(remoteJson) as JsonObject
 
@@ -39,5 +39,4 @@ class DeepMergeConflictResolver : ConflictResolver {
             // If JSON parsing fails, fallback to simple string replacement
             if (localTimestampMs >= remoteTimestampMs) localJson else remoteJson
         }
-    }
 }

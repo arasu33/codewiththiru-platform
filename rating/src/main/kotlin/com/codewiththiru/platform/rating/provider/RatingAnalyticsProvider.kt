@@ -7,5 +7,9 @@ import com.codewiththiru.platform.rating.model.RatingTriggerSource
  * Generic callback to log events for the rating module.
  */
 interface RatingAnalyticsProvider {
-    fun logEvent(event: RatingAnalyticsEvent, source: RatingTriggerSource?, params: Map<String, Any> = emptyMap())
+    fun logEvent(
+        event: RatingAnalyticsEvent,
+        source: RatingTriggerSource?,
+        params: Map<String, Any> = emptyMap(),
+    )
 }

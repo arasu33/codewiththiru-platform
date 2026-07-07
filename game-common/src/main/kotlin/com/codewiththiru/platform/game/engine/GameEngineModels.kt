@@ -29,13 +29,21 @@ enum class GameDifficulty {
 @Serializable
 sealed class GameResult {
     @Serializable
-    data class Won(val finalScore: Long, val timeSpentSeconds: Long) : GameResult()
+    data class Won(
+        val finalScore: Long,
+        val timeSpentSeconds: Long,
+    ) : GameResult()
 
     @Serializable
-    data class Lost(val currentScore: Long, val movesMade: Int) : GameResult()
+    data class Lost(
+        val currentScore: Long,
+        val movesMade: Int,
+    ) : GameResult()
 
     @Serializable
-    data class Forfeit(val currentScore: Long) : GameResult()
+    data class Forfeit(
+        val currentScore: Long,
+    ) : GameResult()
 }
 
 /**

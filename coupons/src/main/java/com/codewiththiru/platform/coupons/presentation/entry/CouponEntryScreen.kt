@@ -43,7 +43,7 @@ fun CouponEntryScreen(
     viewModel: CouponViewModel,
     onNavigateBack: () -> Unit,
     onLaunchReward: (CouponReward) -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     val state by viewModel.uiState.collectAsState()
     val snackbarHostState = remember { SnackbarHostState() }
@@ -65,27 +65,28 @@ fun CouponEntryScreen(
 
     Scaffold(
         snackbarHost = { SnackbarHost(snackbarHostState) },
-        modifier = modifier
+        modifier = modifier,
     ) { paddingValues ->
         Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(paddingValues)
-                .padding(24.dp),
+            modifier =
+                Modifier
+                    .fillMaxSize()
+                    .padding(paddingValues)
+                    .padding(24.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center
+            verticalArrangement = Arrangement.Center,
         ) {
             Text(
                 text = "Redeem a Code",
                 style = MaterialTheme.typography.headlineMedium,
-                modifier = Modifier.padding(bottom = 16.dp)
+                modifier = Modifier.padding(bottom = 16.dp),
             )
 
             CouponInputField(
                 code = state.inputCode,
                 onCodeChange = { viewModel.processIntent(CouponIntent.UpdateInput(it)) },
                 onSubmit = { viewModel.processIntent(CouponIntent.SubmitCoupon()) },
-                isLoading = state.isLoading || state.isRedeeming
+                isLoading = state.isLoading || state.isRedeeming,
             )
 
             Spacer(modifier = Modifier.height(24.dp))
@@ -93,16 +94,17 @@ fun CouponEntryScreen(
             Button(
                 onClick = { viewModel.processIntent(CouponIntent.SubmitCoupon()) },
                 enabled = state.inputCode.isNotBlank() && !state.isLoading && !state.isRedeeming,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(48.dp)
-                    .semantics { role = Role.Button }
+                modifier =
+                    Modifier
+                        .fillMaxWidth()
+                        .height(48.dp)
+                        .semantics { role = Role.Button },
             ) {
                 if (state.isLoading || state.isRedeeming) {
                     CircularProgressIndicator(
                         modifier = Modifier.size(24.dp),
                         color = MaterialTheme.colorScheme.onPrimary,
-                        strokeWidth = 2.dp
+                        strokeWidth = 2.dp,
                     )
                 } else {
                     Text("Redeem")
@@ -113,11 +115,12 @@ fun CouponEntryScreen(
             if (state.isLoading || state.isRedeeming) {
                 Text(
                     text = if (state.isRedeeming) "Redeeming coupon..." else "Validating coupon...",
-                    modifier = Modifier
-                        .semantics { liveRegion = LiveRegionMode.Polite }
-                        .padding(top = 16.dp),
+                    modifier =
+                        Modifier
+                            .semantics { liveRegion = LiveRegionMode.Polite }
+                            .padding(top = 16.dp),
                     style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
             }
         }
@@ -129,7 +132,7 @@ fun CouponEntryScreen(
             onDismiss = {
                 successReward = null
                 viewModel.processIntent(CouponIntent.DismissSuccess)
-            }
+            },
         )
     }
 
@@ -139,7 +142,7 @@ fun CouponEntryScreen(
             onDismiss = {
                 errorReason = null
                 viewModel.processIntent(CouponIntent.DismissError)
-            }
+            },
         )
     }
 }

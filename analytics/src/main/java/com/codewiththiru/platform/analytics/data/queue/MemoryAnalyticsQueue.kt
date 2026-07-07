@@ -10,9 +10,8 @@ import kotlinx.coroutines.sync.withLock
  * Follows FIFO behavior and respects maxQueuedEvents.
  */
 public class MemoryAnalyticsQueue(
-    private val config: AnalyticsConfig
+    private val config: AnalyticsConfig,
 ) : AnalyticsQueue {
-
     private val queue = mutableListOf<AnalyticsEvent>()
     private val mutex = Mutex()
 

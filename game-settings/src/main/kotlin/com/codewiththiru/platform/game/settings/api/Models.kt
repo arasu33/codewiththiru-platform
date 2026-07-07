@@ -7,27 +7,43 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 @JvmInline
-value class SettingKey(val value: String)
+value class SettingKey(
+    val value: String,
+)
 
 /**
  * A sealed hierarchy representing all supported generic primitive and complex setting types.
  */
 @Serializable
 sealed class SettingValue {
-    @Serializable data class BooleanValue(val value: Boolean) : SettingValue()
+    @Serializable data class BooleanValue(
+        val value: Boolean,
+    ) : SettingValue()
 
-    @Serializable data class IntValue(val value: Int) : SettingValue()
+    @Serializable data class IntValue(
+        val value: Int,
+    ) : SettingValue()
 
-    @Serializable data class LongValue(val value: Long) : SettingValue()
+    @Serializable data class LongValue(
+        val value: Long,
+    ) : SettingValue()
 
-    @Serializable data class FloatValue(val value: Float) : SettingValue()
+    @Serializable data class FloatValue(
+        val value: Float,
+    ) : SettingValue()
 
-    @Serializable data class DoubleValue(val value: Double) : SettingValue()
+    @Serializable data class DoubleValue(
+        val value: Double,
+    ) : SettingValue()
 
-    @Serializable data class StringValue(val value: String) : SettingValue()
+    @Serializable data class StringValue(
+        val value: String,
+    ) : SettingValue()
 
     // For Enums, Themes, Colors etc we can serialize them to Strings or JSON generically
-    @Serializable data class JsonValue(val jsonString: String) : SettingValue()
+    @Serializable data class JsonValue(
+        val jsonString: String,
+    ) : SettingValue()
 }
 
 /**
@@ -50,9 +66,15 @@ sealed class SettingsEvent {
         val newValue: SettingValue,
     ) : SettingsEvent()
 
-    data class SettingsReset(val group: String?) : SettingsEvent()
+    data class SettingsReset(
+        val group: String?,
+    ) : SettingsEvent()
 
-    data class SettingsImported(val count: Int) : SettingsEvent()
+    data class SettingsImported(
+        val count: Int,
+    ) : SettingsEvent()
 
-    data class SettingsExported(val count: Int) : SettingsEvent()
+    data class SettingsExported(
+        val count: Int,
+    ) : SettingsEvent()
 }

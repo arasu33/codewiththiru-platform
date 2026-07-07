@@ -17,14 +17,18 @@ sealed interface CustResult<out T> {
      *
      * @property value The output data returned on success.
      */
-    data class Success<out T>(val value: T) : CustResult<T>
+    data class Success<out T>(
+        val value: T,
+    ) : CustResult<T>
 
     /**
      * Represents a failed execution wrapping the throw error.
      *
      * @property exception The exception thrown on failure.
      */
-    data class Failure(val exception: Throwable) : CustResult<Nothing>
+    data class Failure(
+        val exception: Throwable,
+    ) : CustResult<Nothing>
 }
 
 /**
@@ -164,8 +168,8 @@ inline fun <T, R : T> CustResult<T>.getOrElse(onFailure: (Throwable) -> R): T {
  * @return A [CustResult.Success] containing the output, or [CustResult.Failure] with the thrown exception.
  */
 @Suppress("TooGenericExceptionCaught", "InstanceOfCheckForException", "ThrowsCount")
-inline fun <T> custRunCatching(block: () -> T): CustResult<T> {
-    return try {
+inline fun <T> custRunCatching(block: () -> T): CustResult<T> =
+    try {
         CustResult.Success(block())
     } catch (e: kotlin.coroutines.cancellation.CancellationException) {
         throw e
@@ -174,4 +178,3 @@ inline fun <T> custRunCatching(block: () -> T): CustResult<T> {
     } catch (e: Exception) {
         CustResult.Failure(e)
     }
-}

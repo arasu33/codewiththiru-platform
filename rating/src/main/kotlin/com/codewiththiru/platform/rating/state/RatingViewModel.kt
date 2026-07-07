@@ -19,9 +19,8 @@ import kotlinx.coroutines.launch
 class RatingViewModel(
     private val config: RatingConfig,
     private val repository: RatingRepository,
-    private val triggerSource: RatingTriggerSource? = null
+    private val triggerSource: RatingTriggerSource? = null,
 ) : ViewModel() {
-
     private val _uiState = MutableStateFlow(RatingUiState(promptType = config.promptType))
     val uiState: StateFlow<RatingUiState> = _uiState.asStateFlow()
 
@@ -44,7 +43,7 @@ class RatingViewModel(
                 repository.logAnalyticsEvent(
                     RatingAnalyticsEvent.StarSelected,
                     triggerSource,
-                    mapOf("stars" to action.stars)
+                    mapOf("stars" to action.stars),
                 )
             }
             is RatingAction.SubmitClicked -> {
@@ -68,7 +67,7 @@ class RatingViewModel(
         repository.logAnalyticsEvent(
             RatingAnalyticsEvent.SubmitClicked,
             triggerSource,
-            mapOf("stars" to stars)
+            mapOf("stars" to stars),
         )
 
         viewModelScope.launch {
@@ -83,7 +82,7 @@ class RatingViewModel(
                             _uiState.update { it.copy(isSubmitting = false) }
                             _effect.emit(RatingEffect.ClosePrompt)
                         }
-                    }
+                    },
                 )
             } else {
                 // Flow B: Redirect to Feedback
@@ -96,7 +95,7 @@ class RatingViewModel(
                             _uiState.update { it.copy(isSubmitting = false) }
                             _effect.emit(RatingEffect.ClosePrompt)
                         }
-                    }
+                    },
                 )
             }
         }

@@ -20,7 +20,6 @@ import org.robolectric.annotation.Config
 @RunWith(RobolectricTestRunner::class)
 @Config(sdk = [34], instrumentedPackages = ["androidx.loader.content"])
 class CustEmptyStateTest {
-
     @get:Rule
     val composeTestRule = createComposeRule()
 
@@ -30,7 +29,7 @@ class CustEmptyStateTest {
             CustTheme {
                 CustEmptyState(
                     title = "No Data",
-                    message = "Nothing to see here"
+                    message = "Nothing to see here",
                 )
             }
         }
@@ -49,7 +48,7 @@ class CustEmptyStateTest {
                         CustButton(onClick = { clicked = true }) {
                             CustText(text = "Action")
                         }
-                    }
+                    },
                 )
             }
         }
@@ -64,7 +63,7 @@ class CustEmptyStateTest {
             CustTheme {
                 CustEmptyState(
                     title = "RTL Empty",
-                    modifier = Modifier.testTag("emptyStateRtl")
+                    modifier = Modifier.testTag("emptyStateRtl"),
                 )
             }
         }

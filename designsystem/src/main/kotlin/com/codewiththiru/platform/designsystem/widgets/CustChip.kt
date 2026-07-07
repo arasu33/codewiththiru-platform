@@ -23,7 +23,7 @@ fun CustAssistChip(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
     icon: @Composable (() -> Unit)? = null,
-    enabled: Boolean = true
+    enabled: Boolean = true,
 ) {
     AssistChip(
         onClick = onClick,
@@ -31,13 +31,13 @@ fun CustAssistChip(
         modifier = modifier,
         enabled = enabled,
         leadingIcon = icon,
-        colors = CustChipDefaults.assistChipColors()
+        colors = CustChipDefaults.assistChipColors(),
     )
 }
 
 /**
  * Filter chip configuration enforcing binary selected states.
- * 
+ *
  * @param label Text sequence evaluated natively inside the chip geometry.
  * @param selected Controls active visual weighting spanning color mappings defined by [CustChipDefaults].
  * @param onClick Trigger pipeline whenever explicit bound taps are recognized.
@@ -52,7 +52,7 @@ fun CustFilterChip(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
     icon: @Composable (() -> Unit)? = null,
-    enabled: Boolean = true
+    enabled: Boolean = true,
 ) {
     FilterChip(
         selected = selected,
@@ -61,6 +61,6 @@ fun CustFilterChip(
         modifier = modifier,
         enabled = enabled,
         leadingIcon = icon,
-        colors = CustChipDefaults.filterChipColors()
+        colors = CustChipDefaults.filterChipColors(),
     )
 }

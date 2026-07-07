@@ -74,7 +74,7 @@ private fun CustTextFieldPreview() {
                 onValueChange = {},
                 errorText = "Invalid input",
                 helperText = "Helper",
-                maxLength = 10
+                maxLength = 10,
             )
         }
     }
@@ -103,15 +103,15 @@ private fun CustTopBarPreview() {
     CustTheme {
         Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
             CustTopBar(
-                title = { CustText("Standard TopBar") }
+                title = { CustText("Standard TopBar") },
             )
             CustTopBar(
                 title = { CustText("With Subtitle") },
-                subtitle = { CustText("This is a subtitle") }
+                subtitle = { CustText("This is a subtitle") },
             )
             CustCenterAlignedTopBar(
                 title = { CustText("Center Aligned") },
-                subtitle = { CustText("Subtitle here") }
+                subtitle = { CustText("Subtitle here") },
             )
         }
     }
@@ -133,7 +133,7 @@ private fun CustAlertDialogPreview() {
             dismissButtonText = "Cancel",
             onConfirm = {},
             onDismiss = {},
-            isDestructive = true
+            isDestructive = true,
         )
     }
 }

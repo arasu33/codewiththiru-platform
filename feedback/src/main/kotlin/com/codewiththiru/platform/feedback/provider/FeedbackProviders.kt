@@ -9,7 +9,9 @@ interface FeedbackSubmissionProvider {
 
 interface FeedbackDraftProvider {
     suspend fun saveDraft(payload: FeedbackPayload)
+
     suspend fun loadDraft(): FeedbackPayload?
+
     suspend fun clearDraft()
 }
 

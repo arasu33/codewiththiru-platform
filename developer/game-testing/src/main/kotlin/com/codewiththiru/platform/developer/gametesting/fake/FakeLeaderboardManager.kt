@@ -25,21 +25,15 @@ class FakeLeaderboardManager : LeaderboardManager {
     override suspend fun getTopEntries(
         leaderboardId: String,
         filter: LeaderboardFilter,
-    ): StateFlow<List<LeaderboardEntry>> {
-        return entriesFlow
-    }
+    ): StateFlow<List<LeaderboardEntry>> = entriesFlow
 
     override suspend fun getPlayerRank(
         leaderboardId: String,
         filter: LeaderboardFilter,
-    ): StateFlow<LeaderboardRank?> {
-        return MutableStateFlow(null)
-    }
+    ): StateFlow<LeaderboardRank?> = MutableStateFlow(null)
 
     override suspend fun refresh(
         leaderboardId: String,
         filter: LeaderboardFilter,
-    ): CustResult<Unit> {
-        return CustResult.Success(Unit)
-    }
+    ): CustResult<Unit> = CustResult.Success(Unit)
 }

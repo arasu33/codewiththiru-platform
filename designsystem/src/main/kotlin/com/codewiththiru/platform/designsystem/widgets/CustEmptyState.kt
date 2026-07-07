@@ -18,7 +18,7 @@ import com.codewiththiru.platform.designsystem.components.CustText
 
 /**
  * A standardized presentation component mapping null or empty data payloads to user-friendly graphics.
- * 
+ *
  * @param title Core semantic header explicitly communicating the missing state natively.
  * @param modifier Applied structure properties bridging parent elements.
  * @param message Clarifying textual guidance.
@@ -31,15 +31,16 @@ fun CustEmptyState(
     modifier: Modifier = Modifier,
     message: String? = null,
     illustration: @Composable (() -> Unit)? = null,
-    actionButton: @Composable (() -> Unit)? = null
+    actionButton: @Composable (() -> Unit)? = null,
 ) {
     Column(
-        modifier = modifier
-            .fillMaxWidth()
-            .padding(24.dp)
-            .semantics(mergeDescendants = true) {},
+        modifier =
+            modifier
+                .fillMaxWidth()
+                .padding(24.dp)
+                .semantics(mergeDescendants = true) {},
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
+        verticalArrangement = Arrangement.Center,
     ) {
         if (illustration != null) {
             illustration()
@@ -50,7 +51,7 @@ fun CustEmptyState(
             text = title,
             style = CustEmptyStateDefaults.titleStyle,
             color = CustEmptyStateDefaults.titleColor,
-            textAlign = TextAlign.Center
+            textAlign = TextAlign.Center,
         )
 
         if (message != null) {
@@ -59,7 +60,7 @@ fun CustEmptyState(
                 text = message,
                 style = CustEmptyStateDefaults.messageStyle,
                 color = CustEmptyStateDefaults.messageColor,
-                textAlign = TextAlign.Center
+                textAlign = TextAlign.Center,
             )
         }
 

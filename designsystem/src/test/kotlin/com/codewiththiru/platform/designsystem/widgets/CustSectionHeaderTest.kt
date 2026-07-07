@@ -21,7 +21,6 @@ import org.robolectric.annotation.Config
 @RunWith(RobolectricTestRunner::class)
 @Config(sdk = [34], instrumentedPackages = ["androidx.loader.content"])
 class CustSectionHeaderTest {
-
     @get:Rule
     val composeTestRule = createComposeRule()
 
@@ -31,7 +30,7 @@ class CustSectionHeaderTest {
             CustTheme {
                 CustSectionHeader(
                     title = "Settings",
-                    subtitle = "Account preferences"
+                    subtitle = "Account preferences",
                 )
             }
         }
@@ -50,7 +49,7 @@ class CustSectionHeaderTest {
                         CustButton(onClick = { clicked = true }) {
                             CustText("Edit")
                         }
-                    }
+                    },
                 )
             }
         }
@@ -64,7 +63,7 @@ class CustSectionHeaderTest {
             CustTheme {
                 CustSectionHeader(
                     title = "Settings",
-                    subtitle = "Version 1.0"
+                    subtitle = "Version 1.0",
                 )
             }
         }
@@ -78,7 +77,7 @@ class CustSectionHeaderTest {
             CustTheme {
                 CustSectionHeader(
                     title = "RTL Title",
-                    modifier = Modifier.testTag("rtlHeader")
+                    modifier = Modifier.testTag("rtlHeader"),
                 )
             }
         }

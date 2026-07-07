@@ -37,17 +37,35 @@ enum class ChallengeStatus {
  * Events for Analytics tracking.
  */
 sealed class ChallengeEvent {
-    data class ChallengeStarted(val challengeId: String, val type: ChallengeType) : ChallengeEvent()
+    data class ChallengeStarted(
+        val challengeId: String,
+        val type: ChallengeType,
+    ) : ChallengeEvent()
 
-    data class ChallengeCompleted(val challengeId: String, val type: ChallengeType) : ChallengeEvent()
+    data class ChallengeCompleted(
+        val challengeId: String,
+        val type: ChallengeType,
+    ) : ChallengeEvent()
 
-    data class ChallengeFailed(val challengeId: String, val type: ChallengeType) : ChallengeEvent()
+    data class ChallengeFailed(
+        val challengeId: String,
+        val type: ChallengeType,
+    ) : ChallengeEvent()
 
-    data class ChallengeExpired(val challengeId: String) : ChallengeEvent()
+    data class ChallengeExpired(
+        val challengeId: String,
+    ) : ChallengeEvent()
 
-    data class RewardClaimed(val challengeId: String, val rewardId: String) : ChallengeEvent()
+    data class RewardClaimed(
+        val challengeId: String,
+        val rewardId: String,
+    ) : ChallengeEvent()
 
-    data class SeasonStarted(val seasonId: String) : ChallengeEvent()
+    data class SeasonStarted(
+        val seasonId: String,
+    ) : ChallengeEvent()
 
-    data class SeasonEnded(val seasonId: String) : ChallengeEvent()
+    data class SeasonEnded(
+        val seasonId: String,
+    ) : ChallengeEvent()
 }

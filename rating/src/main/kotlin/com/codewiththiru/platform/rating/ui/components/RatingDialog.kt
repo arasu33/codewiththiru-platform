@@ -28,49 +28,50 @@ fun RatingDialog(
     isSubmitting: Boolean,
     uiCustomization: RatingUiCustomization,
     onAction: (RatingAction) -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     CustCard(modifier = modifier.fillMaxWidth()) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(24.dp)
+            modifier =
+                Modifier
+                    .fillMaxWidth()
+                    .padding(24.dp),
         ) {
             CustText(
                 text = stringResource(id = uiCustomization.titleRes),
-                style = MaterialTheme.typography.headlineSmall
+                style = MaterialTheme.typography.headlineSmall,
             )
             Spacer(modifier = Modifier.height(8.dp))
             CustText(
                 text = stringResource(id = uiCustomization.messageRes),
                 style = MaterialTheme.typography.bodyMedium,
-                color = MaterialTheme.colorScheme.onSurfaceVariant
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
             Spacer(modifier = Modifier.height(24.dp))
 
             RatingStars(
                 selectedStars = selectedStars,
                 onStarSelected = { onAction(RatingAction.StarSelected(it)) },
-                uiCustomization = uiCustomization
+                uiCustomization = uiCustomization,
             )
 
             Spacer(modifier = Modifier.height(24.dp))
 
             Row(
                 modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.End
+                horizontalArrangement = Arrangement.End,
             ) {
                 CustTextButton(
                     onClick = { onAction(RatingAction.DismissClicked) },
-                    enabled = !isSubmitting
+                    enabled = !isSubmitting,
                 ) {
                     CustText(stringResource(id = uiCustomization.negativeButtonTextRes))
                 }
                 CustButton(
                     onClick = { onAction(RatingAction.SubmitClicked) },
                     enabled = selectedStars > 0 && !isSubmitting,
-                    modifier = Modifier.padding(start = 8.dp)
+                    modifier = Modifier.padding(start = 8.dp),
                 ) {
                     CustText(stringResource(id = uiCustomization.positiveButtonTextRes))
                 }

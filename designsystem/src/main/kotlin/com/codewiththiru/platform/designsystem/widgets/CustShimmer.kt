@@ -25,18 +25,18 @@ import kotlinx.coroutines.launch
 
 /**
  * Applies an animated shimmer background effect over the current component.
- * 
+ *
  * @param color The base color of the shimmer effect. If [Color.Unspecified], it falls back to a light gray.
  * @param durationMillis The duration of one full shimmer translation cycle in milliseconds.
  */
 fun Modifier.custShimmer(
     color: Color = Color.Unspecified,
-    durationMillis: Int = 1000
+    durationMillis: Int = 1000,
 ): Modifier = this.then(CustShimmerElement(color, durationMillis))
 
 private data class CustShimmerElement(
     val color: Color,
-    val durationMillis: Int
+    val durationMillis: Int,
 ) : ModifierNodeElement<CustShimmerNode>() {
     override fun create(): CustShimmerNode = CustShimmerNode(color, durationMillis)
 
@@ -54,9 +54,9 @@ private data class CustShimmerElement(
 
 private class CustShimmerNode(
     var color: Color,
-    var durationMillis: Int
-) : Modifier.Node(), DrawModifierNode {
-    
+    var durationMillis: Int,
+) : Modifier.Node(),
+    DrawModifierNode {
     private val translateAnimation = AnimationState(0f)
 
     override fun onAttach() {
@@ -65,13 +65,15 @@ private class CustShimmerNode(
             while (true) {
                 translateAnimation.animateTo(
                     targetValue = 1000f,
-                    animationSpec = infiniteRepeatable(
-                        animation = tween(
-                            durationMillis = durationMillis,
-                            easing = FastOutSlowInEasing
+                    animationSpec =
+                        infiniteRepeatable(
+                            animation =
+                                tween(
+                                    durationMillis = durationMillis,
+                                    easing = FastOutSlowInEasing,
+                                ),
+                            repeatMode = RepeatMode.Restart,
                         ),
-                        repeatMode = RepeatMode.Restart
-                    )
                 )
             }
         }
@@ -79,27 +81,29 @@ private class CustShimmerNode(
 
     override fun ContentDrawScope.draw() {
         val baseColor = if (color == Color.Unspecified) Color.LightGray else color
-        val shimmerColors = listOf(
-            baseColor.copy(alpha = 0.6f),
-            baseColor.copy(alpha = 0.2f),
-            baseColor.copy(alpha = 0.6f),
-        )
+        val shimmerColors =
+            listOf(
+                baseColor.copy(alpha = 0.6f),
+                baseColor.copy(alpha = 0.2f),
+                baseColor.copy(alpha = 0.6f),
+            )
 
         drawContent()
 
         drawRect(
-            brush = Brush.linearGradient(
-                colors = shimmerColors,
-                start = Offset.Zero,
-                end = Offset(x = translateAnimation.value, y = translateAnimation.value)
-            )
+            brush =
+                Brush.linearGradient(
+                    colors = shimmerColors,
+                    start = Offset.Zero,
+                    end = Offset(x = translateAnimation.value, y = translateAnimation.value),
+                ),
         )
     }
 }
 
 /**
  * A dedicated Box that implements a generic shimmer loading state.
- * 
+ *
  * @param modifier Optional modifier for structural layout constraint mapping.
  * @param shape Shape applied to the background box constraints.
  * @param color Color used to tint the Box background and its overlapping shimmer highlight.
@@ -108,17 +112,19 @@ private class CustShimmerNode(
 fun CustShimmerBox(
     modifier: Modifier = Modifier,
     shape: Shape = MaterialTheme.shapes.medium,
-    color: Color = Color.Unspecified
+    color: Color = Color.Unspecified,
 ) {
-    val resolvedColor = if (color == Color.Unspecified) {
-        MaterialTheme.colorScheme.surfaceVariant
-    } else {
-        color
-    }
-    
+    val resolvedColor =
+        if (color == Color.Unspecified) {
+            MaterialTheme.colorScheme.surfaceVariant
+        } else {
+            color
+        }
+
     Box(
-        modifier = modifier
-            .background(color = resolvedColor, shape = shape)
-            .custShimmer(color = resolvedColor)
+        modifier =
+            modifier
+                .background(color = resolvedColor, shape = shape)
+                .custShimmer(color = resolvedColor),
     )
 }

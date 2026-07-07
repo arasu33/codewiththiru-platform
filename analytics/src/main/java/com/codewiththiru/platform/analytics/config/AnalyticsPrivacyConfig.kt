@@ -8,5 +8,5 @@ package com.codewiththiru.platform.analytics.config
  */
 public data class AnalyticsPrivacyConfig(
     public val anonymizeIp: Boolean = true,
-    public val collectAdvertisingId: Boolean = false
+    public val collectAdvertisingId: Boolean = false,
 )

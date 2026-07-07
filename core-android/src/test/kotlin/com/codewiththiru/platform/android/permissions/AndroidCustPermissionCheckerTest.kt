@@ -20,7 +20,6 @@ import org.robolectric.annotation.Config
 @RunWith(RobolectricTestRunner::class)
 @Config(manifest = Config.NONE)
 class AndroidCustPermissionCheckerTest {
-
     private lateinit var context: Context
     private lateinit var checker: AndroidCustPermissionChecker
 
@@ -52,7 +51,7 @@ class AndroidCustPermissionCheckerTest {
     fun `hasPermissions returns true when all granted`() {
         every { ContextCompat.checkSelfPermission(context, "PERMISSION_A") } returns PackageManager.PERMISSION_GRANTED
         every { ContextCompat.checkSelfPermission(context, "PERMISSION_B") } returns PackageManager.PERMISSION_GRANTED
-        
+
         assertTrue(checker.hasPermissions("PERMISSION_A", "PERMISSION_B"))
     }
 
@@ -60,7 +59,7 @@ class AndroidCustPermissionCheckerTest {
     fun `hasPermissions returns false when any denied`() {
         every { ContextCompat.checkSelfPermission(context, "PERMISSION_A") } returns PackageManager.PERMISSION_GRANTED
         every { ContextCompat.checkSelfPermission(context, "PERMISSION_B") } returns PackageManager.PERMISSION_DENIED
-        
+
         assertFalse(checker.hasPermissions("PERMISSION_A", "PERMISSION_B"))
     }
 
@@ -68,7 +67,7 @@ class AndroidCustPermissionCheckerTest {
     fun `missingPermissions returns empty list when all granted`() {
         every { ContextCompat.checkSelfPermission(context, "PERMISSION_A") } returns PackageManager.PERMISSION_GRANTED
         every { ContextCompat.checkSelfPermission(context, "PERMISSION_B") } returns PackageManager.PERMISSION_GRANTED
-        
+
         val missing = checker.missingPermissions("PERMISSION_A", "PERMISSION_B")
         assertTrue(missing.isEmpty())
     }
@@ -78,7 +77,7 @@ class AndroidCustPermissionCheckerTest {
         every { ContextCompat.checkSelfPermission(context, "PERMISSION_A") } returns PackageManager.PERMISSION_GRANTED
         every { ContextCompat.checkSelfPermission(context, "PERMISSION_B") } returns PackageManager.PERMISSION_DENIED
         every { ContextCompat.checkSelfPermission(context, "PERMISSION_C") } returns PackageManager.PERMISSION_DENIED
-        
+
         val missing = checker.missingPermissions("PERMISSION_A", "PERMISSION_B", "PERMISSION_C")
         assertEquals(listOf("PERMISSION_B", "PERMISSION_C"), missing)
     }

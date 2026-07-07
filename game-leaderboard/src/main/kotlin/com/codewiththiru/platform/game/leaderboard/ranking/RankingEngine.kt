@@ -27,13 +27,12 @@ class DefaultRankingEngine : RankingEngine {
     override fun sortEntries(
         entries: List<LeaderboardEntry>,
         ascending: Boolean,
-    ): List<LeaderboardEntry> {
-        return if (ascending) {
+    ): List<LeaderboardEntry> =
+        if (ascending) {
             entries.sortedBy { it.score }
         } else {
             entries.sortedByDescending { it.score }
         }
-    }
 
     override fun calculatePercentile(
         rank: Long,

@@ -9,5 +9,5 @@ enum class RatingTriggerSource {
     LevelCompleted,
     PurchaseCompleted,
     Manual,
-    Custom
+    Custom,
 }

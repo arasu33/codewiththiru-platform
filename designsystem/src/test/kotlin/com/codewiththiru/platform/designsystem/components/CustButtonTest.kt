@@ -7,7 +7,6 @@ import androidx.compose.ui.test.assertIsEnabled
 import androidx.compose.ui.test.assertIsNotEnabled
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithTag
-import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import com.codewiththiru.platform.designsystem.theme.CustTheme
 import org.junit.Assert.assertEquals
@@ -20,7 +19,6 @@ import org.robolectric.annotation.Config
 @RunWith(RobolectricTestRunner::class)
 @Config(sdk = [34], instrumentedPackages = ["androidx.loader.content"])
 class CustButtonTest {
-
     @get:Rule
     val composeTestRule = createComposeRule()
 
@@ -31,14 +29,18 @@ class CustButtonTest {
             CustTheme {
                 CustButton(
                     onClick = { clicked++ },
-                    modifier = Modifier.testTag("buttonTag")
+                    modifier = Modifier.testTag("buttonTag"),
                 ) {
                     CustText("Click Me")
                 }
             }
         }
 
-        composeTestRule.onNodeWithTag("buttonTag").assertIsDisplayed().assertIsEnabled().performClick()
+        composeTestRule
+            .onNodeWithTag("buttonTag")
+            .assertIsDisplayed()
+            .assertIsEnabled()
+            .performClick()
         assertEquals(1, clicked)
     }
 
@@ -50,7 +52,7 @@ class CustButtonTest {
                 CustButton(
                     onClick = { clicked++ },
                     enabled = false,
-                    modifier = Modifier.testTag("buttonTag")
+                    modifier = Modifier.testTag("buttonTag"),
                 ) {
                     CustText("Click Me")
                 }
@@ -68,7 +70,7 @@ class CustButtonTest {
                 CustButton(
                     onClick = { clicked++ },
                     loading = true,
-                    modifier = Modifier.testTag("buttonTag")
+                    modifier = Modifier.testTag("buttonTag"),
                 ) {
                     CustText("Loading")
                 }
@@ -77,7 +79,7 @@ class CustButtonTest {
 
         val button = composeTestRule.onNodeWithTag("buttonTag")
         button.assertIsDisplayed().assertIsEnabled().performClick()
-        
+
         // Clicks should be intercepted during loading
         assertEquals(0, clicked)
     }

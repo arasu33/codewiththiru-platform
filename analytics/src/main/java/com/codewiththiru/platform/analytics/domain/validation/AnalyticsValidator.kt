@@ -6,7 +6,6 @@ import com.codewiththiru.platform.analytics.domain.event.AnalyticsEvent
  * Validates and sanitizes analytics events to ensure they meet constraints and do not contain PII.
  */
 public object AnalyticsValidator {
-
     private const val MAX_EVENT_NAME_LENGTH = 40
     private const val MAX_PARAM_COUNT = 25
     private const val MAX_PARAM_VALUE_LENGTH = 100
@@ -30,19 +29,20 @@ public object AnalyticsValidator {
         }
 
         // Filter nulls, limit parameter count
-        val safeParams = event.parameters.entries
-            .filter { it.value != null }
-            .take(MAX_PARAM_COUNT)
-            .associate { (k, v) ->
-                val safeKey = k.replace(ILLEGAL_CHAR_REGEX, "_")
-                val safeValue = sanitizeValue(v.toString())
-                safeKey to safeValue
-            }
+        val safeParams =
+            event.parameters.entries
+                .filter { it.value != null }
+                .take(MAX_PARAM_COUNT)
+                .associate { (k, v) ->
+                    val safeKey = k.replace(ILLEGAL_CHAR_REGEX, "_")
+                    val safeValue = sanitizeValue(v.toString())
+                    safeKey to safeValue
+                }
 
         return AnalyticsEvent(
             name = safeName,
             parameters = safeParams,
-            timestamp = event.timestamp
+            timestamp = event.timestamp,
         )
     }
 

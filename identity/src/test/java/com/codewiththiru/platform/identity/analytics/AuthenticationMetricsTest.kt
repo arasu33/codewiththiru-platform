@@ -5,14 +5,22 @@ import org.junit.Assert.assertEquals
 import org.junit.Test
 
 class AuthenticationMetricsTest {
+    private val fakeAnalytics =
+        object : IdentityAnalyticsProvider {
+            val events = mutableListOf<Pair<String, Map<String, Any>>>()
 
-    private val fakeAnalytics = object : IdentityAnalyticsProvider {
-        val events = mutableListOf<Pair<String, Map<String, Any>>>()
-        override fun logEvent(name: String, params: Map<String, Any>) {
-            events.add(name to params)
+            override fun logEvent(
+                name: String,
+                params: Map<String, Any>,
+            ) {
+                events.add(name to params)
+            }
+
+            override fun setUserProperty(
+                name: String,
+                value: String,
+            ) {}
         }
-        override fun setUserProperty(name: String, value: String) {}
-    }
 
     private val metrics = AuthenticationMetrics(fakeAnalytics)
 

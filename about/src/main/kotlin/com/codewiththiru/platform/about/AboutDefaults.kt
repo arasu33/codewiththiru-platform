@@ -15,40 +15,40 @@ import com.codewiththiru.platform.about.model.SocialLink
  * Provides standard fallback implementations for About module constraints.
  */
 object AboutDefaults {
-
     /**
      * Retrieves the default Theme bounds linked natively to Material 3.
      */
     @Composable
-    fun themeConfig(): AboutThemeConfig {
-        return AboutThemeConfig(
+    fun themeConfig(): AboutThemeConfig =
+        AboutThemeConfig(
             headerStyle = MaterialTheme.typography.titleMedium,
-            cardElevation = 1.dp
+            cardElevation = 1.dp,
         )
-    }
 
     /**
      * Default visibility matrix (everything enabled).
      */
-    fun visibility(): AboutVisibility {
-        return AboutVisibility(
+    fun visibility(): AboutVisibility =
+        AboutVisibility(
             showAppIcon = true,
             showDeviceSection = true,
             showLegalSection = true,
-            showDiagnostics = true
+            showDiagnostics = true,
         )
-    }
 
     /**
      * Returns a no-op event listener.
      */
-    fun eventListener(): AboutEventListener {
-        return object : AboutEventListener {
+    fun eventListener(): AboutEventListener =
+        object : AboutEventListener {
             override fun onShareApp(appInfo: AppInfo) {}
+
             override fun onCopyDiagnostics(payload: String) {}
+
             override fun onContactDeveloper(developerInfo: DeveloperInfo) {}
+
             override fun onSocialLinkClick(link: SocialLink) {}
+
             override fun onLegalLinkClick(url: String) {}
         }
-    }
 }

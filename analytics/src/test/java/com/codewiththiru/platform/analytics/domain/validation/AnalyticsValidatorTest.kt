@@ -6,7 +6,6 @@ import org.junit.Assert.assertTrue
 import org.junit.Test
 
 class AnalyticsValidatorTest {
-
     @Test
     fun `validates and truncates event name`() {
         val longName = "A".repeat(50)
@@ -43,14 +42,15 @@ class AnalyticsValidatorTest {
 
     @Test
     fun `scrubs PII data`() {
-        val params = mapOf(
-            "email" to "test@example.com",
-            "phone" to "+1 555-123-4567",
-            "pan" to "ABCDE1234F",
-            "aadhar" to "1234 5678 9012",
-            "ip" to "192.168.1.1",
-            "mixed" to "My email is test@example.com"
-        )
+        val params =
+            mapOf(
+                "email" to "test@example.com",
+                "phone" to "+1 555-123-4567",
+                "pan" to "ABCDE1234F",
+                "aadhar" to "1234 5678 9012",
+                "ip" to "192.168.1.1",
+                "mixed" to "My email is test@example.com",
+            )
         val event = AnalyticsEvent("pii_test", params)
         val sanitized = AnalyticsValidator.validateAndSanitize(event)
 

@@ -1,19 +1,18 @@
 package com.codewiththiru.platform.analytics.data.provider
 
+import android.util.Log
 import com.codewiththiru.platform.analytics.api.AnalyticsProvider
 import com.codewiththiru.platform.analytics.domain.event.AnalyticsEvent
 import com.codewiththiru.platform.analytics.domain.event.AnalyticsScreen
 import com.codewiththiru.platform.analytics.domain.event.AnalyticsUserProperty
-import io.mockk.mockkStatic
 import io.mockk.every
-import kotlinx.coroutines.test.runTest
-import org.junit.Test
-import org.junit.Before
+import io.mockk.mockkStatic
 import org.junit.Assert.assertEquals
-import android.util.Log
+import org.junit.Before
+import org.junit.Test
+import kotlinx.coroutines.test.runTest
 
 class CompositeAnalyticsProviderTest {
-
     @Before
     fun setup() {
         mockkStatic(Log::class)
@@ -21,7 +20,9 @@ class CompositeAnalyticsProviderTest {
         every { Log.d(any(), any()) } returns 0
     }
 
-    class FakeAnalyticsProvider(val shouldThrow: Boolean = false) : AnalyticsProvider {
+    class FakeAnalyticsProvider(
+        val shouldThrow: Boolean = false,
+    ) : AnalyticsProvider {
         val events = mutableListOf<AnalyticsEvent>()
         val screens = mutableListOf<AnalyticsScreen>()
         val properties = mutableListOf<AnalyticsUserProperty>()
@@ -49,55 +50,60 @@ class CompositeAnalyticsProviderTest {
     }
 
     @Test
-    fun `composite fans out events to all providers`() = runTest {
-        val p1 = FakeAnalyticsProvider()
-        val p2 = FakeAnalyticsProvider()
-        val composite = CompositeAnalyticsProvider(listOf(p1, p2))
+    fun `composite fans out events to all providers`() =
+        runTest {
+            val p1 = FakeAnalyticsProvider()
+            val p2 = FakeAnalyticsProvider()
+            val composite = CompositeAnalyticsProvider(listOf(p1, p2))
 
-        val event = AnalyticsEvent("test_event")
-        composite.trackEvent(event)
+            val event = AnalyticsEvent("test_event")
+            composite.trackEvent(event)
 
-        assertEquals(1, p1.events.size)
-        assertEquals(1, p2.events.size)
-    }
-
-    @Test
-    fun `failure of one provider does not block others`() = runTest {
-        val p1 = FakeAnalyticsProvider(shouldThrow = true)
-        val p2 = FakeAnalyticsProvider()
-        val composite = CompositeAnalyticsProvider(listOf(p1, p2))
-
-        val event = AnalyticsEvent("test_event")
-        composite.trackEvent(event)
-
-        assertEquals(0, p1.events.size)
-        assertEquals(1, p2.events.size)
-    }
+            assertEquals(1, p1.events.size)
+            assertEquals(1, p2.events.size)
+        }
 
     @Test
-    fun `trackScreen fans out`() = runTest {
-        val p1 = FakeAnalyticsProvider()
-        val composite = CompositeAnalyticsProvider(listOf(p1))
-        
-        composite.trackScreen(AnalyticsScreen("Home"))
-        assertEquals(1, p1.screens.size)
-    }
+    fun `failure of one provider does not block others`() =
+        runTest {
+            val p1 = FakeAnalyticsProvider(shouldThrow = true)
+            val p2 = FakeAnalyticsProvider()
+            val composite = CompositeAnalyticsProvider(listOf(p1, p2))
+
+            val event = AnalyticsEvent("test_event")
+            composite.trackEvent(event)
+
+            assertEquals(0, p1.events.size)
+            assertEquals(1, p2.events.size)
+        }
 
     @Test
-    fun `setUserProperty fans out`() = runTest {
-        val p1 = FakeAnalyticsProvider()
-        val composite = CompositeAnalyticsProvider(listOf(p1))
-        
-        composite.setUserProperty(AnalyticsUserProperty("tier", "pro"))
-        assertEquals(1, p1.properties.size)
-    }
+    fun `trackScreen fans out`() =
+        runTest {
+            val p1 = FakeAnalyticsProvider()
+            val composite = CompositeAnalyticsProvider(listOf(p1))
+
+            composite.trackScreen(AnalyticsScreen("Home"))
+            assertEquals(1, p1.screens.size)
+        }
 
     @Test
-    fun `flush fans out`() = runTest {
-        val p1 = FakeAnalyticsProvider()
-        val composite = CompositeAnalyticsProvider(listOf(p1))
-        
-        composite.flush()
-        assertEquals(1, p1.flushCount)
-    }
+    fun `setUserProperty fans out`() =
+        runTest {
+            val p1 = FakeAnalyticsProvider()
+            val composite = CompositeAnalyticsProvider(listOf(p1))
+
+            composite.setUserProperty(AnalyticsUserProperty("tier", "pro"))
+            assertEquals(1, p1.properties.size)
+        }
+
+    @Test
+    fun `flush fans out`() =
+        runTest {
+            val p1 = FakeAnalyticsProvider()
+            val composite = CompositeAnalyticsProvider(listOf(p1))
+
+            composite.flush()
+            assertEquals(1, p1.flushCount)
+        }
 }

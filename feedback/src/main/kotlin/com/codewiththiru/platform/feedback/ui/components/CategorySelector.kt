@@ -29,7 +29,7 @@ internal fun CategorySelector(
     selectedCategory: FeedbackCategory?,
     onCategorySelected: (FeedbackCategory) -> Unit,
     themeConfig: FeedbackThemeConfig,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     var expanded by remember { mutableStateOf(false) }
 
@@ -37,25 +37,25 @@ internal fun CategorySelector(
         CustText(
             text = "Category",
             style = themeConfig.labelStyle ?: androidx.compose.ui.text.TextStyle.Default,
-            modifier = Modifier.padding(bottom = 8.dp)
+            modifier = Modifier.padding(bottom = 8.dp),
         )
-        
+
         CustText(
             text = selectedCategory?.displayName ?: "Select Category",
-            modifier = Modifier
-                .fillMaxWidth()
-                .semantics {
-                    role = Role.DropdownList
-                    contentDescription = "Select feedback category. " + 
-                        "Current selection: ${selectedCategory?.displayName ?: "None"}"
-                }
-                .clickable { expanded = true }
-                .padding(16.dp)
+            modifier =
+                Modifier
+                    .fillMaxWidth()
+                    .semantics {
+                        role = Role.DropdownList
+                        contentDescription = "Select feedback category. " +
+                            "Current selection: ${selectedCategory?.displayName ?: "None"}"
+                    }.clickable { expanded = true }
+                    .padding(16.dp),
         )
 
         DropdownMenu(
             expanded = expanded,
-            onDismissRequest = { expanded = false }
+            onDismissRequest = { expanded = false },
         ) {
             categories.forEach { category ->
                 DropdownMenuItem(
@@ -63,7 +63,7 @@ internal fun CategorySelector(
                     onClick = {
                         onCategorySelected(category)
                         expanded = false
-                    }
+                    },
                 )
             }
         }

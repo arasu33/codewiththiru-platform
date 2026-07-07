@@ -42,19 +42,19 @@ fun AboutScreen(
     uiState: AboutUiState,
     eventListener: AboutEventListener,
     licenseProvider: LicenseProvider? = null,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     Box(modifier = modifier.fillMaxSize()) {
         when (uiState) {
             is AboutUiState.Loading -> {
                 CustLoading(
-                    modifier = Modifier.align(Alignment.Center)
+                    modifier = Modifier.align(Alignment.Center),
                 )
             }
             is AboutUiState.Error -> {
                 CustText(
                     text = uiState.message,
-                    modifier = Modifier.align(Alignment.Center)
+                    modifier = Modifier.align(Alignment.Center),
                 )
             }
             is AboutUiState.Success -> {
@@ -62,7 +62,7 @@ fun AboutScreen(
                     config = uiState.config,
                     eventListener = eventListener,
                     licenseProvider = licenseProvider,
-                    modifier = Modifier.fillMaxSize()
+                    modifier = Modifier.fillMaxSize(),
                 )
             }
         }
@@ -74,7 +74,7 @@ private fun AboutScreenContent(
     config: AboutConfig,
     eventListener: AboutEventListener,
     licenseProvider: LicenseProvider?,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     val scrollState = rememberScrollState()
     var showDiagnosticsDialog by remember { mutableStateOf(false) }
@@ -90,42 +90,44 @@ private fun AboutScreenContent(
                     onClick = {
                         eventListener.onCopyDiagnostics(diagnosticsPayload)
                         showDiagnosticsDialog = false
-                    }
+                    },
                 ) {
                     CustText("Copy")
                 }
             },
             dismissButton = {
                 CustButton(
-                    onClick = { showDiagnosticsDialog = false }
+                    onClick = { showDiagnosticsDialog = false },
                 ) {
                     CustText("Cancel")
                 }
-            }
+            },
         )
     }
 
     Column(
-        modifier = modifier
-            .verticalScroll(scrollState)
-            .padding(vertical = 16.dp)
+        modifier =
+            modifier
+                .verticalScroll(scrollState)
+                .padding(vertical = 16.dp),
     ) {
         AppInfoSection(
             appInfo = config.appInfo,
-            visibility = config.visibility
+            visibility = config.visibility,
         )
 
         Spacer(modifier = Modifier.height(16.dp))
 
         if (config.developerInfo != null) {
             CustCard(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 16.dp)
+                modifier =
+                    Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 16.dp),
             ) {
                 DeveloperSection(
                     developerInfo = config.developerInfo,
-                    eventListener = eventListener
+                    eventListener = eventListener,
                 )
             }
             Spacer(modifier = Modifier.height(16.dp))
@@ -133,9 +135,10 @@ private fun AboutScreenContent(
 
         if (config.visibility?.showDeviceSection != false && config.deviceInfo != null) {
             CustCard(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 16.dp)
+                modifier =
+                    Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 16.dp),
             ) {
                 DeviceSection(deviceInfo = config.deviceInfo)
             }
@@ -144,14 +147,15 @@ private fun AboutScreenContent(
 
         if (config.visibility?.showLegalSection != false && config.legalInfo != null) {
             CustCard(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 16.dp)
+                modifier =
+                    Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 16.dp),
             ) {
                 LegalSection(
                     legalInfo = config.legalInfo,
                     eventListener = eventListener,
-                    licenseProvider = licenseProvider
+                    licenseProvider = licenseProvider,
                 )
             }
             Spacer(modifier = Modifier.height(16.dp))
@@ -159,9 +163,10 @@ private fun AboutScreenContent(
 
         if (config.visibility?.showDiagnostics != false) {
             CustCard(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 16.dp)
+                modifier =
+                    Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 16.dp),
             ) {
                 ActionsSection(
                     eventListener = eventListener,
@@ -172,7 +177,7 @@ private fun AboutScreenContent(
                     onPreviewDiagnostics = { payload ->
                         diagnosticsPayload = payload
                         showDiagnosticsDialog = true
-                    }
+                    },
                 )
             }
             Spacer(modifier = Modifier.height(32.dp))

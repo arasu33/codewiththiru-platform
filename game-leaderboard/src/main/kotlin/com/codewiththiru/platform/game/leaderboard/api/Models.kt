@@ -30,11 +30,24 @@ data class LeaderboardRank(
 )
 
 sealed class LeaderboardEvent {
-    data class LeaderboardOpened(val leaderboardId: String, val type: LeaderboardType) : LeaderboardEvent()
+    data class LeaderboardOpened(
+        val leaderboardId: String,
+        val type: LeaderboardType,
+    ) : LeaderboardEvent()
 
-    data class LeaderboardRefreshed(val leaderboardId: String, val type: LeaderboardType) : LeaderboardEvent()
+    data class LeaderboardRefreshed(
+        val leaderboardId: String,
+        val type: LeaderboardType,
+    ) : LeaderboardEvent()
 
-    data class RankChanged(val leaderboardId: String, val oldRank: Long, val newRank: Long) : LeaderboardEvent()
+    data class RankChanged(
+        val leaderboardId: String,
+        val oldRank: Long,
+        val newRank: Long,
+    ) : LeaderboardEvent()
 
-    data class ScoreSubmitted(val leaderboardId: String, val score: Long) : LeaderboardEvent()
+    data class ScoreSubmitted(
+        val leaderboardId: String,
+        val score: Long,
+    ) : LeaderboardEvent()
 }

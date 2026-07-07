@@ -7,5 +7,7 @@ sealed class BillingState {
 
     object Connected : BillingState()
 
-    data class Error(val error: BillingError) : BillingState()
+    data class Error(
+        val error: BillingError,
+    ) : BillingState()
 }

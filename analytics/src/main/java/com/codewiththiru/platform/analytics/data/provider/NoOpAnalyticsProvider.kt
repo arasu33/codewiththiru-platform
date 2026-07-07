@@ -10,7 +10,10 @@ import com.codewiththiru.platform.analytics.domain.event.AnalyticsUserProperty
  */
 public class NoOpAnalyticsProvider : AnalyticsProvider {
     override suspend fun trackEvent(event: AnalyticsEvent) { /* No-op */ }
+
     override suspend fun trackScreen(screen: AnalyticsScreen) { /* No-op */ }
+
     override suspend fun setUserProperty(property: AnalyticsUserProperty) { /* No-op */ }
+
     override suspend fun flush() { /* No-op */ }
 }

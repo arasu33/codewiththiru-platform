@@ -1,3 +1,5 @@
+@file:Suppress("ktlint:standard:no-wildcard-imports")
+
 package com.codewiththiru.platform.moreapps.presentation.screens
 
 import androidx.compose.foundation.layout.*
@@ -27,7 +29,7 @@ fun MoreAppsScreen(
     imageProvider: MoreAppsImageProvider,
     navigationProvider: MoreAppsNavigationProvider,
     config: MoreAppsConfig,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     val uiState by viewModel.uiState.collectAsState()
 
@@ -61,7 +63,7 @@ fun MoreAppsScreen(
                 LazyColumn(
                     modifier = Modifier.fillMaxSize(),
                     contentPadding = PaddingValues(16.dp),
-                    verticalArrangement = Arrangement.spacedBy(16.dp)
+                    verticalArrangement = Arrangement.spacedBy(16.dp),
                 ) {
                     itemsIndexed(state.apps) { index, app ->
                         AppCard(
@@ -69,7 +71,7 @@ fun MoreAppsScreen(
                             imageProvider = imageProvider,
                             onActionClick = { action ->
                                 viewModel.onAppAction(app, action, index)
-                            }
+                            },
                         )
                     }
                 }

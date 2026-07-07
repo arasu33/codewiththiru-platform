@@ -8,7 +8,7 @@ import androidx.compose.runtime.Composable
 @Composable
 fun CouponErrorDialog(
     reason: String,
-    onDismiss: () -> Unit
+    onDismiss: () -> Unit,
 ) {
     AlertDialog(
         onDismissRequest = onDismiss,
@@ -18,6 +18,6 @@ fun CouponErrorDialog(
             Button(onClick = onDismiss) {
                 Text("Try Again")
             }
-        }
+        },
     )
 }
