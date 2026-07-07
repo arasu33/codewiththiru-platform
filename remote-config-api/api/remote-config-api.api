@@ -78,6 +78,7 @@ public final class com/codewiththiru/remoteconfig/api/RemoteConfigKey$UpdatesEna
 
 public abstract interface class com/codewiththiru/remoteconfig/api/RemoteConfigManager {
 	public abstract fun clearCache (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun clearOverrides (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun forceRefresh (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getBoolean (Ljava/lang/String;Z)Z
 	public static synthetic fun getBoolean$default (Lcom/codewiththiru/remoteconfig/api/RemoteConfigManager;Ljava/lang/String;ZILjava/lang/Object;)Z
@@ -95,6 +96,7 @@ public abstract interface class com/codewiththiru/remoteconfig/api/RemoteConfigM
 	public abstract fun getValue (Lcom/codewiththiru/remoteconfig/api/RemoteConfigKey;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun initialize (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun refresh (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun setOverride (Lcom/codewiththiru/remoteconfig/api/RemoteConfigKey;Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 }
 
 public final class com/codewiththiru/remoteconfig/api/RemoteConfigManager$DefaultImpls {

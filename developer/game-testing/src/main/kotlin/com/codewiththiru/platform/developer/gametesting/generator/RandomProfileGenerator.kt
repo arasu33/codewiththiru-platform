@@ -11,13 +11,12 @@ object RandomProfileGenerator {
         id: String = UUID.randomUUID().toString(),
         level: Int = (1..100).random(),
         xp: Long = (0..10000L).random(),
-    ): PlayerProfile {
-        return PlayerProfile(
+    ): PlayerProfile =
+        PlayerProfile(
             id = id,
             displayName = "Guest-$id",
             identity = PlayerIdentity.Guest(id),
             level = PlayerLevel(currentLevel = level, currentXp = xp),
             customization = PlayerCustomization(),
         )
-    }
 }

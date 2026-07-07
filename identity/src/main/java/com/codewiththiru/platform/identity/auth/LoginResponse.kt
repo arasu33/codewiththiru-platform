@@ -6,5 +6,5 @@ import com.codewiththiru.platform.identity.token.RefreshToken
 data class LoginResponse(
     val session: AuthSession,
     val accessToken: AccessToken,
-    val refreshToken: RefreshToken?
+    val refreshToken: RefreshToken?,
 )

@@ -7,5 +7,7 @@ sealed interface RemoteConfigState {
 
     object Success : RemoteConfigState
 
-    data class Error(val throwable: Throwable) : RemoteConfigState
+    data class Error(
+        val throwable: Throwable,
+    ) : RemoteConfigState
 }

@@ -23,7 +23,7 @@ import com.codewiththiru.platform.designsystem.components.CustText
 
 enum class LoadingType {
     Circular,
-    Linear
+    Linear,
 }
 
 /**
@@ -39,18 +39,19 @@ fun CustLoading(
     modifier: Modifier = Modifier,
     message: String? = null,
     type: LoadingType = LoadingType.Circular,
-    color: Color = MaterialTheme.colorScheme.primary
+    color: Color = MaterialTheme.colorScheme.primary,
 ) {
-    val loadingModifier = modifier.semantics {
-        contentDescription = message ?: "Loading"
-    }
+    val loadingModifier =
+        modifier.semantics {
+            contentDescription = message ?: "Loading"
+        }
 
     if (message != null) {
         if (type == LoadingType.Circular) {
             Row(
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.Center,
-                modifier = loadingModifier
+                modifier = loadingModifier,
             ) {
                 CircularProgressIndicator(color = color, modifier = Modifier.size(24.dp))
                 Spacer(modifier = Modifier.width(16.dp))
@@ -60,7 +61,7 @@ fun CustLoading(
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Center,
-                modifier = loadingModifier
+                modifier = loadingModifier,
             ) {
                 LinearProgressIndicator(color = color)
                 Spacer(modifier = Modifier.height(8.dp))
@@ -71,12 +72,12 @@ fun CustLoading(
         if (type == LoadingType.Circular) {
             CircularProgressIndicator(
                 color = color,
-                modifier = loadingModifier
+                modifier = loadingModifier,
             )
         } else {
             LinearProgressIndicator(
                 color = color,
-                modifier = loadingModifier
+                modifier = loadingModifier,
             )
         }
     }

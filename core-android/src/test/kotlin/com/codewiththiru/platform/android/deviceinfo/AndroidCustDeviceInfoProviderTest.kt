@@ -20,7 +20,6 @@ import org.robolectric.util.ReflectionHelpers
 @RunWith(RobolectricTestRunner::class)
 @Config(manifest = Config.NONE)
 class AndroidCustDeviceInfoProviderTest {
-
     private lateinit var context: Context
     private lateinit var provider: AndroidCustDeviceInfoProvider
 
@@ -49,38 +48,40 @@ class AndroidCustDeviceInfoProviderTest {
 
     @Test
     fun `formFactor returns TABLET when screen is large`() {
-        val configuration = Configuration().apply {
-            screenLayout = Configuration.SCREENLAYOUT_SIZE_LARGE
-        }
+        val configuration =
+            Configuration().apply {
+                screenLayout = Configuration.SCREENLAYOUT_SIZE_LARGE
+            }
         val resources = mockk<Resources>()
         every { resources.configuration } returns configuration
         every { context.resources } returns resources
-        
+
         ReflectionHelpers.setStaticField(Build.VERSION::class.java, "SDK_INT", 29)
-        
+
         assertEquals(CustDeviceFormFactor.TABLET, provider.formFactor)
         assertTrue(provider.isTablet)
     }
 
     @Test
     fun `formFactor returns FOLDABLE when feature exists`() {
-        val configuration = Configuration().apply {
-            screenLayout = Configuration.SCREENLAYOUT_SIZE_NORMAL
-        }
+        val configuration =
+            Configuration().apply {
+                screenLayout = Configuration.SCREENLAYOUT_SIZE_NORMAL
+            }
         val resources = mockk<Resources>()
         every { resources.configuration } returns configuration
         every { context.resources } returns resources
-        
+
         val packageManager = mockk<PackageManager>()
         every { packageManager.hasSystemFeature(PackageManager.FEATURE_SENSOR_HINGE_ANGLE) } returns true
         every { context.packageManager } returns packageManager
-        
+
         ReflectionHelpers.setStaticField(Build.VERSION::class.java, "SDK_INT", Build.VERSION_CODES.R)
-        
+
         assertEquals(CustDeviceFormFactor.FOLDABLE, provider.formFactor)
         assertFalse(provider.isTablet)
     }
-    
+
     @Test
     fun `isEmulator returns true for generic fingerprint`() {
         ReflectionHelpers.setStaticField(Build::class.java, "FINGERPRINT", "generic_fingerprint")

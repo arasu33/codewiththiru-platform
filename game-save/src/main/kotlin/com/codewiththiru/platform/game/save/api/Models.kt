@@ -64,9 +64,16 @@ data class SaveRequest<T>(
  * Response wrapper for save operations.
  */
 sealed class SaveResponse<out T> {
-    data class Success<T>(val slot: SaveSlot, val metadata: SaveMetadata, val state: T?) : SaveResponse<T>()
+    data class Success<T>(
+        val slot: SaveSlot,
+        val metadata: SaveMetadata,
+        val state: T?,
+    ) : SaveResponse<T>()
 
-    data class Failure(val error: Throwable, val slot: SaveSlot) : SaveResponse<Nothing>()
+    data class Failure(
+        val error: Throwable,
+        val slot: SaveSlot,
+    ) : SaveResponse<Nothing>()
 }
 
 /**

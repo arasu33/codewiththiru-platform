@@ -81,9 +81,7 @@ class DefaultAchievementManager(
         }
     }
 
-    override fun getAchievement(id: String): Achievement? {
-        return getAchievements().find { it.id == id }
-    }
+    override fun getAchievement(id: String): Achievement? = getAchievements().find { it.id == id }
 
     override fun updateProgress(
         id: String,

@@ -8,5 +8,5 @@ data class UserProfile(
     val isEmailVerified: Boolean,
     val phoneNumber: String?,
     val isPhoneVerified: Boolean,
-    val preferences: ProfilePreferences
+    val preferences: ProfilePreferences,
 )

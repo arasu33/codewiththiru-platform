@@ -14,44 +14,47 @@ import com.codewiththiru.platform.analytics.domain.validation.AnalyticsValidator
 public class DefaultAnalyticsManager(
     private val queue: AnalyticsQueue,
     private val dispatcher: AnalyticsDispatcher,
-    private val consentManager: AnalyticsConsentManager
+    private val consentManager: AnalyticsConsentManager,
 ) : AnalyticsManager {
-
     override suspend fun track(event: AnalyticsEvent) {
         if (consentManager.getConsent() == ConsentState.Denied) return
-        
+
         // PII and constraints validation
         val sanitizedEvent = AnalyticsValidator.validateAndSanitize(event)
-        
+
         queue.enqueue(sanitizedEvent)
     }
 
     override suspend fun trackScreen(screen: AnalyticsScreen) {
         if (consentManager.getConsent() == ConsentState.Denied) return
-        
-        val eventParameters = mutableMapOf<String, Any>(
-            "screen_name" to screen.name
-        )
+
+        val eventParameters =
+            mutableMapOf<String, Any>(
+                "screen_name" to screen.name,
+            )
         screen.className?.let { eventParameters["screen_class"] = it }
 
-        val event = AnalyticsEvent(
-            name = "screen_view",
-            parameters = eventParameters
-        )
+        val event =
+            AnalyticsEvent(
+                name = "screen_view",
+                parameters = eventParameters,
+            )
         val sanitizedEvent = AnalyticsValidator.validateAndSanitize(event)
         queue.enqueue(sanitizedEvent)
     }
 
     override suspend fun setUserProperty(property: AnalyticsUserProperty) {
         if (consentManager.getConsent() == ConsentState.Denied) return
-        
-        val event = AnalyticsEvent(
-            name = "user_property_set",
-            parameters = mapOf(
-                "property_name" to property.key,
-                "property_value" to property.value
+
+        val event =
+            AnalyticsEvent(
+                name = "user_property_set",
+                parameters =
+                    mapOf(
+                        "property_name" to property.key,
+                        "property_value" to property.value,
+                    ),
             )
-        )
         val sanitizedEvent = AnalyticsValidator.validateAndSanitize(event)
         queue.enqueue(sanitizedEvent)
     }

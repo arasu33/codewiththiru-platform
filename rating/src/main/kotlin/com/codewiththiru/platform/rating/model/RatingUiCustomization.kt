@@ -13,5 +13,5 @@ data class RatingUiCustomization(
     @StringRes val positiveButtonTextRes: Int = R.string.rating_default_submit,
     @StringRes val negativeButtonTextRes: Int = R.string.rating_default_dismiss,
     @StringRes val starSelectedContentDescriptionRes: Int = R.string.rating_star_selected_cd,
-    @StringRes val starUnselectedContentDescriptionRes: Int = R.string.rating_star_unselected_cd
+    @StringRes val starUnselectedContentDescriptionRes: Int = R.string.rating_star_unselected_cd,
 )

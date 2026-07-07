@@ -7,5 +7,5 @@ data class UpdateConfig(
     val minRequiredVersionCode: Int = 0,
     val latestVersionCode: Int = 0,
     val flexibleUpdateCooldownDays: Int = 3,
-    val isForceUpdateEnabled: Boolean = false
+    val isForceUpdateEnabled: Boolean = false,
 )

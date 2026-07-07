@@ -19,7 +19,6 @@ import org.robolectric.annotation.Config
 @RunWith(RobolectricTestRunner::class)
 @Config(sdk = [34], instrumentedPackages = ["androidx.loader.content"])
 class CustErrorStateTest {
-
     @get:Rule
     val composeTestRule = createComposeRule()
 
@@ -29,7 +28,7 @@ class CustErrorStateTest {
             CustTheme {
                 CustErrorState(
                     title = "Error",
-                    message = "Something went wrong"
+                    message = "Something went wrong",
                 )
             }
         }
@@ -43,7 +42,7 @@ class CustErrorStateTest {
             CustTheme {
                 CustErrorState(
                     title = "Error",
-                    errorCode = "404"
+                    errorCode = "404",
                 )
             }
         }
@@ -58,7 +57,7 @@ class CustErrorStateTest {
                 CustErrorState(
                     title = "Error",
                     onRetry = { retried = true },
-                    retryText = "Try Again"
+                    retryText = "Try Again",
                 )
             }
         }
@@ -73,7 +72,7 @@ class CustErrorStateTest {
                 CustErrorState(
                     title = "Failed",
                     message = "Network error",
-                    errorCode = "101"
+                    errorCode = "101",
                 )
             }
         }
@@ -88,7 +87,7 @@ class CustErrorStateTest {
             CustTheme {
                 CustErrorState(
                     title = "Tablet Error",
-                    modifier = Modifier.testTag("errorStateTablet")
+                    modifier = Modifier.testTag("errorStateTablet"),
                 )
             }
         }

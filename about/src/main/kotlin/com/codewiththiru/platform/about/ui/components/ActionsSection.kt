@@ -7,8 +7,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import com.codewiththiru.platform.about.AboutEventListener
 import com.codewiththiru.platform.about.R
 import com.codewiththiru.platform.about.model.AppInfo
@@ -28,16 +28,17 @@ internal fun ActionsSection(
     developerInfo: DeveloperInfo?,
     diagnosticsConfig: DiagnosticsConfig?,
     onPreviewDiagnostics: (String) -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     Column(modifier = modifier.fillMaxWidth()) {
         CustSectionHeader(title = stringResource(id = R.string.about_section_actions))
 
         CustButton(
             onClick = { eventListener.onShareApp(appInfo) },
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 16.dp, vertical = 4.dp)
+            modifier =
+                Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 16.dp, vertical = 4.dp),
         ) {
             CustText(text = stringResource(id = R.string.about_action_share_app))
         }
@@ -46,9 +47,10 @@ internal fun ActionsSection(
             val diagnostics = buildDiagnosticsString(appInfo, deviceInfo, diagnosticsConfig)
             CustButton(
                 onClick = { onPreviewDiagnostics(diagnostics) },
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 16.dp, vertical = 4.dp)
+                modifier =
+                    Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 16.dp, vertical = 4.dp),
             ) {
                 CustText(text = stringResource(id = R.string.about_action_copy_diagnostics))
             }
@@ -57,9 +59,10 @@ internal fun ActionsSection(
         if (developerInfo != null) {
             CustButton(
                 onClick = { eventListener.onContactDeveloper(developerInfo) },
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 16.dp, vertical = 4.dp)
+                modifier =
+                    Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 16.dp, vertical = 4.dp),
             ) {
                 CustText(text = stringResource(id = R.string.about_action_contact_support))
             }
@@ -70,9 +73,9 @@ internal fun ActionsSection(
 private fun buildDiagnosticsString(
     appInfo: AppInfo,
     deviceInfo: DeviceInfo?,
-    config: DiagnosticsConfig
-): String {
-    return buildString {
+    config: DiagnosticsConfig,
+): String =
+    buildString {
         appendLine("App: ${appInfo.appName}")
         appendLine("Package: ${appInfo.packageName}")
         appendLine("Version: ${appInfo.versionName} (${appInfo.versionCode})")
@@ -85,4 +88,3 @@ private fun buildDiagnosticsString(
             appendLine("$key: $value")
         }
     }
-}

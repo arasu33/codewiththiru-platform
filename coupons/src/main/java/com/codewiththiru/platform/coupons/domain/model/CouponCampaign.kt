@@ -5,5 +5,5 @@ data class CouponCampaign(
     val name: String,
     val startsAt: Long,
     val endsAt: Long,
-    val active: Boolean
+    val active: Boolean,
 )

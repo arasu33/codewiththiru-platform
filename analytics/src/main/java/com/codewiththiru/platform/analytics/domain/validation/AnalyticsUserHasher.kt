@@ -6,7 +6,6 @@ import java.security.MessageDigest
  * Utility to hash sensitive user identifiers before transmitting to analytics platforms.
  */
 public object AnalyticsUserHasher {
-
     /**
      * Hashes the given [userId] using SHA-256.
      * Returns a truncated hash for reporting use cases.

@@ -15,9 +15,8 @@ class FakeStatisticsManager : StatisticsManager {
     private val profiles = mutableMapOf<String, StatisticsProfile>()
     private val profileFlows = mutableMapOf<String, MutableStateFlow<StatisticsProfile>>()
 
-    override suspend fun getLifetimeProfile(gameId: String): StatisticsProfile {
-        return getProfile(gameId, StatisticsProfileScope.LIFETIME)
-    }
+    override suspend fun getLifetimeProfile(gameId: String): StatisticsProfile =
+        getProfile(gameId, StatisticsProfileScope.LIFETIME)
 
     override suspend fun getProfile(
         gameId: String,
@@ -32,9 +31,8 @@ class FakeStatisticsManager : StatisticsManager {
         )
     }
 
-    override fun observeLifetimeProfile(gameId: String): StateFlow<StatisticsProfile> {
-        return observeProfile(gameId, StatisticsProfileScope.LIFETIME)
-    }
+    override fun observeLifetimeProfile(gameId: String): StateFlow<StatisticsProfile> =
+        observeProfile(gameId, StatisticsProfileScope.LIFETIME)
 
     override fun observeProfile(
         gameId: String,

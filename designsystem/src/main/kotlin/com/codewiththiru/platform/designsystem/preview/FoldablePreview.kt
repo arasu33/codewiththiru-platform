@@ -6,6 +6,6 @@ import androidx.compose.ui.tooling.preview.Preview
 @Preview(
     name = "Foldable",
     device = Devices.FOLDABLE,
-    showBackground = true
+    showBackground = true,
 )
 annotation class FoldablePreview

@@ -10,13 +10,12 @@ import java.util.concurrent.TimeUnit
  */
 class RatingTriggerEngine(
     private val repository: RatingRepository,
-    private val clock: CustClock
+    private val clock: CustClock,
 ) {
-
     @Suppress("ReturnCount")
     suspend fun evaluateEligibility(
         rules: RatingTriggerRules,
-        cooldown: RatingCooldownPolicy
+        cooldown: RatingCooldownPolicy,
     ): RatingEligibilityResult {
         val launchCount = repository.getLaunchCount()
         if (launchCount < rules.minimumAppLaunches) {

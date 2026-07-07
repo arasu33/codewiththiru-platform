@@ -6,5 +6,5 @@ enum class Permission {
     EDIT_CONTENT,
     DELETE_CONTENT,
     ACCESS_PREMIUM_FEATURES,
-    MANAGE_USERS
+    MANAGE_USERS,
 }

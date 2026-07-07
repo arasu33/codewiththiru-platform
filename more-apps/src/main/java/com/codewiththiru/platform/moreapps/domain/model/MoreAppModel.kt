@@ -12,5 +12,5 @@ data class MoreAppModel(
     val categories: List<MoreAppsCategory> = emptyList(),
     val isFeatured: Boolean = false,
     val installStatus: InstallStatus = InstallStatus.Unknown,
-    val source: MoreAppsSource = MoreAppsSource.Manual
+    val source: MoreAppsSource = MoreAppsSource.Manual,
 )

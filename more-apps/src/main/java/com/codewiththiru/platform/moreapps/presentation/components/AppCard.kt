@@ -29,56 +29,60 @@ fun AppCard(
     app: MoreAppModel,
     imageProvider: MoreAppsImageProvider,
     onActionClick: (AppActionType) -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
-    val stateDescription = when (app.installStatus) {
-        InstallStatus.Installed -> "Installed"
-        InstallStatus.UpdateAvailable -> "Update Available"
-        InstallStatus.NotInstalled -> "Not Installed"
-        InstallStatus.Unknown -> ""
-    }
+    val stateDescription =
+        when (app.installStatus) {
+            InstallStatus.Installed -> "Installed"
+            InstallStatus.UpdateAvailable -> "Update Available"
+            InstallStatus.NotInstalled -> "Not Installed"
+            InstallStatus.Unknown -> ""
+        }
 
     val ratingText = if (app.rating != null) "Rating ${app.rating}" else ""
-    val fullDescription = listOf(app.title, ratingText, stateDescription)
-        .filter { it.isNotEmpty() }
-        .joinToString(", ")
+    val fullDescription =
+        listOf(app.title, ratingText, stateDescription)
+            .filter { it.isNotEmpty() }
+            .joinToString(", ")
 
     Card(
-        modifier = modifier
-            .fillMaxWidth()
-            .clickable { onActionClick(AppActionType.View) }
-            .semantics(mergeDescendants = true) {
-                contentDescription = fullDescription
-            }
+        modifier =
+            modifier
+                .fillMaxWidth()
+                .clickable { onActionClick(AppActionType.View) }
+                .semantics(mergeDescendants = true) {
+                    contentDescription = fullDescription
+                },
     ) {
         Row(
-            modifier = Modifier
-                .padding(16.dp)
-                .fillMaxWidth(),
-            verticalAlignment = Alignment.CenterVertically
+            modifier =
+                Modifier
+                    .padding(16.dp)
+                    .fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically,
         ) {
             imageProvider.LoadImage(
                 url = app.iconUrl,
                 contentDescription = null, // Handled by merged semantics on parent
-                modifier = Modifier.size(64.dp)
+                modifier = Modifier.size(64.dp),
             )
 
             Spacer(modifier = Modifier.width(16.dp))
 
             Column(
-                modifier = Modifier.weight(1f)
+                modifier = Modifier.weight(1f),
             ) {
                 Text(
                     text = app.title,
                     style = MaterialTheme.typography.titleMedium,
                     maxLines = 1,
-                    overflow = TextOverflow.Ellipsis
+                    overflow = TextOverflow.Ellipsis,
                 )
-                
+
                 if (app.rating != null) {
                     Text(
                         text = "★ ${app.rating}",
-                        style = MaterialTheme.typography.bodyMedium
+                        style = MaterialTheme.typography.bodyMedium,
                     )
                 }
 
@@ -86,7 +90,7 @@ fun AppCard(
                     text = app.description,
                     style = MaterialTheme.typography.bodySmall,
                     maxLines = 2,
-                    overflow = TextOverflow.Ellipsis
+                    overflow = TextOverflow.Ellipsis,
                 )
             }
 
@@ -95,28 +99,31 @@ fun AppCard(
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
                 Button(
                     onClick = {
-                        val action = when (app.installStatus) {
-                            InstallStatus.Installed -> AppActionType.Open
-                            else -> AppActionType.Install
-                        }
+                        val action =
+                            when (app.installStatus) {
+                                InstallStatus.Installed -> AppActionType.Open
+                                else -> AppActionType.Install
+                            }
                         onActionClick(action)
-                    }
+                    },
                 ) {
                     Text(
-                        text = when (app.installStatus) {
-                            InstallStatus.Installed -> "Open"
-                            InstallStatus.UpdateAvailable -> "Update"
-                            else -> "Install"
-                        }
+                        text =
+                            when (app.installStatus) {
+                                InstallStatus.Installed -> "Open"
+                                InstallStatus.UpdateAvailable -> "Update"
+                                else -> "Install"
+                            },
                     )
                 }
 
                 Text(
                     text = "Share",
                     style = MaterialTheme.typography.labelSmall,
-                    modifier = Modifier
-                        .clickable { onActionClick(AppActionType.Share) }
-                        .padding(4.dp)
+                    modifier =
+                        Modifier
+                            .clickable { onActionClick(AppActionType.Share) }
+                            .padding(4.dp),
                 )
             }
         }

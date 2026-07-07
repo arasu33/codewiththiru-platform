@@ -4,5 +4,5 @@ enum class CustDeviceFormFactor {
     PHONE,
     TABLET,
     FOLDABLE,
-    UNKNOWN
+    UNKNOWN,
 }

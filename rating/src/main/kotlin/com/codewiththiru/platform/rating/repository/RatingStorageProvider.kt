@@ -22,28 +22,38 @@ interface RatingStorageProvider {
     val lastFeedbackDate: Flow<Long>
 
     suspend fun incrementLaunchCount()
+
     suspend fun incrementEventCount()
+
     suspend fun setInstallDate(dateMillis: Long)
+
     suspend fun setLastPromptDate(dateMillis: Long)
+
     suspend fun setLastReviewDate(dateMillis: Long)
+
     suspend fun setLastFeedbackDate(dateMillis: Long)
 }
 
 private val Context.ratingDataStore: DataStore<Preferences> by preferencesDataStore(name = "rating_datastore")
 
-class RatingStorageProviderImpl(private val context: Context) : RatingStorageProvider {
+class RatingStorageProviderImpl(
+    private val context: Context,
+) : RatingStorageProvider {
     override val launchCount: Flow<Int> = context.ratingDataStore.data.map { it[RatingStorageKeys.LAUNCH_COUNT] ?: 0 }
     override val eventCount: Flow<Int> = context.ratingDataStore.data.map { it[RatingStorageKeys.EVENT_COUNT] ?: 0 }
     override val installDate: Flow<Long> = context.ratingDataStore.data.map { it[RatingStorageKeys.INSTALL_DATE] ?: 0L }
-    override val lastPromptDate: Flow<Long> = context.ratingDataStore.data.map {
-        it[RatingStorageKeys.LAST_PROMPT_DATE] ?: 0L
-    }
-    override val lastReviewDate: Flow<Long> = context.ratingDataStore.data.map {
-        it[RatingStorageKeys.LAST_REVIEW_DATE] ?: 0L
-    }
-    override val lastFeedbackDate: Flow<Long> = context.ratingDataStore.data.map {
-        it[RatingStorageKeys.LAST_FEEDBACK_DATE] ?: 0L
-    }
+    override val lastPromptDate: Flow<Long> =
+        context.ratingDataStore.data.map {
+            it[RatingStorageKeys.LAST_PROMPT_DATE] ?: 0L
+        }
+    override val lastReviewDate: Flow<Long> =
+        context.ratingDataStore.data.map {
+            it[RatingStorageKeys.LAST_REVIEW_DATE] ?: 0L
+        }
+    override val lastFeedbackDate: Flow<Long> =
+        context.ratingDataStore.data.map {
+            it[RatingStorageKeys.LAST_FEEDBACK_DATE] ?: 0L
+        }
 
     override suspend fun incrementLaunchCount() {
         context.ratingDataStore.edit { prefs ->

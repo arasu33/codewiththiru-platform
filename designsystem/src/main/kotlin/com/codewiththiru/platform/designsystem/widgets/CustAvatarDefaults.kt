@@ -7,10 +7,12 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
-enum class AvatarSize(val dimension: Dp) {
+enum class AvatarSize(
+    val dimension: Dp,
+) {
     Small(32.dp),
     Medium(48.dp),
-    Large(72.dp)
+    Large(72.dp),
 }
 
 /**

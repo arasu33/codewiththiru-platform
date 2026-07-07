@@ -12,10 +12,11 @@ public interface AnalyticsDashboardMapper<T> {
 
 public class BigQueryEventMapper : AnalyticsDashboardMapper<Map<String, Any>> {
     override fun map(event: AnalyticsEvent): Map<String, Any> {
-        val payload = mutableMapOf<String, Any>(
-            "event_name" to event.name,
-            "event_timestamp" to event.timestamp,
-        )
+        val payload =
+            mutableMapOf<String, Any>(
+                "event_name" to event.name,
+                "event_timestamp" to event.timestamp,
+            )
         // Flatten parameters for simple column structure
         event.parameters.forEach { (key, value) ->
             payload["param_$key"] = value ?: ""

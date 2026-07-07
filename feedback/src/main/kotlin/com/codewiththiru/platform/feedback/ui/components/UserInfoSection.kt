@@ -22,27 +22,33 @@ internal fun UserInfoSection(
     emailError: String?,
     visibility: FeedbackVisibility,
     themeConfig: FeedbackThemeConfig,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     Column(modifier = modifier.fillMaxWidth()) {
         if (visibility.showNameField) {
             CustTextField(
                 value = name,
                 onValueChange = onNameChange,
-                label = { com.codewiththiru.platform.designsystem.components.CustText("Name (Optional)") },
-                modifier = Modifier.fillMaxWidth()
+                label = {
+                    com.codewiththiru.platform.designsystem.components
+                        .CustText("Name (Optional)")
+                },
+                modifier = Modifier.fillMaxWidth(),
             )
             Spacer(modifier = Modifier.height(16.dp))
         }
 
         val emailLabel = if (visibility.requireEmail) "Email (Required)" else "Email (Optional)"
-        
+
         CustTextField(
             value = email,
             onValueChange = onEmailChange,
-            label = { com.codewiththiru.platform.designsystem.components.CustText(emailLabel) },
+            label = {
+                com.codewiththiru.platform.designsystem.components
+                    .CustText(emailLabel)
+            },
             errorText = emailError,
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth(),
         )
     }
 }

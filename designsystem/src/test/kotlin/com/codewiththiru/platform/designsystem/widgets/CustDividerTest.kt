@@ -15,7 +15,6 @@ import org.robolectric.annotation.Config
 @RunWith(RobolectricTestRunner::class)
 @Config(sdk = [34], instrumentedPackages = ["androidx.loader.content"])
 class CustDividerTest {
-
     @get:Rule
     val composeTestRule = createComposeRule()
 

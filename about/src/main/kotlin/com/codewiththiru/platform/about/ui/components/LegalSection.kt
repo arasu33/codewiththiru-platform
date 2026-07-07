@@ -19,32 +19,32 @@ internal fun LegalSection(
     legalInfo: LegalInfo,
     eventListener: AboutEventListener,
     licenseProvider: LicenseProvider?,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     Column(modifier = modifier.fillMaxWidth()) {
         CustSectionHeader(title = stringResource(id = R.string.about_section_legal))
-        
+
         legalInfo.privacyPolicyUrl?.let { url ->
             CustInfoRow(
                 label = stringResource(id = R.string.about_label_privacy_policy),
                 value = stringResource(id = R.string.about_value_view),
-                onClick = { eventListener.onLegalLinkClick(url) }
+                onClick = { eventListener.onLegalLinkClick(url) },
             )
         }
-        
+
         legalInfo.termsOfServiceUrl?.let { url ->
             CustInfoRow(
                 label = stringResource(id = R.string.about_label_terms_of_service),
                 value = stringResource(id = R.string.about_value_view),
-                onClick = { eventListener.onLegalLinkClick(url) }
+                onClick = { eventListener.onLegalLinkClick(url) },
             )
         }
-        
+
         if (legalInfo.showOssLicenses && licenseProvider != null) {
             CustInfoRow(
                 label = stringResource(id = R.string.about_label_open_source_licenses),
                 value = stringResource(id = R.string.about_value_view),
-                onClick = { licenseProvider.showLicenses() }
+                onClick = { licenseProvider.showLicenses() },
             )
         }
     }

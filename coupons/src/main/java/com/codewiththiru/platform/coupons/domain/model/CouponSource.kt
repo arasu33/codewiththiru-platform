@@ -6,5 +6,5 @@ enum class CouponSource {
     QRCode,
     ReferralLink,
     RemoteConfig,
-    PromotionBanner
+    PromotionBanner,
 }

@@ -10,9 +10,8 @@ import com.codewiththiru.platform.analytics.domain.event.AnalyticsEvent
  */
 public class DeadLetterAnalyticsQueue(
     private val context: Context,
-    private val config: AnalyticsConfig
+    private val config: AnalyticsConfig,
 ) : AnalyticsQueue {
-
     // Internal queue specifically for dead letters
     private val internalQueue = DataStoreAnalyticsQueue(context, config, "dead_letter_queue")
 
@@ -24,13 +23,9 @@ public class DeadLetterAnalyticsQueue(
         events.forEach { enqueue(it) }
     }
 
-    override suspend fun dequeue(batchSize: Int): List<AnalyticsEvent> {
-        return internalQueue.dequeue(batchSize)
-    }
+    override suspend fun dequeue(batchSize: Int): List<AnalyticsEvent> = internalQueue.dequeue(batchSize)
 
-    override suspend fun peek(count: Int): List<AnalyticsEvent> {
-        return internalQueue.peek(count)
-    }
+    override suspend fun peek(count: Int): List<AnalyticsEvent> = internalQueue.peek(count)
 
     override suspend fun remove(events: List<AnalyticsEvent>) {
         internalQueue.remove(events)
@@ -40,7 +35,5 @@ public class DeadLetterAnalyticsQueue(
         internalQueue.clear()
     }
 
-    override suspend fun size(): Int {
-        return internalQueue.size()
-    }
+    override suspend fun size(): Int = internalQueue.size()
 }

@@ -9,13 +9,20 @@ import kotlinx.serialization.Serializable
 sealed class PlayerIdentity {
     /** A local-only profile with no cloud backup. */
     @Serializable
-    data class Local(val deviceId: String) : PlayerIdentity()
+    data class Local(
+        val deviceId: String,
+    ) : PlayerIdentity()
 
     /** A temporary profile for a user who hasn't committed to playing. */
     @Serializable
-    data class Guest(val sessionId: String) : PlayerIdentity()
+    data class Guest(
+        val sessionId: String,
+    ) : PlayerIdentity()
 
     /** A fully authenticated cloud profile (e.g., Google Play Games, Firebase). */
     @Serializable
-    data class Cloud(val providerId: String, val userId: String) : PlayerIdentity()
+    data class Cloud(
+        val providerId: String,
+        val userId: String,
+    ) : PlayerIdentity()
 }

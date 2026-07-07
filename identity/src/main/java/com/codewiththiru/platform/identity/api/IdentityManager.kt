@@ -6,17 +6,18 @@ import kotlinx.coroutines.flow.Flow
 interface IdentityManager {
     val config: IdentityConfig
     val state: Flow<IdentityState>
-    
+
     suspend fun initialize()
+
     suspend fun logout(): IdentityResult<Unit>
+
     suspend fun getCurrentUserId(): String?
 }
 
 class DefaultIdentityManager(
     override val config: IdentityConfig,
-    private val repository: IdentityRepository
+    private val repository: IdentityRepository,
 ) : IdentityManager {
-
     override val state: Flow<IdentityState> = repository.currentState
 
     override suspend fun initialize() {
@@ -24,11 +25,7 @@ class DefaultIdentityManager(
         repository.refreshSession()
     }
 
-    override suspend fun logout(): IdentityResult<Unit> {
-        return repository.logout()
-    }
+    override suspend fun logout(): IdentityResult<Unit> = repository.logout()
 
-    override suspend fun getCurrentUserId(): String? {
-        return repository.getUserId()
-    }
+    override suspend fun getCurrentUserId(): String? = repository.getUserId()
 }

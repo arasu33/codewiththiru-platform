@@ -15,7 +15,6 @@ import org.robolectric.annotation.Config
 @RunWith(RobolectricTestRunner::class)
 @Config(sdk = [34], instrumentedPackages = ["androidx.loader.content"])
 class CustBadgeTest {
-
     @get:Rule
     val composeTestRule = createComposeRule()
 

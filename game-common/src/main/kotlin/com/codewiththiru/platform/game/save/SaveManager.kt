@@ -106,9 +106,7 @@ class DefaultSaveManager(
         storage.putString(resumeKey, serialized)
     }
 
-    override fun hasResumeState(): Boolean {
-        return storage.hasKey(resumeKey)
-    }
+    override fun hasResumeState(): Boolean = storage.hasKey(resumeKey)
 
     override fun getResumeState(): GameState? {
         val serialized = storage.getString(resumeKey) ?: return null

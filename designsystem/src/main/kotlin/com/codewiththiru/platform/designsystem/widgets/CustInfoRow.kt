@@ -20,7 +20,7 @@ import com.codewiththiru.platform.designsystem.components.CustText
 
 /**
  * A highly resilient key-value layout row seamlessly parsing structured bounds.
- * 
+ *
  * If [onClick] is provided, this native composition merges `Role.Button` and `Modifier.clickable` intrinsically,
  * shielding the view tree from excess semantic modifiers when static.
  *
@@ -38,39 +38,41 @@ fun CustInfoRow(
     value: String? = null,
     icon: @Composable (() -> Unit)? = null,
     trailingContent: @Composable (() -> Unit)? = null,
-    onClick: (() -> Unit)? = null
+    onClick: (() -> Unit)? = null,
 ) {
-    val semanticDesc = buildString {
-        append(label)
-        if (value != null) append(". $value")
-    }
+    val semanticDesc =
+        buildString {
+            append(label)
+            if (value != null) append(". $value")
+        }
 
-    val clickModifier = if (onClick != null) {
-        Modifier.clickable(onClick = onClick)
-    } else {
-        Modifier
-    }
+    val clickModifier =
+        if (onClick != null) {
+            Modifier.clickable(onClick = onClick)
+        } else {
+            Modifier
+        }
 
     Row(
-        modifier = modifier
-            .fillMaxWidth()
-            .then(clickModifier)
-            .padding(
-                horizontal = CustInfoRowDefaults.horizontalPadding,
-                vertical = CustInfoRowDefaults.verticalPadding
-            )
-            .semantics(mergeDescendants = true) {
-                contentDescription = semanticDesc
-                if (onClick != null) {
-                    role = Role.Button
-                }
-            },
+        modifier =
+            modifier
+                .fillMaxWidth()
+                .then(clickModifier)
+                .padding(
+                    horizontal = CustInfoRowDefaults.horizontalPadding,
+                    vertical = CustInfoRowDefaults.verticalPadding,
+                ).semantics(mergeDescendants = true) {
+                    contentDescription = semanticDesc
+                    if (onClick != null) {
+                        role = Role.Button
+                    }
+                },
         verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.SpaceBetween
+        horizontalArrangement = Arrangement.SpaceBetween,
     ) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier.weight(1f)
+            modifier = Modifier.weight(1f),
         ) {
             if (icon != null) {
                 icon()
@@ -79,19 +81,19 @@ fun CustInfoRow(
             CustText(
                 text = label,
                 style = CustInfoRowDefaults.labelStyle,
-                color = CustInfoRowDefaults.labelColor
+                color = CustInfoRowDefaults.labelColor,
             )
         }
 
         Row(
             verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.End
+            horizontalArrangement = Arrangement.End,
         ) {
             if (value != null) {
                 CustText(
                     text = value,
                     style = CustInfoRowDefaults.valueStyle,
-                    color = CustInfoRowDefaults.valueColor
+                    color = CustInfoRowDefaults.valueColor,
                 )
             }
             if (trailingContent != null) {

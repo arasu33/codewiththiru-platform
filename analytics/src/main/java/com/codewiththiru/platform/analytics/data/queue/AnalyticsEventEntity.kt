@@ -9,5 +9,5 @@ public data class AnalyticsEventEntity(
     val eventId: String,
     val eventName: String,
     val timestamp: Long,
-    val parameters: Map<String, JsonElement>
+    val parameters: Map<String, JsonElement>,
 )

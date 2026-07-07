@@ -46,13 +46,9 @@ class FakeGameSaveManager<T> : GameSaveManager<T> {
         }
     }
 
-    override suspend fun delete(slot: SaveSlot): Boolean {
-        return saves.remove(slot.id) != null
-    }
+    override suspend fun delete(slot: SaveSlot): Boolean = saves.remove(slot.id) != null
 
-    override suspend fun listSaves(): List<SaveResponse<T>> {
-        return saves.values.toList()
-    }
+    override suspend fun listSaves(): List<SaveResponse<T>> = saves.values.toList()
 
     override suspend fun sync() {
         _status.value = SaveSystemStatus.SYNCING

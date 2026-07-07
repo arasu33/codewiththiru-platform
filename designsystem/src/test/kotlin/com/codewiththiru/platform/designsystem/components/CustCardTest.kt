@@ -17,7 +17,6 @@ import org.robolectric.annotation.Config
 @RunWith(RobolectricTestRunner::class)
 @Config(sdk = [34], instrumentedPackages = ["androidx.loader.content"])
 class CustCardTest {
-
     @get:Rule
     val composeTestRule = createComposeRule()
 
@@ -41,7 +40,7 @@ class CustCardTest {
             CustTheme {
                 CustCard(
                     onClick = { clicked++ },
-                    modifier = Modifier.testTag("cardTag")
+                    modifier = Modifier.testTag("cardTag"),
                 ) {
                     CustText("Clickable Card")
                 }

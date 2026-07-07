@@ -12,5 +12,5 @@ public data class AnalyticsConfig(
     public val enabled: Boolean = true,
     public val debugLogging: Boolean = false,
     public val retentionDays: Int = 7,
-    public val maxQueuedEvents: Int = 5000
+    public val maxQueuedEvents: Int = 5000,
 )

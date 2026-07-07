@@ -6,6 +6,6 @@ import androidx.compose.ui.tooling.preview.Preview
 @Preview(
     name = "Tablet",
     device = Devices.TABLET,
-    showBackground = true
+    showBackground = true,
 )
 annotation class TabletPreview

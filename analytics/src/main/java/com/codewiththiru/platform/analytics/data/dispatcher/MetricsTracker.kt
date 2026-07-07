@@ -7,8 +7,14 @@ import android.util.Log
  */
 public interface MetricsTracker {
     public fun trackQueueSize(size: Int)
+
     public fun trackBatchLatency(latencyMs: Long)
-    public fun trackQueueDrop(count: Int, reason: String)
+
+    public fun trackQueueDrop(
+        count: Int,
+        reason: String,
+    )
+
     public fun trackDeadLetter(count: Int)
 }
 
@@ -24,7 +30,10 @@ public class DefaultMetricsTracker : MetricsTracker {
         Log.v("AnalyticsMetrics", "Batch latency: ${latencyMs}ms")
     }
 
-    override fun trackQueueDrop(count: Int, reason: String) {
+    override fun trackQueueDrop(
+        count: Int,
+        reason: String,
+    ) {
         Log.w("AnalyticsMetrics", "Dropped $count events. Reason: $reason")
     }
 

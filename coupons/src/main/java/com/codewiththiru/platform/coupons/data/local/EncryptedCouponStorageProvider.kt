@@ -1,16 +1,35 @@
 package com.codewiththiru.platform.coupons.data.local
 
-class EncryptedCouponStorageProvider : CouponStorageProvider {
-    override suspend fun save(key: String, data: String) {
-        // TODO: Implement encrypted storage using EncryptedSharedPreferences or DataStore
+import android.content.Context
+import androidx.security.crypto.EncryptedSharedPreferences
+import androidx.security.crypto.MasterKey
+
+class EncryptedCouponStorageProvider(private val context: Context) : CouponStorageProvider {
+
+    private val masterKey = MasterKey.Builder(context)
+        .setKeyScheme(MasterKey.KeyScheme.AES256_GCM)
+        .build()
+
+    private val sharedPreferences = EncryptedSharedPreferences.create(
+        context,
+        "encrypted_coupons_prefs",
+        masterKey,
+        EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
+        EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
+    )
+
+    override suspend fun save(
+        key: String,
+        data: String,
+    ) {
+        sharedPreferences.edit().putString(key, data).apply()
     }
 
     override suspend fun read(key: String): String? {
-        // TODO: Implement encrypted read
-        return null
+        return sharedPreferences.getString(key, null)
     }
 
     override suspend fun clear() {
-        // TODO: Implement clear
+        sharedPreferences.edit().clear().apply()
     }
 }

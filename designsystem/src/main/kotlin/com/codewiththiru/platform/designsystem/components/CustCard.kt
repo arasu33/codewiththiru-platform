@@ -21,7 +21,7 @@ fun CustCard(
     colors: CardColors = CardDefaults.cardColors(),
     elevation: CardElevation = CardDefaults.cardElevation(),
     border: BorderStroke? = null,
-    content: @Composable ColumnScope.() -> Unit
+    content: @Composable ColumnScope.() -> Unit,
 ) {
     Card(
         modifier = modifier,
@@ -29,7 +29,7 @@ fun CustCard(
         colors = colors,
         elevation = elevation,
         border = border,
-        content = content
+        content = content,
     )
 }
 
@@ -42,7 +42,7 @@ fun CustCard(
     colors: CardColors = CardDefaults.cardColors(),
     elevation: CardElevation = CardDefaults.cardElevation(),
     border: BorderStroke? = null,
-    content: @Composable ColumnScope.() -> Unit
+    content: @Composable ColumnScope.() -> Unit,
 ) {
     Card(
         onClick = onClick,
@@ -52,7 +52,7 @@ fun CustCard(
         colors = colors,
         elevation = elevation,
         border = border,
-        content = content
+        content = content,
     )
 }
 
@@ -63,7 +63,7 @@ fun CustOutlinedCard(
     colors: CardColors = CardDefaults.outlinedCardColors(),
     elevation: CardElevation = CardDefaults.outlinedCardElevation(),
     border: BorderStroke = CardDefaults.outlinedCardBorder(),
-    content: @Composable ColumnScope.() -> Unit
+    content: @Composable ColumnScope.() -> Unit,
 ) {
     OutlinedCard(
         modifier = modifier,
@@ -71,7 +71,7 @@ fun CustOutlinedCard(
         colors = colors,
         elevation = elevation,
         border = border,
-        content = content
+        content = content,
     )
 }
 
@@ -84,7 +84,7 @@ fun CustOutlinedCard(
     colors: CardColors = CardDefaults.outlinedCardColors(),
     elevation: CardElevation = CardDefaults.outlinedCardElevation(),
     border: BorderStroke = CardDefaults.outlinedCardBorder(),
-    content: @Composable ColumnScope.() -> Unit
+    content: @Composable ColumnScope.() -> Unit,
 ) {
     OutlinedCard(
         onClick = onClick,
@@ -94,7 +94,7 @@ fun CustOutlinedCard(
         colors = colors,
         elevation = elevation,
         border = border,
-        content = content
+        content = content,
     )
 }
 
@@ -104,14 +104,14 @@ fun CustElevatedCard(
     shape: Shape = CardDefaults.elevatedShape,
     colors: CardColors = CardDefaults.elevatedCardColors(),
     elevation: CardElevation = CardDefaults.elevatedCardElevation(),
-    content: @Composable ColumnScope.() -> Unit
+    content: @Composable ColumnScope.() -> Unit,
 ) {
     ElevatedCard(
         modifier = modifier,
         shape = shape,
         colors = colors,
         elevation = elevation,
-        content = content
+        content = content,
     )
 }
 
@@ -123,7 +123,7 @@ fun CustElevatedCard(
     shape: Shape = CardDefaults.elevatedShape,
     colors: CardColors = CardDefaults.elevatedCardColors(),
     elevation: CardElevation = CardDefaults.elevatedCardElevation(),
-    content: @Composable ColumnScope.() -> Unit
+    content: @Composable ColumnScope.() -> Unit,
 ) {
     ElevatedCard(
         onClick = onClick,
@@ -132,6 +132,6 @@ fun CustElevatedCard(
         shape = shape,
         colors = colors,
         elevation = elevation,
-        content = content
+        content = content,
     )
 }

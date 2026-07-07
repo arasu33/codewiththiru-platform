@@ -4,5 +4,5 @@ enum class MoreAppsSource {
     LocalJson,
     RemoteApi,
     RemoteConfig,
-    Manual
+    Manual,
 }

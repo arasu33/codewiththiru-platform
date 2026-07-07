@@ -26,11 +26,10 @@ object CustDateFormatter {
     private fun getOrCreateFormatter(
         pattern: String,
         locale: Locale,
-    ): DateTimeFormatter {
-        return formatterCache.computeIfAbsent(FormatterKey(pattern, locale)) { key ->
+    ): DateTimeFormatter =
+        formatterCache.computeIfAbsent(FormatterKey(pattern, locale)) { key ->
             DateTimeFormatter.ofPattern(key.pattern, key.locale)
         }
-    }
 
     /**
      * Formats an [Instant] into a string using the specified pattern, timezone, and locale.
@@ -135,9 +134,7 @@ object CustDateFormatter {
         pattern: String,
         zoneId: ZoneId = ZoneOffset.UTC,
         locale: Locale = Locale.getDefault(),
-    ): Instant {
-        return parseToZonedDateTime(text, pattern, zoneId, locale).toInstant()
-    }
+    ): Instant = parseToZonedDateTime(text, pattern, zoneId, locale).toInstant()
 
     /**
      * Parses a text sequence into a [LocalDate] using the specified pattern and locale.

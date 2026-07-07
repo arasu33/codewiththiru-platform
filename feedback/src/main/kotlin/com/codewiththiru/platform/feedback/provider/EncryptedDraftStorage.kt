@@ -6,20 +6,23 @@ import androidx.security.crypto.MasterKeys
 import com.codewiththiru.platform.feedback.model.FeedbackCategory
 import com.codewiththiru.platform.feedback.model.FeedbackPayload
 
-class EncryptedDraftStorage(private val context: Context) : FeedbackDraftStorageStrategy {
-
+class EncryptedDraftStorage(
+    private val context: Context,
+) : FeedbackDraftStorageStrategy {
     private val masterKeyAlias = MasterKeys.getOrCreate(MasterKeys.AES256_GCM_SPEC)
 
-    private val sharedPreferences = EncryptedSharedPreferences.create(
-        "encrypted_feedback_drafts",
-        masterKeyAlias,
-        context,
-        EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
-        EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
-    )
+    private val sharedPreferences =
+        EncryptedSharedPreferences.create(
+            "encrypted_feedback_drafts",
+            masterKeyAlias,
+            context,
+            EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
+            EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM,
+        )
 
     override suspend fun saveDraft(payload: FeedbackPayload) {
-        sharedPreferences.edit()
+        sharedPreferences
+            .edit()
             .putString("draft_category_id", payload.category.id)
             .putString("draft_category_name", payload.category.displayName)
             .putString("draft_subject", payload.subject)
@@ -40,7 +43,7 @@ class EncryptedDraftStorage(private val context: Context) : FeedbackDraftStorage
             description = sharedPreferences.getString("draft_description", "") ?: "",
             userEmail = sharedPreferences.getString("draft_email", null),
             userName = sharedPreferences.getString("draft_name", null),
-            attachments = emptyList()
+            attachments = emptyList(),
         )
     }
 

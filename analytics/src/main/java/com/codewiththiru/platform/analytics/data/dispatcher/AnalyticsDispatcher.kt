@@ -18,7 +18,7 @@ public class AnalyticsDispatcher(
     private val provider: AnalyticsProvider,
     private val config: AnalyticsBatchConfig,
     private val scope: CoroutineScope,
-    private val deadLetterQueue: AnalyticsQueue? = null
+    private val deadLetterQueue: AnalyticsQueue? = null,
 ) {
     private var job: Job? = null
     private var consecutiveFailures = 0
@@ -27,12 +27,13 @@ public class AnalyticsDispatcher(
     @Suppress("MagicNumber")
     public fun start() {
         if (job?.isActive == true) return
-        job = scope.launch {
-            while (isActive) {
-                delay(config.flushIntervalMinutes * 60 * 1000L)
-                flush()
+        job =
+            scope.launch {
+                while (isActive) {
+                    delay(config.flushIntervalMinutes * 60 * 1000L)
+                    flush()
+                }
             }
-        }
     }
 
     /** Stops the dispatch loop. */
@@ -50,7 +51,7 @@ public class AnalyticsDispatcher(
                 // Peek the events to ensure they remain in queue during failure
                 val batch = queue.peek(config.batchSize)
                 if (batch.isEmpty()) break
-                
+
                 var success = true
                 try {
                     // Track all events in the batch
@@ -79,12 +80,12 @@ public class AnalyticsDispatcher(
                     } else {
                         val backoffMinutes = (1 shl (consecutiveFailures - 1)).coerceAtMost(15)
                         Log.w("AnalyticsDispatcher", "Backing off for $backoffMinutes minutes")
-                        
+
                         // Stop the current flush loop
                         break
                     }
                 }
-                
+
                 // Yield to prevent monopolizing thread if queue is massive
                 kotlinx.coroutines.yield()
             }

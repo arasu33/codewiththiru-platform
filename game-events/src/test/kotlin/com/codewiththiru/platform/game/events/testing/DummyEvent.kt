@@ -9,7 +9,6 @@ data class DummyEvent(
     override val priority: EventPriority = EventPriority.NORMAL,
     val payload: String = "",
 ) : PlatformEvent {
-    override fun toAnalyticsEvent(): AnalyticsEvent {
-        return AnalyticsEvent("dummy_event", mapOf("payload" to payload), timestamp)
-    }
+    override fun toAnalyticsEvent(): AnalyticsEvent =
+        AnalyticsEvent("dummy_event", mapOf("payload" to payload), timestamp)
 }

@@ -27,15 +27,16 @@ fun CustButton(
     enabled: Boolean = true,
     loading: Boolean = false,
     colors: ButtonColors = CustButtonDefaults.buttonColors(),
-    content: @Composable RowScope.() -> Unit
+    content: @Composable RowScope.() -> Unit,
 ) {
     Button(
         onClick = { if (!loading) onClick() },
-        modifier = modifier.semantics {
-            if (loading) stateDescription = "Loading"
-        },
+        modifier =
+            modifier.semantics {
+                if (loading) stateDescription = "Loading"
+            },
         enabled = enabled,
-        colors = colors
+        colors = colors,
     ) {
         ButtonContent(loading = loading, content = content)
     }
@@ -48,15 +49,16 @@ fun CustOutlinedButton(
     enabled: Boolean = true,
     loading: Boolean = false,
     colors: ButtonColors = CustButtonDefaults.outlinedButtonColors(),
-    content: @Composable RowScope.() -> Unit
+    content: @Composable RowScope.() -> Unit,
 ) {
     OutlinedButton(
         onClick = { if (!loading) onClick() },
-        modifier = modifier.semantics {
-            if (loading) stateDescription = "Loading"
-        },
+        modifier =
+            modifier.semantics {
+                if (loading) stateDescription = "Loading"
+            },
         enabled = enabled,
-        colors = colors
+        colors = colors,
     ) {
         ButtonContent(loading = loading, content = content)
     }
@@ -69,15 +71,16 @@ fun CustTextButton(
     enabled: Boolean = true,
     loading: Boolean = false,
     colors: ButtonColors = CustButtonDefaults.textButtonColors(),
-    content: @Composable RowScope.() -> Unit
+    content: @Composable RowScope.() -> Unit,
 ) {
     TextButton(
         onClick = { if (!loading) onClick() },
-        modifier = modifier.semantics {
-            if (loading) stateDescription = "Loading"
-        },
+        modifier =
+            modifier.semantics {
+                if (loading) stateDescription = "Loading"
+            },
         enabled = enabled,
-        colors = colors
+        colors = colors,
     ) {
         ButtonContent(loading = loading, content = content)
     }
@@ -86,21 +89,21 @@ fun CustTextButton(
 @Composable
 private fun ButtonContent(
     loading: Boolean,
-    content: @Composable RowScope.() -> Unit
+    content: @Composable RowScope.() -> Unit,
 ) {
     Box(contentAlignment = Alignment.Center) {
         val contentAlpha = if (loading) 0f else 1f
         Row(
             modifier = Modifier.alpha(contentAlpha),
             horizontalArrangement = Arrangement.Center,
-            verticalAlignment = Alignment.CenterVertically
+            verticalAlignment = Alignment.CenterVertically,
         ) {
             content()
         }
         if (loading) {
             CircularProgressIndicator(
                 modifier = Modifier.size(24.dp),
-                strokeWidth = 2.dp
+                strokeWidth = 2.dp,
             )
         }
     }

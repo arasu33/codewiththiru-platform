@@ -20,43 +20,44 @@ import com.codewiththiru.platform.designsystem.widgets.CustAvatar
 internal fun AppInfoSection(
     appInfo: AppInfo,
     visibility: AboutVisibility?,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     val showAppIcon = visibility?.showAppIcon ?: true
 
     Column(
-        modifier = modifier
-            .fillMaxWidth()
-            .padding(vertical = 24.dp),
-        horizontalAlignment = Alignment.CenterHorizontally
+        modifier =
+            modifier
+                .fillMaxWidth()
+                .padding(vertical = 24.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         if (showAppIcon && appInfo.appIcon != null) {
             CustAvatar(
                 painter = appInfo.appIcon,
-                contentDescription = "${appInfo.appName} Logo"
+                contentDescription = "${appInfo.appName} Logo",
             )
             Spacer(modifier = Modifier.height(16.dp))
         }
-        
+
         CustText(
             text = appInfo.appName,
-            modifier = Modifier.padding(bottom = 8.dp)
+            modifier = Modifier.padding(bottom = 8.dp),
         )
-        
+
         if (appInfo.appDescription != null) {
             CustText(
                 text = appInfo.appDescription,
-                modifier = Modifier.padding(bottom = 8.dp)
+                modifier = Modifier.padding(bottom = 8.dp),
             )
         }
-        
+
         CustText(
             text = "Version ${appInfo.versionName} (${appInfo.versionCode})",
-            modifier = Modifier.padding(bottom = 4.dp)
+            modifier = Modifier.padding(bottom = 4.dp),
         )
-        
+
         CustText(
-            text = "${appInfo.buildType} Build"
+            text = "${appInfo.buildType} Build",
         )
     }
 }

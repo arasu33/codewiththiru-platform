@@ -4,5 +4,5 @@ data class CouponRedemptionHistory(
     val couponCode: String,
     val redeemedAt: Long,
     val campaignId: String,
-    val rewardGranted: CouponReward
+    val rewardGranted: CouponReward,
 )

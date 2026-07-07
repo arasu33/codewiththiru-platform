@@ -26,35 +26,38 @@ internal fun AttachmentsSection(
     themeConfig: FeedbackThemeConfig,
     onAddAttachmentClicked: () -> Unit,
     onRemoveAttachment: (Attachment) -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     Column(modifier = modifier.fillMaxWidth()) {
         CustText(
             text = "Attachments (${attachments.size} / ${config.maxAttachments})",
             style = themeConfig.labelStyle ?: androidx.compose.ui.text.TextStyle.Default,
-            modifier = Modifier
-                .padding(bottom = 8.dp)
-                .semantics {
-                    stateDescription = "${attachments.size} of ${config.maxAttachments} attachments added"
-                }
+            modifier =
+                Modifier
+                    .padding(bottom = 8.dp)
+                    .semantics {
+                        stateDescription = "${attachments.size} of ${config.maxAttachments} attachments added"
+                    },
         )
 
         attachments.forEach { attachment ->
             Row(
                 verticalAlignment = Alignment.CenterVertically,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(vertical = 4.dp)
+                modifier =
+                    Modifier
+                        .fillMaxWidth()
+                        .padding(vertical = 4.dp),
             ) {
                 CustText(
                     text = "${attachment.type}",
-                    modifier = Modifier.weight(1f)
+                    modifier = Modifier.weight(1f),
                 )
                 CustButton(
                     onClick = { onRemoveAttachment(attachment) },
-                    modifier = Modifier.semantics {
-                        contentDescription = "Remove ${attachment.type} attachment"
-                    }
+                    modifier =
+                        Modifier.semantics {
+                            contentDescription = "Remove ${attachment.type} attachment"
+                        },
                 ) {
                     CustText("Remove")
                 }
@@ -64,7 +67,7 @@ internal fun AttachmentsSection(
         if (attachments.size < config.maxAttachments) {
             CustButton(
                 onClick = onAddAttachmentClicked,
-                modifier = Modifier.padding(top = 8.dp)
+                modifier = Modifier.padding(top = 8.dp),
             ) {
                 CustText("Add Attachment")
             }

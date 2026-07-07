@@ -16,7 +16,6 @@ import org.robolectric.annotation.Config
 @RunWith(RobolectricTestRunner::class)
 @Config(sdk = [34], instrumentedPackages = ["androidx.loader.content"])
 class CustLoadingTest {
-
     @get:Rule
     val composeTestRule = createComposeRule()
 
@@ -26,7 +25,7 @@ class CustLoadingTest {
             CustTheme {
                 CustLoading(
                     type = LoadingType.Circular,
-                    modifier = Modifier.testTag("circularLoading")
+                    modifier = Modifier.testTag("circularLoading"),
                 )
             }
         }
@@ -40,7 +39,7 @@ class CustLoadingTest {
                 CustLoading(
                     type = LoadingType.Circular,
                     message = "Please wait",
-                    modifier = Modifier.testTag("circularLoadingMessage")
+                    modifier = Modifier.testTag("circularLoadingMessage"),
                 )
             }
         }
@@ -55,7 +54,7 @@ class CustLoadingTest {
                 CustLoading(
                     type = LoadingType.Linear,
                     message = "Syncing...",
-                    modifier = Modifier.testTag("linearLoadingMessage")
+                    modifier = Modifier.testTag("linearLoadingMessage"),
                 )
             }
         }

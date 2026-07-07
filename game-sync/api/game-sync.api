@@ -98,6 +98,11 @@ public abstract interface class com/codewiththiru/platform/game/sync/conflict/Co
 	public abstract fun resolve (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JJ)Ljava/lang/String;
 }
 
+public final class com/codewiththiru/platform/game/sync/conflict/DeepMergeConflictResolver : com/codewiththiru/platform/game/sync/conflict/ConflictResolver {
+	public fun <init> ()V
+	public fun resolve (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JJ)Ljava/lang/String;
+}
+
 public final class com/codewiththiru/platform/game/sync/conflict/NewestWinsResolver : com/codewiththiru/platform/game/sync/conflict/ConflictResolver {
 	public fun <init> ()V
 	public fun resolve (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JJ)Ljava/lang/String;
@@ -130,6 +135,15 @@ public abstract interface class com/codewiththiru/platform/game/sync/provider/Sy
 	public abstract fun isAvailable (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun pullData (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun pushData (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/codewiththiru/platform/game/sync/queue/DefaultSyncQueueEngine : com/codewiththiru/platform/game/sync/queue/SyncQueueEngine {
+	public fun <init> ()V
+	public fun enqueue (Lcom/codewiththiru/platform/game/sync/queue/SyncRequest;)V
+	public fun getPendingCount ()I
+	public fun markFailed (Ljava/lang/String;)V
+	public fun peekNext ()Lcom/codewiththiru/platform/game/sync/queue/SyncRequest;
+	public fun remove (Ljava/lang/String;)V
 }
 
 public abstract interface class com/codewiththiru/platform/game/sync/queue/SyncQueueEngine {

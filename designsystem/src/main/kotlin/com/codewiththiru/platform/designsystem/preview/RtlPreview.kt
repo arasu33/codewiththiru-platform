@@ -5,6 +5,6 @@ import androidx.compose.ui.tooling.preview.Preview
 @Preview(
     name = "RTL",
     locale = "ar",
-    showBackground = true
+    showBackground = true,
 )
 annotation class RtlPreview

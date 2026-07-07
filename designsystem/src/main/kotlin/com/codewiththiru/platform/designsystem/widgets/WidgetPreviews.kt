@@ -69,13 +69,14 @@ private fun CustEmptyStatePreview() {
                 message = "We couldn't find any items matching your criteria.",
                 actionButton = {
                     com.codewiththiru.platform.designsystem.components.CustButton(onClick = {}) {
-                        com.codewiththiru.platform.designsystem.components.CustText("Clear Filters")
+                        com.codewiththiru.platform.designsystem.components
+                            .CustText("Clear Filters")
                     }
-                }
+                },
             )
             CustEmptyState(
                 title = "Simply Empty",
-                illustration = { CustShimmerBox(modifier = Modifier.width(120.dp).height(120.dp)) }
+                illustration = { CustShimmerBox(modifier = Modifier.width(120.dp).height(120.dp)) },
             )
         }
     }
@@ -95,11 +96,11 @@ private fun CustErrorStatePreview() {
                 title = "Connection Failed",
                 message = "Please check your network and try again.",
                 errorCode = "ERR_NET_01",
-                onRetry = {}
+                onRetry = {},
             )
             CustErrorState(
                 title = "Fatal Error",
-                message = "Something went terribly wrong."
+                message = "Something went terribly wrong.",
             )
         }
     }
@@ -151,7 +152,7 @@ private fun CustAvatarPreview() {
             CustAvatar(initials = "JD", size = AvatarSize.Small)
             CustAvatar(initials = "TH", size = AvatarSize.Medium)
             CustAvatar(initials = "WK", size = AvatarSize.Large)
-            
+
             // Placeholder
             CustAvatar(size = AvatarSize.Medium)
         }
@@ -171,7 +172,7 @@ private fun CustSectionHeaderPreview() {
             CustSectionHeader(title = "About", subtitle = "Version 1.0.0")
             CustSectionHeader(
                 title = "Updates",
-                action = { CustText("View All") }
+                action = { CustText("View All") },
             )
         }
     }
@@ -190,16 +191,16 @@ private fun CustInfoRowPreview() {
             CustInfoRow(
                 label = "Developer",
                 value = "CodeWithThiru",
-                icon = { CustShimmerBox(modifier = Modifier.width(24.dp).height(24.dp)) }
+                icon = { CustShimmerBox(modifier = Modifier.width(24.dp).height(24.dp)) },
             )
             CustInfoRow(
                 label = "Privacy Policy",
                 onClick = {},
-                trailingContent = { CustText(">") }
+                trailingContent = { CustText(">") },
             )
             CustInfoRow(
                 label = "Rate App",
-                onClick = {}
+                onClick = {},
             )
         }
     }

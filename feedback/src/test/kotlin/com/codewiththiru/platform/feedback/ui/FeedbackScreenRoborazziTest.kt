@@ -20,13 +20,14 @@ import org.robolectric.annotation.GraphicsMode
 @GraphicsMode(GraphicsMode.Mode.NATIVE)
 @Config(sdk = [33], qualifiers = RobolectricDeviceQualifiers.Pixel5)
 class FeedbackScreenRoborazziTest {
-
     @get:Rule
     val composeTestRule = createAndroidComposeRule<ComponentActivity>()
 
-    private val dummyConfig = FeedbackConfig.Builder()
-        .setCategories(listOf(FeedbackCategory("bug", "Bug Report")))
-        .build()
+    private val dummyConfig =
+        FeedbackConfig
+            .Builder()
+            .setCategories(listOf(FeedbackCategory("bug", "Bug Report")))
+            .build()
 
     @Test
     fun `capture idle state`() {
@@ -35,7 +36,7 @@ class FeedbackScreenRoborazziTest {
                 uiState = FeedbackUiState.Idle,
                 formState = FeedbackFormState(category = dummyConfig.categories.first()),
                 config = dummyConfig,
-                onAction = {}
+                onAction = {},
             )
         }
         composeTestRule.onRoot().captureRoboImage()
@@ -48,7 +49,7 @@ class FeedbackScreenRoborazziTest {
                 uiState = FeedbackUiState.Submitting,
                 formState = FeedbackFormState(category = dummyConfig.categories.first()),
                 config = dummyConfig,
-                onAction = {}
+                onAction = {},
             )
         }
         composeTestRule.onRoot().captureRoboImage()

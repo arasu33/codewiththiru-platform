@@ -26,7 +26,7 @@ fun CustTopBar(
     actions: @Composable RowScope.() -> Unit = {},
     windowInsets: WindowInsets = TopAppBarDefaults.windowInsets,
     colors: TopAppBarColors = CustTopBarDefaults.topAppBarColors(),
-    scrollBehavior: TopAppBarScrollBehavior? = null
+    scrollBehavior: TopAppBarScrollBehavior? = null,
 ) {
     TopAppBar(
         title = {
@@ -37,7 +37,7 @@ fun CustTopBar(
         actions = actions,
         windowInsets = windowInsets,
         colors = colors,
-        scrollBehavior = scrollBehavior
+        scrollBehavior = scrollBehavior,
     )
 }
 
@@ -51,7 +51,7 @@ fun CustCenterAlignedTopBar(
     actions: @Composable RowScope.() -> Unit = {},
     windowInsets: WindowInsets = TopAppBarDefaults.windowInsets,
     colors: TopAppBarColors = CustTopBarDefaults.centerAlignedTopAppBarColors(),
-    scrollBehavior: TopAppBarScrollBehavior? = null
+    scrollBehavior: TopAppBarScrollBehavior? = null,
 ) {
     CenterAlignedTopAppBar(
         title = {
@@ -62,14 +62,14 @@ fun CustCenterAlignedTopBar(
         actions = actions,
         windowInsets = windowInsets,
         colors = colors,
-        scrollBehavior = scrollBehavior
+        scrollBehavior = scrollBehavior,
     )
 }
 
 @Composable
 private fun TopBarTitleLayout(
     title: @Composable () -> Unit,
-    subtitle: @Composable (() -> Unit)?
+    subtitle: @Composable (() -> Unit)?,
 ) {
     if (subtitle == null) {
         ProvideTextStyle(MaterialTheme.typography.titleLarge) {

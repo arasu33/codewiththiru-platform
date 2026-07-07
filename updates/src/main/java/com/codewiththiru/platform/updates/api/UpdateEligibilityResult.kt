@@ -5,8 +5,12 @@ package com.codewiththiru.platform.updates.api
  */
 sealed interface UpdateEligibilityResult {
     data object Eligible : UpdateEligibilityResult
+
     data object CooldownActive : UpdateEligibilityResult
+
     data object AlreadyShown : UpdateEligibilityResult
+
     data object ForceUpdateRequired : UpdateEligibilityResult
+
     data object NoUpdateAvailable : UpdateEligibilityResult
 }

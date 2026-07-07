@@ -5,7 +5,12 @@ package com.codewiththiru.platform.rating.model
  */
 sealed interface ReviewLaunchResult {
     data object Success : ReviewLaunchResult
+
     data object Cancelled : ReviewLaunchResult
+
     data object PlayServicesUnavailable : ReviewLaunchResult
-    data class Failed(val exceptionMessage: String?) : ReviewLaunchResult
+
+    data class Failed(
+        val exceptionMessage: String?,
+    ) : ReviewLaunchResult
 }

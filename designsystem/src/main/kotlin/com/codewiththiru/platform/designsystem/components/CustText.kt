@@ -36,7 +36,7 @@ fun CustText(
     maxLines: Int = Int.MAX_VALUE,
     minLines: Int = 1,
     onTextLayout: ((TextLayoutResult) -> Unit)? = null,
-    style: TextStyle = LocalTextStyle.current
+    style: TextStyle = LocalTextStyle.current,
 ) {
     Text(
         text = text,
@@ -55,7 +55,7 @@ fun CustText(
         maxLines = maxLines,
         minLines = minLines,
         onTextLayout = onTextLayout ?: {},
-        style = style
+        style = style,
     )
 }
 
@@ -77,7 +77,7 @@ fun CustText(
     maxLines: Int = Int.MAX_VALUE,
     minLines: Int = 1,
     onTextLayout: ((TextLayoutResult) -> Unit)? = null,
-    style: TextStyle = LocalTextStyle.current
+    style: TextStyle = LocalTextStyle.current,
 ) {
     Text(
         text = annotatedString,
@@ -96,6 +96,6 @@ fun CustText(
         maxLines = maxLines,
         minLines = minLines,
         onTextLayout = onTextLayout ?: {},
-        style = style
+        style = style,
     )
 }

@@ -6,17 +6,17 @@ import com.codewiththiru.platform.feedback.model.FeedbackPayload
 
 class FeedbackDraftProviderImpl(
     context: Context,
-    config: DraftStorageConfig
+    config: DraftStorageConfig,
 ) : FeedbackDraftProvider {
-
     private val encryptedStorage = EncryptedDraftStorage(context)
     private val plainTextStorage = PlainTextDraftStorage(context)
 
-    private val primaryStorage: FeedbackDraftStorageStrategy = if (config.encrypted) {
-        encryptedStorage
-    } else {
-        plainTextStorage
-    }
+    private val primaryStorage: FeedbackDraftStorageStrategy =
+        if (config.encrypted) {
+            encryptedStorage
+        } else {
+            plainTextStorage
+        }
 
     init {
         if (config.encrypted && config.migratePlaintext) {

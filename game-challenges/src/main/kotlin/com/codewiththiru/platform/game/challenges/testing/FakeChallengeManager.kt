@@ -33,9 +33,7 @@ class FakeChallengeManager : ChallengeManager {
         lastTrackedDelta = delta
     }
 
-    override suspend fun claimReward(challengeId: String): Boolean {
-        return true
-    }
+    override suspend fun claimReward(challengeId: String): Boolean = true
 
     override suspend fun checkRotations(currentTimeMs: Long) {
         // No-op for fake

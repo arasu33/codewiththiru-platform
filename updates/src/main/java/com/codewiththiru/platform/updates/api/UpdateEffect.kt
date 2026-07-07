@@ -5,9 +5,16 @@ package com.codewiththiru.platform.updates.api
  */
 sealed interface UpdateEffect {
     data object LaunchFlexibleUpdate : UpdateEffect
+
     data object LaunchImmediateUpdate : UpdateEffect
+
     data object ShowWhatsNew : UpdateEffect
+
     data object ShowForceUpdate : UpdateEffect
+
     data object RestartApp : UpdateEffect
-    data class ShowError(val message: String) : UpdateEffect
+
+    data class ShowError(
+        val message: String,
+    ) : UpdateEffect
 }

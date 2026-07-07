@@ -7,9 +7,8 @@ import androidx.core.content.pm.PackageInfoCompat
 
 class AndroidCustBuildInfoProvider(
     private val context: Context,
-    override val buildType: String
+    override val buildType: String,
 ) : CustBuildInfoProvider {
-
     private val packageInfo by lazy {
         @Suppress("SwallowedException")
         try {

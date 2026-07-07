@@ -16,7 +16,7 @@ data class AboutConfig private constructor(
     val legalInfo: LegalInfo?,
     val diagnosticsConfig: DiagnosticsConfig?,
     val themeConfig: AboutThemeConfig?,
-    val visibility: AboutVisibility?
+    val visibility: AboutVisibility?,
 ) {
     class Builder {
         private var appInfo: AppInfo? = null
@@ -28,18 +28,27 @@ data class AboutConfig private constructor(
         private var visibility: AboutVisibility? = null
 
         fun setAppInfo(appInfo: AppInfo) = apply { this.appInfo = appInfo }
+
         fun setDeveloperInfo(developerInfo: DeveloperInfo?) = apply { this.developerInfo = developerInfo }
+
         fun setDeviceInfo(deviceInfo: DeviceInfo?) = apply { this.deviceInfo = deviceInfo }
+
         fun setLegalInfo(legalInfo: LegalInfo?) = apply { this.legalInfo = legalInfo }
-        fun setDiagnosticsConfig(diagnosticsConfig: DiagnosticsConfig?) = apply {
-            this.diagnosticsConfig = diagnosticsConfig
-        }
-        fun setThemeConfig(themeConfig: AboutThemeConfig?) = apply {
-            this.themeConfig = themeConfig
-        }
-        fun setVisibility(visibility: AboutVisibility?) = apply {
-            this.visibility = visibility
-        }
+
+        fun setDiagnosticsConfig(diagnosticsConfig: DiagnosticsConfig?) =
+            apply {
+                this.diagnosticsConfig = diagnosticsConfig
+            }
+
+        fun setThemeConfig(themeConfig: AboutThemeConfig?) =
+            apply {
+                this.themeConfig = themeConfig
+            }
+
+        fun setVisibility(visibility: AboutVisibility?) =
+            apply {
+                this.visibility = visibility
+            }
 
         fun build(): AboutConfig {
             requireNotNull(appInfo) { "AppInfo must be provided" }
@@ -50,7 +59,7 @@ data class AboutConfig private constructor(
                 legalInfo = legalInfo,
                 diagnosticsConfig = diagnosticsConfig,
                 themeConfig = themeConfig,
-                visibility = visibility
+                visibility = visibility,
             )
         }
     }
@@ -63,13 +72,13 @@ data class AppInfo(
     val versionCode: Long,
     val buildType: String,
     val appDescription: String? = null,
-    val appIcon: Painter? = null
+    val appIcon: Painter? = null,
 )
 
 data class SocialLink(
     val platformName: String,
     val url: String,
-    val icon: Painter? = null
+    val icon: Painter? = null,
 )
 
 data class DeveloperInfo(
@@ -77,35 +86,35 @@ data class DeveloperInfo(
     val avatar: Painter? = null,
     val email: String? = null,
     val websiteUrl: String? = null,
-    val socialLinks: List<SocialLink> = emptyList()
+    val socialLinks: List<SocialLink> = emptyList(),
 )
 
 data class DeviceInfo(
     val osVersion: String,
     val apiLevel: Int,
     val manufacturer: String,
-    val model: String
+    val model: String,
 )
 
 data class LegalInfo(
     val privacyPolicyUrl: String? = null,
     val termsOfServiceUrl: String? = null,
-    val showOssLicenses: Boolean = false
+    val showOssLicenses: Boolean = false,
 )
 
 data class DiagnosticsConfig(
     val customPayload: Map<String, String> = emptyMap(),
-    val includeDeviceInfo: Boolean = true
+    val includeDeviceInfo: Boolean = true,
 )
 
 data class AboutVisibility(
     val showAppIcon: Boolean = true,
-    val showDeviceSection: Boolean = false,
-    val showLegalSection: Boolean = false,
-    val showDiagnostics: Boolean = false
+    val showDeviceSection: Boolean = true,
+    val showLegalSection: Boolean = true,
+    val showDiagnostics: Boolean = true,
 )
 
 data class AboutThemeConfig(
     val headerStyle: TextStyle? = null,
-    val cardElevation: Dp = 1.dp
+    val cardElevation: Dp = 1.dp,
 )

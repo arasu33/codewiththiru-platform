@@ -7,13 +7,11 @@ import com.codewiththiru.platform.analytics.domain.event.AnalyticsEvent
  */
 public class AnalyticsExportManager(
     private val bigQueryMapper: BigQueryEventMapper,
-    private val lookerStudioMapper: LookerStudioMapper
+    private val lookerStudioMapper: LookerStudioMapper,
 ) {
-    public fun exportToBigQuery(events: List<AnalyticsEvent>): List<Map<String, Any>> {
-        return events.map { bigQueryMapper.map(it) }
-    }
+    public fun exportToBigQuery(events: List<AnalyticsEvent>): List<Map<String, Any>> =
+        events.map { bigQueryMapper.map(it) }
 
-    public fun exportToCsv(events: List<AnalyticsEvent>): String {
-        return events.joinToString("\n") { lookerStudioMapper.map(it) }
-    }
+    public fun exportToCsv(events: List<AnalyticsEvent>): String =
+        events.joinToString("\n") { lookerStudioMapper.map(it) }
 }

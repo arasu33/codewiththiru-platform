@@ -21,7 +21,5 @@ data class ChallengeProgress(
     fun isConditionMet(
         statisticKey: String,
         target: Long,
-    ): Boolean {
-        return (currentValues[statisticKey] ?: 0L) >= target
-    }
+    ): Boolean = (currentValues[statisticKey] ?: 0L) >= target
 }

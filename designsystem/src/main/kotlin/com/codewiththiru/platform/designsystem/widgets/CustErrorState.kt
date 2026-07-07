@@ -20,10 +20,10 @@ import com.codewiththiru.platform.designsystem.components.CustText
 
 /**
  * A rigorous error block mapping fatal or non-fatal boundaries securely to the UI layer.
- * 
+ *
  * Integrates explicitly structured TalkBack logic that merges the error code, title,
  * and descriptive message into a cohesive sequence.
- * 
+ *
  * @param title Primary categorization string bounding the fault.
  * @param modifier Structure configuration traversing layouts.
  * @param message Verbose localized sequence explaining the fault explicitly.
@@ -39,23 +39,25 @@ fun CustErrorState(
     errorCode: String? = null,
     icon: @Composable (() -> Unit)? = null,
     onRetry: (() -> Unit)? = null,
-    retryText: String = "Retry"
+    retryText: String = "Retry",
 ) {
-    val errorSemanticText = buildString {
-        append(title)
-        message?.let { append(". $it") }
-        errorCode?.let { append(". Error code: $it") }
-    }
+    val errorSemanticText =
+        buildString {
+            append(title)
+            message?.let { append(". $it") }
+            errorCode?.let { append(". Error code: $it") }
+        }
 
     Column(
-        modifier = modifier
-            .fillMaxWidth()
-            .padding(24.dp)
-            .semantics(mergeDescendants = true) {
-                contentDescription = errorSemanticText
-            },
+        modifier =
+            modifier
+                .fillMaxWidth()
+                .padding(24.dp)
+                .semantics(mergeDescendants = true) {
+                    contentDescription = errorSemanticText
+                },
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
+        verticalArrangement = Arrangement.Center,
     ) {
         if (icon != null) {
             icon()
@@ -66,7 +68,7 @@ fun CustErrorState(
             text = title,
             style = CustErrorStateDefaults.titleStyle,
             color = CustErrorStateDefaults.titleColor,
-            textAlign = TextAlign.Center
+            textAlign = TextAlign.Center,
         )
 
         if (message != null) {
@@ -75,7 +77,7 @@ fun CustErrorState(
                 text = message,
                 style = CustErrorStateDefaults.messageStyle,
                 color = CustErrorStateDefaults.messageColor,
-                textAlign = TextAlign.Center
+                textAlign = TextAlign.Center,
             )
         }
 
@@ -85,7 +87,7 @@ fun CustErrorState(
                 text = "Code: $errorCode",
                 style = CustErrorStateDefaults.errorCodeStyle,
                 color = CustErrorStateDefaults.errorCodeColor,
-                textAlign = TextAlign.Center
+                textAlign = TextAlign.Center,
             )
         }
 

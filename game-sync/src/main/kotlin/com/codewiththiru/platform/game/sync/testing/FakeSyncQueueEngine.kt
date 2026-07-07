@@ -11,9 +11,7 @@ class FakeSyncQueueEngine : SyncQueueEngine {
         queue.addLast(request)
     }
 
-    override fun peekNext(): SyncRequest? {
-        return queue.firstOrNull()
-    }
+    override fun peekNext(): SyncRequest? = queue.firstOrNull()
 
     override fun remove(requestId: String) {
         queue.removeIf { it.id == requestId }
@@ -27,7 +25,5 @@ class FakeSyncQueueEngine : SyncQueueEngine {
         }
     }
 
-    override fun getPendingCount(): Int {
-        return queue.size
-    }
+    override fun getPendingCount(): Int = queue.size
 }

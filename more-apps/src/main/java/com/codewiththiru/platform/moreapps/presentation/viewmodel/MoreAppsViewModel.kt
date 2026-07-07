@@ -24,9 +24,8 @@ class MoreAppsViewModel(
     private val repository: MoreAppsRepository,
     private val installResolver: AppInstallResolver,
     private val analyticsProvider: MoreAppsAnalyticsProvider,
-    private val config: MoreAppsConfig
+    private val config: MoreAppsConfig,
 ) : ViewModel() {
-
     private val _uiState = MutableStateFlow<MoreAppsUiState>(MoreAppsUiState.Loading)
     val uiState: StateFlow<MoreAppsUiState> = _uiState.asStateFlow()
 
@@ -63,15 +62,20 @@ class MoreAppsViewModel(
     }
 
     private fun resolveInstallStatus(app: MoreAppModel): MoreAppModel {
-        val status = when {
-            installResolver.isUpdateAvailable(app.packageName) -> InstallStatus.UpdateAvailable
-            installResolver.isInstalled(app.packageName) -> InstallStatus.Installed
-            else -> InstallStatus.NotInstalled
-        }
+        val status =
+            when {
+                installResolver.isUpdateAvailable(app.packageName) -> InstallStatus.UpdateAvailable
+                installResolver.isInstalled(app.packageName) -> InstallStatus.Installed
+                else -> InstallStatus.NotInstalled
+            }
         return app.copy(installStatus = status)
     }
 
-    fun onAppAction(app: MoreAppModel, action: AppActionType, position: Int) {
+    fun onAppAction(
+        app: MoreAppModel,
+        action: AppActionType,
+        position: Int,
+    ) {
         analyticsProvider.logAppAction(app, action, position, "MainList")
         viewModelScope.launch {
             when (action) {

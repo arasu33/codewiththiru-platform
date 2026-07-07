@@ -9,8 +9,12 @@ import com.codewiththiru.platform.about.model.SocialLink
  */
 interface AboutEventListener {
     fun onShareApp(appInfo: AppInfo)
+
     fun onCopyDiagnostics(payload: String)
+
     fun onContactDeveloper(developerInfo: DeveloperInfo)
+
     fun onSocialLinkClick(link: SocialLink)
+
     fun onLegalLinkClick(url: String)
 }

@@ -6,5 +6,5 @@ package com.codewiththiru.platform.rating.model
 enum class RatingPromptType {
     Dialog,
     BottomSheet,
-    Fullscreen
+    Fullscreen,
 }

@@ -4,9 +4,16 @@ import com.codewiththiru.platform.feedback.model.FeedbackCategory
 
 sealed interface FeedbackUiState {
     data object Idle : FeedbackUiState
+
     data object Submitting : FeedbackUiState
-    data class Success(val message: String) : FeedbackUiState
-    data class Error(val reason: String) : FeedbackUiState
+
+    data class Success(
+        val message: String,
+    ) : FeedbackUiState
+
+    data class Error(
+        val reason: String,
+    ) : FeedbackUiState
 }
 
 data class FeedbackFormState(
@@ -17,5 +24,5 @@ data class FeedbackFormState(
     val name: String = "",
     val subjectError: String? = null,
     val descriptionError: String? = null,
-    val emailError: String? = null
+    val emailError: String? = null,
 )

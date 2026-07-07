@@ -18,6 +18,6 @@ interface UpdatePolicy {
         currentVersion: Int,
         availableVersion: Int,
         isForceUpdateRequired: Boolean,
-        clientStalenessDays: Int? = null
+        clientStalenessDays: Int? = null,
     ): UpdateEligibilityResult
 }

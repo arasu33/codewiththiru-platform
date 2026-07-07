@@ -5,5 +5,9 @@ import androidx.compose.ui.Modifier
 
 interface MoreAppsImageProvider {
     @Composable
-    fun LoadImage(url: String, contentDescription: String?, modifier: Modifier)
+    fun LoadImage(
+        url: String,
+        contentDescription: String?,
+        modifier: Modifier,
+    )
 }

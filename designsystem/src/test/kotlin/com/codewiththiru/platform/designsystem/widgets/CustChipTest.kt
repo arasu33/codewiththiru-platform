@@ -18,7 +18,6 @@ import org.robolectric.annotation.Config
 @RunWith(RobolectricTestRunner::class)
 @Config(sdk = [34], instrumentedPackages = ["androidx.loader.content"])
 class CustChipTest {
-
     @get:Rule
     val composeTestRule = createComposeRule()
 
@@ -29,7 +28,7 @@ class CustChipTest {
             CustTheme {
                 CustAssistChip(
                     label = "Assist",
-                    onClick = { clicked = true }
+                    onClick = { clicked = true },
                 )
             }
         }
@@ -45,7 +44,7 @@ class CustChipTest {
                 CustFilterChip(
                     label = "Filter",
                     selected = true,
-                    onClick = { clicked = true }
+                    onClick = { clicked = true },
                 )
             }
         }
@@ -62,7 +61,7 @@ class CustChipTest {
                     label = "RTL Filter",
                     selected = false,
                     onClick = {},
-                    modifier = Modifier.testTag("rtlFilter")
+                    modifier = Modifier.testTag("rtlFilter"),
                 )
             }
         }

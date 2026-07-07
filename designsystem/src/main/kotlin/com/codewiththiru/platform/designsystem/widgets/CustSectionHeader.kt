@@ -32,40 +32,40 @@ fun CustSectionHeader(
     title: String,
     modifier: Modifier = Modifier,
     subtitle: String? = null,
-    action: @Composable (() -> Unit)? = null
+    action: @Composable (() -> Unit)? = null,
 ) {
     val semanticDesc = if (subtitle != null) "$title. $subtitle" else title
 
     Row(
-        modifier = modifier
-            .fillMaxWidth()
-            .padding(
-                horizontal = CustSectionHeaderDefaults.horizontalPadding,
-                vertical = CustSectionHeaderDefaults.verticalPadding
-            )
-            .semantics(mergeDescendants = true) {
-                heading()
-                contentDescription = semanticDesc
-            },
+        modifier =
+            modifier
+                .fillMaxWidth()
+                .padding(
+                    horizontal = CustSectionHeaderDefaults.horizontalPadding,
+                    vertical = CustSectionHeaderDefaults.verticalPadding,
+                ).semantics(mergeDescendants = true) {
+                    heading()
+                    contentDescription = semanticDesc
+                },
         verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.SpaceBetween
+        horizontalArrangement = Arrangement.SpaceBetween,
     ) {
         Column(modifier = Modifier.weight(1f)) {
             CustText(
                 text = title,
                 style = CustSectionHeaderDefaults.titleStyle,
-                color = CustSectionHeaderDefaults.titleColor
+                color = CustSectionHeaderDefaults.titleColor,
             )
             if (subtitle != null) {
                 Spacer(modifier = Modifier.height(CustSectionHeaderDefaults.subtitleTopPadding))
                 CustText(
                     text = subtitle,
                     style = CustSectionHeaderDefaults.subtitleStyle,
-                    color = CustSectionHeaderDefaults.subtitleColor
+                    color = CustSectionHeaderDefaults.subtitleColor,
                 )
             }
         }
-        
+
         if (action != null) {
             action()
         }

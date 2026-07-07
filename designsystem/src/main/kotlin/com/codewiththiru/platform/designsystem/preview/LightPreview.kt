@@ -6,6 +6,6 @@ import androidx.compose.ui.tooling.preview.Preview
 @Preview(
     name = "Light Mode",
     uiMode = Configuration.UI_MODE_NIGHT_NO,
-    showBackground = true
+    showBackground = true,
 )
 annotation class LightPreview

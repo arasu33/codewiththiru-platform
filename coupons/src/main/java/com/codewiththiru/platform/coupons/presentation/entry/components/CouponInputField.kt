@@ -18,7 +18,7 @@ fun CouponInputField(
     onCodeChange: (String) -> Unit,
     onSubmit: () -> Unit,
     isLoading: Boolean,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     OutlinedTextField(
         value = code,
@@ -26,15 +26,18 @@ fun CouponInputField(
         enabled = !isLoading,
         label = { Text("Enter Promotional Code") },
         singleLine = true,
-        keyboardOptions = KeyboardOptions(
-            capitalization = KeyboardCapitalization.Characters,
-            imeAction = ImeAction.Done
-        ),
-        keyboardActions = KeyboardActions(
-            onDone = { onSubmit() }
-        ),
-        modifier = modifier
-            .fillMaxWidth()
-            .semantics { contentDescription = "Enter promotional code" }
+        keyboardOptions =
+            KeyboardOptions(
+                capitalization = KeyboardCapitalization.Characters,
+                imeAction = ImeAction.Done,
+            ),
+        keyboardActions =
+            KeyboardActions(
+                onDone = { onSubmit() },
+            ),
+        modifier =
+            modifier
+                .fillMaxWidth()
+                .semantics { contentDescription = "Enter promotional code" },
     )
 }

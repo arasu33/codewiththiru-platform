@@ -4,7 +4,7 @@ import com.codewiththiru.platform.coupons.domain.model.CouponErrorCode
 import com.codewiththiru.platform.coupons.domain.model.CouponModel
 
 class CompositeCouponModelValidator(
-    private val rules: List<CouponModelValidator>
+    private val rules: List<CouponModelValidator>,
 ) : CouponModelValidator {
     override suspend fun validate(model: CouponModel): CouponErrorCode? {
         for (rule in rules) {

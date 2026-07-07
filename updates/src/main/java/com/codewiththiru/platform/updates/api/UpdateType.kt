@@ -22,5 +22,5 @@ enum class UpdateType {
     /**
      * Not an actual app update, just presenting the release notes of the current version.
      */
-    WhatsNewOnly
+    WhatsNewOnly,
 }

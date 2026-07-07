@@ -29,9 +29,7 @@ class FakeRewardManager : RewardManager {
         return true
     }
 
-    override suspend fun getBalance(type: RewardType): RewardBalance {
-        return RewardBalance(type, balances[type] ?: 0L)
-    }
+    override suspend fun getBalance(type: RewardType): RewardBalance = RewardBalance(type, balances[type] ?: 0L)
 
     override fun observeBalance(type: RewardType): StateFlow<RewardBalance> {
         if (!balanceFlows.containsKey(type)) {
@@ -40,9 +38,7 @@ class FakeRewardManager : RewardManager {
         return balanceFlows[type]!!.asStateFlow()
     }
 
-    override suspend fun hasInventoryItem(itemId: String): Boolean {
-        return inventory.contains(itemId)
-    }
+    override suspend fun hasInventoryItem(itemId: String): Boolean = inventory.contains(itemId)
 
     fun addItemToInventory(itemId: String) {
         inventory.add(itemId)
