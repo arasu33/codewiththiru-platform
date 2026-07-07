@@ -6,9 +6,8 @@ import javax.crypto.SecretKey
 import javax.crypto.spec.GCMParameterSpec
 
 class AesGcmEncryptionStrategy(
-    private val secretKey: SecretKey
+    private val secretKey: SecretKey,
 ) : EncryptionStrategy {
-
     companion object {
         private const val ALGORITHM = "AES/GCM/NoPadding"
         private const val IV_LENGTH = 12
@@ -20,9 +19,9 @@ class AesGcmEncryptionStrategy(
         val iv = ByteArray(IV_LENGTH)
         SecureRandom().nextBytes(iv)
         cipher.init(Cipher.ENCRYPT_MODE, secretKey, GCMParameterSpec(TAG_LENGTH, iv))
-        
+
         val encryptedData = cipher.doFinal(payload)
-        
+
         // Append IV to the start of the payload
         return iv + encryptedData
     }
@@ -37,7 +36,7 @@ class AesGcmEncryptionStrategy(
 
         val cipher = Cipher.getInstance(ALGORITHM)
         cipher.init(Cipher.DECRYPT_MODE, secretKey, GCMParameterSpec(TAG_LENGTH, iv))
-        
+
         return cipher.doFinal(actualData)
     }
 }

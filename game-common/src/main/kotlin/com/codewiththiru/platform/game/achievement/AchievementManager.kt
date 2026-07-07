@@ -44,7 +44,9 @@ class DefaultAchievementManager(
     private val onUnlocked: (Achievement) -> Unit = {},
 ) : AchievementManager {
     private val achievementsKey = "game_achievements_list"
-    private val lock = java.util.concurrent.locks.ReentrantLock()
+    private val lock =
+        java.util.concurrent.locks
+            .ReentrantLock()
 
     override fun registerAchievements(achievements: List<Achievement>) {
         lock.lock()
