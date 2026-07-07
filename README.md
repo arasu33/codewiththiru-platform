@@ -2,7 +2,7 @@
 
 Welcome to the **CodeWithThiru Platform**, the definitive foundation for all future game titles (AquaSort, Sudoku, Chess, 2048, etc.).
 
-## Version: v1.0.0
+## Version: v1.0.2
 
 This SDK provides production-grade, highly-testable, and decoupled modules for:
 - **Core Engineering**: Dependency Injection (Hilt), Coroutines, Observability
@@ -16,7 +16,7 @@ In your application's `build.gradle.kts`:
 ```kotlin
 dependencies {
     // Import the BOM for standardized dependency versions across all platform modules
-    implementation(platform("com.codewiththiru.platform:platform-bom:1.0.0"))
+    implementation(platform("com.codewiththiru.platform:platform-bom:1.0.2"))
     
     // Choose the modules you need
     implementation("com.codewiththiru.platform:game-events")
