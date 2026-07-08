@@ -4,6 +4,7 @@ import android.util.Log
 import com.codewiththiru.platform.analytics.api.AnalyticsProvider
 import com.codewiththiru.platform.analytics.config.AnalyticsBatchConfig
 import com.codewiththiru.platform.analytics.data.queue.AnalyticsQueue
+import com.codewiththiru.platform.analytics.domain.event.AnalyticsEvent
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
@@ -43,49 +44,14 @@ public class AnalyticsDispatcher(
     }
 
     /** Forces an immediate flush of the queue. */
-    @Suppress("TooGenericExceptionCaught", "NestedBlockDepth", "LoopWithTooManyJumpStatements", "MagicNumber")
+    @Suppress("TooGenericExceptionCaught", "NestedBlockDepth", "MagicNumber")
     public suspend fun flush() {
         try {
             var dispatched = 0
             while (true) {
-                // Peek the events to ensure they remain in queue during failure
-                val batch = queue.peek(config.batchSize)
-                if (batch.isEmpty()) break
-
-                var success = true
-                try {
-                    // Track all events in the batch
-                    batch.forEach { provider.trackEvent(it) }
-                    provider.flush()
-                } catch (e: kotlinx.coroutines.CancellationException) {
-                    throw e
-                } catch (e: Exception) {
-                    success = false
-                    Log.e("AnalyticsDispatcher", "Provider failed during dispatch. Entering backoff.", e)
-                }
-
-                if (success) {
-                    // Remove from queue ONLY after successful dispatch
-                    queue.remove(batch)
-                    dispatched += batch.size
-                    consecutiveFailures = 0 // Reset backoff
-                } else {
-                    // Exponential backoff logic
-                    consecutiveFailures++
-                    if (consecutiveFailures > 10 && deadLetterQueue != null) {
-                        Log.e("AnalyticsDispatcher", "Batch failed > 10 times. Moving to Dead Letter Queue.")
-                        batch.forEach { deadLetterQueue.enqueue(it) }
-                        queue.remove(batch)
-                        consecutiveFailures = 0
-                    } else {
-                        val backoffMinutes = (1 shl (consecutiveFailures - 1)).coerceAtMost(15)
-                        Log.w("AnalyticsDispatcher", "Backing off for $backoffMinutes minutes")
-
-                        // Stop the current flush loop
-                        break
-                    }
-                }
-
+                val batchSize = processNextBatch()
+                if (batchSize == -1) break
+                dispatched += batchSize
                 // Yield to prevent monopolizing thread if queue is massive
                 kotlinx.coroutines.yield()
             }
@@ -96,6 +62,46 @@ public class AnalyticsDispatcher(
             throw e
         } catch (e: Exception) {
             Log.e("AnalyticsDispatcher", "Error during flush", e)
+        }
+    }
+
+    @Suppress("TooGenericExceptionCaught", "ReturnCount")
+    private suspend fun processNextBatch(): Int {
+        val batch = queue.peek(config.batchSize)
+        if (batch.isEmpty()) return -1
+
+        var success = true
+        try {
+            batch.forEach { provider.trackEvent(it) }
+            provider.flush()
+        } catch (e: kotlinx.coroutines.CancellationException) {
+            throw e
+        } catch (e: Exception) {
+            success = false
+            Log.e("AnalyticsDispatcher", "Provider failed during dispatch. Entering backoff.", e)
+        }
+
+        if (success) {
+            queue.remove(batch)
+            consecutiveFailures = 0
+            return batch.size
+        }
+
+        handleFailure(batch)
+        return -1
+    }
+
+    @Suppress("MagicNumber")
+    private suspend fun handleFailure(batch: List<AnalyticsEvent>) {
+        consecutiveFailures++
+        if (consecutiveFailures > 10 && deadLetterQueue != null) {
+            Log.e("AnalyticsDispatcher", "Batch failed > 10 times. Moving to Dead Letter Queue.")
+            batch.forEach { deadLetterQueue.enqueue(it) }
+            queue.remove(batch)
+            consecutiveFailures = 0
+        } else {
+            val backoffMinutes = (1 shl (consecutiveFailures - 1)).coerceAtMost(15)
+            Log.w("AnalyticsDispatcher", "Backing off for $backoffMinutes minutes")
         }
     }
 }
