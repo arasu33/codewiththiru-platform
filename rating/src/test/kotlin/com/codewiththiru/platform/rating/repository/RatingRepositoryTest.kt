@@ -1,4 +1,4 @@
-@file:Suppress("MaxLineLength", "ArgumentListWrapping")
+@file:Suppress("MaxLineLength", "ArgumentListWrapping", "ImportOrdering")
 
 package com.codewiththiru.platform.rating.repository
 

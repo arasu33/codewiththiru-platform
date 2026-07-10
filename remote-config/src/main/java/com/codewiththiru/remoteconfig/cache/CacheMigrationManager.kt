@@ -25,7 +25,7 @@ class CacheMigrationManager(
         try {
             for (migration in path) {
                 if (migration.fromVersion != currentVersion) {
-                    throw IllegalStateException("Missing migration step from $currentVersion")
+                    throw IllegalStateException("Cache migration failed: Expected migration from schema version $currentVersion, but found migration from ${migration.fromVersion}. Ensure all migration steps are registered sequentially in CacheVersionRegistry.")
                 }
                 migratedPayload = migration.migrate(migratedPayload)
                 currentVersion = migration.toVersion
@@ -33,7 +33,7 @@ class CacheMigrationManager(
             }
             
             if (currentVersion != targetVersion) {
-                throw IllegalStateException("Failed to reach target version $targetVersion")
+                throw IllegalStateException("Cache migration failed: Reached version $currentVersion, but target version is $targetVersion. Expected a complete path.")
             }
         } catch (e: Exception) {
             Log.e("CacheMigrationManager", "Migration failed. Wiping cache.", e)

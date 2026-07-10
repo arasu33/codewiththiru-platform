@@ -21,7 +21,7 @@ interface FeatureFlagManager {
 }
 
 class DefaultFeatureFlagManager : FeatureFlagManager {
-    private val flagsMap = mutableMapOf<String, FeatureFlag>()
+    private val flagsMap = java.util.concurrent.ConcurrentHashMap<String, FeatureFlag>()
 
     override fun isEnabled(flagKey: String, userContext: Map<String, String>): Boolean {
         val flag = flagsMap[flagKey] ?: return false

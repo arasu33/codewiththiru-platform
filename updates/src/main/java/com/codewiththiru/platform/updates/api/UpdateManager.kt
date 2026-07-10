@@ -17,6 +17,7 @@ class UpdateManager(
     private val _updateState = MutableStateFlow<UpdateResult?>(null)
     val updateState: Flow<UpdateResult?> = _updateState.asStateFlow()
 
+    @Suppress("ReturnCount")
     suspend fun checkAndPrompt(
         activity: Activity,
         currentVersionCode: Int,

@@ -12,6 +12,7 @@ import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardCapitalization
 
+@Suppress("FunctionNaming")
 @Composable
 fun CouponInputField(
     code: String,

@@ -19,6 +19,7 @@ class EncryptedGameSaveManager<T>(
     private val _status = MutableStateFlow(SaveSystemStatus.IDLE)
     override val status: StateFlow<SaveSystemStatus> = _status.asStateFlow()
 
+    @Suppress("TooGenericExceptionCaught")
     override suspend fun save(request: SaveRequest<T>): SaveResponse<T> {
         _status.value = SaveSystemStatus.SAVING
         return try {
@@ -44,6 +45,7 @@ class EncryptedGameSaveManager<T>(
         }
     }
 
+    @Suppress("TooGenericExceptionCaught", "ReturnCount")
     override suspend fun load(slot: SaveSlot): SaveResponse<T> {
         _status.value = SaveSystemStatus.LOADING
         return try {

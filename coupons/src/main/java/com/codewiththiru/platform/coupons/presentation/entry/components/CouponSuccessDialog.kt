@@ -6,6 +6,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import com.codewiththiru.platform.coupons.domain.model.CouponReward
 
+@Suppress("FunctionNaming")
 @Composable
 fun CouponSuccessDialog(
     reward: CouponReward,

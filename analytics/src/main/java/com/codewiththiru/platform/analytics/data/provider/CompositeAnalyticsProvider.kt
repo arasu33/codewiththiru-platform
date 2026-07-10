@@ -13,7 +13,7 @@ import kotlinx.coroutines.supervisorScope
  * An [AnalyticsProvider] that fans out to multiple underlying destinations.
  * "Failure of one provider must never block others"
  */
-public class CompositeAnalyticsProvider(
+internal class CompositeAnalyticsProvider(
     private val providers: List<AnalyticsProvider>,
 ) : AnalyticsProvider {
     @Suppress("TooGenericExceptionCaught")

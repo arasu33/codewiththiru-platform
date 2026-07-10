@@ -15,7 +15,7 @@ private val Context.consentDataStore: DataStore<Preferences> by preferencesDataS
 /**
  * Default implementation of [AnalyticsConsentManager].
  */
-public class DefaultAnalyticsConsentManager(
+internal class DefaultAnalyticsConsentManager(
     private val context: Context,
     private val queue: AnalyticsQueue,
 ) : AnalyticsConsentManager {

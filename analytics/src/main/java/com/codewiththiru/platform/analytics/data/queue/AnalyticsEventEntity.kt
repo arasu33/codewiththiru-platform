@@ -4,7 +4,7 @@ import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.JsonElement
 
 @Serializable
-public data class AnalyticsEventEntity(
+internal data class AnalyticsEventEntity(
     val schemaVersion: Int = 1,
     val eventId: String,
     val eventName: String,

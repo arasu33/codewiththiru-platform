@@ -24,6 +24,7 @@ import com.codewiththiru.platform.moreapps.domain.model.MoreAppModel
 import com.codewiththiru.platform.moreapps.presentation.integration.AppActionType
 import com.codewiththiru.platform.moreapps.presentation.integration.MoreAppsImageProvider
 
+@Suppress("LongMethod", "FunctionNaming")
 @Composable
 fun AppCard(
     app: MoreAppModel,
@@ -49,10 +50,7 @@ fun AppCard(
         modifier =
             modifier
                 .fillMaxWidth()
-                .clickable { onActionClick(AppActionType.View) }
-                .semantics(mergeDescendants = true) {
-                    contentDescription = fullDescription
-                },
+                .clickable { onActionClick(AppActionType.View) },
     ) {
         Row(
             modifier =
@@ -70,7 +68,12 @@ fun AppCard(
             Spacer(modifier = Modifier.width(16.dp))
 
             Column(
-                modifier = Modifier.weight(1f),
+                modifier =
+                    Modifier
+                        .weight(1f)
+                        .semantics(mergeDescendants = true) {
+                            contentDescription = fullDescription
+                        },
             ) {
                 Text(
                     text = app.title,

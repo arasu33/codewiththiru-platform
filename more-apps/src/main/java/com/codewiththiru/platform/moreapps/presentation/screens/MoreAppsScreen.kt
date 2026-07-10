@@ -23,6 +23,7 @@ import com.codewiththiru.platform.moreapps.presentation.state.MoreAppsEffect
 import com.codewiththiru.platform.moreapps.presentation.state.MoreAppsUiState
 import com.codewiththiru.platform.moreapps.presentation.viewmodel.MoreAppsViewModel
 
+@Suppress("FunctionNaming")
 @Composable
 fun MoreAppsScreen(
     viewModel: MoreAppsViewModel,

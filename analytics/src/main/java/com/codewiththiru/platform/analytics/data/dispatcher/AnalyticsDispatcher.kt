@@ -14,7 +14,7 @@ import kotlinx.coroutines.launch
 /**
  * Periodically flushes queued events to the [AnalyticsProvider].
  */
-public class AnalyticsDispatcher(
+internal class AnalyticsDispatcher(
     private val queue: AnalyticsQueue,
     private val provider: AnalyticsProvider,
     private val config: AnalyticsBatchConfig,
@@ -26,7 +26,7 @@ public class AnalyticsDispatcher(
 
     /** Starts the periodic dispatch loop. */
     @Suppress("MagicNumber")
-    public fun start() {
+    internal fun start() {
         if (job?.isActive == true) return
         job =
             scope.launch {
@@ -38,14 +38,14 @@ public class AnalyticsDispatcher(
     }
 
     /** Stops the dispatch loop. */
-    public fun stop() {
+    internal fun stop() {
         job?.cancel()
         job = null
     }
 
     /** Forces an immediate flush of the queue. */
     @Suppress("TooGenericExceptionCaught", "NestedBlockDepth", "MagicNumber")
-    public suspend fun flush() {
+    internal suspend fun flush() {
         try {
             var dispatched = 0
             while (true) {

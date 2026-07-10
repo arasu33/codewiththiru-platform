@@ -7,6 +7,7 @@ import com.codewiththiru.platform.coupons.domain.model.CouponModel
 class DefaultRedemptionPolicyEvaluator(
     private val historyTracker: RedemptionHistoryTracker,
 ) : RedemptionPolicyEvaluator {
+    @Suppress("ReturnCount")
     override suspend fun evaluate(
         model: CouponModel,
         policy: CouponRedemptionPolicy,

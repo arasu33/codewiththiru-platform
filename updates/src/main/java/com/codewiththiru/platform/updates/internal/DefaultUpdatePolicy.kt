@@ -12,6 +12,7 @@ class DefaultUpdatePolicy(
     private val storage: UpdateStorageProvider,
     private val clock: UpdateClock,
 ) : UpdatePolicy {
+    @Suppress("ReturnCount")
     override suspend fun evaluate(
         currentVersion: Int,
         availableVersion: Int,

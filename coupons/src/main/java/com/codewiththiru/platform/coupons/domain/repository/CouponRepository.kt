@@ -1,4 +1,4 @@
-package com.codewiththiru.platform.coupons.data.repository
+package com.codewiththiru.platform.coupons.domain.repository
 
 import com.codewiththiru.platform.coupons.domain.model.CouponModel
 import com.codewiththiru.platform.coupons.domain.model.CouponResult

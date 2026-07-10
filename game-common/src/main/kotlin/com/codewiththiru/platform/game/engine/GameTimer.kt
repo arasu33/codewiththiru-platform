@@ -37,54 +37,67 @@ class DefaultGameTimer(
     private val _timeFlow = MutableStateFlow(0L)
     override val timeFlow: StateFlow<Long> = _timeFlow.asStateFlow()
 
+    @Volatile
     private var job: Job? = null
+
+    @Volatile
     private var isRunning = false
+
+    @Volatile
     private var isCountdown = false
+
+    @Volatile
     private var limitSeconds: Long? = null
     private val scope = CoroutineScope(SupervisorJob() + dispatcher)
 
-    override fun start(
-        initialSeconds: Long,
-        countdown: Boolean,
-        maxSeconds: Long?,
-    ) {
+    @Suppress("LoopWithTooManyJumpStatements")
+    private fun startTimerJob() {
         job?.cancel()
-        _timeFlow.value = initialSeconds
-        isCountdown = countdown
-        limitSeconds = maxSeconds
-        isRunning = true
-
         job =
             scope.launch {
-                while (isActive && isRunning) {
+                while (isActive) {
                     delay(1000)
-                    if (isRunning) {
-                        if (isCountdown) {
-                            if (_timeFlow.value > 0) {
-                                _timeFlow.value -= 1
-                            } else {
-                                isRunning = false
-                            }
+                    if (isCountdown) {
+                        if (_timeFlow.value > 0) {
+                            _timeFlow.value -= 1
                         } else {
-                            val limit = limitSeconds
-                            if (limit == null || _timeFlow.value < limit) {
-                                _timeFlow.value += 1
-                            } else {
-                                isRunning = false
-                            }
+                            isRunning = false
+                            break
+                        }
+                    } else {
+                        val limit = limitSeconds
+                        if (limit == null || _timeFlow.value < limit) {
+                            _timeFlow.value += 1
+                        } else {
+                            isRunning = false
+                            break
                         }
                     }
                 }
             }
     }
 
+    override fun start(
+        initialSeconds: Long,
+        countdown: Boolean,
+        maxSeconds: Long?,
+    ) {
+        _timeFlow.value = initialSeconds
+        isCountdown = countdown
+        limitSeconds = maxSeconds
+        isRunning = true
+        startTimerJob()
+    }
+
     override fun pause() {
         isRunning = false
+        job?.cancel()
     }
 
     override fun resume() {
         if (!isRunning) {
             isRunning = true
+            startTimerJob()
         }
     }
 

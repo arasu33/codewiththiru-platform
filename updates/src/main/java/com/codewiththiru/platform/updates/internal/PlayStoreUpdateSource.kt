@@ -34,6 +34,7 @@ class PlayStoreUpdateSource(
             Result.failure(e)
         }
 
+    @Suppress("ReturnCount")
     override suspend fun startUpdate(
         activity: Activity,
         availabilityInfo: UpdateAvailabilityInfo,

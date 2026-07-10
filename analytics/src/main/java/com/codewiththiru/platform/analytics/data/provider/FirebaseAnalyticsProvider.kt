@@ -10,7 +10,7 @@ import com.google.firebase.analytics.FirebaseAnalytics
  * Provider implementation that delegates to Firebase Analytics.
  * All Firebase APIs are strictly encapsulated within this class.
  */
-public class FirebaseAnalyticsProvider(
+internal class FirebaseAnalyticsProvider(
     private val firebaseAnalytics: FirebaseAnalytics,
 ) : AnalyticsProvider {
     override suspend fun trackEvent(event: AnalyticsEvent) {

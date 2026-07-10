@@ -54,10 +54,12 @@ fun CustText(
         softWrap = softWrap,
         maxLines = maxLines,
         minLines = minLines,
-        onTextLayout = onTextLayout ?: {},
+        onTextLayout = onTextLayout ?: EmptyTextLayout,
         style = style,
     )
 }
+
+private val EmptyTextLayout: (TextLayoutResult) -> Unit = {}
 
 @Composable
 fun CustText(
@@ -95,7 +97,7 @@ fun CustText(
         softWrap = softWrap,
         maxLines = maxLines,
         minLines = minLines,
-        onTextLayout = onTextLayout ?: {},
+        onTextLayout = onTextLayout ?: EmptyTextLayout,
         style = style,
     )
 }

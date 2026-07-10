@@ -8,8 +8,8 @@ interface OnboardingManager {
 }
 
 class DefaultOnboardingManager : OnboardingManager {
-    private val completedSteps = mutableMapOf<String, MutableSet<String>>()
-    private val activeFlows = mutableMapOf<String, OnboardingFlow>()
+    private val completedSteps = java.util.concurrent.ConcurrentHashMap<String, MutableSet<String>>()
+    private val activeFlows = java.util.concurrent.ConcurrentHashMap<String, OnboardingFlow>()
 
     override suspend fun startFlow(flowId: String): OnboardingFlow? {
         // Load flow config from remote config or locally
@@ -19,7 +19,9 @@ class DefaultOnboardingManager : OnboardingManager {
     }
 
     override suspend fun completeStep(flowId: String, stepId: String) {
-        val steps = completedSteps.getOrPut(flowId) { mutableSetOf() }
+        val steps = completedSteps.getOrPut(flowId) { 
+            java.util.Collections.newSetFromMap(java.util.concurrent.ConcurrentHashMap()) 
+        }
         steps.add(stepId)
     }
 

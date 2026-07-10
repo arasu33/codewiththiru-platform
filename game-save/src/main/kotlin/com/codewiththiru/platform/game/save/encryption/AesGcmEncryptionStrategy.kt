@@ -27,9 +27,7 @@ class AesGcmEncryptionStrategy(
     }
 
     override fun decrypt(encryptedPayload: ByteArray): ByteArray {
-        if (encryptedPayload.size < IV_LENGTH) {
-            throw IllegalArgumentException("Payload too small to contain IV")
-        }
+        require(encryptedPayload.size >= IV_LENGTH) { "Payload too small to contain IV" }
 
         val iv = encryptedPayload.copyOfRange(0, IV_LENGTH)
         val actualData = encryptedPayload.copyOfRange(IV_LENGTH, encryptedPayload.size)

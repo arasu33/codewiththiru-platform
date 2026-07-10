@@ -1,4 +1,4 @@
-@file:Suppress("FunctionNaming")
+@file:Suppress("FunctionNaming", "Indentation")
 
 package com.codewiththiru.platform.rating.ui.components
 

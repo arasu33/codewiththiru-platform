@@ -11,7 +11,7 @@ import com.codewiththiru.platform.analytics.domain.validation.AnalyticsValidator
  * Default implementation of [AnalyticsManager].
  * Coordinates validation, consent checking, and queueing.
  */
-public class DefaultAnalyticsManager(
+internal class DefaultAnalyticsManager(
     private val queue: AnalyticsQueue,
     private val dispatcher: AnalyticsDispatcher,
     private val consentManager: AnalyticsConsentManager,

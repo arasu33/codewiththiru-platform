@@ -17,6 +17,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
 
+@Suppress("LongMethod", "FunctionNaming")
 @Composable
 fun WhatsNewDialog(
     releaseNotes: String,

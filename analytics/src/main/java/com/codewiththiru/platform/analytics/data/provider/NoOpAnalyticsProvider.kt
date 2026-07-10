@@ -8,7 +8,7 @@ import com.codewiththiru.platform.analytics.domain.event.AnalyticsUserProperty
 /**
  * A no-op implementation of [AnalyticsProvider].
  */
-public class NoOpAnalyticsProvider : AnalyticsProvider {
+internal class NoOpAnalyticsProvider : AnalyticsProvider {
     override suspend fun trackEvent(event: AnalyticsEvent) { /* No-op */ }
 
     override suspend fun trackScreen(screen: AnalyticsScreen) { /* No-op */ }

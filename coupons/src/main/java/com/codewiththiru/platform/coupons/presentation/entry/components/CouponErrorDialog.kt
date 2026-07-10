@@ -5,6 +5,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 
+@Suppress("FunctionNaming")
 @Composable
 fun CouponErrorDialog(
     reason: String,

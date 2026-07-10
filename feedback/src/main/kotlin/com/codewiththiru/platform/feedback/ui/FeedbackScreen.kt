@@ -55,7 +55,7 @@ fun FeedbackScreen(
     }
 }
 
-@Suppress("LongParameterList")
+@Suppress("LongParameterList", "LongMethod")
 @Composable
 private fun FeedbackScreenContent(
     uiState: FeedbackUiState,

@@ -5,7 +5,7 @@ import com.codewiththiru.platform.analytics.domain.event.AnalyticsEvent
 /**
  * Interface representing a storage queue for offline analytics events.
  */
-public interface AnalyticsQueue {
+internal interface AnalyticsQueue {
     /**
      * Enqueues a new event.
      */

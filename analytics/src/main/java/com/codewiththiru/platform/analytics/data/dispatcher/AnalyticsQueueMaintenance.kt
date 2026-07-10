@@ -13,7 +13,7 @@ import kotlinx.coroutines.launch
  * Maintenance worker for Analytics Queue.
  * Handles TTL cleanup, size compaction, and corruption recovery.
  */
-public class AnalyticsQueueMaintenance(
+internal class AnalyticsQueueMaintenance(
     private val queue: AnalyticsQueue,
     private val config: AnalyticsBatchConfig,
     private val scope: CoroutineScope,
@@ -23,7 +23,7 @@ public class AnalyticsQueueMaintenance(
     // 6 hours
     private val maintenanceIntervalMs = 6 * 60 * 60 * 1000L
 
-    public fun startPeriodicMaintenance() {
+    internal fun startPeriodicMaintenance() {
         if (job?.isActive == true) return
         job =
             scope.launch {
@@ -34,7 +34,7 @@ public class AnalyticsQueueMaintenance(
             }
     }
 
-    public fun stopPeriodicMaintenance() {
+    internal fun stopPeriodicMaintenance() {
         job?.cancel()
         job = null
     }

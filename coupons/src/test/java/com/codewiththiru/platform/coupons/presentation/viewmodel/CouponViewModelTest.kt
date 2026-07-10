@@ -2,12 +2,12 @@ package com.codewiththiru.platform.coupons.presentation.viewmodel
 
 import com.codewiththiru.platform.coupons.api.CouponAnalyticsEvent
 import com.codewiththiru.platform.coupons.api.CouponAnalyticsProvider
-import com.codewiththiru.platform.coupons.data.repository.CouponRepository
 import com.codewiththiru.platform.coupons.domain.model.CouponErrorCode
 import com.codewiththiru.platform.coupons.domain.model.CouponModel
 import com.codewiththiru.platform.coupons.domain.model.CouponResult
 import com.codewiththiru.platform.coupons.domain.model.CouponReward
 import com.codewiththiru.platform.coupons.domain.model.CouponTriggerContext
+import com.codewiththiru.platform.coupons.domain.repository.CouponRepository
 import com.codewiththiru.platform.coupons.presentation.state.CouponIntent
 import org.junit.After
 import org.junit.Assert.assertEquals

@@ -4,9 +4,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.codewiththiru.platform.coupons.api.CouponAnalyticsEvent
 import com.codewiththiru.platform.coupons.api.CouponAnalyticsProvider
-import com.codewiththiru.platform.coupons.data.repository.CouponRepository
 import com.codewiththiru.platform.coupons.domain.model.CouponResult
 import com.codewiththiru.platform.coupons.domain.model.CouponTriggerContext
+import com.codewiththiru.platform.coupons.domain.repository.CouponRepository
 import com.codewiththiru.platform.coupons.presentation.state.CouponEffect
 import com.codewiththiru.platform.coupons.presentation.state.CouponIntent
 import com.codewiththiru.platform.coupons.presentation.state.CouponUIState

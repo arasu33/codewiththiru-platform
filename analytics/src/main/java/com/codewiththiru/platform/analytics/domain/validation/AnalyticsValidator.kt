@@ -5,7 +5,7 @@ import com.codewiththiru.platform.analytics.domain.event.AnalyticsEvent
 /**
  * Validates and sanitizes analytics events to ensure they meet constraints and do not contain PII.
  */
-public object AnalyticsValidator {
+internal object AnalyticsValidator {
     private const val MAX_EVENT_NAME_LENGTH = 40
     private const val MAX_PARAM_COUNT = 25
     private const val MAX_PARAM_VALUE_LENGTH = 100
@@ -21,7 +21,7 @@ public object AnalyticsValidator {
      * Validates and sanitizes the given [event].
      * Returns a new sanitized [AnalyticsEvent].
      */
-    public fun validateAndSanitize(event: AnalyticsEvent): AnalyticsEvent {
+    internal fun validateAndSanitize(event: AnalyticsEvent): AnalyticsEvent {
         // Sanitize name: remove illegal characters and truncate
         var safeName = event.name.replace(ILLEGAL_CHAR_REGEX, "_")
         if (safeName.length > MAX_EVENT_NAME_LENGTH) {

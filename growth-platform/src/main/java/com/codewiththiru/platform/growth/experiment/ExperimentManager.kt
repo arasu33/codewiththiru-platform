@@ -7,8 +7,8 @@ interface ExperimentManager {
 }
 
 class DefaultExperimentManager : ExperimentManager {
-    private val experiments = mutableMapOf<String, Experiment>()
-    private val assignments = mutableMapOf<String, String>()
+    private val experiments = java.util.concurrent.ConcurrentHashMap<String, Experiment>()
+    private val assignments = java.util.concurrent.ConcurrentHashMap<String, String>()
 
     override suspend fun fetchExperiment(experimentId: String): Experiment? {
         return experiments[experimentId]

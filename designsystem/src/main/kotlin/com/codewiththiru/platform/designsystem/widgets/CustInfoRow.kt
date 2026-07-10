@@ -31,6 +31,7 @@ import com.codewiththiru.platform.designsystem.components.CustText
  * @param trailingContent Trailing interaction layout appended natively after the [value].
  * @param onClick Invoked closure executing explicit bounds.
  */
+@Suppress("LongMethod")
 @Composable
 fun CustInfoRow(
     label: String,

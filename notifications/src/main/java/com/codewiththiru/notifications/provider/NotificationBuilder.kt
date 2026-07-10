@@ -6,9 +6,10 @@ import androidx.core.app.NotificationCompat
 import com.codewiththiru.notifications.api.NotificationPayload
 import com.codewiththiru.notifications.config.NotificationConfig
 
-class NotificationBuilder(
+class NotificationBuilder @JvmOverloads constructor(
     private val context: Context,
-    private val config: NotificationConfig
+    private val config: NotificationConfig,
+    private val ioDispatcher: kotlinx.coroutines.CoroutineDispatcher = kotlinx.coroutines.Dispatchers.IO
 ) {
 
     suspend fun build(payload: NotificationPayload): Notification {
@@ -59,7 +60,7 @@ class NotificationBuilder(
         return builder.build()
     }
 
-    private suspend fun downloadBitmap(urlStr: String): android.graphics.Bitmap? = kotlinx.coroutines.withContext(kotlinx.coroutines.Dispatchers.IO) {
+    private suspend fun downloadBitmap(urlStr: String): android.graphics.Bitmap? = kotlinx.coroutines.withContext(ioDispatcher) {
         try {
             val url = java.net.URL(urlStr)
             val connection = url.openConnection() as java.net.HttpURLConnection

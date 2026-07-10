@@ -1,5 +1,6 @@
 package com.codewiththiru.platform.about.model
 
+import androidx.compose.runtime.Immutable
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
@@ -9,6 +10,7 @@ import androidx.compose.ui.unit.dp
  * Root configuration object defining all structural data mapped into the AboutScreen.
  * Utilizes a standard Builder pattern for instantiation.
  */
+@Immutable
 data class AboutConfig private constructor(
     val appInfo: AppInfo,
     val developerInfo: DeveloperInfo?,
@@ -65,6 +67,7 @@ data class AboutConfig private constructor(
     }
 }
 
+@Immutable
 data class AppInfo(
     val appName: String,
     val packageName: String,
@@ -75,12 +78,14 @@ data class AppInfo(
     val appIcon: Painter? = null,
 )
 
+@Immutable
 data class SocialLink(
     val platformName: String,
     val url: String,
     val icon: Painter? = null,
 )
 
+@Immutable
 data class DeveloperInfo(
     val developerName: String,
     val avatar: Painter? = null,
@@ -89,6 +94,7 @@ data class DeveloperInfo(
     val socialLinks: List<SocialLink> = emptyList(),
 )
 
+@Immutable
 data class DeviceInfo(
     val osVersion: String,
     val apiLevel: Int,
@@ -96,17 +102,20 @@ data class DeviceInfo(
     val model: String,
 )
 
+@Immutable
 data class LegalInfo(
     val privacyPolicyUrl: String? = null,
     val termsOfServiceUrl: String? = null,
     val showOssLicenses: Boolean = false,
 )
 
+@Immutable
 data class DiagnosticsConfig(
     val customPayload: Map<String, String> = emptyMap(),
     val includeDeviceInfo: Boolean = true,
 )
 
+@Immutable
 data class AboutVisibility(
     val showAppIcon: Boolean = true,
     val showDeviceSection: Boolean = true,
@@ -114,6 +123,7 @@ data class AboutVisibility(
     val showDiagnostics: Boolean = true,
 )
 
+@Immutable
 data class AboutThemeConfig(
     val headerStyle: TextStyle? = null,
     val cardElevation: Dp = 1.dp,

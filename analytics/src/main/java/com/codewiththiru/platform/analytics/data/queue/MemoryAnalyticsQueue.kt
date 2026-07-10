@@ -9,7 +9,7 @@ import kotlinx.coroutines.sync.withLock
  * An in-memory implementation of [AnalyticsQueue].
  * Follows FIFO behavior and respects maxQueuedEvents.
  */
-public class MemoryAnalyticsQueue(
+internal class MemoryAnalyticsQueue(
     private val config: AnalyticsConfig,
 ) : AnalyticsQueue {
     private val queue = mutableListOf<AnalyticsEvent>()

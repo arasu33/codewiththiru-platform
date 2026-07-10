@@ -9,7 +9,7 @@ import com.codewiththiru.platform.analytics.domain.event.AnalyticsUserProperty
 /**
  * Implementation of [AnalyticsProvider] that outputs to Android Logcat.
  */
-public class LogcatAnalyticsProvider : AnalyticsProvider {
+internal class LogcatAnalyticsProvider : AnalyticsProvider {
     private val tag = "LogcatAnalytics"
 
     override suspend fun trackEvent(event: AnalyticsEvent) {

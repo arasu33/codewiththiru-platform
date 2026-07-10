@@ -1,3 +1,5 @@
+@file:Suppress("ImportOrdering")
+
 package com.codewiththiru.platform.rating.policy
 
 import com.codewiththiru.platform.rating.model.RatingEligibilityResult

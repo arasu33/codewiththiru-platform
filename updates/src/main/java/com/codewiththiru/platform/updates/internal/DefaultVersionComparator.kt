@@ -4,6 +4,7 @@ import com.codewiththiru.platform.updates.api.VersionComparator
 import kotlin.math.max
 
 class DefaultVersionComparator : VersionComparator {
+    @Suppress("ReturnCount")
     override fun compare(
         version1: String,
         version2: String,

@@ -20,7 +20,7 @@ import kotlinx.serialization.json.longOrNull
 private val dataStoreCache = java.util.concurrent.ConcurrentHashMap<String, DataStore<Preferences>>()
 
 @Suppress("TooGenericExceptionCaught")
-public class DataStoreAnalyticsQueue(
+internal class DataStoreAnalyticsQueue(
     private val context: Context,
     private val config: AnalyticsConfig,
     queueName: String = "analytics_queue",

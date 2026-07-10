@@ -9,9 +9,9 @@ import kotlinx.serialization.json.JsonPrimitive
 /**
  * Utility to safely convert arbitrary Any? objects to kotlinx.serialization JsonElement.
  */
-public object AnyValueSerializer {
+internal object AnyValueSerializer {
     @Suppress("TooGenericExceptionCaught", "SwallowedException")
-    public fun toJsonElement(value: Any?): JsonElement {
+    internal fun toJsonElement(value: Any?): JsonElement {
         if (value == null) return JsonNull
 
         return try {
@@ -39,7 +39,7 @@ public object AnyValueSerializer {
         }
     }
 
-    public fun toParametersMap(parameters: Map<String, Any?>): Map<String, JsonElement> =
+    internal fun toParametersMap(parameters: Map<String, Any?>): Map<String, JsonElement> =
         parameters.mapValues {
             toJsonElement(it.value)
         }

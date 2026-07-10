@@ -15,6 +15,7 @@ import androidx.compose.ui.semantics.*
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 
+@Suppress("FunctionNaming")
 @Composable
 fun ForceUpdateScreen(
     onUpdateClicked: () -> Unit,

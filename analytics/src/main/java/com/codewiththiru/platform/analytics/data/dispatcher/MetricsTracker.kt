@@ -5,23 +5,23 @@ import android.util.Log
 /**
  * Tracks performance and operational metrics for the analytics pipeline.
  */
-public interface MetricsTracker {
-    public fun trackQueueSize(size: Int)
+internal interface MetricsTracker {
+    fun trackQueueSize(size: Int)
 
-    public fun trackBatchLatency(latencyMs: Long)
+    fun trackBatchLatency(latencyMs: Long)
 
-    public fun trackQueueDrop(
+    fun trackQueueDrop(
         count: Int,
         reason: String,
     )
 
-    public fun trackDeadLetter(count: Int)
+    fun trackDeadLetter(count: Int)
 }
 
 /**
  * Default implementation of MetricsTracker that logs to standard output.
  */
-public class DefaultMetricsTracker : MetricsTracker {
+internal class DefaultMetricsTracker : MetricsTracker {
     override fun trackQueueSize(size: Int) {
         Log.v("AnalyticsMetrics", "Queue size: $size")
     }

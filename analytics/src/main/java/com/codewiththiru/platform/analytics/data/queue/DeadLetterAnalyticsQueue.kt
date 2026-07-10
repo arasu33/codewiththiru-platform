@@ -8,7 +8,7 @@ import com.codewiththiru.platform.analytics.domain.event.AnalyticsEvent
  * Stores events that repeatedly failed to dispatch.
  * Prevents toxic events from blocking the main queue forever while ensuring they aren't lost.
  */
-public class DeadLetterAnalyticsQueue(
+internal class DeadLetterAnalyticsQueue(
     private val context: Context,
     private val config: AnalyticsConfig,
 ) : AnalyticsQueue {

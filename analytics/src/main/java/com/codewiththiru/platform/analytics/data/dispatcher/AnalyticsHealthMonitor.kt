@@ -10,7 +10,7 @@ import kotlinx.coroutines.launch
 /**
  * Periodically observes the analytics infrastructure and emits health metrics.
  */
-public class AnalyticsHealthMonitor(
+internal class AnalyticsHealthMonitor(
     private val queue: AnalyticsQueue,
     private val deadLetterQueue: AnalyticsQueue?,
     private val metricsTracker: MetricsTracker,
@@ -20,7 +20,7 @@ public class AnalyticsHealthMonitor(
     private val monitorIntervalMs = 60 * 1000L // 1 minute
 
     @Suppress("TooGenericExceptionCaught", "SwallowedException")
-    public fun start() {
+    internal fun start() {
         if (job?.isActive == true) return
         job =
             scope.launch {
@@ -43,7 +43,7 @@ public class AnalyticsHealthMonitor(
             }
     }
 
-    public fun stop() {
+    internal fun stop() {
         job?.cancel()
         job = null
     }

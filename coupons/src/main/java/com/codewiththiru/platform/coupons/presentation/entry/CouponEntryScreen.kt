@@ -38,6 +38,7 @@ import com.codewiththiru.platform.coupons.presentation.state.CouponEffect
 import com.codewiththiru.platform.coupons.presentation.state.CouponIntent
 import com.codewiththiru.platform.coupons.presentation.viewmodel.CouponViewModel
 
+@Suppress("LongMethod", "FunctionNaming", "CyclomaticComplexMethod")
 @Composable
 fun CouponEntryScreen(
     viewModel: CouponViewModel,

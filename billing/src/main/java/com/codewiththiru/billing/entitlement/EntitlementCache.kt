@@ -1,7 +1,7 @@
 package com.codewiththiru.billing.entitlement
 
 class EntitlementCache {
-    private val cache = mutableMapOf<String, Entitlement>()
+    private val cache = java.util.concurrent.ConcurrentHashMap<String, Entitlement>()
 
     fun get(id: String): Entitlement? = cache[id]
     

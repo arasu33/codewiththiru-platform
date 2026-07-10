@@ -1,3 +1,5 @@
+@file:Suppress("ImportOrdering")
+
 package com.codewiththiru.platform.rating.provider
 
 import android.app.Activity

@@ -6,8 +6,8 @@ import com.codewiththiru.platform.analytics.domain.event.AnalyticsEvent
 /**
  * Maps AnalyticsEvent domain models into Android Bundles for Firebase Analytics.
  */
-public object FirebaseEventMapper {
-    public fun toBundle(event: AnalyticsEvent): Bundle {
+internal object FirebaseEventMapper {
+    internal fun toBundle(event: AnalyticsEvent): Bundle {
         val bundle = Bundle()
         for ((key, value) in event.parameters) {
             when (value) {
