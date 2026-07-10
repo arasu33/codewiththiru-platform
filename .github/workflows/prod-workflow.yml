@@ -36,11 +36,6 @@ jobs:
           GPR_USER: ${{ github.actor }}
           GPR_KEY: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Publish Artifacts
-        run: ./gradlew publish
-        env:
-          GPR_USER: ${{ github.actor }}
-          GPR_KEY: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Auto-Update README Version
         run: |

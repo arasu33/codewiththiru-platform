@@ -2,7 +2,7 @@
 
 Welcome to the **CodeWithThiru Platform**, the definitive foundation for all future game titles (AquaSort, Sudoku, Chess, 2048, etc.).
 
-## Version: v1.0.2
+## Version: v1.0.4
 
 This SDK provides production-grade, highly-testable, and decoupled modules for:
 - **Core Engineering**: Dependency Injection (Hilt), Coroutines, Observability
@@ -10,13 +10,33 @@ This SDK provides production-grade, highly-testable, and decoupled modules for:
 - **Game Mechanics**: Achievements (`:game-achievements`), Rewards (`:game-rewards`), Statistics (`:game-statistics`), Leaderboards (`:game-leaderboard`)
 - **Developer Experience**: Fixture Generators (`:developer:game-testing`), Time/Clock Mocks (`:developer:test-utils`)
 
-## Getting Started
+## Installation & Publishing (GitHub Packages)
 
-In your application's `build.gradle.kts`:
+To consume this SDK in your application (e.g., AquaSort), you must authenticate with the GitHub Packages registry.
+
+1. **Configure your `settings.gradle.kts`:**
+```kotlin
+dependencyResolutionManagement {
+    repositories {
+        google()
+        mavenCentral()
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/arasu33/codewiththiru-platform")
+            credentials {
+                username = System.getenv("GPR_USER") ?: "your_github_username"
+                password = System.getenv("GPR_KEY") ?: "your_personal_access_token"
+            }
+        }
+    }
+}
+```
+
+2. **Add the BOM to your `build.gradle.kts`:**
 ```kotlin
 dependencies {
     // Import the BOM for standardized dependency versions across all platform modules
-    implementation(platform("com.codewiththiru.platform:platform-bom:1.0.2"))
+    implementation(platform("com.codewiththiru.platform:platform-bom:1.0.4"))
     
     // Choose the modules you need
     implementation("com.codewiththiru.platform:game-events")

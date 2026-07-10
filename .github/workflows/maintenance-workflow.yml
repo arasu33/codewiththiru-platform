@@ -33,10 +33,3 @@ jobs:
       - name: Run Binary Compatibility Checks
         run: ./gradlew apiCheck
 
-      - name: Publish Artifacts
-        run: ./gradlew publish
-        env:
-          GPR_USER: ${{ github.actor }}
-          GPR_KEY: ${{ secrets.GITHUB_TOKEN }}
-          GPG_SIGNING_KEY: ${{ secrets.GPG_SIGNING_KEY }}
-          GPG_SIGNING_PASSWORD: ${{ secrets.GPG_SIGNING_PASSWORD }}
