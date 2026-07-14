@@ -26,7 +26,7 @@ class DeepMergeConflictResolver : ConflictResolver {
             val primary = if (localWins) localObj else remoteObj
             val secondary = if (localWins) remoteObj else localObj
 
-            val mergedMap = mutableMapOf<String, kotlinx.serialization.json.JsonElement>()
+            val mergedMap = java.util.concurrent.ConcurrentHashMap<String, kotlinx.serialization.json.JsonElement>()
 
             // 1. Copy all fields from the older payload
             mergedMap.putAll(secondary)
@@ -36,6 +36,7 @@ class DeepMergeConflictResolver : ConflictResolver {
 
             JsonObject(mergedMap).toString()
         } catch (e: Exception) {
+            if (e is kotlinx.coroutines.CancellationException || e is kotlin.coroutines.cancellation.CancellationException) throw e
             // If JSON parsing fails, fallback to simple string replacement
             if (localTimestampMs >= remoteTimestampMs) localJson else remoteJson
         }

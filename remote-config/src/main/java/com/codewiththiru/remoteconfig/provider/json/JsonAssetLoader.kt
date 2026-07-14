@@ -7,6 +7,7 @@ class JsonAssetLoader(private val context: Context) {
         return try {
             context.assets.open(fileName).bufferedReader().use { it.readText() }
         } catch (e: Exception) {
+            if (e is kotlinx.coroutines.CancellationException || e is kotlin.coroutines.cancellation.CancellationException) throw e
             null
         }
     }

@@ -17,7 +17,7 @@ class JsonRemoteConfigProvider(
 
     override val name: String = "JSON"
     
-    private var configMap = mutableMapOf<String, Any>()
+    private var configMap = java.util.concurrent.ConcurrentHashMap<String, Any>()
 
     override suspend fun initialize() {
         val jsonString = loader.loadStringFromAssets(assetFileName)

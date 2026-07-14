@@ -35,6 +35,7 @@ public class DefaultGamificationRepository(
                     val state = json.decodeFromString<GamificationState>(jsonStr)
                     if (state.userId == userId) state else GamificationState(userId, 0L, 1, 0L, 0L, 0L)
                 } catch (e: Exception) {
+            if (e is kotlinx.coroutines.CancellationException || e is kotlin.coroutines.cancellation.CancellationException) throw e
                     GamificationState(userId, 0L, 1, 0L, 0L, 0L)
                 }
             }
@@ -49,6 +50,7 @@ public class DefaultGamificationRepository(
             // Enqueue work manager sync job here...
             GamificationResult.Success(Unit)
         } catch (e: Exception) {
+            if (e is kotlinx.coroutines.CancellationException || e is kotlin.coroutines.cancellation.CancellationException) throw e
             GamificationResult.Error(e, "DATASTORE_WRITE_ERROR")
         }
     }

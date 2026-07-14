@@ -21,6 +21,7 @@ class NotificationWorker(
             // For now, we simulate success since the provider isn't injected statically.
             Result.success()
         } catch (e: Exception) {
+            if (e is kotlinx.coroutines.CancellationException || e is kotlin.coroutines.cancellation.CancellationException) throw e
             Result.failure()
         }
     }

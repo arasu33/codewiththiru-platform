@@ -6,7 +6,7 @@ interface GrowthAutomationEngine {
 }
 
 class DefaultGrowthAutomationEngine : GrowthAutomationEngine {
-    private val rules = mutableListOf<AutomationRule>()
+    private val rules = java.util.concurrent.CopyOnWriteArrayList<AutomationRule>()
 
     override suspend fun evaluateRules(event: String) {
         // Evaluate rules

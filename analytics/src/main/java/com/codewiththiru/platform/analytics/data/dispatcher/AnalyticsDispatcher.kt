@@ -61,6 +61,7 @@ internal class AnalyticsDispatcher(
         } catch (e: kotlinx.coroutines.CancellationException) {
             throw e
         } catch (e: Exception) {
+            if (e is kotlinx.coroutines.CancellationException || e is kotlin.coroutines.cancellation.CancellationException) throw e
             Log.e("AnalyticsDispatcher", "Error during flush", e)
         }
     }
@@ -77,6 +78,7 @@ internal class AnalyticsDispatcher(
         } catch (e: kotlinx.coroutines.CancellationException) {
             throw e
         } catch (e: Exception) {
+            if (e is kotlinx.coroutines.CancellationException || e is kotlin.coroutines.cancellation.CancellationException) throw e
             success = false
             Log.e("AnalyticsDispatcher", "Provider failed during dispatch. Entering backoff.", e)
         }

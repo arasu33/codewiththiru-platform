@@ -34,6 +34,7 @@ internal object AnyValueSerializer {
                 else -> JsonPrimitive(value.toString())
             }
         } catch (e: Exception) {
+            if (e is kotlinx.coroutines.CancellationException || e is kotlin.coroutines.cancellation.CancellationException) throw e
             // Fallback for safety - never crash
             JsonPrimitive(value.toString())
         }

@@ -18,6 +18,7 @@ class FirebaseRemoteConfigProvider(
             adapter.fetch()
             Result.success(Unit)
         } catch (e: Exception) {
+            if (e is kotlinx.coroutines.CancellationException || e is kotlin.coroutines.cancellation.CancellationException) throw e
             Result.failure(mapper.mapException(e))
         }
     }
@@ -26,6 +27,7 @@ class FirebaseRemoteConfigProvider(
         return try {
             adapter.activate()
         } catch (e: Exception) {
+            if (e is kotlinx.coroutines.CancellationException || e is kotlin.coroutines.cancellation.CancellationException) throw e
             false
         }
     }
@@ -34,6 +36,7 @@ class FirebaseRemoteConfigProvider(
         return try {
             Result.success(adapter.fetchAndActivate())
         } catch (e: Exception) {
+            if (e is kotlinx.coroutines.CancellationException || e is kotlin.coroutines.cancellation.CancellationException) throw e
             Result.failure(mapper.mapException(e))
         }
     }

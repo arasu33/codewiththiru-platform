@@ -278,6 +278,10 @@ object CustLogger {
         currentState.printers.forEach { printer ->
             try {
                 printer.printLog(level, tag, message, throwable)
+            } catch (e: kotlinx.coroutines.CancellationException) {
+                throw e
+            } catch (e: kotlin.coroutines.cancellation.CancellationException) {
+                throw e
             } catch (e: Exception) {
                 // Ignore printer exceptions to prevent app crash
             }

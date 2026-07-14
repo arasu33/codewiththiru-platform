@@ -20,6 +20,7 @@ class DefaultNotificationManager(
             channelManager.createChannels()
             _state.value = NotificationState.Ready
         } catch (e: Exception) {
+            if (e is kotlinx.coroutines.CancellationException || e is kotlin.coroutines.cancellation.CancellationException) throw e
             _state.value = NotificationState.Error(e)
         }
     }

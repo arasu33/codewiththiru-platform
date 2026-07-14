@@ -25,6 +25,7 @@ internal class CompositeAnalyticsProvider(
                         try {
                             provider.trackEvent(event)
                         } catch (e: Exception) {
+            if (e is kotlinx.coroutines.CancellationException || e is kotlin.coroutines.cancellation.CancellationException) throw e
                             Log.e("CompositeAnalytics", "Provider failed to track event", e)
                         }
                     }
@@ -41,6 +42,7 @@ internal class CompositeAnalyticsProvider(
                         try {
                             provider.trackScreen(screen)
                         } catch (e: Exception) {
+            if (e is kotlinx.coroutines.CancellationException || e is kotlin.coroutines.cancellation.CancellationException) throw e
                             Log.e("CompositeAnalytics", "Provider failed to track screen", e)
                         }
                     }
@@ -57,6 +59,7 @@ internal class CompositeAnalyticsProvider(
                         try {
                             provider.setUserProperty(property)
                         } catch (e: Exception) {
+            if (e is kotlinx.coroutines.CancellationException || e is kotlin.coroutines.cancellation.CancellationException) throw e
                             Log.e("CompositeAnalytics", "Provider failed to set user property", e)
                         }
                     }
@@ -73,6 +76,7 @@ internal class CompositeAnalyticsProvider(
                         try {
                             provider.flush()
                         } catch (e: Exception) {
+            if (e is kotlinx.coroutines.CancellationException || e is kotlin.coroutines.cancellation.CancellationException) throw e
                             Log.e("CompositeAnalytics", "Provider failed to flush", e)
                         }
                     }

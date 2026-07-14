@@ -83,6 +83,8 @@ class DefaultSaveManager(
         val serialized = storage.getString("save_$saveId") ?: return null
         return try {
             serializer.deserialize(serialized, typeOf<GameState>())
+        } catch (e: kotlin.coroutines.cancellation.CancellationException) {
+            throw e
         } catch (e: kotlinx.coroutines.CancellationException) {
             throw e
         } catch (e: Exception) {
@@ -112,6 +114,8 @@ class DefaultSaveManager(
         val serialized = storage.getString(resumeKey) ?: return null
         return try {
             serializer.deserialize(serialized, typeOf<GameState>())
+        } catch (e: kotlin.coroutines.cancellation.CancellationException) {
+            throw e
         } catch (e: kotlinx.coroutines.CancellationException) {
             throw e
         } catch (e: Exception) {

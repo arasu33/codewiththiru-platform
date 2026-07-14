@@ -82,6 +82,7 @@ class RewardedManager(
             analytics.onImpression("rewarded_unit", "AdMob")
             callback?.onAdImpression()
         } catch (e: Exception) {
+            if (e is kotlinx.coroutines.CancellationException || e is kotlin.coroutines.cancellation.CancellationException) throw e
             _rewardedState.value = RewardedState.Error(e)
             callback?.onAdFailedToShow(e)
         }

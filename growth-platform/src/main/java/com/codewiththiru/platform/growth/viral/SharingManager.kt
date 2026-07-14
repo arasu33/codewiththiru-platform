@@ -6,7 +6,7 @@ interface SharingManager {
 }
 
 class DefaultSharingManager : SharingManager {
-    private val shareCounts = mutableMapOf<String, Int>()
+    private val shareCounts = java.util.concurrent.ConcurrentHashMap<String, Int>()
 
     override suspend fun shareContent(contentId: String, platform: String): Boolean {
         shareCounts[contentId] = (shareCounts[contentId] ?: 0) + 1

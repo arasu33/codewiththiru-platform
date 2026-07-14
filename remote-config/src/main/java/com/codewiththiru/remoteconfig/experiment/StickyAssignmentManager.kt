@@ -23,6 +23,7 @@ class StickyAssignmentManager(private val context: Context) {
             val map = json.decodeFromString<Map<String, String>>(jsonStr)
             map[experimentId]
         } catch (e: Exception) {
+            if (e is kotlinx.coroutines.CancellationException || e is kotlin.coroutines.cancellation.CancellationException) throw e
             null
         }
     }
@@ -36,6 +37,7 @@ class StickyAssignmentManager(private val context: Context) {
                 try {
                     json.decodeFromString<MutableMap<String, String>>(jsonStr)
                 } catch (e: Exception) {
+            if (e is kotlinx.coroutines.CancellationException || e is kotlin.coroutines.cancellation.CancellationException) throw e
                     mutableMapOf()
                 }
             }

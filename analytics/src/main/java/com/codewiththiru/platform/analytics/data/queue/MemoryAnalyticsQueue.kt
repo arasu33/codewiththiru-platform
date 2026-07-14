@@ -12,7 +12,7 @@ import kotlinx.coroutines.sync.withLock
 internal class MemoryAnalyticsQueue(
     private val config: AnalyticsConfig,
 ) : AnalyticsQueue {
-    private val queue = mutableListOf<AnalyticsEvent>()
+    private val queue = java.util.concurrent.CopyOnWriteArrayList<AnalyticsEvent>()
     private val mutex = Mutex()
 
     override suspend fun enqueue(event: AnalyticsEvent) {

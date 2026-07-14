@@ -76,6 +76,8 @@ class DefaultAchievementManager(
         val serialized = saveStorage.getString(achievementsKey) ?: return emptyList()
         return try {
             serializer.deserialize(serialized, kotlin.reflect.typeOf<List<Achievement>>())
+        } catch (e: kotlin.coroutines.cancellation.CancellationException) {
+            throw e
         } catch (e: kotlinx.coroutines.CancellationException) {
             throw e
         } catch (e: Exception) {

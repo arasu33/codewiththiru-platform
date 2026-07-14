@@ -146,6 +146,7 @@ class AppOpenManager(
                     // isShowingAd = false
                     // callback.onAdDismissed()
                 } catch (e: Exception) {
+            if (e is kotlinx.coroutines.CancellationException || e is kotlin.coroutines.cancellation.CancellationException) throw e
                     isShowingAd = false
                     callback.onAdFailedToShow(e)
                 }

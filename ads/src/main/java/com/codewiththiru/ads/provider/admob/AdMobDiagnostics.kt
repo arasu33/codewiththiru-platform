@@ -12,7 +12,7 @@ object AdMobDiagnostics {
     }
 
     fun getInitializationStatus(): Map<String, String> {
-        val statusMap = mutableMapOf<String, String>()
+        val statusMap = java.util.concurrent.ConcurrentHashMap<String, String>()
         val initStatus = MobileAds.getInitializationStatus()
         initStatus?.adapterStatusMap?.forEach { (adapterClass, status) ->
             statusMap[adapterClass] = status.description

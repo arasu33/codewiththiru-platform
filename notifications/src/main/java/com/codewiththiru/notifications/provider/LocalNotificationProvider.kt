@@ -37,6 +37,7 @@ class LocalNotificationProvider(
 
             NotificationResult.Success
         } catch (e: Exception) {
+            if (e is kotlinx.coroutines.CancellationException || e is kotlin.coroutines.cancellation.CancellationException) throw e
             NotificationResult.Failure(e)
         }
     }

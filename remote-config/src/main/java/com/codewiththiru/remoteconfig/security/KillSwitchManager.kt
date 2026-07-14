@@ -6,7 +6,7 @@ interface KillSwitchManager {
 }
 
 class DefaultKillSwitchManager : KillSwitchManager {
-    private val activeSwitches = mutableMapOf<String, Boolean>()
+    private val activeSwitches = java.util.concurrent.ConcurrentHashMap<String, Boolean>()
 
     override fun isKillSwitchActive(killSwitchKey: String): Boolean {
         return activeSwitches[killSwitchKey] == true

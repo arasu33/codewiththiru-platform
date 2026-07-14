@@ -51,6 +51,8 @@ class DefaultRewardManager(
         val serialized = saveStorage.getString(walletKey) ?: return PlayerWallet()
         return try {
             serializer.deserialize(serialized, kotlin.reflect.typeOf<PlayerWallet>())
+        } catch (e: kotlin.coroutines.cancellation.CancellationException) {
+            throw e
         } catch (e: Exception) {
             PlayerWallet()
         }

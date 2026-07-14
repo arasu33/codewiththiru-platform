@@ -30,6 +30,7 @@ class DataStoreNotificationRepository(private val context: Context) : Notificati
         try {
             json.decodeFromString(jsonString)
         } catch (e: Exception) {
+            if (e is kotlinx.coroutines.CancellationException || e is kotlin.coroutines.cancellation.CancellationException) throw e
             emptyList()
         }
     }
@@ -81,6 +82,7 @@ class DataStoreNotificationRepository(private val context: Context) : Notificati
         return try {
             json.decodeFromString(jsonString)
         } catch (e: Exception) {
+            if (e is kotlinx.coroutines.CancellationException || e is kotlin.coroutines.cancellation.CancellationException) throw e
             emptyList()
         }
     }
