@@ -22,8 +22,11 @@ class JsonParser {
                     value.jsonPrimitive.doubleOrNull != null -> configMap[key] = value.jsonPrimitive.doubleOrNull!!
                 }
             }
-        } catch (e: Exception) {
-            if (e is kotlinx.coroutines.CancellationException || e is kotlin.coroutines.cancellation.CancellationException) throw e
+        } catch (e: kotlinx.coroutines.CancellationException) {
+        throw e
+    } catch (e: kotlin.coroutines.cancellation.CancellationException) {
+        throw e
+    } catch (e: Exception) {
             // parsing error
         }
         return configMap

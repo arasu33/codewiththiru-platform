@@ -53,8 +53,11 @@ class AdMobAdsProvider(
             MobileAds.initialize(context) { status ->
                 // Diagnostics can be collected from this status if needed
             }
-        } catch (e: Exception) {
-            if (e is kotlinx.coroutines.CancellationException || e is kotlin.coroutines.cancellation.CancellationException) throw e
+        } catch (e: kotlinx.coroutines.CancellationException) {
+        throw e
+    } catch (e: kotlin.coroutines.cancellation.CancellationException) {
+        throw e
+    } catch (e: Exception) {
             android.util.Log.e("CWT_PLATFORM", "Failed to initialize MobileAds SDK gracefully", e)
         }
     }

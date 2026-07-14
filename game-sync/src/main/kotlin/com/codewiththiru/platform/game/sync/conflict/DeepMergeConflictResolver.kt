@@ -35,12 +35,11 @@ class DeepMergeConflictResolver : ConflictResolver {
             mergedMap.putAll(primary)
 
             JsonObject(mergedMap).toString()
+        } catch (e: kotlinx.coroutines.CancellationException) {
+            throw e
+        } catch (e: kotlin.coroutines.cancellation.CancellationException) {
+            throw e
         } catch (e: Exception) {
-            if (e is kotlinx.coroutines.CancellationException ||
-                e is kotlin.coroutines.cancellation.CancellationException
-            ) {
-                throw e
-            }
             // If JSON parsing fails, fallback to simple string replacement
             if (localTimestampMs >= remoteTimestampMs) localJson else remoteJson
         }

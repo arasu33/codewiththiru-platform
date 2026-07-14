@@ -11,8 +11,11 @@ class FirebaseConfigAdapter {
     private val remoteConfig: FirebaseRemoteConfig? by lazy {
         try {
             Firebase.remoteConfig
-        } catch (e: Exception) {
-            if (e is kotlinx.coroutines.CancellationException || e is kotlin.coroutines.cancellation.CancellationException) throw e
+        } catch (e: kotlinx.coroutines.CancellationException) {
+        throw e
+    } catch (e: kotlin.coroutines.cancellation.CancellationException) {
+        throw e
+    } catch (e: Exception) {
             android.util.Log.e("CWT_PLATFORM", "Firebase Remote Config is not initialized.", e)
             null
         }

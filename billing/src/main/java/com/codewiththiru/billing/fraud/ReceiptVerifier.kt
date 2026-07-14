@@ -29,8 +29,11 @@ class ReceiptVerifier(private val base64PublicKey: String?) {
             
             val signatureBytes = Base64.decode(signature, Base64.DEFAULT)
             sig.verify(signatureBytes)
-        } catch (e: Exception) {
-            if (e is kotlinx.coroutines.CancellationException || e is kotlin.coroutines.cancellation.CancellationException) throw e
+        } catch (e: kotlinx.coroutines.CancellationException) {
+        throw e
+    } catch (e: kotlin.coroutines.cancellation.CancellationException) {
+        throw e
+    } catch (e: Exception) {
             android.util.Log.e("CWT_PLATFORM", "Error during receipt verification", e)
             false
         }

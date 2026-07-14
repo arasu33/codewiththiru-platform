@@ -20,8 +20,11 @@ class NotificationWorker(
             // Ideally we'd get the provider from DI here and show the notification.
             // For now, we simulate success since the provider isn't injected statically.
             Result.success()
-        } catch (e: Exception) {
-            if (e is kotlinx.coroutines.CancellationException || e is kotlin.coroutines.cancellation.CancellationException) throw e
+        } catch (e: kotlinx.coroutines.CancellationException) {
+        throw e
+    } catch (e: kotlin.coroutines.cancellation.CancellationException) {
+        throw e
+    } catch (e: Exception) {
             Result.failure()
         }
     }

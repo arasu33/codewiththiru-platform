@@ -17,8 +17,11 @@ class TamperDetector(private val context: Context) {
         return try {
             val installer = context.packageManager.getInstallerPackageName(context.packageName)
             installer == "com.android.vending" || installer == "com.amazon.venezia"
-        } catch (e: Exception) {
-            if (e is kotlinx.coroutines.CancellationException || e is kotlin.coroutines.cancellation.CancellationException) throw e
+        } catch (e: kotlinx.coroutines.CancellationException) {
+        throw e
+    } catch (e: kotlin.coroutines.cancellation.CancellationException) {
+        throw e
+    } catch (e: Exception) {
             false
         }
     }

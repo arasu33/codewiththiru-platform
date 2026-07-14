@@ -35,8 +35,11 @@ class CacheMigrationManager(
             if (currentVersion != targetVersion) {
                 throw IllegalStateException("Cache migration failed: Reached version $currentVersion, but target version is $targetVersion. Expected a complete path.")
             }
-        } catch (e: Exception) {
-            if (e is kotlinx.coroutines.CancellationException || e is kotlin.coroutines.cancellation.CancellationException) throw e
+        } catch (e: kotlinx.coroutines.CancellationException) {
+        throw e
+    } catch (e: kotlin.coroutines.cancellation.CancellationException) {
+        throw e
+    } catch (e: Exception) {
             Log.e("CacheMigrationManager", "Migration failed. Wiping cache.", e)
             metrics.recordCorruption()
             return CachedRemoteConfig(targetVersion, System.currentTimeMillis(), "{}")

@@ -11,26 +11,38 @@ class FirebaseMapper {
 
     fun mapBoolean(value: FirebaseRemoteConfigValue?): Boolean? {
         if (value == null || value.source == FirebaseRemoteConfig.VALUE_SOURCE_STATIC) return null
-        return try { value.asBoolean() } catch (e: Exception) {
-            if (e is kotlinx.coroutines.CancellationException || e is kotlin.coroutines.cancellation.CancellationException) throw e null }
+        return try { value.asBoolean() } catch (e: kotlinx.coroutines.CancellationException) {
+        throw e
+    } catch (e: kotlin.coroutines.cancellation.CancellationException) {
+        throw e
+    } catch (e: Exception) { null }
     }
 
     fun mapInt(value: FirebaseRemoteConfigValue?): Int? {
         if (value == null || value.source == FirebaseRemoteConfig.VALUE_SOURCE_STATIC) return null
-        return try { value.asLong().toInt() } catch (e: Exception) {
-            if (e is kotlinx.coroutines.CancellationException || e is kotlin.coroutines.cancellation.CancellationException) throw e null }
+        return try { value.asLong().toInt() } catch (e: kotlinx.coroutines.CancellationException) {
+        throw e
+    } catch (e: kotlin.coroutines.cancellation.CancellationException) {
+        throw e
+    } catch (e: Exception) { null }
     }
 
     fun mapLong(value: FirebaseRemoteConfigValue?): Long? {
         if (value == null || value.source == FirebaseRemoteConfig.VALUE_SOURCE_STATIC) return null
-        return try { value.asLong() } catch (e: Exception) {
-            if (e is kotlinx.coroutines.CancellationException || e is kotlin.coroutines.cancellation.CancellationException) throw e null }
+        return try { value.asLong() } catch (e: kotlinx.coroutines.CancellationException) {
+        throw e
+    } catch (e: kotlin.coroutines.cancellation.CancellationException) {
+        throw e
+    } catch (e: Exception) { null }
     }
 
     fun mapDouble(value: FirebaseRemoteConfigValue?): Double? {
         if (value == null || value.source == FirebaseRemoteConfig.VALUE_SOURCE_STATIC) return null
-        return try { value.asDouble() } catch (e: Exception) {
-            if (e is kotlinx.coroutines.CancellationException || e is kotlin.coroutines.cancellation.CancellationException) throw e null }
+        return try { value.asDouble() } catch (e: kotlinx.coroutines.CancellationException) {
+        throw e
+    } catch (e: kotlin.coroutines.cancellation.CancellationException) {
+        throw e
+    } catch (e: Exception) { null }
     }
     
     fun mapException(e: Exception): Throwable {

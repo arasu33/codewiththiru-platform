@@ -8,8 +8,11 @@ class FirebasePushProvider : PushNotificationProvider {
     private val firebaseMessaging: FirebaseMessaging? by lazy {
         try {
             FirebaseMessaging.getInstance()
-        } catch (e: Exception) {
-            if (e is kotlinx.coroutines.CancellationException || e is kotlin.coroutines.cancellation.CancellationException) throw e
+        } catch (e: kotlinx.coroutines.CancellationException) {
+        throw e
+    } catch (e: kotlin.coroutines.cancellation.CancellationException) {
+        throw e
+    } catch (e: Exception) {
             android.util.Log.e("CWT_PLATFORM", "Firebase Messaging is not initialized.", e)
             null
         }
@@ -25,8 +28,11 @@ class FirebasePushProvider : PushNotificationProvider {
         for (attempt in 0 until maxRetries) {
             try {
                 return block()
-            } catch (e: Exception) {
-            if (e is kotlinx.coroutines.CancellationException || e is kotlin.coroutines.cancellation.CancellationException) throw e
+            } catch (e: kotlinx.coroutines.CancellationException) {
+        throw e
+    } catch (e: kotlin.coroutines.cancellation.CancellationException) {
+        throw e
+    } catch (e: Exception) {
                 lastException = e
                 if (attempt < maxRetries - 1) {
                     kotlinx.coroutines.delay(currentDelay)
@@ -42,8 +48,11 @@ class FirebasePushProvider : PushNotificationProvider {
         return try {
             withRetry { fcm.subscribeToTopic(topic).await() }
             true
-        } catch (e: Exception) {
-            if (e is kotlinx.coroutines.CancellationException || e is kotlin.coroutines.cancellation.CancellationException) throw e
+        } catch (e: kotlinx.coroutines.CancellationException) {
+        throw e
+    } catch (e: kotlin.coroutines.cancellation.CancellationException) {
+        throw e
+    } catch (e: Exception) {
             false
         }
     }
@@ -53,8 +62,11 @@ class FirebasePushProvider : PushNotificationProvider {
         return try {
             withRetry { fcm.unsubscribeFromTopic(topic).await() }
             true
-        } catch (e: Exception) {
-            if (e is kotlinx.coroutines.CancellationException || e is kotlin.coroutines.cancellation.CancellationException) throw e
+        } catch (e: kotlinx.coroutines.CancellationException) {
+        throw e
+    } catch (e: kotlin.coroutines.cancellation.CancellationException) {
+        throw e
+    } catch (e: Exception) {
             false
         }
     }
@@ -63,8 +75,11 @@ class FirebasePushProvider : PushNotificationProvider {
         val fcm = firebaseMessaging ?: return null
         return try {
             withRetry { fcm.token.await() }
-        } catch (e: Exception) {
-            if (e is kotlinx.coroutines.CancellationException || e is kotlin.coroutines.cancellation.CancellationException) throw e
+        } catch (e: kotlinx.coroutines.CancellationException) {
+        throw e
+    } catch (e: kotlin.coroutines.cancellation.CancellationException) {
+        throw e
+    } catch (e: Exception) {
             null
         }
     }
@@ -73,8 +88,11 @@ class FirebasePushProvider : PushNotificationProvider {
         val fcm = firebaseMessaging ?: return
         try {
             fcm.deleteToken()
-        } catch (e: Exception) {
-            if (e is kotlinx.coroutines.CancellationException || e is kotlin.coroutines.cancellation.CancellationException) throw e
+        } catch (e: kotlinx.coroutines.CancellationException) {
+        throw e
+    } catch (e: kotlin.coroutines.cancellation.CancellationException) {
+        throw e
+    } catch (e: Exception) {
             android.util.Log.e("CWT_PLATFORM", "Failed to delete Firebase push token", e)
         }
     }

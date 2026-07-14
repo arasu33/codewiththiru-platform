@@ -39,12 +39,11 @@ class EncryptedGameSaveManager<T>(
 
             _status.value = SaveSystemStatus.IDLE
             SaveResponse.Success(request.slot, request.metadata, request.state)
+        } catch (e: kotlinx.coroutines.CancellationException) {
+            throw e
+        } catch (e: kotlin.coroutines.cancellation.CancellationException) {
+            throw e
         } catch (e: Exception) {
-            if (e is kotlinx.coroutines.CancellationException ||
-                e is kotlin.coroutines.cancellation.CancellationException
-            ) {
-                throw e
-            }
             _status.value = SaveSystemStatus.ERROR
             SaveResponse.Failure(e, request.slot)
         }
@@ -87,12 +86,11 @@ class EncryptedGameSaveManager<T>(
 
             _status.value = SaveSystemStatus.IDLE
             SaveResponse.Success(slot, dummyMetadata, data)
+        } catch (e: kotlinx.coroutines.CancellationException) {
+            throw e
+        } catch (e: kotlin.coroutines.cancellation.CancellationException) {
+            throw e
         } catch (e: Exception) {
-            if (e is kotlinx.coroutines.CancellationException ||
-                e is kotlin.coroutines.cancellation.CancellationException
-            ) {
-                throw e
-            }
             _status.value = SaveSystemStatus.ERROR
             SaveResponse.Failure(e, slot)
         }
