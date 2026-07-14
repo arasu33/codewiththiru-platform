@@ -62,7 +62,11 @@ internal class AnalyticsQueueMaintenance(
                 Log.w("AnalyticsQueueMaintenance", "Queue size massive: $currentSize")
             }
         } catch (e: Exception) {
-            if (e is kotlinx.coroutines.CancellationException || e is kotlin.coroutines.cancellation.CancellationException) throw e
+            if (e is kotlinx.coroutines.CancellationException ||
+                e is kotlin.coroutines.cancellation.CancellationException
+            ) {
+                throw e
+            }
             Log.e("AnalyticsQueueMaintenance", "Error running maintenance", e)
         }
     }

@@ -31,7 +31,11 @@ class PlayStoreUpdateSource(
                 ),
             )
         } catch (e: Exception) {
-            if (e is kotlinx.coroutines.CancellationException || e is kotlin.coroutines.cancellation.CancellationException) throw e
+            if (e is kotlinx.coroutines.CancellationException ||
+                e is kotlin.coroutines.cancellation.CancellationException
+            ) {
+                throw e
+            }
             Result.failure(e)
         }
 
@@ -67,7 +71,11 @@ class PlayStoreUpdateSource(
                 Result.failure(RuntimeException("Failed to start Play Core update flow"))
             }
         } catch (e: Exception) {
-            if (e is kotlinx.coroutines.CancellationException || e is kotlin.coroutines.cancellation.CancellationException) throw e
+            if (e is kotlinx.coroutines.CancellationException ||
+                e is kotlin.coroutines.cancellation.CancellationException
+            ) {
+                throw e
+            }
             Result.failure(e)
         }
     }

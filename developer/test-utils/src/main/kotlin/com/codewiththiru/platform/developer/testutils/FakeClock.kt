@@ -12,7 +12,9 @@ class FakeClock(
 
     var currentTimeMs: Long
         get() = time.get()
-        set(value) { time.set(value) }
+        set(value) {
+            time.set(value)
+        }
 
     fun advanceBy(ms: Long) {
         time.addAndGet(ms)

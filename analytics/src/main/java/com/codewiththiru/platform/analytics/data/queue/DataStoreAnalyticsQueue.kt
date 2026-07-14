@@ -45,7 +45,11 @@ internal class DataStoreAnalyticsQueue(
                 json.decodeFromString(jsonStr)
             }
         } catch (e: Exception) {
-            if (e is kotlinx.coroutines.CancellationException || e is kotlin.coroutines.cancellation.CancellationException) throw e
+            if (e is kotlinx.coroutines.CancellationException ||
+                e is kotlin.coroutines.cancellation.CancellationException
+            ) {
+                throw e
+            }
             Log.e("DataStoreAnalyticsQueue", "Corruption detected during read", e)
             dataStore.edit { it.remove(queueKey) }
             mutableListOf()
@@ -78,7 +82,11 @@ internal class DataStoreAnalyticsQueue(
                 prefs[queueKey] = json.encodeToString(list)
             }
         } catch (e: Exception) {
-            if (e is kotlinx.coroutines.CancellationException || e is kotlin.coroutines.cancellation.CancellationException) throw e
+            if (e is kotlinx.coroutines.CancellationException ||
+                e is kotlin.coroutines.cancellation.CancellationException
+            ) {
+                throw e
+            }
             Log.e("DataStoreAnalyticsQueue", "Error during enqueue", e)
             clear()
         }
@@ -129,7 +137,11 @@ internal class DataStoreAnalyticsQueue(
                 prefs[queueKey] = json.encodeToString(list)
             }
         } catch (e: Exception) {
-            if (e is kotlinx.coroutines.CancellationException || e is kotlin.coroutines.cancellation.CancellationException) throw e
+            if (e is kotlinx.coroutines.CancellationException ||
+                e is kotlin.coroutines.cancellation.CancellationException
+            ) {
+                throw e
+            }
             Log.e("DataStoreAnalyticsQueue", "Error during remove", e)
             clear()
         }
@@ -139,7 +151,11 @@ internal class DataStoreAnalyticsQueue(
         try {
             dataStore.edit { it.remove(queueKey) }
         } catch (e: Exception) {
-            if (e is kotlinx.coroutines.CancellationException || e is kotlin.coroutines.cancellation.CancellationException) throw e
+            if (e is kotlinx.coroutines.CancellationException ||
+                e is kotlin.coroutines.cancellation.CancellationException
+            ) {
+                throw e
+            }
             Log.e("DataStoreAnalyticsQueue", "Error during clear", e)
         }
     }
