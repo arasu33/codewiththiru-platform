@@ -29,7 +29,11 @@ class DataStoreNotificationRepository(private val context: Context) : Notificati
         val jsonString = prefs[INBOX_KEY] ?: "[]"
         try {
             json.decodeFromString(jsonString)
-        } catch (e: Exception) {
+        } catch (e: kotlinx.coroutines.CancellationException) {
+        throw e
+    } catch (e: kotlin.coroutines.cancellation.CancellationException) {
+        throw e
+    } catch (e: Exception) {
             emptyList()
         }
     }
@@ -80,7 +84,11 @@ class DataStoreNotificationRepository(private val context: Context) : Notificati
         if (jsonString.isNullOrBlank()) return emptyList()
         return try {
             json.decodeFromString(jsonString)
-        } catch (e: Exception) {
+        } catch (e: kotlinx.coroutines.CancellationException) {
+        throw e
+    } catch (e: kotlin.coroutines.cancellation.CancellationException) {
+        throw e
+    } catch (e: Exception) {
             emptyList()
         }
     }

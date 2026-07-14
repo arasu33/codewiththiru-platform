@@ -6,7 +6,7 @@ interface ConversionTracker {
 }
 
 class DefaultConversionTracker : ConversionTracker {
-    private val events = mutableListOf<ConversionEvent>()
+    private val events = java.util.concurrent.CopyOnWriteArrayList<ConversionEvent>()
 
     override suspend fun trackConversion(event: ConversionEvent) {
         events.add(event)

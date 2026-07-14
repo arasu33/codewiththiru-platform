@@ -5,7 +5,7 @@ import com.codewiththiru.platform.moreapps.domain.repository.MoreAppsRepository
 
 class FakeMoreAppsRepository : MoreAppsRepository {
     var appsResult: MoreAppsResult = MoreAppsResult.Empty
-    var appsByPage: MutableMap<Int, MoreAppsResult> = mutableMapOf()
+    var appsByPage: MutableMap<Int, MoreAppsResult> = java.util.concurrent.ConcurrentHashMap()
 
     override suspend fun getApps(): MoreAppsResult = appsResult
 

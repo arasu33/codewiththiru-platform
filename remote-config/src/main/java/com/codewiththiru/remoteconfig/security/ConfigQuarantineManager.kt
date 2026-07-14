@@ -7,7 +7,7 @@ import com.codewiththiru.remoteconfig.analytics.RemoteConfigEvent
 class ConfigQuarantineManager(
     private val analyticsProvider: RemoteConfigAnalyticsProvider
 ) {
-    private val quarantinedConfigs = mutableListOf<String>()
+    private val quarantinedConfigs = java.util.concurrent.CopyOnWriteArrayList<String>()
 
     fun processConfig(payload: String, riskLevel: ConfigRiskLevel): Boolean {
         return when (riskLevel) {

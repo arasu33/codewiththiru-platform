@@ -44,7 +44,7 @@ internal class AnalyticsDispatcher(
     }
 
     /** Forces an immediate flush of the queue. */
-    @Suppress("TooGenericExceptionCaught", "NestedBlockDepth", "MagicNumber")
+    @Suppress("TooGenericExceptionCaught", "NestedBlockDepth", "MagicNumber", "ThrowsCount")
     internal suspend fun flush() {
         try {
             var dispatched = 0
@@ -60,12 +60,16 @@ internal class AnalyticsDispatcher(
             }
         } catch (e: kotlinx.coroutines.CancellationException) {
             throw e
+        } catch (e: kotlinx.coroutines.CancellationException) {
+            throw e
+        } catch (e: kotlin.coroutines.cancellation.CancellationException) {
+            throw e
         } catch (e: Exception) {
             Log.e("AnalyticsDispatcher", "Error during flush", e)
         }
     }
 
-    @Suppress("TooGenericExceptionCaught", "ReturnCount")
+    @Suppress("TooGenericExceptionCaught", "ReturnCount", "ThrowsCount")
     private suspend fun processNextBatch(): Int {
         val batch = queue.peek(config.batchSize)
         if (batch.isEmpty()) return -1
@@ -75,6 +79,10 @@ internal class AnalyticsDispatcher(
             batch.forEach { provider.trackEvent(it) }
             provider.flush()
         } catch (e: kotlinx.coroutines.CancellationException) {
+            throw e
+        } catch (e: kotlinx.coroutines.CancellationException) {
+            throw e
+        } catch (e: kotlin.coroutines.cancellation.CancellationException) {
             throw e
         } catch (e: Exception) {
             success = false

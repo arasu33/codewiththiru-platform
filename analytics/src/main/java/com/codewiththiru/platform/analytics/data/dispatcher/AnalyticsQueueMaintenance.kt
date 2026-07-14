@@ -61,6 +61,10 @@ internal class AnalyticsQueueMaintenance(
             if (currentSize > config.batchSize * 1000) { // Arbitrary massive size check
                 Log.w("AnalyticsQueueMaintenance", "Queue size massive: $currentSize")
             }
+        } catch (e: kotlinx.coroutines.CancellationException) {
+            throw e
+        } catch (e: kotlin.coroutines.cancellation.CancellationException) {
+            throw e
         } catch (e: Exception) {
             Log.e("AnalyticsQueueMaintenance", "Error running maintenance", e)
         }

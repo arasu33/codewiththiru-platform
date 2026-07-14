@@ -12,7 +12,7 @@ public data class Span(
     val context: TraceContext,
     val startTime: Long,
     var endTime: Long? = null,
-    val tags: MutableMap<String, String> = mutableMapOf()
+    val tags: MutableMap<String, String> = java.util.concurrent.ConcurrentHashMap()
 )
 
 public data class Trace(

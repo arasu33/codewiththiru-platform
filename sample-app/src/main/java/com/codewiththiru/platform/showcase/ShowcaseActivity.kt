@@ -94,7 +94,7 @@ fun ShowcaseNavigator() {
 
 @Composable
 fun DashboardScreen(onNavigate: (Screen) -> Unit) {
-    val screens = Screen.values().filter { it != Screen.DASHBOARD }
+    val screens = Screen.entries.filter { it != Screen.DASHBOARD }
     LazyColumn(modifier = Modifier.fillMaxSize().padding(16.dp)) {
         item { Text("CodeWithThiru Platform Showcase", style = MaterialTheme.typography.headlineMedium, modifier = Modifier.padding(bottom = 16.dp)) }
         items(screens) { screen ->

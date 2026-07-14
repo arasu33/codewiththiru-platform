@@ -42,9 +42,9 @@ if (pluginManager.hasPlugin("com.android.library")) {
                             }
                         }
                         scm {
-                            connection.set("scm:git:github.com/arasu33/codewiththiru-platform.git")
-                            developerConnection.set("scm:git:ssh://github.com/arasu33/codewiththiru-platform.git")
-                            url.set("https://github.com/arasu33/codewiththiru-platform/tree/main")
+                            connection.set("scm:git:git://github.com/arasu33/codewiththiru-platform.git")
+                            developerConnection.set("scm:git:ssh://git@github.com/arasu33/codewiththiru-platform.git")
+                            url.set("https://github.com/arasu33/codewiththiru-platform")
                         }
                     }
                 }
@@ -86,9 +86,9 @@ if (pluginManager.hasPlugin("com.android.library")) {
                             }
                         }
                         scm {
-                            connection.set("scm:git:github.com/arasu33/codewiththiru-platform.git")
-                            developerConnection.set("scm:git:ssh://github.com/arasu33/codewiththiru-platform.git")
-                            url.set("https://github.com/arasu33/codewiththiru-platform/tree/main")
+                            connection.set("scm:git:git://github.com/arasu33/codewiththiru-platform.git")
+                            developerConnection.set("scm:git:ssh://git@github.com/arasu33/codewiththiru-platform.git")
+                            url.set("https://github.com/arasu33/codewiththiru-platform")
                         }
                     }
                 }
@@ -122,9 +122,9 @@ if (pluginManager.hasPlugin("com.android.library")) {
                         }
                     }
                     scm {
-                        connection.set("scm:git:github.com/arasu33/codewiththiru-platform.git")
-                        developerConnection.set("scm:git:ssh://github.com/arasu33/codewiththiru-platform.git")
-                        url.set("https://github.com/arasu33/codewiththiru-platform/tree/main")
+                        connection.set("scm:git:git://github.com/arasu33/codewiththiru-platform.git")
+                        developerConnection.set("scm:git:ssh://git@github.com/arasu33/codewiththiru-platform.git")
+                        url.set("https://github.com/arasu33/codewiththiru-platform")
                     }
                 }
             }

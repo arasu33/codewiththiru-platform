@@ -36,7 +36,11 @@ class LocalNotificationProvider(
             analyticsProvider.trackReceived(payload)
 
             NotificationResult.Success
-        } catch (e: Exception) {
+        } catch (e: kotlinx.coroutines.CancellationException) {
+        throw e
+    } catch (e: kotlin.coroutines.cancellation.CancellationException) {
+        throw e
+    } catch (e: Exception) {
             NotificationResult.Failure(e)
         }
     }

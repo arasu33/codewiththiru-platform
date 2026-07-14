@@ -145,7 +145,11 @@ class AppOpenManager(
                     // In production, the orchestrator triggers this
                     // isShowingAd = false
                     // callback.onAdDismissed()
-                } catch (e: Exception) {
+                } catch (e: kotlinx.coroutines.CancellationException) {
+        throw e
+    } catch (e: kotlin.coroutines.cancellation.CancellationException) {
+        throw e
+    } catch (e: Exception) {
                     isShowingAd = false
                     callback.onAdFailedToShow(e)
                 }

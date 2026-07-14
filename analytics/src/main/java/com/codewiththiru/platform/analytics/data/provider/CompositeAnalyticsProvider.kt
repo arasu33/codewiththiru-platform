@@ -24,7 +24,11 @@ internal class CompositeAnalyticsProvider(
                     launch {
                         try {
                             provider.trackEvent(event)
-                        } catch (e: Exception) {
+                        } catch (e: kotlinx.coroutines.CancellationException) {
+            throw e
+        } catch (e: kotlin.coroutines.cancellation.CancellationException) {
+            throw e
+        } catch (e: Exception) {
                             Log.e("CompositeAnalytics", "Provider failed to track event", e)
                         }
                     }
@@ -40,7 +44,11 @@ internal class CompositeAnalyticsProvider(
                     launch {
                         try {
                             provider.trackScreen(screen)
-                        } catch (e: Exception) {
+                        } catch (e: kotlinx.coroutines.CancellationException) {
+            throw e
+        } catch (e: kotlin.coroutines.cancellation.CancellationException) {
+            throw e
+        } catch (e: Exception) {
                             Log.e("CompositeAnalytics", "Provider failed to track screen", e)
                         }
                     }
@@ -56,7 +64,11 @@ internal class CompositeAnalyticsProvider(
                     launch {
                         try {
                             provider.setUserProperty(property)
-                        } catch (e: Exception) {
+                        } catch (e: kotlinx.coroutines.CancellationException) {
+            throw e
+        } catch (e: kotlin.coroutines.cancellation.CancellationException) {
+            throw e
+        } catch (e: Exception) {
                             Log.e("CompositeAnalytics", "Provider failed to set user property", e)
                         }
                     }
@@ -72,7 +84,11 @@ internal class CompositeAnalyticsProvider(
                     launch {
                         try {
                             provider.flush()
-                        } catch (e: Exception) {
+                        } catch (e: kotlinx.coroutines.CancellationException) {
+            throw e
+        } catch (e: kotlin.coroutines.cancellation.CancellationException) {
+            throw e
+        } catch (e: Exception) {
                             Log.e("CompositeAnalytics", "Provider failed to flush", e)
                         }
                     }

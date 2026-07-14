@@ -1,7 +1,7 @@
 package com.codewiththiru.remoteconfig.cache
 
 class CacheVersionRegistry {
-    private val migrations = mutableListOf<CacheMigration>()
+    private val migrations = java.util.concurrent.CopyOnWriteArrayList<CacheMigration>()
 
     fun addMigration(migration: CacheMigration) {
         migrations.add(migration)

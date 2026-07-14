@@ -48,6 +48,8 @@ class DefaultChallengeEngine(
         val serialized = saveStorage.getString(challengesKey) ?: return emptyList()
         return try {
             serializer.deserialize(serialized, kotlin.reflect.typeOf<List<GameChallenge>>())
+        } catch (e: kotlin.coroutines.cancellation.CancellationException) {
+            throw e
         } catch (e: Exception) {
             emptyList()
         }

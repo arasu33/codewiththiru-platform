@@ -50,7 +50,7 @@ interface BackupManager {
  * No-op fallback implementation of BackupManager.
  */
 class LocalBackupManager : BackupManager {
-    private val store = mutableMapOf<String, String>()
+    private val store = java.util.concurrent.ConcurrentHashMap<String, String>()
 
     override suspend fun backupSave(
         saveId: String,

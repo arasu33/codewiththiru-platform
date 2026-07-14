@@ -10,7 +10,7 @@ import kotlinx.serialization.json.longOrNull
 
 class JsonParser {
     fun parseToMap(jsonString: String): Map<String, Any> {
-        val configMap = mutableMapOf<String, Any>()
+        val configMap = java.util.concurrent.ConcurrentHashMap<String, Any>()
         try {
             val jsonObject = Json.parseToJsonElement(jsonString) as JsonObject
             jsonObject.forEach { (key, value) ->
@@ -22,7 +22,11 @@ class JsonParser {
                     value.jsonPrimitive.doubleOrNull != null -> configMap[key] = value.jsonPrimitive.doubleOrNull!!
                 }
             }
-        } catch (e: Exception) {
+        } catch (e: kotlinx.coroutines.CancellationException) {
+        throw e
+    } catch (e: kotlin.coroutines.cancellation.CancellationException) {
+        throw e
+    } catch (e: Exception) {
             // parsing error
         }
         return configMap

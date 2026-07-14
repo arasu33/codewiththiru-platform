@@ -12,7 +12,7 @@ import kotlinx.coroutines.flow.StateFlow
  * A robust fake for the LeaderboardManager that simulates in-memory score tracking.
  */
 class FakeLeaderboardManager : LeaderboardManager {
-    private val scores = mutableMapOf<String, Long>()
+    private val scores = java.util.concurrent.ConcurrentHashMap<String, Long>()
     private val entriesFlow = MutableStateFlow<List<LeaderboardEntry>>(emptyList())
 
     override fun submitScore(

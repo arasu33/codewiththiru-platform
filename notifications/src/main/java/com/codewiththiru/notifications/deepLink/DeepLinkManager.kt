@@ -17,7 +17,11 @@ class DeepLinkManager : NotificationRouter {
         }
         try {
             context.startActivity(intent)
-        } catch (e: Exception) {
+        } catch (e: kotlinx.coroutines.CancellationException) {
+        throw e
+    } catch (e: kotlin.coroutines.cancellation.CancellationException) {
+        throw e
+    } catch (e: Exception) {
             // Log analytics failure
         }
     }

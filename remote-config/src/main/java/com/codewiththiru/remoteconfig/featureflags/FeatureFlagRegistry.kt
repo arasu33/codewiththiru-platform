@@ -1,7 +1,7 @@
 package com.codewiththiru.remoteconfig.featureflags
 
 class FeatureFlagRegistry {
-    private val flags = mutableMapOf<String, FeatureFlagMetadata>()
+    private val flags = java.util.concurrent.ConcurrentHashMap<String, FeatureFlagMetadata>()
 
     fun register(metadata: FeatureFlagMetadata) {
         flags[metadata.key] = metadata

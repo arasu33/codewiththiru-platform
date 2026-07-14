@@ -28,6 +28,8 @@ class DefaultGameSettingsManager(
         val serialized = saveStorage.getString(settingsKey) ?: return GameSettings()
         return try {
             serializer.deserialize(serialized, kotlin.reflect.typeOf<GameSettings>())
+        } catch (e: kotlin.coroutines.cancellation.CancellationException) {
+            throw e
         } catch (e: Exception) {
             GameSettings()
         }

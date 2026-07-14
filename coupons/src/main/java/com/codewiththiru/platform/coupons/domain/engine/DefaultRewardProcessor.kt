@@ -11,6 +11,10 @@ class DefaultRewardProcessor(
         try {
             featureGate.unlock(reward)
             CouponResult.Success(Unit)
+        } catch (e: kotlinx.coroutines.CancellationException) {
+            throw e
+        } catch (e: kotlin.coroutines.cancellation.CancellationException) {
+            throw e
         } catch (e: Exception) {
             // In a real implementation, we might want a specific error code for reward processing failures
             CouponResult.Failure(

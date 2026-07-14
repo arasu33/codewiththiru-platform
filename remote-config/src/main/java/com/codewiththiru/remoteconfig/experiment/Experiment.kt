@@ -19,7 +19,7 @@ interface ExperimentManager {
 }
 
 class DefaultExperimentManager : ExperimentManager {
-    private val experimentsMap = mutableMapOf<String, Experiment>()
+    private val experimentsMap = java.util.concurrent.ConcurrentHashMap<String, Experiment>()
 
     override fun getAssignedVariant(experimentId: String, userId: String): ExperimentVariant? {
         val experiment = experimentsMap[experimentId] ?: return null

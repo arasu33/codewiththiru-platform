@@ -28,10 +28,7 @@ jobs:
         run: chmod +x gradlew
 
       - name: Run Checks
-        run: ./gradlew lintDebug testDebugUnitTest assembleRelease
-        env:
-          GPR_USER: ${{ github.actor }}
-          GPR_KEY: ${{ secrets.GITHUB_TOKEN }}
+        run: ./gradlew lintDebug testDebugUnitTest assembleRelease detekt ktlintCheck
 
       - name: Run Binary Compatibility Checks
         run: ./gradlew apiCheck
@@ -39,11 +36,6 @@ jobs:
           GPR_USER: ${{ github.actor }}
           GPR_KEY: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Publish Artifacts
-        run: ./gradlew publish
-        env:
-          GPR_USER: ${{ github.actor }}
-          GPR_KEY: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Auto-Update README Version
         run: |

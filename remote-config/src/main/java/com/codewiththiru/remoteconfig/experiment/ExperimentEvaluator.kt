@@ -17,7 +17,7 @@ class ExperimentEvaluator(
             }
         }
 
-        val allVariants = mutableListOf<ExperimentVariant>()
+        val allVariants = java.util.concurrent.CopyOnWriteArrayList<ExperimentVariant>()
         allVariants.add(experiment.controlGroup)
         allVariants.addAll(experiment.variants)
 
