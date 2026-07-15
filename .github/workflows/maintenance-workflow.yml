@@ -9,8 +9,9 @@ permissions:
   packages: write
 
 jobs:
-  validate-and-publish:
-    name: Validate & Publish Patches
+  # ── Job 1: Lint & Static Analysis (parallel) ──────────────────────────
+  lint:
+    name: Lint & Static Analysis
     runs-on: ubuntu-latest
 
     steps:
@@ -27,9 +28,27 @@ jobs:
       - name: Make Gradlew Executable
         run: chmod +x gradlew
 
-      - name: Run Checks
-        run: ./gradlew lintDebug testDebugUnitTest assembleRelease detekt ktlintCheck
+      - name: Run Lint & Detekt
+        run: ./gradlew detekt ktlintCheck --no-daemon
 
-      - name: Run Binary Compatibility Checks
-        run: ./gradlew apiCheck
+  # ── Job 2: Tests & API Check (parallel) ────────────────────────────────
+  test:
+    name: Tests & API Check
+    runs-on: ubuntu-latest
 
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v5
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v5
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+          cache: 'gradle'
+
+      - name: Make Gradlew Executable
+        run: chmod +x gradlew
+
+      - name: Run Tests & API Check
+        run: ./gradlew testDebugUnitTest assembleRelease apiCheck --no-daemon
