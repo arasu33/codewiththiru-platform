@@ -36,10 +36,10 @@ internal class AnalyticsHealthMonitor(
                             }
                         }
                     } catch (e: kotlinx.coroutines.CancellationException) {
-            throw e
-        } catch (e: kotlin.coroutines.cancellation.CancellationException) {
-            throw e
-        } catch (e: Exception) {
+                        throw e
+                    } catch (e: kotlin.coroutines.cancellation.CancellationException) {
+                        throw e
+                    } catch (e: Exception) {
                         // Ignore exceptions during monitoring
                     }
                     delay(monitorIntervalMs)
