@@ -18,6 +18,7 @@ import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 
 class MoreAppsViewModel(
@@ -30,7 +31,7 @@ class MoreAppsViewModel(
     val uiState: StateFlow<MoreAppsUiState> = _uiState.asStateFlow()
 
     private val _effect = kotlinx.coroutines.channels.Channel<MoreAppsEffect>()
-    val effect: kotlinx.coroutines.flow.Flow<MoreAppsEffect> = kotlinx.coroutines.flow.receiveAsFlow(_effect)
+    val effect: kotlinx.coroutines.flow.Flow<MoreAppsEffect> = _effect.receiveAsFlow()
 
     init {
         loadApps()

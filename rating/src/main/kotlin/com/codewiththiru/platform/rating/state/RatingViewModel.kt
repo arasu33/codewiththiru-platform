@@ -13,6 +13,7 @@ import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
@@ -25,10 +26,10 @@ class RatingViewModel(
     val uiState: StateFlow<RatingUiState> = _uiState.asStateFlow()
 
     private val _effect = kotlinx.coroutines.channels.Channel<RatingEffect>()
-    val effect: kotlinx.coroutines.flow.Flow<RatingEffect> = kotlinx.coroutines.flow.receiveAsFlow(_effect)
+    val effect: kotlinx.coroutines.flow.Flow<RatingEffect> = _effect.receiveAsFlow()
 
     private val _result = kotlinx.coroutines.channels.Channel<RatingResult>()
-    val result: kotlinx.coroutines.flow.Flow<RatingResult> = kotlinx.coroutines.flow.receiveAsFlow(_result)
+    val result: kotlinx.coroutines.flow.Flow<RatingResult> = _result.receiveAsFlow()
 
     fun onAction(action: RatingAction) {
         when (action) {

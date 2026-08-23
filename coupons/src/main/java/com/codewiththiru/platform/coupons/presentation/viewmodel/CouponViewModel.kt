@@ -16,6 +16,7 @@ import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
@@ -28,7 +29,7 @@ class CouponViewModel(
     val uiState: StateFlow<CouponUIState> = _uiState.asStateFlow()
 
     private val _effect = kotlinx.coroutines.channels.Channel<CouponEffect>()
-    val effect: kotlinx.coroutines.flow.Flow<CouponEffect> = kotlinx.coroutines.flow.receiveAsFlow(_effect)
+    val effect: kotlinx.coroutines.flow.Flow<CouponEffect> = _effect.receiveAsFlow()
 
     fun processIntent(intent: CouponIntent) {
         when (intent) {
