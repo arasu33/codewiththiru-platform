@@ -15,6 +15,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 
 class FeedbackViewModel(
@@ -29,8 +30,8 @@ class FeedbackViewModel(
     private val _formState = MutableStateFlow(FeedbackFormState(category = config.categories.firstOrNull()))
     val formState: StateFlow<FeedbackFormState> = _formState.asStateFlow()
 
-    private val _effect = MutableSharedFlow<FeedbackEffect>()
-    val effect: SharedFlow<FeedbackEffect> = _effect.asSharedFlow()
+    private val _effect = kotlinx.coroutines.channels.Channel<FeedbackEffect>()
+    val effect: kotlinx.coroutines.flow.Flow<FeedbackEffect> = _effect.receiveAsFlow()
 
     init {
         loadDraft()
@@ -159,8 +160,8 @@ class FeedbackViewModel(
                     if (config.offlineConfig.clearDraftOnSuccess) {
                         draftProvider?.clearDraft()
                     }
-                    _effect.emit(FeedbackEffect.ShowToast("Feedback Submitted"))
-                    _effect.emit(FeedbackEffect.NavigateBack)
+                    _effect.send(FeedbackEffect.ShowToast("Feedback Submitted"))
+                    _effect.send(FeedbackEffect.NavigateBack)
                 }
                 is FeedbackSubmissionResult.NetworkError -> {
                     _uiState.value = FeedbackUiState.Error("Network error. Retry available: ${result.retryAvailable}")

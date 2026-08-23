@@ -86,7 +86,6 @@ internal class DataStoreAnalyticsQueue(
             throw e
         } catch (e: Exception) {
             Log.e("DataStoreAnalyticsQueue", "Error during enqueue", e)
-            clear()
         }
     }
 
@@ -126,7 +125,8 @@ internal class DataStoreAnalyticsQueue(
 
                 // We remove exactly the number of items passed in, matching from the front.
                 for (eventToRemove in events) {
-                    val index = list.indexOfFirst { it.eventName == eventToRemove.name }
+                    val convertedParams = AnyValueSerializer.toParametersMap(eventToRemove.parameters)
+                    val index = list.indexOfFirst { it.eventName == eventToRemove.name && it.parameters == convertedParams }
                     if (index != -1) {
                         list.removeAt(index)
                     }
@@ -140,7 +140,6 @@ internal class DataStoreAnalyticsQueue(
             throw e
         } catch (e: Exception) {
             Log.e("DataStoreAnalyticsQueue", "Error during remove", e)
-            clear()
         }
     }
 

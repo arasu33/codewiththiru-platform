@@ -10,7 +10,7 @@ public class DefaultLevelManager : LevelManager {
     override fun getLevelDefinition(level: Int): LevelDefinition {
         return LevelDefinition(
             levelNumber = level,
-            requiredXp = (level * level * 100L),
+            requiredXp = if (level <= 1) 0L else (level * level * 100L),
             title = "Level $level",
             rewardCoins = level * 10L
         )

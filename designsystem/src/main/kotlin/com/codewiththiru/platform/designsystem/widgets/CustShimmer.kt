@@ -21,6 +21,7 @@ import androidx.compose.ui.graphics.drawscope.ContentDrawScope
 import androidx.compose.ui.node.DrawModifierNode
 import androidx.compose.ui.node.ModifierNodeElement
 import androidx.compose.ui.platform.InspectorInfo
+import androidx.compose.ui.node.invalidateDraw
 import kotlinx.coroutines.launch
 
 /**
@@ -74,7 +75,9 @@ private class CustShimmerNode(
                                 ),
                             repeatMode = RepeatMode.Restart,
                         ),
-                )
+                ) {
+                    invalidateDraw()
+                }
             }
         }
     }

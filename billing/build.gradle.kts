@@ -46,9 +46,7 @@ dependencies {
     implementation(project(":analytics-api"))
     implementation(project(":remote-config-api"))
     implementation(project(":notifications-api"))
-    implementation(project(":coupons"))
-    implementation(project(":updates"))
-    implementation(project(":designsystem"))
+
     
     implementation(libs.androidx.core.ktx)
     implementation(libs.kotlinx.coroutines.core)

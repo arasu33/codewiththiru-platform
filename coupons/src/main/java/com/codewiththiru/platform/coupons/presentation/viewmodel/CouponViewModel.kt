@@ -27,8 +27,8 @@ class CouponViewModel(
     private val _uiState = MutableStateFlow(CouponUIState())
     val uiState: StateFlow<CouponUIState> = _uiState.asStateFlow()
 
-    private val _effect = MutableSharedFlow<CouponEffect>()
-    val effect: SharedFlow<CouponEffect> = _effect.asSharedFlow()
+    private val _effect = kotlinx.coroutines.channels.Channel<CouponEffect>()
+    val effect: kotlinx.coroutines.flow.Flow<CouponEffect> = kotlinx.coroutines.flow.receiveAsFlow(_effect)
 
     fun processIntent(intent: CouponIntent) {
         when (intent) {
@@ -67,7 +67,7 @@ class CouponViewModel(
                 is CouponResult.Failure -> {
                     _uiState.update { it.copy(isLoading = false) }
                     analyticsProvider.logEvent(CouponAnalyticsEvent.CouponRejected(currentCode, validationResult.code))
-                    _effect.emit(CouponEffect.ShowErrorDialog(validationResult.message))
+                    _effect.send(CouponEffect.ShowErrorDialog(validationResult.message))
                 }
             }
         }
@@ -79,11 +79,11 @@ class CouponViewModel(
             is CouponResult.Success -> {
                 _uiState.update { it.copy(isLoading = false, isRedeeming = false, inputCode = "") }
                 analyticsProvider.logEvent(CouponAnalyticsEvent.CouponRedeemed(redemptionResult.value))
-                _effect.emit(CouponEffect.ShowSuccessDialog(redemptionResult.value))
+                _effect.send(CouponEffect.ShowSuccessDialog(redemptionResult.value))
             }
             is CouponResult.Failure -> {
                 _uiState.update { it.copy(isLoading = false, isRedeeming = false) }
-                _effect.emit(CouponEffect.ShowErrorDialog(redemptionResult.message))
+                _effect.send(CouponEffect.ShowErrorDialog(redemptionResult.message))
             }
         }
     }
@@ -95,7 +95,7 @@ class CouponViewModel(
 
     private fun dismissSuccess() {
         viewModelScope.launch {
-            _effect.emit(CouponEffect.NavigateBack)
+            _effect.send(CouponEffect.NavigateBack)
         }
     }
 }

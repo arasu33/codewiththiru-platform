@@ -19,10 +19,15 @@ class EncryptedGameSaveManager<T>(
     private val _status = MutableStateFlow(SaveSystemStatus.IDLE)
     override val status: StateFlow<SaveSystemStatus> = _status.asStateFlow()
 
+    private fun validateSlotId(slotId: String) {
+        require(!slotId.contains("..") && !slotId.contains("/") && !slotId.contains("\\")) { "Invalid slot id" }
+    }
+
     @Suppress("TooGenericExceptionCaught")
     override suspend fun save(request: SaveRequest<T>): SaveResponse<T> {
         _status.value = SaveSystemStatus.SAVING
         return try {
+            validateSlotId(request.slot.id)
             val rawBytes = serializer(request.state)
 
             // Encrypt
@@ -33,9 +38,26 @@ class EncryptedGameSaveManager<T>(
 
             val saveFile = File(saveDirectory, request.slot.id)
             val signatureFile = File(saveDirectory, "${request.slot.id}.sig")
+            val metaFile = File(saveDirectory, "${request.slot.id}.meta")
 
-            saveFile.writeBytes(encryptedBytes)
-            signatureFile.writeText(signature)
+            val tempSaveFile = File(saveDirectory, "${request.slot.id}.tmp")
+            val tempSignatureFile = File(saveDirectory, "${request.slot.id}.sig.tmp")
+            val tempMetaFile = File(saveDirectory, "${request.slot.id}.meta.tmp")
+
+            tempSaveFile.writeBytes(encryptedBytes)
+            tempSignatureFile.writeText(signature)
+            
+            // Write metadata as JSON
+            val metaJson = kotlinx.serialization.json.Json.encodeToString(
+                com.codewiththiru.platform.game.save.api.SaveMetadata.serializer(),
+                request.metadata
+            )
+            tempMetaFile.writeText(metaJson)
+
+            // Atomic rename
+            tempSaveFile.renameTo(saveFile)
+            tempSignatureFile.renameTo(signatureFile)
+            tempMetaFile.renameTo(metaFile)
 
             _status.value = SaveSystemStatus.IDLE
             SaveResponse.Success(request.slot, request.metadata, request.state)
@@ -53,8 +75,10 @@ class EncryptedGameSaveManager<T>(
     override suspend fun load(slot: SaveSlot): SaveResponse<T> {
         _status.value = SaveSystemStatus.LOADING
         return try {
+            validateSlotId(slot.id)
             val saveFile = File(saveDirectory, slot.id)
             val signatureFile = File(saveDirectory, "${slot.id}.sig")
+            val metaFile = File(saveDirectory, "${slot.id}.meta")
 
             if (!saveFile.exists() || !signatureFile.exists()) {
                 _status.value = SaveSystemStatus.ERROR
@@ -74,8 +98,13 @@ class EncryptedGameSaveManager<T>(
             val rawBytes = encryptionStrategy.decrypt(encryptedBytes)
             val data = deserializer(rawBytes)
 
-            // Dummy metadata for load (in real app, metadata should be stored alongside the save)
-            val dummyMetadata =
+            // Load real metadata if exists, else fallback
+            val metadata = if (metaFile.exists()) {
+                kotlinx.serialization.json.Json.decodeFromString(
+                    com.codewiththiru.platform.game.save.api.SaveMetadata.serializer(),
+                    metaFile.readText()
+                )
+            } else {
                 com.codewiththiru.platform.game.save.api.SaveMetadata(
                     timestampMs = saveFile.lastModified(),
                     schemaVersion = 1,
@@ -83,9 +112,10 @@ class EncryptedGameSaveManager<T>(
                     gameId = "dummy",
                     gameVersion = "1.0",
                 )
+            }
 
             _status.value = SaveSystemStatus.IDLE
-            SaveResponse.Success(slot, dummyMetadata, data)
+            SaveResponse.Success(slot, metadata, data)
         } catch (e: kotlinx.coroutines.CancellationException) {
             throw e
         } catch (e: kotlin.coroutines.cancellation.CancellationException) {
@@ -97,9 +127,15 @@ class EncryptedGameSaveManager<T>(
     }
 
     override suspend fun delete(slot: SaveSlot): Boolean {
+        validateSlotId(slot.id)
         val saveFile = File(saveDirectory, slot.id)
         val signatureFile = File(saveDirectory, "${slot.id}.sig")
-        return saveFile.delete() && signatureFile.delete()
+        val metaFile = File(saveDirectory, "${slot.id}.meta")
+        
+        var deleted = saveFile.delete()
+        if (signatureFile.exists()) deleted = signatureFile.delete() && deleted
+        if (metaFile.exists()) deleted = metaFile.delete() && deleted
+        return deleted
     }
 
     override suspend fun listSaves(): List<SaveResponse<T>> {

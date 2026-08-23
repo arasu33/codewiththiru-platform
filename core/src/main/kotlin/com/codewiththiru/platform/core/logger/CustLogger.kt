@@ -273,8 +273,9 @@ object CustLogger {
         message: String,
         throwable: Throwable?,
     ) {
-        if (!isLoggable(level)) return
         val currentState = state.get()
+        val config = currentState.config
+        if (!(config.enabled && level.priority >= config.minLevel.priority)) return
         currentState.printers.forEach { printer ->
             try {
                 printer.printLog(level, tag, message, throwable)

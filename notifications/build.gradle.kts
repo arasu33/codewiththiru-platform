@@ -41,11 +41,7 @@ dependencies {
     implementation(project(":analytics-api"))
     implementation(project(":remote-config-api"))
 
-    implementation(project(":coupons"))
-    implementation(project(":updates"))
-    implementation(project(":rating"))
-    implementation(project(":feedback"))
-    implementation(project(":more-apps"))
+
     implementation(project(":designsystem"))
 
     implementation(platform(libs.firebase.bom))

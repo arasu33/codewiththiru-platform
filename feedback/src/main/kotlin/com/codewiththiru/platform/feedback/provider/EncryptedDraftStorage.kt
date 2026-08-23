@@ -9,9 +9,9 @@ import com.codewiththiru.platform.feedback.model.FeedbackPayload
 class EncryptedDraftStorage(
     private val context: Context,
 ) : FeedbackDraftStorageStrategy {
-    private val masterKeyAlias = MasterKeys.getOrCreate(MasterKeys.AES256_GCM_SPEC)
+    private val masterKeyAlias by lazy { MasterKeys.getOrCreate(MasterKeys.AES256_GCM_SPEC) }
 
-    private val sharedPreferences =
+    private val sharedPreferences by lazy {
         EncryptedSharedPreferences.create(
             "encrypted_feedback_drafts",
             masterKeyAlias,
@@ -19,6 +19,7 @@ class EncryptedDraftStorage(
             EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
             EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM,
         )
+    }
 
     override suspend fun saveDraft(payload: FeedbackPayload) {
         sharedPreferences

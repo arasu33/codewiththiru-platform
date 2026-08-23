@@ -11,6 +11,7 @@ import com.codewiththiru.ads.repository.AdsRepository
 import com.codewiththiru.ads.state.AdState
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.TimeoutCancellationException
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withTimeoutOrNull
 
@@ -66,10 +67,11 @@ class AppOpenManager(
         coroutineScope.launch {
             repository.load(AdType.AppOpen)
             // Listen for load completion to stamp the load time
-            repository.observeState(AdType.AppOpen).collect { state ->
+            repository.observeState(AdType.AppOpen).first { state ->
                 if (state is AdState.Loaded) {
                     lastAdLoadTimeMs = System.currentTimeMillis()
                 }
+                state is AdState.Loaded || state is AdState.Failed
             }
         }
     }
@@ -143,13 +145,15 @@ class AppOpenManager(
                     
                     // Simulate dismissal after some time or wait for provider orchestrator
                     // In production, the orchestrator triggers this
-                    // isShowingAd = false
-                    // callback.onAdDismissed()
+                    isShowingAd = false
+                    callback.onAdDismissed()
                 } catch (e: kotlinx.coroutines.CancellationException) {
-        throw e
-    } catch (e: kotlin.coroutines.cancellation.CancellationException) {
-        throw e
-    } catch (e: Exception) {
+                    isShowingAd = false
+                    throw e
+                } catch (e: kotlin.coroutines.cancellation.CancellationException) {
+                    isShowingAd = false
+                    throw e
+                } catch (e: Exception) {
                     isShowingAd = false
                     callback.onAdFailedToShow(e)
                 }

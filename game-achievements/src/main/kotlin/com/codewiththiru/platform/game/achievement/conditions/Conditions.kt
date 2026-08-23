@@ -23,7 +23,10 @@ data class StatisticCondition(
     val isGreaterThan: Boolean = true,
 ) : AchievementCondition {
     override fun evaluate(profile: StatisticsProfile): Pair<Boolean, Double> {
-        val currentValue = profile.metrics[metric] ?: 0.0
+        val currentValue = profile.metrics[metric]
+        if (currentValue == null) {
+            return Pair(false, 0.0)
+        }
         val isMet = if (isGreaterThan) currentValue >= targetValue else currentValue <= targetValue
         return Pair(isMet, currentValue)
     }
