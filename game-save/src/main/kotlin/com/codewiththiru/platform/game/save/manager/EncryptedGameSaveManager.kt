@@ -40,24 +40,25 @@ class EncryptedGameSaveManager<T>(
             val signatureFile = File(saveDirectory, "${request.slot.id}.sig")
             val metaFile = File(saveDirectory, "${request.slot.id}.meta")
 
-            val tempSaveFile = File(saveDirectory, "${request.slot.id}.tmp")
-            val tempSignatureFile = File(saveDirectory, "${request.slot.id}.sig.tmp")
-            val tempMetaFile = File(saveDirectory, "${request.slot.id}.meta.tmp")
-
-            tempSaveFile.writeBytes(encryptedBytes)
-            tempSignatureFile.writeText(signature)
-            
-            // Write metadata as JSON
             val metaJson = kotlinx.serialization.json.Json.encodeToString(
                 com.codewiththiru.platform.game.save.api.SaveMetadata.serializer(),
                 request.metadata
             )
-            tempMetaFile.writeText(metaJson)
 
-            // Atomic rename
-            tempSaveFile.renameTo(saveFile)
-            tempSignatureFile.renameTo(signatureFile)
-            tempMetaFile.renameTo(metaFile)
+            fun writeAtomic(file: File, data: ByteArray) {
+                val tmp = File(file.parentFile, file.name + ".tmp")
+                try {
+                    tmp.writeBytes(data)
+                    java.nio.file.Files.move(tmp.toPath(), file.toPath(), java.nio.file.StandardCopyOption.ATOMIC_MOVE, java.nio.file.StandardCopyOption.REPLACE_EXISTING)
+                } catch (e: Exception) {
+                    if (tmp.exists()) tmp.delete()
+                    throw e
+                }
+            }
+
+            writeAtomic(saveFile, encryptedBytes)
+            writeAtomic(signatureFile, signature.toByteArray(Charsets.UTF_8))
+            writeAtomic(metaFile, metaJson.toByteArray(Charsets.UTF_8))
 
             _status.value = SaveSystemStatus.IDLE
             SaveResponse.Success(request.slot, request.metadata, request.state)

@@ -37,6 +37,8 @@ class FeedbackViewModel(
         loadDraft()
     }
 
+    private var saveDraftJob: kotlinx.coroutines.Job? = null
+
     fun onAction(action: FeedbackAction) {
         when (action) {
             is FeedbackAction.CategorySelected -> _formState.update { it.copy(category = action.category) }
@@ -62,7 +64,11 @@ class FeedbackViewModel(
         // Auto-save draft on every key action if configured
         val skipSave = action is FeedbackAction.SubmitClicked || action is FeedbackAction.DismissErrorClicked
         if (config.offlineConfig.autoSaveDrafts && !skipSave) {
-            saveDraft()
+            saveDraftJob?.cancel()
+            saveDraftJob = viewModelScope.launch {
+                kotlinx.coroutines.delay(1000)
+                saveDraft()
+            }
         }
     }
 

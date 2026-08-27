@@ -13,7 +13,7 @@ class FirebaseNotificationService : FirebaseMessagingService() {
         super.onMessageReceived(message)
         val payload = NotificationParser.parse(message)
         val provider = com.codewiththiru.notifications.provider.AndroidNotificationProvider(applicationContext)
-        kotlinx.coroutines.CoroutineScope(kotlinx.coroutines.Dispatchers.IO).launch {
+        kotlinx.coroutines.runBlocking {
             provider.showNotification(payload)
         }
     }

@@ -65,7 +65,7 @@ private class CustShimmerNode(
         coroutineScope.launch {
             while (true) {
                 translateAnimation.animateTo(
-                    targetValue = 1000f,
+                    targetValue = 1f,
                     animationSpec =
                         infiniteRepeatable(
                             animation =
@@ -98,7 +98,7 @@ private class CustShimmerNode(
                 Brush.linearGradient(
                     colors = shimmerColors,
                     start = Offset.Zero,
-                    end = Offset(x = translateAnimation.value, y = translateAnimation.value),
+                    end = Offset(x = translateAnimation.value * size.width, y = translateAnimation.value * size.height),
                 ),
         )
     }

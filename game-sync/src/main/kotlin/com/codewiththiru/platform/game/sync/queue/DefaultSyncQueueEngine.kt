@@ -45,7 +45,7 @@ class DefaultSyncQueueEngine : SyncQueueEngine {
         }
 
         // Exponential backoff: (2^retryCount) * 1000 ms
-        val backoffDelayMs = (2.0.pow(request.retryCount.coerceAtMost(60).toDouble()) * 1000).toLong()
+        val backoffDelayMs = (2.0.pow(request.retryCount.coerceAtMost(30).toDouble()) * 1000).toLong()
         return currentTimeMs >= (lastFailureTime + backoffDelayMs)
     }
 }

@@ -50,7 +50,6 @@ internal class DataStoreAnalyticsQueue(
             throw e
         } catch (e: Exception) {
             Log.e("DataStoreAnalyticsQueue", "Corruption detected during read", e)
-            dataStore.edit { it.remove(queueKey) }
             mutableListOf()
         }
 
@@ -94,22 +93,24 @@ internal class DataStoreAnalyticsQueue(
     override suspend fun peek(count: Int): List<AnalyticsEvent> {
         val entities = getEntities()
         return entities.take(count).map { entity ->
+            val unwrappedParams = entity.parameters.mapValues {
+                val value = it.value
+                if (value is JsonPrimitive) {
+                    if (value.isString) {
+                        value.content
+                    } else {
+                        value.booleanOrNull ?: value.longOrNull ?: value.doubleOrNull ?: value.content
+                    }
+                } else {
+                    value
+                }
+            }.toMutableMap()
+            unwrappedParams["_internal_event_id"] = entity.eventId
+
             AnalyticsEvent(
                 name = entity.eventName,
-                parameters =
-                    entity.parameters.mapValues {
-                        // Simple unwrap for primitives to avoid JsonPrimitive wrapper exposing in Any?
-                        val value = it.value
-                        if (value is JsonPrimitive) {
-                            if (value.isString) {
-                                value.content
-                            } else {
-                                value.booleanOrNull ?: value.longOrNull ?: value.doubleOrNull ?: value.content
-                            }
-                        } else {
-                            value
-                        }
-                    },
+                parameters = unwrappedParams,
+                timestamp = entity.timestamp
             )
         }
     }
@@ -125,8 +126,14 @@ internal class DataStoreAnalyticsQueue(
 
                 // We remove exactly the number of items passed in, matching from the front.
                 for (eventToRemove in events) {
-                    val convertedParams = AnyValueSerializer.toParametersMap(eventToRemove.parameters)
-                    val index = list.indexOfFirst { it.eventName == eventToRemove.name && it.parameters == convertedParams }
+                    val eventId = eventToRemove.parameters["_internal_event_id"] as? String
+                    val index = if (eventId != null) {
+                        list.indexOfFirst { it.eventId == eventId }
+                    } else {
+                        val convertedParams = AnyValueSerializer.toParametersMap(eventToRemove.parameters)
+                        list.indexOfFirst { it.eventName == eventToRemove.name && it.parameters == convertedParams }
+                    }
+                    
                     if (index != -1) {
                         list.removeAt(index)
                     }

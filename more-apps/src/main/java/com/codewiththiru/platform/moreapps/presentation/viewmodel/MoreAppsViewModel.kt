@@ -42,7 +42,9 @@ class MoreAppsViewModel(
             _uiState.value = MoreAppsUiState.Loading
             when (val result = repository.getApps()) {
                 is MoreAppsResult.Success -> {
-                    val resolvedApps = result.data.map { resolveInstallStatus(it) }
+                    val resolvedApps = kotlinx.coroutines.withContext(kotlinx.coroutines.Dispatchers.IO) {
+                        result.data.map { resolveInstallStatus(it) }
+                    }
                     if (resolvedApps.isEmpty()) {
                         _uiState.value = MoreAppsUiState.Empty
                     } else {

@@ -27,13 +27,15 @@ class EncryptedCouponStorageProvider(
     override suspend fun save(
         key: String,
         data: String,
-    ) {
+    ) = kotlinx.coroutines.withContext(kotlinx.coroutines.Dispatchers.IO) {
         sharedPreferences.edit().putString(key, data).apply()
     }
 
-    override suspend fun read(key: String): String? = sharedPreferences.getString(key, null)
+    override suspend fun read(key: String): String? = kotlinx.coroutines.withContext(kotlinx.coroutines.Dispatchers.IO) {
+        sharedPreferences.getString(key, null)
+    }
 
-    override suspend fun clear() {
+    override suspend fun clear() = kotlinx.coroutines.withContext(kotlinx.coroutines.Dispatchers.IO) {
         sharedPreferences.edit().clear().apply()
     }
 }
