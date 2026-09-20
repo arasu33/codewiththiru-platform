@@ -5,14 +5,17 @@ import com.google.firebase.messaging.RemoteMessage
 import com.codewiththiru.notifications.api.NotificationPayload
 import com.codewiththiru.notifications.api.NotificationPriority
 import com.codewiththiru.notifications.api.NotificationCategory
+import kotlinx.coroutines.launch
 
 class FirebaseNotificationService : FirebaseMessagingService() {
 
     override fun onMessageReceived(message: RemoteMessage) {
         super.onMessageReceived(message)
         val payload = NotificationParser.parse(message)
-        // In a real app, this would be injected or routed to DefaultNotificationManager.
-        // For now, it passes the payload down.
+        val provider = com.codewiththiru.notifications.provider.AndroidNotificationProvider(applicationContext)
+        kotlinx.coroutines.runBlocking {
+            provider.showNotification(payload)
+        }
     }
 
     override fun onNewToken(token: String) {

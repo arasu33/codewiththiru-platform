@@ -20,7 +20,7 @@ data class HapticPattern(
                     when (amp) {
                         -1 -> -1 // -1 means DEFAULT_AMPLITUDE
                         0 -> 0 // 0 means OFF
-                        else -> (amp * factor).toInt().coerceIn(1, 255)
+                        else -> (amp * factor).toInt().coerceIn(0, 255)
                     }
                 }.toIntArray()
 

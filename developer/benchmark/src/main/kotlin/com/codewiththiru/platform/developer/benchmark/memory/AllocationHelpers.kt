@@ -6,8 +6,8 @@ package com.codewiththiru.platform.developer.benchmark.memory
  */
 object AllocationHelpers {
     inline fun measureExecutionTime(block: () -> Unit): Long {
-        val start = System.currentTimeMillis()
+        val start = System.nanoTime()
         block()
-        return System.currentTimeMillis() - start
+        return (System.nanoTime() - start) / 1_000_000
     }
 }

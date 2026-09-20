@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.dependency.analysis)
     alias(libs.plugins.binary.compatibility.validator)
+    id("com.github.ben-manes.versions") version "0.51.0"
 }
 
 allprojects {
@@ -62,3 +63,4 @@ fun bumpVersion(type: String) {
     propsFile.writeText(updatedLines.joinToString("\n") + "\n")
     println("Bumped to Version: $versionName ($versionCode)")
 }
+

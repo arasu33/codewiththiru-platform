@@ -14,11 +14,18 @@ class AndroidNotificationProvider(private val context: Context) : NotificationPr
     override suspend fun showNotification(payload: NotificationPayload): NotificationResult {
         if (payload.isSilent) return NotificationResult.Suppressed
 
-        // In a real app, PendingIntent routes to DeepLinkManager.
-        val intent = Intent(Intent.ACTION_VIEW).apply {
-            payload.deepLink?.let { data = android.net.Uri.parse(it) }
-        }
-        val pendingIntent = PendingIntent.getActivity(context, payload.id.hashCode(), intent, PendingIntent.FLAG_IMMUTABLE)
+        val intent = payload.deepLink?.let {
+            Intent(Intent.ACTION_VIEW, android.net.Uri.parse(it)).apply {
+                setPackage(context.packageName)
+            }
+        } ?: context.packageManager.getLaunchIntentForPackage(context.packageName) ?: Intent()
+        
+        val pendingIntent = PendingIntent.getActivity(
+            context, 
+            payload.id.hashCode(), 
+            intent, 
+            PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
+        )
 
         val builder = NotificationCompat.Builder(context, payload.category.channelId)
             .setContentTitle(payload.title)

@@ -12,12 +12,10 @@ import com.codewiththiru.platform.moreapps.presentation.integration.AppInstallRe
 import com.codewiththiru.platform.moreapps.presentation.integration.MoreAppsAnalyticsProvider
 import com.codewiththiru.platform.moreapps.presentation.state.MoreAppsEffect
 import com.codewiththiru.platform.moreapps.presentation.state.MoreAppsUiState
-import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 
 class MoreAppsViewModel(
@@ -29,8 +27,8 @@ class MoreAppsViewModel(
     private val _uiState = MutableStateFlow<MoreAppsUiState>(MoreAppsUiState.Loading)
     val uiState: StateFlow<MoreAppsUiState> = _uiState.asStateFlow()
 
-    private val _effect = MutableSharedFlow<MoreAppsEffect>()
-    val effect: SharedFlow<MoreAppsEffect> = _effect.asSharedFlow()
+    private val _effect = kotlinx.coroutines.channels.Channel<MoreAppsEffect>()
+    val effect: kotlinx.coroutines.flow.Flow<MoreAppsEffect> = _effect.receiveAsFlow()
 
     init {
         loadApps()
@@ -41,7 +39,10 @@ class MoreAppsViewModel(
             _uiState.value = MoreAppsUiState.Loading
             when (val result = repository.getApps()) {
                 is MoreAppsResult.Success -> {
-                    val resolvedApps = result.data.map { resolveInstallStatus(it) }
+                    val resolvedApps =
+                        kotlinx.coroutines.withContext(kotlinx.coroutines.Dispatchers.IO) {
+                            result.data.map { resolveInstallStatus(it) }
+                        }
                     if (resolvedApps.isEmpty()) {
                         _uiState.value = MoreAppsUiState.Empty
                     } else {
@@ -79,9 +80,9 @@ class MoreAppsViewModel(
         analyticsProvider.logAppAction(app, action, position, "MainList")
         viewModelScope.launch {
             when (action) {
-                AppActionType.Install, AppActionType.Open -> _effect.emit(MoreAppsEffect.OpenStore(app))
-                AppActionType.Share -> _effect.emit(MoreAppsEffect.ShareApp(app))
-                AppActionType.View -> _effect.emit(MoreAppsEffect.OpenStore(app))
+                AppActionType.Install, AppActionType.Open -> _effect.send(MoreAppsEffect.OpenStore(app))
+                AppActionType.Share -> _effect.send(MoreAppsEffect.ShareApp(app))
+                AppActionType.View -> _effect.send(MoreAppsEffect.OpenStore(app))
             }
         }
     }

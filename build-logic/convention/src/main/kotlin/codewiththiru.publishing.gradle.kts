@@ -150,11 +150,6 @@ signing {
     val signingPassword = System.getenv("GPG_SIGNING_PASSWORD")
     if (!signingKey.isNullOrEmpty() && !signingPassword.isNullOrEmpty()) {
         useInMemoryPgpKeys(signingKey, signingPassword)
-        val publication = publishing.publications.findByName("release") 
-            ?: publishing.publications.findByName("mavenJava")
-            ?: publishing.publications.findByName("bom")
-        if (publication != null) {
-            sign(publication)
-        }
+        sign(publishing.publications)
     }
 }

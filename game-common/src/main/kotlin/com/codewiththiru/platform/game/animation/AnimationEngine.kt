@@ -43,12 +43,14 @@ class DefaultAnimationCoordinator : AnimationCoordinator {
     }
 
     override fun onAnimationFinished(animationId: String) {
+        var newSize = 0
         _activeAnimations.update {
             val updated = it - animationId
-            if (updated.isEmpty()) {
-                _isAnyAnimationRunning.value = false
-            }
+            newSize = updated.size
             updated
+        }
+        if (newSize == 0) {
+            _isAnyAnimationRunning.value = false
         }
     }
 

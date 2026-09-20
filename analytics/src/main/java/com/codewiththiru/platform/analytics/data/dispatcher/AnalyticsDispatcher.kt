@@ -76,7 +76,20 @@ internal class AnalyticsDispatcher(
 
         var success = true
         try {
-            batch.forEach { provider.trackEvent(it) }
+            batch.forEach { event ->
+                if (event.name == "user_property_set") {
+                    val key = event.parameters["property_name"] as? String
+                    val value = event.parameters["property_value"] as? String
+                    if (key != null && value != null) {
+                        provider.setUserProperty(
+                            com.codewiththiru.platform.analytics.domain.event
+                                .AnalyticsUserProperty(key, value),
+                        )
+                    }
+                } else {
+                    provider.trackEvent(event)
+                }
+            }
             provider.flush()
         } catch (e: kotlinx.coroutines.CancellationException) {
             throw e

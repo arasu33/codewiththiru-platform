@@ -6,8 +6,10 @@ import android.content.res.Configuration
 import android.os.Build
 
 class AndroidCustDeviceInfoProvider(
-    private val context: Context,
+    context: Context,
 ) : CustDeviceInfoProvider {
+    private val appContext: Context = context.applicationContext ?: context
+
     override val manufacturer: String
         get() = Build.MANUFACTURER
 
@@ -40,14 +42,14 @@ class AndroidCustDeviceInfoProvider(
     override val isTablet: Boolean
         get() {
             return (
-                context.resources.configuration.screenLayout and
+                appContext.resources.configuration.screenLayout and
                     Configuration.SCREENLAYOUT_SIZE_MASK
             ) >= Configuration.SCREENLAYOUT_SIZE_LARGE
         }
 
     override val formFactor: CustDeviceFormFactor
         get() {
-            val packageManager = context.packageManager
+            val packageManager = appContext.packageManager
             val isFoldable =
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
                     packageManager.hasSystemFeature(PackageManager.FEATURE_SENSOR_HINGE_ANGLE)

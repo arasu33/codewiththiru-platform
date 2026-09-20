@@ -7,9 +7,7 @@ import com.codewiththiru.platform.updates.api.UpdateEffect
 import com.codewiththiru.platform.updates.api.UpdateManager
 import com.codewiththiru.platform.updates.api.UpdateResult
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.MutableSharedFlow
-import kotlinx.coroutines.flow.SharedFlow
-import kotlinx.coroutines.flow.asSharedFlow
+import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 
 class UpdatesViewModel(
@@ -17,8 +15,8 @@ class UpdatesViewModel(
 ) : ViewModel() {
     val updateState: Flow<UpdateResult?> = updateManager.updateState
 
-    private val _updateEffect = MutableSharedFlow<UpdateEffect>()
-    val updateEffect: SharedFlow<UpdateEffect> = _updateEffect.asSharedFlow()
+    private val _updateEffect = kotlinx.coroutines.channels.Channel<UpdateEffect>()
+    val updateEffect: Flow<UpdateEffect> = _updateEffect.receiveAsFlow()
 
     fun checkForUpdates(
         activity: Activity,
@@ -26,7 +24,7 @@ class UpdatesViewModel(
     ) {
         viewModelScope.launch {
             val effect = updateManager.checkAndPrompt(activity, currentVersionCode)
-            _updateEffect.emit(effect)
+            _updateEffect.send(effect)
         }
     }
 

@@ -1,7 +1,6 @@
 # Proguard rules for security-platform
 
-# Obfuscate internal implementation
--repackageclasses com.codewiththiru.security.internal
+# -repackageclasses com.codewiththiru.security.internal
 
 # Keep public API methods and classes
 -keep public class com.codewiththiru.security.encryption.** {

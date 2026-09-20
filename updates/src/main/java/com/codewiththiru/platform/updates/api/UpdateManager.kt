@@ -65,7 +65,7 @@ class UpdateManager(
                     storage.setLastShownReleaseNotesVersion(currentVersionCode)
                     UpdateEffect.ShowWhatsNew
                 } else {
-                    UpdateEffect.ShowError("Update deferred or cooldown active") // Or a NO-OP effect
+                    UpdateEffect.None // Or a NO-OP effect
                 }
             }
             UpdateEligibilityResult.NoUpdateAvailable -> {
@@ -74,7 +74,7 @@ class UpdateManager(
                     storage.setLastShownReleaseNotesVersion(currentVersionCode)
                     UpdateEffect.ShowWhatsNew
                 } else {
-                    UpdateEffect.ShowError("App is up to date") // NO-OP
+                    UpdateEffect.None // NO-OP
                 }
             }
         }

@@ -12,6 +12,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
+import kotlinx.coroutines.launch
 
 class DefaultRemoteConfigManager(
     private val memoryCache: RemoteConfigCache,
@@ -26,6 +27,7 @@ class DefaultRemoteConfigManager(
     override val state: StateFlow<RemoteConfigState> = _state.asStateFlow()
 
     private val localOverrides = java.util.concurrent.ConcurrentHashMap<String, Any>()
+    private val inMemoryValues = java.util.concurrent.ConcurrentHashMap<String, Any>()
 
     private val refreshMutex = Mutex()
     private var lastFetchTime = 0L
@@ -58,6 +60,7 @@ class DefaultRemoteConfigManager(
     override suspend fun clearCache() {
         memoryCache.clear()
         dataStoreCache.clear()
+        inMemoryValues.clear()
     }
 
     override suspend fun <T> setOverride(key: com.codewiththiru.remoteconfig.api.RemoteConfigKey<T>, value: T) {
@@ -104,96 +107,121 @@ class DefaultRemoteConfigManager(
 
     @Suppress("UNCHECKED_CAST")
     override suspend fun <T> getValue(key: RemoteConfigKey<T>): T {
-        if (killSwitchManager.isKillSwitchActive(key.key)) {
-            analyticsProvider.trackEvent(RemoteConfigEvent.KILL_SWITCH_TRIGGERED, mapOf("key" to key.key))
-            return key.defaultValue
+        return getInternalValue(key.key, key.defaultValue)
+    }
+
+    override fun getString(key: String, defaultValue: String): String = getSynchronousInternalValue(key, defaultValue)
+
+    override fun getBoolean(key: String, defaultValue: Boolean): Boolean = getSynchronousInternalValue(key, defaultValue)
+
+    override fun getInt(key: String, defaultValue: Int): Int = getSynchronousInternalValue(key, defaultValue)
+
+    override fun getLong(key: String, defaultValue: Long): Long = getSynchronousInternalValue(key, defaultValue)
+
+    override fun getDouble(key: String, defaultValue: Double): Double = getSynchronousInternalValue(key, defaultValue)
+
+    override fun getJson(key: String, defaultValue: String): String = getSynchronousInternalValue(key, defaultValue)
+
+    @Suppress("UNCHECKED_CAST")
+    private fun <T> getSynchronousInternalValue(keyName: String, defaultValue: T): T {
+        if (killSwitchManager.isKillSwitchActive(keyName)) {
+            analyticsProvider.trackEvent(RemoteConfigEvent.KILL_SWITCH_TRIGGERED, mapOf("key" to keyName))
+            return defaultValue
         }
 
-        if (localOverrides.containsKey(key.key)) {
-            // Suppress standard telemetry for overrides to avoid polluting production data
-            android.util.Log.d("CWT_PLATFORM", "Using local override for RemoteConfig key: ${key.key}")
-            return localOverrides[key.key] as T
+        if (localOverrides.containsKey(keyName)) {
+            android.util.Log.d("CWT_PLATFORM", "Using local override for RemoteConfig key: $keyName")
+            return localOverrides[keyName] as T
         }
 
-        val memValue = readFromCache(memoryCache, key)
-        if (memValue != null) {
-            analyticsProvider.trackEvent(RemoteConfigEvent.CACHE_HIT, mapOf("key" to key.key, "layer" to "Memory"))
-            return memValue
+        val cached = inMemoryValues[keyName]
+        if (cached != null) {
+            analyticsProvider.trackEvent(RemoteConfigEvent.CACHE_HIT, mapOf("key" to keyName, "layer" to "FastMemory"))
+            return cached as T
         }
 
-        val dsValue = readFromCache(dataStoreCache, key)
-        if (dsValue != null) {
-            analyticsProvider.trackEvent(RemoteConfigEvent.CACHE_HIT, mapOf("key" to key.key, "layer" to "DataStore"))
-            saveToCache(memoryCache, key, dsValue)
-            return dsValue
-        }
-        
-        analyticsProvider.trackEvent(RemoteConfigEvent.CACHE_MISS, mapOf("key" to key.key))
-
-        val providerValue = readFromProvider(compositeProvider, key)
-        if (providerValue != null) {
-            saveToCache(memoryCache, key, providerValue)
-            saveToCache(dataStoreCache, key, providerValue)
-            return providerValue
+        kotlinx.coroutines.CoroutineScope(kotlinx.coroutines.Dispatchers.IO).launch {
+            try {
+                getInternalValue(keyName, defaultValue)
+            } catch (e: Exception) {
+                // Ignore
+            }
         }
 
-        return key.defaultValue
-    }
-
-    override fun getString(key: String, defaultValue: String): String {
-        return compositeProvider.getString(key) ?: defaultValue
-    }
-
-    override fun getBoolean(key: String, defaultValue: Boolean): Boolean {
-        return compositeProvider.getBoolean(key) ?: defaultValue
-    }
-
-    override fun getInt(key: String, defaultValue: Int): Int {
-        return compositeProvider.getInt(key) ?: defaultValue
-    }
-
-    override fun getLong(key: String, defaultValue: Long): Long {
-        return compositeProvider.getLong(key) ?: defaultValue
-    }
-
-    override fun getDouble(key: String, defaultValue: Double): Double {
-        return compositeProvider.getDouble(key) ?: defaultValue
-    }
-
-    override fun getJson(key: String, defaultValue: String): String {
-        return compositeProvider.getString(key) ?: defaultValue
+        return defaultValue
     }
 
     @Suppress("UNCHECKED_CAST")
-    private suspend fun <T> readFromCache(cache: RemoteConfigCache, key: RemoteConfigKey<T>): T? {
-        return when (key.defaultValue) {
-            is String -> cache.getString(key.key) as T?
-            is Boolean -> cache.getBoolean(key.key) as T?
-            is Int -> cache.getInt(key.key) as T?
-            is Long -> cache.getLong(key.key) as T?
-            is Double -> cache.getDouble(key.key) as T?
+    private suspend fun <T> getInternalValue(keyName: String, defaultValue: T): T {
+        if (killSwitchManager.isKillSwitchActive(keyName)) {
+            analyticsProvider.trackEvent(RemoteConfigEvent.KILL_SWITCH_TRIGGERED, mapOf("key" to keyName))
+            return defaultValue
+        }
+
+        if (localOverrides.containsKey(keyName)) {
+            // Suppress standard telemetry for overrides to avoid polluting production data
+            android.util.Log.d("CWT_PLATFORM", "Using local override for RemoteConfig key: $keyName")
+            return localOverrides[keyName] as T
+        }
+
+        val memValue = readFromCacheInternal(memoryCache, keyName, defaultValue)
+        if (memValue != null) {
+            inMemoryValues[keyName] = memValue as Any
+            analyticsProvider.trackEvent(RemoteConfigEvent.CACHE_HIT, mapOf("key" to keyName, "layer" to "Memory"))
+            return memValue
+        }
+
+        val dsValue = readFromCacheInternal(dataStoreCache, keyName, defaultValue)
+        if (dsValue != null) {
+            inMemoryValues[keyName] = dsValue as Any
+            analyticsProvider.trackEvent(RemoteConfigEvent.CACHE_HIT, mapOf("key" to keyName, "layer" to "DataStore"))
+            saveToCacheInternal(memoryCache, keyName, dsValue)
+            return dsValue
+        }
+        
+        analyticsProvider.trackEvent(RemoteConfigEvent.CACHE_MISS, mapOf("key" to keyName))
+
+        val providerValue = readFromProviderInternal(compositeProvider, keyName, defaultValue)
+        if (providerValue != null) {
+            inMemoryValues[keyName] = providerValue as Any
+            saveToCacheInternal(memoryCache, keyName, providerValue)
+            saveToCacheInternal(dataStoreCache, keyName, providerValue)
+            return providerValue
+        }
+
+        return defaultValue
+    }
+
+    @Suppress("UNCHECKED_CAST")
+    private suspend fun <T> readFromCacheInternal(cache: RemoteConfigCache, keyName: String, defaultValue: T): T? {
+        return when (defaultValue) {
+            is String -> cache.getString(keyName) as T?
+            is Boolean -> cache.getBoolean(keyName) as T?
+            is Int -> cache.getInt(keyName) as T?
+            is Long -> cache.getLong(keyName) as T?
+            is Double -> cache.getDouble(keyName) as T?
             else -> null
         }
     }
 
-    private suspend fun <T> saveToCache(cache: RemoteConfigCache, key: RemoteConfigKey<T>, value: T) {
+    private suspend fun <T> saveToCacheInternal(cache: RemoteConfigCache, keyName: String, value: T) {
         when (value) {
-            is String -> cache.save(key.key, value)
-            is Boolean -> cache.save(key.key, value)
-            is Int -> cache.save(key.key, value)
-            is Long -> cache.save(key.key, value)
-            is Double -> cache.save(key.key, value)
+            is String -> cache.save(keyName, value)
+            is Boolean -> cache.save(keyName, value)
+            is Int -> cache.save(keyName, value)
+            is Long -> cache.save(keyName, value)
+            is Double -> cache.save(keyName, value)
         }
     }
 
     @Suppress("UNCHECKED_CAST")
-    private fun <T> readFromProvider(provider: RemoteConfigProvider, key: RemoteConfigKey<T>): T? {
-        return when (key.defaultValue) {
-            is String -> provider.getString(key.key) as T?
-            is Boolean -> provider.getBoolean(key.key) as T?
-            is Int -> provider.getInt(key.key) as T?
-            is Long -> provider.getLong(key.key) as T?
-            is Double -> provider.getDouble(key.key) as T?
+    private fun <T> readFromProviderInternal(provider: RemoteConfigProvider, keyName: String, defaultValue: T): T? {
+        return when (defaultValue) {
+            is String -> provider.getString(keyName) as T?
+            is Boolean -> provider.getBoolean(keyName) as T?
+            is Int -> provider.getInt(keyName) as T?
+            is Long -> provider.getLong(keyName) as T?
+            is Double -> provider.getDouble(keyName) as T?
             else -> null
         }
     }

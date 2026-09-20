@@ -1,22 +1,23 @@
 package com.codewiththiru.platform.developer.testutils
 
-import java.util.concurrent.atomic.AtomicLong
-
 /**
  * A deterministic clock for unit testing time-based game mechanics (like streaks).
  */
 class FakeClock(
     initialTimeMs: Long = 0L,
 ) {
-    private val time = AtomicLong(initialTimeMs)
+    private val lock = Any()
+    private var _currentTimeMs: Long = initialTimeMs
 
     var currentTimeMs: Long
-        get() = time.get()
+        get() = synchronized(lock) { _currentTimeMs }
         set(value) {
-            time.set(value)
+            synchronized(lock) { _currentTimeMs = value }
         }
 
     fun advanceBy(ms: Long) {
-        time.addAndGet(ms)
+        synchronized(lock) {
+            _currentTimeMs += ms
+        }
     }
 }

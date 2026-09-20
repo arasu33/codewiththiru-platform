@@ -40,7 +40,6 @@ class DefaultRankingEngine : RankingEngine {
     ): Double {
         if (totalPlayers <= 0) return 0.0
         if (rank <= 0) return 100.0
-        val percentage = (rank.toDouble() / totalPlayers.toDouble()) * 100.0
-        return 100.0 - percentage
+        return ((totalPlayers - rank) / totalPlayers.toDouble()) * 100.0
     }
 }
