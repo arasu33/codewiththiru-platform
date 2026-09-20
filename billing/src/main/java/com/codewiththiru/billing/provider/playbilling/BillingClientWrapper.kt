@@ -42,7 +42,7 @@ class BillingClientWrapper(
 
     private var billingClient: BillingClient = BillingClient.newBuilder(context)
         .setListener(purchasesUpdatedListener)
-        .enablePendingPurchases()
+        .enablePendingPurchases(com.android.billingclient.api.PendingPurchasesParams.newBuilder().enableOneTimeProducts().build())
         .build()
 
     suspend fun connectToPlayBilling(retryPolicy: RetryPolicy): BillingResult<Unit> {
