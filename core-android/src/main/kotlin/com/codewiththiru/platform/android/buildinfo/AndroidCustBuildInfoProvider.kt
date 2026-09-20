@@ -10,7 +10,7 @@ class AndroidCustBuildInfoProvider(
     override val buildType: String,
 ) : CustBuildInfoProvider {
     private val appContext: Context = context.applicationContext ?: context
-    
+
     private val packageInfo by lazy {
         @Suppress("SwallowedException")
         try {

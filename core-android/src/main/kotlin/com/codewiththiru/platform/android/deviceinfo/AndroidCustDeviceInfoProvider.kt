@@ -9,7 +9,7 @@ class AndroidCustDeviceInfoProvider(
     context: Context,
 ) : CustDeviceInfoProvider {
     private val appContext: Context = context.applicationContext ?: context
-    
+
     override val manufacturer: String
         get() = Build.MANUFACTURER
 

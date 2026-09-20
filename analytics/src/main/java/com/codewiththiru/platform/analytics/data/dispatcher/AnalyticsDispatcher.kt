@@ -81,7 +81,10 @@ internal class AnalyticsDispatcher(
                     val key = event.parameters["property_name"] as? String
                     val value = event.parameters["property_value"] as? String
                     if (key != null && value != null) {
-                        provider.setUserProperty(com.codewiththiru.platform.analytics.domain.event.AnalyticsUserProperty(key, value))
+                        provider.setUserProperty(
+                            com.codewiththiru.platform.analytics.domain.event
+                                .AnalyticsUserProperty(key, value),
+                        )
                     }
                 } else {
                     provider.trackEvent(event)

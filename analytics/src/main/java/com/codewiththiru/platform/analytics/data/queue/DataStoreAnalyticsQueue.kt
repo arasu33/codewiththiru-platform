@@ -93,24 +93,26 @@ internal class DataStoreAnalyticsQueue(
     override suspend fun peek(count: Int): List<AnalyticsEvent> {
         val entities = getEntities()
         return entities.take(count).map { entity ->
-            val unwrappedParams = entity.parameters.mapValues {
-                val value = it.value
-                if (value is JsonPrimitive) {
-                    if (value.isString) {
-                        value.content
-                    } else {
-                        value.booleanOrNull ?: value.longOrNull ?: value.doubleOrNull ?: value.content
-                    }
-                } else {
-                    value
-                }
-            }.toMutableMap()
+            val unwrappedParams =
+                entity.parameters
+                    .mapValues {
+                        val value = it.value
+                        if (value is JsonPrimitive) {
+                            if (value.isString) {
+                                value.content
+                            } else {
+                                value.booleanOrNull ?: value.longOrNull ?: value.doubleOrNull ?: value.content
+                            }
+                        } else {
+                            value
+                        }
+                    }.toMutableMap()
             unwrappedParams["_internal_event_id"] = entity.eventId
 
             AnalyticsEvent(
                 name = entity.eventName,
                 parameters = unwrappedParams,
-                timestamp = entity.timestamp
+                timestamp = entity.timestamp,
             )
         }
     }
@@ -127,13 +129,13 @@ internal class DataStoreAnalyticsQueue(
                 // We remove exactly the number of items passed in, matching from the front.
                 for (eventToRemove in events) {
                     val eventId = eventToRemove.parameters["_internal_event_id"] as? String
-                    val index = if (eventId != null) {
-                        list.indexOfFirst { it.eventId == eventId }
-                    } else {
-                        val convertedParams = AnyValueSerializer.toParametersMap(eventToRemove.parameters)
-                        list.indexOfFirst { it.eventName == eventToRemove.name && it.parameters == convertedParams }
-                    }
-                    
+                    val index =
+                        if (eventId != null) {
+                            list.indexOfFirst { it.eventId == eventId }
+                        } else {
+                            val convertedParams = AnyValueSerializer.toParametersMap(eventToRemove.parameters)
+                            list.indexOfFirst { it.eventName == eventToRemove.name && it.parameters == convertedParams }
+                        }
                     if (index != -1) {
                         list.removeAt(index)
                     }
