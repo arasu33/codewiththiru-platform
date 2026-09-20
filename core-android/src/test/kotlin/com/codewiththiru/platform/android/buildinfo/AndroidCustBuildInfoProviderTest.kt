@@ -34,6 +34,7 @@ class AndroidCustBuildInfoProviderTest {
         every { context.packageName } returns "com.test.app"
         every { context.packageManager } returns packageManager
         every { context.applicationInfo } returns applicationInfo
+        every { context.applicationContext } returns context
         every { packageManager.getPackageInfo("com.test.app", 0) } returns packageInfo
 
         val provider = AndroidCustBuildInfoProvider(context, "release")
@@ -56,6 +57,7 @@ class AndroidCustBuildInfoProviderTest {
         every { context.packageName } returns "com.test.app"
         every { context.packageManager } returns packageManager
         every { context.applicationInfo } returns applicationInfo
+        every { context.applicationContext } returns context
         every { packageManager.getPackageInfo("com.test.app", 0) } throws PackageManager.NameNotFoundException()
 
         val provider = AndroidCustBuildInfoProvider(context, "debug")

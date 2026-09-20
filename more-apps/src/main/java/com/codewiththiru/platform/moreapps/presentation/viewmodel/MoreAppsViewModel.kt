@@ -12,11 +12,8 @@ import com.codewiththiru.platform.moreapps.presentation.integration.AppInstallRe
 import com.codewiththiru.platform.moreapps.presentation.integration.MoreAppsAnalyticsProvider
 import com.codewiththiru.platform.moreapps.presentation.state.MoreAppsEffect
 import com.codewiththiru.platform.moreapps.presentation.state.MoreAppsUiState
-import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
@@ -42,9 +39,10 @@ class MoreAppsViewModel(
             _uiState.value = MoreAppsUiState.Loading
             when (val result = repository.getApps()) {
                 is MoreAppsResult.Success -> {
-                    val resolvedApps = kotlinx.coroutines.withContext(kotlinx.coroutines.Dispatchers.IO) {
-                        result.data.map { resolveInstallStatus(it) }
-                    }
+                    val resolvedApps =
+                        kotlinx.coroutines.withContext(kotlinx.coroutines.Dispatchers.IO) {
+                            result.data.map { resolveInstallStatus(it) }
+                        }
                     if (resolvedApps.isEmpty()) {
                         _uiState.value = MoreAppsUiState.Empty
                     } else {
