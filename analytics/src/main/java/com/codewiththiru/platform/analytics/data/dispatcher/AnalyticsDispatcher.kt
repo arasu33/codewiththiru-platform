@@ -85,8 +85,8 @@ internal class AnalyticsDispatcher(
     }
 
     @Suppress("TooGenericExceptionCaught", "ThrowsCount")
-    private suspend fun dispatchBatch(batch: List<AnalyticsEvent>): Boolean {
-        return try {
+    private suspend fun dispatchBatch(batch: List<AnalyticsEvent>): Boolean =
+        try {
             batch.forEach { event -> dispatchEvent(event) }
             provider.flush()
             true
@@ -98,7 +98,6 @@ internal class AnalyticsDispatcher(
             Log.e("AnalyticsDispatcher", "Provider failed during dispatch. Entering backoff.", e)
             false
         }
-    }
 
     private suspend fun dispatchEvent(event: AnalyticsEvent) {
         if (event.name == "user_property_set") {
