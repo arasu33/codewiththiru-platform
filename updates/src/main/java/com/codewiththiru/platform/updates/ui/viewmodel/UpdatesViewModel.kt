@@ -7,12 +7,8 @@ import com.codewiththiru.platform.updates.api.UpdateEffect
 import com.codewiththiru.platform.updates.api.UpdateManager
 import com.codewiththiru.platform.updates.api.UpdateResult
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.MutableSharedFlow
-import kotlinx.coroutines.flow.SharedFlow
-import kotlinx.coroutines.flow.asSharedFlow
-import kotlinx.coroutines.launch
-
 import kotlinx.coroutines.flow.receiveAsFlow
+import kotlinx.coroutines.launch
 
 class UpdatesViewModel(
     private val updateManager: UpdateManager,

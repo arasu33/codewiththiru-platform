@@ -10,11 +10,8 @@ import com.codewiththiru.platform.coupons.domain.repository.CouponRepository
 import com.codewiththiru.platform.coupons.presentation.state.CouponEffect
 import com.codewiththiru.platform.coupons.presentation.state.CouponIntent
 import com.codewiththiru.platform.coupons.presentation.state.CouponUIState
-import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.flow.update

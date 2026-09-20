@@ -26,7 +26,10 @@ class DeepMergeConflictResolver : ConflictResolver {
             val primary = if (localWins) localObj else remoteObj
             val secondary = if (localWins) remoteObj else localObj
 
-            fun deepMerge(secondary: JsonObject, primary: JsonObject): JsonObject {
+            fun deepMerge(
+                secondary: JsonObject,
+                primary: JsonObject,
+            ): JsonObject {
                 val merged = mutableMapOf<String, kotlinx.serialization.json.JsonElement>()
                 merged.putAll(secondary)
                 for ((key, primaryValue) in primary) {

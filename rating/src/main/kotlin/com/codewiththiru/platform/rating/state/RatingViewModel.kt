@@ -7,11 +7,8 @@ import com.codewiththiru.platform.rating.model.RatingConfig
 import com.codewiththiru.platform.rating.model.RatingResult
 import com.codewiththiru.platform.rating.model.RatingTriggerSource
 import com.codewiththiru.platform.rating.repository.RatingRepository
-import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.flow.update

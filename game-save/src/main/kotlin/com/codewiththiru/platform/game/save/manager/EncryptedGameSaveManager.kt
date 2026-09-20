@@ -40,16 +40,26 @@ class EncryptedGameSaveManager<T>(
             val signatureFile = File(saveDirectory, "${request.slot.id}.sig")
             val metaFile = File(saveDirectory, "${request.slot.id}.meta")
 
-            val metaJson = kotlinx.serialization.json.Json.encodeToString(
-                com.codewiththiru.platform.game.save.api.SaveMetadata.serializer(),
-                request.metadata
-            )
+            val metaJson =
+                kotlinx.serialization.json.Json.encodeToString(
+                    com.codewiththiru.platform.game.save.api.SaveMetadata
+                        .serializer(),
+                    request.metadata,
+                )
 
-            fun writeAtomic(file: File, data: ByteArray) {
+            fun writeAtomic(
+                file: File,
+                data: ByteArray,
+            ) {
                 val tmp = File(file.parentFile, file.name + ".tmp")
                 try {
                     tmp.writeBytes(data)
-                    java.nio.file.Files.move(tmp.toPath(), file.toPath(), java.nio.file.StandardCopyOption.ATOMIC_MOVE, java.nio.file.StandardCopyOption.REPLACE_EXISTING)
+                    java.nio.file.Files.move(
+                        tmp.toPath(),
+                        file.toPath(),
+                        java.nio.file.StandardCopyOption.ATOMIC_MOVE,
+                        java.nio.file.StandardCopyOption.REPLACE_EXISTING,
+                    )
                 } catch (e: Exception) {
                     if (tmp.exists()) tmp.delete()
                     throw e
@@ -100,20 +110,22 @@ class EncryptedGameSaveManager<T>(
             val data = deserializer(rawBytes)
 
             // Load real metadata if exists, else fallback
-            val metadata = if (metaFile.exists()) {
-                kotlinx.serialization.json.Json.decodeFromString(
-                    com.codewiththiru.platform.game.save.api.SaveMetadata.serializer(),
-                    metaFile.readText()
-                )
-            } else {
-                com.codewiththiru.platform.game.save.api.SaveMetadata(
-                    timestampMs = saveFile.lastModified(),
-                    schemaVersion = 1,
-                    playtimeSeconds = 0,
-                    gameId = "dummy",
-                    gameVersion = "1.0",
-                )
-            }
+            val metadata =
+                if (metaFile.exists()) {
+                    kotlinx.serialization.json.Json.decodeFromString(
+                        com.codewiththiru.platform.game.save.api.SaveMetadata
+                            .serializer(),
+                        metaFile.readText(),
+                    )
+                } else {
+                    com.codewiththiru.platform.game.save.api.SaveMetadata(
+                        timestampMs = saveFile.lastModified(),
+                        schemaVersion = 1,
+                        playtimeSeconds = 0,
+                        gameId = "dummy",
+                        gameVersion = "1.0",
+                    )
+                }
 
             _status.value = SaveSystemStatus.IDLE
             SaveResponse.Success(slot, metadata, data)
@@ -132,7 +144,7 @@ class EncryptedGameSaveManager<T>(
         val saveFile = File(saveDirectory, slot.id)
         val signatureFile = File(saveDirectory, "${slot.id}.sig")
         val metaFile = File(saveDirectory, "${slot.id}.meta")
-        
+
         var deleted = saveFile.delete()
         if (signatureFile.exists()) deleted = signatureFile.delete() && deleted
         if (metaFile.exists()) deleted = metaFile.delete() && deleted
