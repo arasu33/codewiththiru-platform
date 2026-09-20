@@ -10,7 +10,7 @@ android {
     defaultConfig {
         applicationId = "com.codewiththiru.platform.showcase"
         minSdk = 26
-        targetSdk = 35
+        targetSdk = 37
         versionCode = (project.findProperty("PLATFORM_VERSION_CODE") as? String)?.toInt() ?: 1
         versionName = (project.findProperty("PLATFORM_VERSION_NAME") as? String) ?: "1.0.0"
 

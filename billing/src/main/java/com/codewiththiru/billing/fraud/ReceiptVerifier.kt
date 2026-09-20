@@ -9,8 +9,8 @@ class ReceiptVerifier(private val base64PublicKey: String?) {
     
     fun verifyReceipt(purchaseJson: String, signature: String): Boolean {
         if (base64PublicKey.isNullOrBlank()) {
-            android.util.Log.w("CWT_PLATFORM", "Receipt verification skipped because base64PublicKey is null or empty.")
-            return true // Fallback or strict mode could be added here
+            android.util.Log.e("CWT_PLATFORM", "Receipt verification failed: base64PublicKey is null or empty.")
+            return false // Must not bypass validation
         }
 
         if (purchaseJson.isEmpty() || signature.isEmpty()) {
@@ -23,7 +23,7 @@ class ReceiptVerifier(private val base64PublicKey: String?) {
             val publicKeySpec = X509EncodedKeySpec(decodedKey)
             val publicKey = keyFactory.generatePublic(publicKeySpec)
 
-            val sig = Signature.getInstance("SHA1withRSA")
+            val sig = Signature.getInstance("SHA256withRSA")
             sig.initVerify(publicKey)
             sig.update(purchaseJson.toByteArray())
             

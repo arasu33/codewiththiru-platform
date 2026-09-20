@@ -25,7 +25,7 @@ class DefaultExperimentManager : ExperimentManager {
         }
 
         // Pseudo-random assignment based on user hash
-        val hash = userId.hashCode() % 100
+        val hash = kotlin.math.abs(userId.hashCode() % 100)
         var currentAcc = 0
         var assignedId = exp.variants.firstOrNull()?.id ?: return null
 

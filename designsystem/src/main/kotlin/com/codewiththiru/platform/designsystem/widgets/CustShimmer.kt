@@ -20,6 +20,7 @@ import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.drawscope.ContentDrawScope
 import androidx.compose.ui.node.DrawModifierNode
 import androidx.compose.ui.node.ModifierNodeElement
+import androidx.compose.ui.node.invalidateDraw
 import androidx.compose.ui.platform.InspectorInfo
 import kotlinx.coroutines.launch
 
@@ -64,7 +65,7 @@ private class CustShimmerNode(
         coroutineScope.launch {
             while (true) {
                 translateAnimation.animateTo(
-                    targetValue = 1000f,
+                    targetValue = 1f,
                     animationSpec =
                         infiniteRepeatable(
                             animation =
@@ -74,7 +75,9 @@ private class CustShimmerNode(
                                 ),
                             repeatMode = RepeatMode.Restart,
                         ),
-                )
+                ) {
+                    invalidateDraw()
+                }
             }
         }
     }
@@ -95,7 +98,7 @@ private class CustShimmerNode(
                 Brush.linearGradient(
                     colors = shimmerColors,
                     start = Offset.Zero,
-                    end = Offset(x = translateAnimation.value, y = translateAnimation.value),
+                    end = Offset(x = translateAnimation.value * size.width, y = translateAnimation.value * size.height),
                 ),
         )
     }

@@ -31,8 +31,8 @@ class DataStoreDraftProvider(
             prefs[Keys.CATEGORY_NAME] = payload.category.displayName
             prefs[Keys.SUBJECT] = payload.subject
             prefs[Keys.DESCRIPTION] = payload.description
-            payload.userEmail?.let { prefs[Keys.EMAIL] = it }
-            payload.userName?.let { prefs[Keys.NAME] = it }
+            if (payload.userEmail != null) prefs[Keys.EMAIL] = payload.userEmail else prefs.remove(Keys.EMAIL)
+            if (payload.userName != null) prefs[Keys.NAME] = payload.userName else prefs.remove(Keys.NAME)
         }
     }
 

@@ -6,20 +6,22 @@ import android.content.pm.PackageManager
 import androidx.core.content.pm.PackageInfoCompat
 
 class AndroidCustBuildInfoProvider(
-    private val context: Context,
+    context: Context,
     override val buildType: String,
 ) : CustBuildInfoProvider {
+    private val appContext: Context = context.applicationContext ?: context
+
     private val packageInfo by lazy {
         @Suppress("SwallowedException")
         try {
-            context.packageManager.getPackageInfo(context.packageName, 0)
+            appContext.packageManager.getPackageInfo(appContext.packageName, 0)
         } catch (e: PackageManager.NameNotFoundException) {
             null
         }
     }
 
     override val packageName: String
-        get() = context.packageName
+        get() = appContext.packageName
 
     override val versionName: String
         get() = packageInfo?.versionName ?: ""
@@ -28,7 +30,7 @@ class AndroidCustBuildInfoProvider(
         get() = packageInfo?.let { PackageInfoCompat.getLongVersionCode(it) } ?: 0L
 
     override val isDebug: Boolean
-        get() = (context.applicationInfo.flags and ApplicationInfo.FLAG_DEBUGGABLE) != 0
+        get() = (appContext.applicationInfo.flags and ApplicationInfo.FLAG_DEBUGGABLE) != 0
 
     override val firstInstallTime: Long
         get() = packageInfo?.firstInstallTime ?: 0L

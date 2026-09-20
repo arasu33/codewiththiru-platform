@@ -23,10 +23,11 @@ public class DefaultGamificationRepository(
     private val json: Json = Json { ignoreUnknownKeys = true }
 ) : GamificationRepository {
 
-    private val stateKey = stringPreferencesKey("current_state")
+
 
     override fun observeLocalState(userId: String): Flow<GamificationState> {
-        return context.gamificationDataStore.data.map { prefs ->
+        val stateKey = stringPreferencesKey("state_$userId")
+        return context.applicationContext.gamificationDataStore.data.map { prefs ->
             val jsonStr = prefs[stateKey]
             if (jsonStr.isNullOrEmpty()) {
                 GamificationState(userId, 0L, 1, 0L, 0L, 0L)
@@ -46,8 +47,9 @@ public class DefaultGamificationRepository(
     }
 
     override suspend fun commitState(state: GamificationState): GamificationResult<Unit> {
+        val stateKey = stringPreferencesKey("state_${state.userId}")
         return try {
-            context.gamificationDataStore.edit { prefs ->
+            context.applicationContext.gamificationDataStore.edit { prefs ->
                 prefs[stateKey] = json.encodeToString(state)
             }
             // Enqueue work manager sync job here...

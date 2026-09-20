@@ -26,6 +26,7 @@ class AndroidCustDeviceInfoProviderTest {
     @Before
     fun setup() {
         context = mockk(relaxed = true)
+        every { context.applicationContext } returns context
         provider = AndroidCustDeviceInfoProvider(context)
     }
 

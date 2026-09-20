@@ -17,4 +17,6 @@ sealed interface UpdateEffect {
     data class ShowError(
         val message: String,
     ) : UpdateEffect
+
+    data object None : UpdateEffect
 }

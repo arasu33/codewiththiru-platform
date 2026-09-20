@@ -8,12 +8,10 @@ import com.codewiththiru.platform.feedback.model.FeedbackSubmissionResult
 import com.codewiththiru.platform.feedback.provider.FeedbackDraftProvider
 import com.codewiththiru.platform.feedback.provider.FeedbackSubmissionPolicy
 import com.codewiththiru.platform.feedback.provider.FeedbackSubmissionProvider
-import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
@@ -29,12 +27,14 @@ class FeedbackViewModel(
     private val _formState = MutableStateFlow(FeedbackFormState(category = config.categories.firstOrNull()))
     val formState: StateFlow<FeedbackFormState> = _formState.asStateFlow()
 
-    private val _effect = MutableSharedFlow<FeedbackEffect>()
-    val effect: SharedFlow<FeedbackEffect> = _effect.asSharedFlow()
+    private val _effect = kotlinx.coroutines.channels.Channel<FeedbackEffect>()
+    val effect: kotlinx.coroutines.flow.Flow<FeedbackEffect> = _effect.receiveAsFlow()
 
     init {
         loadDraft()
     }
+
+    private var saveDraftJob: kotlinx.coroutines.Job? = null
 
     fun onAction(action: FeedbackAction) {
         when (action) {
@@ -61,7 +61,12 @@ class FeedbackViewModel(
         // Auto-save draft on every key action if configured
         val skipSave = action is FeedbackAction.SubmitClicked || action is FeedbackAction.DismissErrorClicked
         if (config.offlineConfig.autoSaveDrafts && !skipSave) {
-            saveDraft()
+            saveDraftJob?.cancel()
+            saveDraftJob =
+                viewModelScope.launch {
+                    kotlinx.coroutines.delay(1000)
+                    saveDraft()
+                }
         }
     }
 
@@ -159,8 +164,8 @@ class FeedbackViewModel(
                     if (config.offlineConfig.clearDraftOnSuccess) {
                         draftProvider?.clearDraft()
                     }
-                    _effect.emit(FeedbackEffect.ShowToast("Feedback Submitted"))
-                    _effect.emit(FeedbackEffect.NavigateBack)
+                    _effect.send(FeedbackEffect.ShowToast("Feedback Submitted"))
+                    _effect.send(FeedbackEffect.NavigateBack)
                 }
                 is FeedbackSubmissionResult.NetworkError -> {
                     _uiState.value = FeedbackUiState.Error("Network error. Retry available: ${result.retryAvailable}")

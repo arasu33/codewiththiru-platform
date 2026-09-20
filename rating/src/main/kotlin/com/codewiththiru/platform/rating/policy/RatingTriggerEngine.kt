@@ -29,7 +29,7 @@ class RatingTriggerEngine(
 
         val now = clock.currentTimeMillis()
         val installDate = repository.getInstallDate()
-        val daysInstalled = TimeUnit.MILLISECONDS.toDays(now - installDate)
+        val daysInstalled = if (installDate == 0L) 0 else TimeUnit.MILLISECONDS.toDays(now - installDate)
         if (daysInstalled < rules.minimumDaysInstalled) {
             return RatingEligibilityResult.MinimumDaysNotMet(daysInstalled, rules.minimumDaysInstalled)
         }

@@ -46,9 +46,7 @@ dependencies {
     implementation(project(":analytics-api"))
     implementation(project(":remote-config-api"))
     implementation(project(":notifications-api"))
-    implementation(project(":coupons"))
-    implementation(project(":updates"))
-    implementation(project(":designsystem"))
+
     
     implementation(libs.androidx.core.ktx)
     implementation(libs.kotlinx.coroutines.core)
@@ -67,7 +65,7 @@ dependencies {
     implementation(libs.androidx.lifecycle.process)
     
     // Play Billing (will be added via toml later)
-    implementation("com.android.billingclient:billing-ktx:7.0.0") // Replace with 8+ later if available, sticking to recent version
+    implementation("com.android.billingclient:billing-ktx:9.1.0") // Updated to latest to support new monetization features
     
     testImplementation(libs.junit)
     testImplementation(libs.kotlinx.coroutines.test)

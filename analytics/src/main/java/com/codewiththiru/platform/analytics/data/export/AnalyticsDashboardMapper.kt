@@ -28,7 +28,8 @@ internal class BigQueryEventMapper : AnalyticsDashboardMapper<Map<String, Any>> 
 internal class LookerStudioMapper : AnalyticsDashboardMapper<String> {
     override fun map(event: AnalyticsEvent): String {
         // Formats the event as a CSV line for simple Looker Studio ingestion
+        val escapeCsv: (String) -> String = { str -> "\"${str.replace("\"", "\"\"")}\"" }
         val paramsJoined = event.parameters.entries.joinToString(";") { "${it.key}=${it.value}" }
-        return "${event.timestamp},${event.name},$paramsJoined"
+        return "${event.timestamp},${escapeCsv(event.name)},${escapeCsv(paramsJoined)}"
     }
 }
