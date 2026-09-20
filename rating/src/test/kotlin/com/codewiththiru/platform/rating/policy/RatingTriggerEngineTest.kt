@@ -53,7 +53,7 @@ class RatingTriggerEngineTest {
         runTest {
             coEvery { repository.getLaunchCount() } returns 6
             coEvery { repository.getEventCount() } returns 2
-            coEvery { repository.getInstallDate() } returns 0L
+            coEvery { repository.getInstallDate() } returns 1L
             coEvery { repository.getLastPromptDate() } returns 0L
             coEvery { repository.getLastReviewDate() } returns 0L
             coEvery { repository.getLastFeedbackDate() } returns 0L

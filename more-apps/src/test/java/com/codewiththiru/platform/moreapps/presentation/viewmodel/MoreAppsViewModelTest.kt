@@ -99,7 +99,7 @@ class MoreAppsViewModelTest {
                 )
             repository.appsResult = MoreAppsResult.Success(apps)
 
-            viewModel = MoreAppsViewModel(repository, stubInstallResolver, dummyAnalytics, dummyConfig)
+            viewModel = MoreAppsViewModel(repository, stubInstallResolver, dummyAnalytics, dummyConfig, testDispatcher)
             testDispatcher.scheduler.advanceUntilIdle()
 
             val state = viewModel.uiState.value
@@ -122,7 +122,7 @@ class MoreAppsViewModelTest {
                     iconUrl = "",
                 )
             repository.appsResult = MoreAppsResult.Success(listOf(app))
-            viewModel = MoreAppsViewModel(repository, stubInstallResolver, dummyAnalytics, dummyConfig)
+            viewModel = MoreAppsViewModel(repository, stubInstallResolver, dummyAnalytics, dummyConfig, testDispatcher)
 
             // Launch collection
             val job =

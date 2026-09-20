@@ -23,6 +23,7 @@ class MoreAppsViewModel(
     private val installResolver: AppInstallResolver,
     private val analyticsProvider: MoreAppsAnalyticsProvider,
     private val config: MoreAppsConfig,
+    private val ioDispatcher: kotlinx.coroutines.CoroutineDispatcher = kotlinx.coroutines.Dispatchers.IO,
 ) : ViewModel() {
     private val _uiState = MutableStateFlow<MoreAppsUiState>(MoreAppsUiState.Loading)
     val uiState: StateFlow<MoreAppsUiState> = _uiState.asStateFlow()
@@ -40,7 +41,7 @@ class MoreAppsViewModel(
             when (val result = repository.getApps()) {
                 is MoreAppsResult.Success -> {
                     val resolvedApps =
-                        kotlinx.coroutines.withContext(kotlinx.coroutines.Dispatchers.IO) {
+                        kotlinx.coroutines.withContext(ioDispatcher) {
                             result.data.map { resolveInstallStatus(it) }
                         }
                     if (resolvedApps.isEmpty()) {
