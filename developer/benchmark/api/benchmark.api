@@ -1,5 +1,6 @@
 public final class com/codewiththiru/platform/developer/benchmark/memory/AllocationHelpers {
 	public static final field INSTANCE Lcom/codewiththiru/platform/developer/benchmark/memory/AllocationHelpers;
+	public static final field NANOS_PER_MILLISECOND J
 	public final fun measureExecutionTime (Lkotlin/jvm/functions/Function0;)J
 }
 
