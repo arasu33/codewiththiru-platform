@@ -33,9 +33,13 @@ jobs:
         run: ./gradlew ktlintCheck detekt --no-daemon
 
   # ── Job 2: Unit Tests & API Checks (parallel) ─────────────────────────
-  test:
-    name: Unit Tests & API Checks
+  verify:
+    name: Verify Project (${{ matrix.task }})
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        task: [test, apiCheck]
     permissions:
       contents: read
 
@@ -55,14 +59,14 @@ jobs:
       - name: Make Gradlew Executable
         run: chmod +x gradlew
 
-      - name: Run Tests & API Check
-        run: ./gradlew test apiCheck --no-daemon
+      - name: Run ${{ matrix.task }}
+        run: ./gradlew ${{ matrix.task }} --no-daemon
 
   # ── Job 3: Publish (depends on lint + test) ────────────────────────────
   publish:
     name: Publish Artifacts
     runs-on: ubuntu-latest
-    needs: [lint, test]
+    needs: [lint, verify]
     permissions:
       contents: read
       packages: write
