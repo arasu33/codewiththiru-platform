@@ -2,20 +2,25 @@ package com.codewiththiru.platform.feedback.provider
 
 import android.content.Context
 import androidx.security.crypto.EncryptedSharedPreferences
-import androidx.security.crypto.MasterKeys
+import androidx.security.crypto.MasterKey
 import com.codewiththiru.platform.feedback.model.FeedbackCategory
 import com.codewiththiru.platform.feedback.model.FeedbackPayload
 
 class EncryptedDraftStorage(
     private val context: Context,
 ) : FeedbackDraftStorageStrategy {
-    private val masterKeyAlias by lazy { MasterKeys.getOrCreate(MasterKeys.AES256_GCM_SPEC) }
+    private val masterKey by lazy {
+        MasterKey
+            .Builder(context)
+            .setKeyScheme(MasterKey.KeyScheme.AES256_GCM)
+            .build()
+    }
 
     private val sharedPreferences by lazy {
         EncryptedSharedPreferences.create(
-            "encrypted_feedback_drafts",
-            masterKeyAlias,
             context,
+            "encrypted_feedback_drafts",
+            masterKey,
             EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
             EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM,
         )

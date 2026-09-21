@@ -7,7 +7,6 @@ package com.codewiththiru.platform.analytics.domain.event
  * @property parameters A map of key-value pairs providing context for the event.
  * @property timestamp The time the event was generated, in milliseconds since epoch.
  */
-@ConsistentCopyVisibility
 public data class AnalyticsEvent(
     public val name: String,
     public val parameters: Map<String, Any?> = emptyMap(),

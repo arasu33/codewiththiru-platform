@@ -6,6 +6,7 @@ import com.codewiththiru.platform.rating.policy.RatingTriggerRules
 /**
  * Defines the core configuration for the Rating Engine.
  */
+@ConsistentCopyVisibility
 data class RatingConfig private constructor(
     val triggerRules: RatingTriggerRules,
     val cooldownPolicy: RatingCooldownPolicy,

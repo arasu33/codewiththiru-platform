@@ -60,8 +60,6 @@ internal class AnalyticsDispatcher(
             }
         } catch (e: kotlinx.coroutines.CancellationException) {
             throw e
-        } catch (e: kotlinx.coroutines.CancellationException) {
-            throw e
         } catch (e: kotlin.coroutines.cancellation.CancellationException) {
             throw e
         } catch (e: Exception) {
@@ -74,33 +72,7 @@ internal class AnalyticsDispatcher(
         val batch = queue.peek(config.batchSize)
         if (batch.isEmpty()) return -1
 
-        var success = true
-        try {
-            batch.forEach { event ->
-                if (event.name == "user_property_set") {
-                    val key = event.parameters["property_name"] as? String
-                    val value = event.parameters["property_value"] as? String
-                    if (key != null && value != null) {
-                        provider.setUserProperty(
-                            com.codewiththiru.platform.analytics.domain.event
-                                .AnalyticsUserProperty(key, value),
-                        )
-                    }
-                } else {
-                    provider.trackEvent(event)
-                }
-            }
-            provider.flush()
-        } catch (e: kotlinx.coroutines.CancellationException) {
-            throw e
-        } catch (e: kotlinx.coroutines.CancellationException) {
-            throw e
-        } catch (e: kotlin.coroutines.cancellation.CancellationException) {
-            throw e
-        } catch (e: Exception) {
-            success = false
-            Log.e("AnalyticsDispatcher", "Provider failed during dispatch. Entering backoff.", e)
-        }
+        val success = dispatchBatch(batch)
 
         if (success) {
             queue.remove(batch)
@@ -110,6 +82,36 @@ internal class AnalyticsDispatcher(
 
         handleFailure(batch)
         return -1
+    }
+
+    @Suppress("TooGenericExceptionCaught", "ThrowsCount")
+    private suspend fun dispatchBatch(batch: List<AnalyticsEvent>): Boolean =
+        try {
+            batch.forEach { event -> dispatchEvent(event) }
+            provider.flush()
+            true
+        } catch (e: kotlinx.coroutines.CancellationException) {
+            throw e
+        } catch (e: kotlin.coroutines.cancellation.CancellationException) {
+            throw e
+        } catch (e: Exception) {
+            Log.e("AnalyticsDispatcher", "Provider failed during dispatch. Entering backoff.", e)
+            false
+        }
+
+    private suspend fun dispatchEvent(event: AnalyticsEvent) {
+        if (event.name == "user_property_set") {
+            val key = event.parameters["property_name"] as? String
+            val value = event.parameters["property_value"] as? String
+            if (key != null && value != null) {
+                provider.setUserProperty(
+                    com.codewiththiru.platform.analytics.domain.event
+                        .AnalyticsUserProperty(key, value),
+                )
+            }
+        } else {
+            provider.trackEvent(event)
+        }
     }
 
     @Suppress("MagicNumber")

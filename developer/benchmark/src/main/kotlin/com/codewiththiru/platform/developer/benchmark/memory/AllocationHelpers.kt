@@ -5,9 +5,11 @@ package com.codewiththiru.platform.developer.benchmark.memory
  * (Allocation measurement requires JVM args, so we start with execution time).
  */
 object AllocationHelpers {
+    const val NANOS_PER_MILLISECOND = 1_000_000L
+
     inline fun measureExecutionTime(block: () -> Unit): Long {
         val start = System.nanoTime()
         block()
-        return (System.nanoTime() - start) / 1_000_000
+        return (System.nanoTime() - start) / NANOS_PER_MILLISECOND
     }
 }

@@ -1,0 +1,33 @@
+#!/bin/sh
+# 
+# Self-Healing Pre-commit hook: Auto-formats code using ktlint before commit.
+# This prevents CI from failing due to style violations.
+#
+
+echo "🔍 Running Self-Healing Ktlint Format..."
+
+# Only check staged files
+staged_files=$(git diff --cached --name-only --diff-filter=ACM | grep '\.kt[s]*$')
+
+if [ -z "$staged_files" ]; then
+    echo "✅ No Kotlin files to format."
+    exit 0
+fi
+
+# Run the ktlintFormat gradle task
+./gradlew ktlintFormat --quiet
+
+if [ $? -ne 0 ]; then
+    echo "❌ Ktlint failed to format the code. Please fix the errors manually."
+    exit 1
+fi
+
+# Re-add files that were formatted
+for file in $staged_files; do
+    if [ -f "$file" ]; then
+        git add "$file"
+    fi
+done
+
+echo "✨ Auto-formatting complete and staged!"
+exit 0

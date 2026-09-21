@@ -19,10 +19,11 @@ androidxDatastore = "1.2.1"
 androidxSecurityCrypto = "1.1.0-alpha06"
 playReview = "2.0.2"
 playAppUpdate = "2.1.0"
-firebaseBom = "34.15.0"
+firebaseBom = "34.19.0"
 firebaseAnalytics = "21.6.1"
 kotlinxSerialization = "1.6.3"
 workRuntime = "2.11.2"
+androidxStartup = "1.1.1"
 
 # Static Analysis & Tooling
 detekt = "1.23.8"
@@ -69,6 +70,7 @@ play-app-update-ktx = { module = "com.google.android.play:app-update-ktx", versi
 firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
 firebase-config = { module = "com.google.firebase:firebase-config" }
 androidx-work-runtime-ktx = { module = "androidx.work:work-runtime-ktx", version.ref = "workRuntime" }
+androidx-startup = { module = "androidx.startup:startup-runtime", version.ref = "androidxStartup" }
 firebase-analytics = { module = "com.google.firebase:firebase-analytics" }
 firebase-messaging = { module = "com.google.firebase:firebase-messaging" }
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxSerialization" }

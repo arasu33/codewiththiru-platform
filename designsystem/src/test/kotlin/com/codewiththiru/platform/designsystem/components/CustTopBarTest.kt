@@ -3,108 +3,107 @@ package com.codewiththiru.platform.designsystem.components
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.test.ExperimentalTestApi
 import androidx.compose.ui.test.assertHasClickAction
 import androidx.compose.ui.test.assertIsDisplayed
-import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
+import androidx.compose.ui.test.runComposeUiTest
 import com.codewiththiru.platform.designsystem.theme.CustTheme
 import org.junit.Assert.assertTrue
-import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
 import org.robolectric.annotation.Config
 
-@OptIn(ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalMaterial3Api::class, ExperimentalTestApi::class)
 @RunWith(RobolectricTestRunner::class)
 @Config(sdk = [34], instrumentedPackages = ["androidx.loader.content"])
 class CustTopBarTest {
-    @get:Rule
-    val composeTestRule = createComposeRule()
-
     @Test
-    fun topBar_rendersTitleAndSubtitle() {
-        composeTestRule.setContent {
-            CustTheme {
-                CustTopBar(
-                    title = { CustText("Main Title") },
-                    subtitle = { CustText("Sub Title") },
-                    modifier = Modifier.testTag("topBar"),
-                )
+    fun topBar_rendersTitleAndSubtitle() =
+        runComposeUiTest {
+            setContent {
+                CustTheme {
+                    CustTopBar(
+                        title = { CustText("Main Title") },
+                        subtitle = { CustText("Sub Title") },
+                        modifier = Modifier.testTag("topBar"),
+                    )
+                }
             }
+
+            onNodeWithTag("topBar").assertIsDisplayed()
+            onNodeWithText("Main Title").assertIsDisplayed()
+            onNodeWithText("Sub Title").assertIsDisplayed()
         }
 
-        composeTestRule.onNodeWithTag("topBar").assertIsDisplayed()
-        composeTestRule.onNodeWithText("Main Title").assertIsDisplayed()
-        composeTestRule.onNodeWithText("Sub Title").assertIsDisplayed()
-    }
-
     @Test
-    fun topBar_rendersNavigationAndActions() {
-        var navClicked = false
-        var actionClicked = false
+    fun topBar_rendersNavigationAndActions() =
+        runComposeUiTest {
+            var navClicked = false
+            var actionClicked = false
 
-        composeTestRule.setContent {
-            CustTheme {
-                CustTopBar(
-                    title = { CustText("Title") },
-                    navigationIcon = {
-                        CustButton(onClick = { navClicked = true }, modifier = Modifier.testTag("navIcon")) {
-                            CustText("Nav")
-                        }
-                    },
-                    actions = {
-                        CustButton(onClick = { actionClicked = true }, modifier = Modifier.testTag("actionIcon")) {
-                            CustText("Action")
-                        }
-                    },
-                )
+            setContent {
+                CustTheme {
+                    CustTopBar(
+                        title = { CustText("Title") },
+                        navigationIcon = {
+                            CustButton(onClick = { navClicked = true }, modifier = Modifier.testTag("navIcon")) {
+                                CustText("Nav")
+                            }
+                        },
+                        actions = {
+                            CustButton(onClick = { actionClicked = true }, modifier = Modifier.testTag("actionIcon")) {
+                                CustText("Action")
+                            }
+                        },
+                    )
+                }
             }
+
+            onNodeWithTag("navIcon")
+                .assertIsDisplayed()
+                .assertHasClickAction()
+                .performClick()
+            onNodeWithTag("actionIcon")
+                .assertIsDisplayed()
+                .assertHasClickAction()
+                .performClick()
+
+            assertTrue(navClicked)
+            assertTrue(actionClicked)
         }
-
-        composeTestRule
-            .onNodeWithTag("navIcon")
-            .assertIsDisplayed()
-            .assertHasClickAction()
-            .performClick()
-        composeTestRule
-            .onNodeWithTag("actionIcon")
-            .assertIsDisplayed()
-            .assertHasClickAction()
-            .performClick()
-
-        assertTrue(navClicked)
-        assertTrue(actionClicked)
-    }
 
     @Test
     @Config(qualifiers = "ar-ldrtl")
-    fun topBar_rtlSupport() {
-        composeTestRule.setContent {
-            CustTheme {
-                CustTopBar(
-                    title = { CustText("RTL Title") },
-                    modifier = Modifier.testTag("rtlTopBar"),
-                )
+    fun topBar_rtlSupport() =
+        runComposeUiTest {
+            setContent {
+                CustTheme {
+                    CustTopBar(
+                        title = { CustText("RTL Title") },
+                        modifier = Modifier.testTag("rtlTopBar"),
+                    )
+                }
             }
+            onNodeWithTag("rtlTopBar").assertIsDisplayed()
+            onNodeWithText("RTL Title").assertIsDisplayed()
         }
-        composeTestRule.onNodeWithTag("rtlTopBar").assertIsDisplayed()
-        composeTestRule.onNodeWithText("RTL Title").assertIsDisplayed()
-    }
 
     @Test
     @Config(qualifiers = "sw600dp")
-    fun topBar_tabletSupport() {
-        composeTestRule.setContent {
-            CustTheme {
-                CustCenterAlignedTopBar(
-                    title = { CustText("Tablet Title") },
-                    modifier = Modifier.testTag("tabletTopBar"),
-                )
+    fun topBar_tabletSupport() =
+        runComposeUiTest {
+            setContent {
+                CustTheme {
+                    CustCenterAlignedTopBar(
+                        title = { CustText("Tablet Title") },
+                        modifier = Modifier.testTag("tabletTopBar"),
+                    )
+                }
             }
+            onNodeWithTag("tabletTopBar").assertIsDisplayed()
         }
-        composeTestRule.onNodeWithTag("tabletTopBar").assertIsDisplayed()
-    }
 }
