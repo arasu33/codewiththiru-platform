@@ -1,2 +1,6 @@
-# Consumer Proguard rules. These rules are automatically appended to the consumer's proguard configuration.
-# Since this is a library, avoid keeping too many classes unless necessary for reflection or JNI.
+# Consumer proguard rules for core-android module
+-dontwarn com.codewiththiru.platform.**
+-keepclassmembers class * implements java.io.Serializable { *; }
+-keepclassmembers class * implements android.os.Parcelable {
+    public static final android.os.Parcelable$Creator CREATOR;
+}

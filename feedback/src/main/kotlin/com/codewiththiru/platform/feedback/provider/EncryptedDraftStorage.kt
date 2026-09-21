@@ -10,7 +10,8 @@ class EncryptedDraftStorage(
     private val context: Context,
 ) : FeedbackDraftStorageStrategy {
     private val masterKey by lazy {
-        MasterKey.Builder(context)
+        MasterKey
+            .Builder(context)
             .setKeyScheme(MasterKey.KeyScheme.AES256_GCM)
             .build()
     }
