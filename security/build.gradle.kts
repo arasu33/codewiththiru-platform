@@ -1,4 +1,5 @@
 plugins {
+    id("codewiththiru.publishing")
     id("codewiththiru.android-library")
 }
 
@@ -7,6 +8,8 @@ android {
 }
 
 dependencies {
-    implementation(projects.core)
-    implementation(projects.designsystem)
+    implementation(project(":core"))
+    implementation(project(":designsystem"))
 }
+
+

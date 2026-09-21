@@ -7,6 +7,13 @@ group = "com.codewiththiru.platform"
 
 dependencies {
     constraints {
+        api(project(":widgets"))
+        api(project(":settings"))
+        api(project(":security"))
+        api(project(":platform-governance"))
+        api(project(":onboarding"))
+        api(project(":consent"))
+        api(project(":ai-native-platform"))
         api(project(":core"))
         api(project(":core-android"))
         api(project(":designsystem"))
@@ -61,3 +68,4 @@ dependencies {
         api(project(":developer:inspection"))
     }
 }
+
