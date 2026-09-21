@@ -64,3 +64,13 @@ fun bumpVersion(type: String) {
     println("Bumped to Version: $versionName ($versionCode)")
 }
 
+val hookSource = file("scripts/pre-commit")
+val hookTarget = file(".git/hooks/pre-commit")
+if (hookSource.exists() && file(".git").exists()) {
+    try {
+        hookSource.copyTo(hookTarget, overwrite = true)
+        hookTarget.setExecutable(true, false)
+    } catch (e: Exception) {
+        println("Could not install git hooks: ${e.message}")
+    }
+}
