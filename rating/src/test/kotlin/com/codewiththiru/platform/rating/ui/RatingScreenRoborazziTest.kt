@@ -30,25 +30,25 @@ class RatingScreenRoborazziTest {
 
     @Test
     fun `capture dialog default state`() {
-        composeTestRule.setContent {
+        setContent {
             RatingScreen(
                 uiState = RatingUiState(selectedStars = 0),
                 config = config,
                 onAction = {},
             )
         }
-        composeTestRule.onRoot().captureRoboImage()
+        onRoot().captureRoboImage()
     }
 
     @Test
     fun `capture dialog four stars selected`() {
-        composeTestRule.setContent {
+        setContent {
             RatingScreen(
                 uiState = RatingUiState(selectedStars = 4),
                 config = config,
                 onAction = {},
             )
         }
-        composeTestRule.onRoot().captureRoboImage()
+        onRoot().captureRoboImage()
     }
 }

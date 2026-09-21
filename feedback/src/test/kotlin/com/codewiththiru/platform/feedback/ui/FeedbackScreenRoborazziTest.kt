@@ -31,7 +31,7 @@ class FeedbackScreenRoborazziTest {
 
     @Test
     fun `capture idle state`() {
-        composeTestRule.setContent {
+        setContent {
             FeedbackScreen(
                 uiState = FeedbackUiState.Idle,
                 formState = FeedbackFormState(category = dummyConfig.categories.first()),
@@ -39,12 +39,12 @@ class FeedbackScreenRoborazziTest {
                 onAction = {},
             )
         }
-        composeTestRule.onRoot().captureRoboImage()
+        onRoot().captureRoboImage()
     }
 
     @Test
     fun `capture submitting state`() {
-        composeTestRule.setContent {
+        setContent {
             FeedbackScreen(
                 uiState = FeedbackUiState.Submitting,
                 formState = FeedbackFormState(category = dummyConfig.categories.first()),
@@ -52,6 +52,6 @@ class FeedbackScreenRoborazziTest {
                 onAction = {},
             )
         }
-        composeTestRule.onRoot().captureRoboImage()
+        onRoot().captureRoboImage()
     }
 }
