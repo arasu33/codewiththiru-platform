@@ -53,7 +53,7 @@ if (pluginManager.hasPlugin("com.android.library")) {
     }
 } else if (pluginManager.hasPlugin("org.jetbrains.kotlin.jvm")) {
     val javaPlugin = project.extensions.getByType<SourceSetContainer>()
-    val sourcesJar by tasks.registering(Jar::class) {
+    val sourcesJar = tasks.register<Jar>("sourcesJar") {
         archiveClassifier.set("sources")
         from(javaPlugin["main"].allSource)
     }

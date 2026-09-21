@@ -11,6 +11,7 @@ import androidx.compose.ui.unit.dp
  * Utilizes a standard Builder pattern for instantiation.
  */
 @Immutable
+@ConsistentCopyVisibility
 data class AboutConfig private constructor(
     val appInfo: AppInfo,
     val developerInfo: DeveloperInfo?,
