@@ -52,6 +52,7 @@ tasks.register<JacocoReport>("jacocoTestReport") {
 dependencies {
     implementation(project(":core"))
     implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.startup)
 
     testImplementation(libs.junit)
     testImplementation(libs.kotlinx.coroutines.test)
