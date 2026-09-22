@@ -1,3 +1,26 @@
+/**
+ * ⚠️ CONSUMER SETUP REQUIRED — Google Play Billing
+ *
+ * This module uses Google Play Billing Library (billing-ktx). Consumers MUST:
+ *
+ * 1. Add to your app's AndroidManifest.xml:
+ *    <uses-permission android:name="com.android.vending.BILLING" />
+ *
+ * 2. Create in-app products or subscriptions in Google Play Console:
+ *    → Play Console > Your App > Monetize > Products
+ *
+ * 3. Upload a signed APK/AAB to Play Console (at least internal test track):
+ *    → Billing ONLY works with signed builds distributed via Play Store
+ *    → Will NOT work on emulators without Play Store or sideloaded debug builds
+ *
+ * 4. Set up license testing accounts in Play Console:
+ *    → Play Console > Settings > License testing > Add test accounts
+ *
+ * Without Play Store and proper setup, BillingClient will return
+ * BillingResponseCode.BILLING_UNAVAILABLE.
+ *
+ * See: docs/modules/billing.md for full integration guide.
+ */
 plugins {
     alias(libs.plugins.android.library)
     id("codewiththiru.publishing")

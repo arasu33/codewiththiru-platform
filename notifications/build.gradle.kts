@@ -1,3 +1,32 @@
+/**
+ * ⚠️ CONSUMER SETUP REQUIRED — Firebase Cloud Messaging (FCM)
+ *
+ * This module uses Firebase Messaging (via Firebase BOM). Consumers MUST:
+ *
+ * 1. Place `google-services.json` in the app/ module root
+ *    → Download from Firebase Console > Project Settings > Your App
+ *    → Ensure Cloud Messaging is enabled in the Firebase Console
+ *
+ * 2. Apply the Google Services plugin in your app/build.gradle.kts:
+ *    plugins { id("com.google.gms.google-services") }
+ *
+ * 3. Add to your app's AndroidManifest.xml:
+ *    <uses-permission android:name="android.permission.INTERNET" />
+ *
+ * 4. Android 13+ (API 33): Request POST_NOTIFICATIONS runtime permission:
+ *    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+ *    → Must be requested at runtime via ActivityCompat.requestPermissions()
+ *
+ * 5. (Recommended) Configure default notification channel & icon in manifest:
+ *    <meta-data android:name="com.google.firebase.messaging.default_notification_channel_id"
+ *               android:value="@string/default_notification_channel_id" />
+ *    <meta-data android:name="com.google.firebase.messaging.default_notification_icon"
+ *               android:resource="@drawable/ic_notification" />
+ *
+ * Without google-services.json, Firebase Messaging will fail silently.
+ *
+ * See: docs/modules/notifications.md for full integration guide.
+ */
 plugins {
     alias(libs.plugins.android.library)
     id("codewiththiru.publishing")

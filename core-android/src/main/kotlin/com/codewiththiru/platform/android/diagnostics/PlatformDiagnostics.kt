@@ -4,7 +4,6 @@ import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Build
-import androidx.core.content.ContextCompat
 
 /**
  * High-value zero-config utility for consumer apps to verify if the platform is properly configured.
@@ -35,19 +34,19 @@ object PlatformDiagnostics {
             issues.add("Network: No active internet connection detected.")
         }
 
-        // 2. Check Standard Permissions (e.g., Internet)
-        val hasInternetPermission =
-            ContextCompat.checkSelfPermission(
-                context,
-                android.Manifest.permission.INTERNET,
-            ) == android.content.pm.PackageManager.PERMISSION_GRANTED
-
-        if (!hasInternetPermission) {
-            issues.add("Manifest: Missing <uses-permission android:name=\"android.permission.INTERNET\"/>")
+        // 2. Run Comprehensive Setup Validation
+        val setupIssues = PlatformSetupValidator.validate(context)
+        setupIssues.forEach { issue ->
+            issues.add("${issue.severity} [${issue.module}]: ${issue.message} -> Fix: ${issue.fix}")
         }
 
+        // Filter out non-errors for the isHealthy flag (Warnings/Infos are OK)
+        val hasErrors =
+            setupIssues.any { it.severity == PlatformSetupValidator.Severity.ERROR } ||
+                !hasInternet
+
         return HealthReport(
-            isHealthy = issues.isEmpty(),
+            isHealthy = !hasErrors,
             issues = issues,
         )
     }

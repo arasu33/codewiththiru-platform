@@ -1,13 +1,38 @@
-# Rating Module
+# ⭐ Rating Module
 
-The `:rating` module is an enterprise-grade Rating Engine for the CodeWithThiru app ecosystem. It operates seamlessly without forcing internet permissions and strictly adheres to Google Play In-App Review guidelines.
+Behavioral in-app rating prompt engine adhering to Google Play In-App Review guidelines.
+
+## ⚠️ Consumer Prerequisites
+- Requires a **signed build uploaded to the Google Play Console**.
+- Play In-App Review dialog will **silently fail** on debug builds, sideloaded APKs, or emulators without the Play Store.
 
 ## Features
-- **Play Review Integration**: Automates fetching and launching the `ReviewInfo` bottom sheet from Play Core.
-- **Behavioral Prompts**: Only triggers when specific engagement thresholds (Launches, Events, Days Installed) are met, maximizing positive sentiment.
-- **Negative Feedback Redirection**: Allows implicit redirection to the `:feedback` module or custom flows if the user selects 1-4 stars, protecting the app's Play Store rating.
-- **MVI Architecture**: State is completely decoupled from UI, allowing `RatingScreen` to be swapped or styled (`Dialog`, `BottomSheet`, `Fullscreen`).
-- **DataStore Cooldowns**: Persists prompt dates and launch counts locally to ensure users aren't spammed with rating requests.
+- **Smart Triggers**: Prompt users only after N launches or significant events.
+- **Cooldowns**: Respects Play Store guidelines for prompt frequency.
+- **Interception**: Redirects 1-4 star ratings to your internal feedback loop.
+- **Native Integration**: Seamlessly calls `review-ktx` for 5-star ratings.
 
-## Setup
-See [API_GUIDE.md](API_GUIDE.md) for full integration instructions.
+## Quick Start
+1. Add dependency:
+```kotlin
+implementation("com.codewiththiru.platform:rating")
+```
+
+2. Record events in your app:
+```kotlin
+// In MainActivity.onCreate
+ratingRepository.recordAppLaunch()
+
+// When user achieves something
+ratingRepository.recordSignificantEvent()
+```
+
+3. Render prompt when eligible:
+```kotlin
+val config = RatingConfig.Builder()
+    .setRules(minimumAppLaunches = 5, requiredSignificantEvents = 2)
+    .build()
+
+// Standard Compose Dialog or BottomSheet will render based on config
+RatingScreen(config = config)
+```

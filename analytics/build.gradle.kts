@@ -1,3 +1,25 @@
+/**
+ * ⚠️ CONSUMER SETUP REQUIRED — Firebase Analytics
+ *
+ * This module uses Firebase Analytics (via Firebase BOM). Consumers MUST:
+ *
+ * 1. Place `google-services.json` in the app/ module root
+ *    → Download from Firebase Console > Project Settings > Your App
+ *
+ * 2. Apply the Google Services plugin in your app/build.gradle.kts:
+ *    plugins { id("com.google.gms.google-services") }
+ *
+ * 3. Add to your app's AndroidManifest.xml:
+ *    <uses-permission android:name="android.permission.INTERNET" />
+ *    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+ *
+ * 4. (Optional) Android 13+ advertising ID:
+ *    <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
+ *
+ * Without google-services.json, FirebaseAnalytics will throw IllegalStateException at runtime.
+ *
+ * See: docs/modules/analytics.md for full integration guide.
+ */
 plugins {
     id("codewiththiru.android-library")
     id("codewiththiru.publishing")

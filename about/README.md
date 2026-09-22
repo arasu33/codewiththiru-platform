@@ -1,16 +1,36 @@
-# About Module (`:about`)
+# ℹ️ About Module
 
-The `:about` module is a robust, isolated, configuration-driven Jetpack Compose module providing an "About this App" feature across the CodeWithThiru platform ecosystem.
+Configuration-driven Jetpack Compose module providing an "About this App" screen.
 
-## Overview
-This module abstracts app metadata, developer contacts, device diagnostics, and legal compliance links into a single unified `AboutScreen`. It enforces a decoupled architecture allowing zero internal networking dependencies.
+## Features
+- **App Metadata**: Displays app name, package name, version, and icon.
+- **Developer Info**: Social links and developer profile.
+- **Device Diagnostics**: OS version, API level, manufacturer, model.
+- **Legal Links**: Privacy Policy, Terms of Service, Open-Source Licenses.
+- **Diagnostics Payload**: Copy/preview support for support tickets.
 
-## Key Features
-- **Dynamic Configuration**: Fully configurable through `AboutConfig.Builder`.
-- **UI State Wrapper**: Leverages `AboutUiState` for asynchronous loading architectures.
-- **Provider Abstractions**: Uses `CustDeviceInfoProvider` and `CustBuildInfoProvider` for deterministic dependency injection.
-- **Diagnostics Preview**: Built-in dialog preview for payload diagnostics before copying to clipboard.
-- **Visual Testing**: Covered completely via native Robolectric `Roborazzi` snapshots.
+## Quick Start
+1. Add dependency:
+```kotlin
+implementation("com.codewiththiru.platform:about")
+```
 
-## Usage
-Refer to the `API_GUIDE.md` for integration details.
+2. Configure and render:
+```kotlin
+val config = AboutConfig.Builder()
+    .setAppInfo(
+        appName = "StudySnap",
+        packageName = "com.studysnap.app",
+        versionName = "1.4.0",
+        versionCode = 24
+    )
+    .build()
+
+AboutScreen(
+    uiState = AboutUiState.Success(config),
+    eventListener = myEventListener
+)
+```
+
+## Consumer Prerequisites
+- **Zero-config**: Does not require any external SDKs, Firebase, or manifest permissions.

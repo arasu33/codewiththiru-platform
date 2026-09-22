@@ -1,14 +1,41 @@
-# Feedback Module
+# 📝 Feedback Module
 
-The `:feedback` module is an enterprise-grade, offline-first feedback collection SDK for the CodeWithThiru app ecosystem. It operates with zero forced networking dependencies, guaranteeing absolute data sovereignty and security.
+Offline-first feedback and bug reporting collection module built with Jetpack Compose.
 
 ## Features
-- **Extensible Categories**: Define dynamic categories natively without waiting for library updates.
-- **Offline Persistence**: Drafts are automatically encrypted using AndroidX Security Crypto (`AES256_GCM`) and saved locally.
-- **Decoupled Submission**: Bring your own network layer via the `FeedbackSubmissionProvider`.
-- **MVI Architecture**: Fully decoupled Compose UI driven by a distinct `FeedbackViewModel`.
-- **Accessibility First**: Compliant with Android TalkBack, Dynamic Font Sizing, and RTL standards.
-- **Data Redaction**: Includes a `FeedbackDataRedactor` to strip out PII (emails/phones) from diagnostics before transmission.
+- **Offline Persistence**: Draft auto-saving with AES-256 GCM encryption.
+- **PII Redaction**: Automatic masking of emails and phone numbers in logs.
+- **Attachments**: Support for adding screenshots or logs.
+- **Validation**: Form validation and required field checks.
+- **Decoupled Submission**: Bring your own backend (or just send an email intent).
 
-## Setup
-See [API_GUIDE.md](API_GUIDE.md) for full integration instructions.
+## Quick Start
+1. Add dependency:
+```kotlin
+implementation("com.codewiththiru.platform:feedback")
+```
+
+2. Render UI:
+```kotlin
+val config = FeedbackConfig.Builder()
+    .addCategory("bug", "Bug Report")
+    .addCategory("feature", "Feature Request")
+    .build()
+
+// Provide your own submission logic
+val submissionProvider = object : FeedbackSubmissionProvider {
+    override suspend fun submit(payload: FeedbackPayload): Result<Unit> {
+        // e.g., POST to your API
+        return Result.success(Unit)
+    }
+}
+
+FeedbackScreen(
+    config = config,
+    // ...
+)
+```
+
+## Consumer Prerequisites
+- **Zero-config core**: Does not require Firebase or Play Services.
+- **Storage**: If using the attachment picker, the host app may need to handle `READ_MEDIA_IMAGES` or storage permissions depending on Android version.

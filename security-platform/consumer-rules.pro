@@ -1,13 +1,16 @@
-# Proguard rules for security-platform
+# Consumer ProGuard rules for :security-platform module
+# These rules are automatically applied to consumer apps via consumerProguardFiles
 
-# -repackageclasses com.codewiththiru.security.internal
+# Keep AndroidX Security Crypto classes
+-keep class androidx.security.crypto.** { *; }
 
-# Keep public API methods and classes
--keep public class com.codewiththiru.security.encryption.** {
-    public *;
+# Keep security data models for JSON deserialization
+-keepclassmembers class com.codewiththiru.security.model.** {
+    <fields>;
+    <init>(...);
 }
 
-# Warn or obfuscate all other non-public members
--keepclassmembers class com.codewiththiru.security.** {
-    public *;
-}
+# Suppress OkHttp warnings if not fully used
+-dontwarn okhttp3.**
+-dontwarn okio.**
+-dontwarn javax.annotation.**
