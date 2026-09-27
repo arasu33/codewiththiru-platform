@@ -1,0 +1,61 @@
+name: 🐛 Bug Report
+description: Create a report to help us improve the platform
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report!
+  - type: dropdown
+    id: module
+    attributes:
+      label: Affected Module
+      description: Which platform module has the bug?
+      options:
+        - ":core / :core-android"
+        - ":designsystem"
+        - ":analytics / :analytics-api"
+        - ":notifications / :notifications-api"
+        - ":remote-config / :remote-config-api"
+        - ":billing / :billing-api"
+        - ":security / :security-platform"
+        - ":identity"
+        - ":about / :feedback / :rating"
+        - ":coupons / :updates / :more-apps"
+        - ":consent / :onboarding / :settings / :widgets"
+        - ":gamification / :sync-backup"
+        - "Other / Build logic"
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Platform Version
+      description: e.g. 1.4.1
+      placeholder: "1.4.1"
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug Description
+      description: A clear and concise description of what the bug is.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps To Reproduce
+      description: Steps to reproduce the behavior.
+      placeholder: |
+        1. Add dependency '...'
+        2. Call function '...'
+        3. See error
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant Logcat / Stacktrace
+      description: Please paste any relevant stack traces here.
+      render: shell

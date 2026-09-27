@@ -8,21 +8,23 @@ import javax.crypto.KeyGenerator
 import javax.crypto.SecretKey
 import javax.crypto.spec.GCMParameterSpec
 
-class AndroidKeystoreEncryptionProvider : EncryptionProvider {
-    private val keyAlias = "codewiththiru_platform_master_key"
+class AndroidKeystoreEncryptionProvider(
+    private val keyAlias: String = "codewiththiru_platform_master_key",
+) : EncryptionProvider {
     private val keyStore = KeyStore.getInstance("AndroidKeyStore").apply { load(null) }
 
     init {
         if (!keyStore.containsAlias(keyAlias)) {
             val keyGenerator = KeyGenerator.getInstance(KeyProperties.KEY_ALGORITHM_AES, "AndroidKeyStore")
-            val keyGenParameterSpec = KeyGenParameterSpec.Builder(
-                keyAlias,
-                KeyProperties.PURPOSE_ENCRYPT or KeyProperties.PURPOSE_DECRYPT
-            )
-                .setBlockModes(KeyProperties.BLOCK_MODE_GCM)
-                .setEncryptionPaddings(KeyProperties.ENCRYPTION_PADDING_NONE)
-                .setKeySize(256)
-                .build()
+            val keyGenParameterSpec =
+                KeyGenParameterSpec.Builder(
+                    keyAlias,
+                    KeyProperties.PURPOSE_ENCRYPT or KeyProperties.PURPOSE_DECRYPT,
+                )
+                    .setBlockModes(KeyProperties.BLOCK_MODE_GCM)
+                    .setEncryptionPaddings(KeyProperties.ENCRYPTION_PADDING_NONE)
+                    .setKeySize(256)
+                    .build()
             keyGenerator.init(keyGenParameterSpec)
             keyGenerator.generateKey()
         }
