@@ -1,6 +1,6 @@
 # Module Status & Inventory
 
-Current Platform Release: **v1.4.1**
+Current Platform Release: **v1.5.0**
 
 | Layer | Module | Status | Type | Description |
 |---|---|---|---|---|

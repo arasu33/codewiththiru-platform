@@ -17,7 +17,7 @@ implementation("com.codewiththiru.platform:settings")
 // 2. Render Screen
 SettingsScreen(
     settings = appSettings,
-    versionName = "1.4.1",
+    versionName = "1.5.0",
     onThemeSelected = { repository.setTheme(it) },
     onDynamicColorChanged = { repository.setDynamicColor(it) },
     onNotificationsChanged = { repository.setNotificationsEnabled(it) },
