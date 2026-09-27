@@ -190,7 +190,7 @@ private fun CustInfoRowPreview() {
             CustInfoRow(label = "Version", value = "1.0.0")
             CustInfoRow(
                 label = "Developer",
-                value = "CodeWithThiru",
+                value = "Developer Name",
                 icon = { CustShimmerBox(modifier = Modifier.width(24.dp).height(24.dp)) },
             )
             CustInfoRow(

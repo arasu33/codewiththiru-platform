@@ -5,9 +5,12 @@ interface InviteManager {
     suspend fun trackInviteClick(linkId: String)
 }
 
-class DefaultInviteManager : InviteManager {
+class DefaultInviteManager(
+    private val baseInviteUrl: String = "https://cwthiru.com/invite/",
+) : InviteManager {
     override suspend fun generateInviteLink(userId: String, campaignId: String): InviteLink {
-        return InviteLink("https://cwthiru.com/invite/$userId", campaignId, userId)
+        val sanitizedBase = if (baseInviteUrl.endsWith("/")) baseInviteUrl else "$baseInviteUrl/"
+        return InviteLink("$sanitizedBase$userId", campaignId, userId)
     }
 
     override suspend fun trackInviteClick(linkId: String) {

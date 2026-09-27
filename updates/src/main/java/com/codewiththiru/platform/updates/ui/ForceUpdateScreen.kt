@@ -1,4 +1,9 @@
-@file:Suppress("ktlint:standard:no-wildcard-imports", "ktlint:standard:max-line-length")
+@file:Suppress(
+    "ktlint:standard:no-wildcard-imports",
+    "ktlint:standard:max-line-length",
+    "LongParameterList",
+    "MaxLineLength",
+)
 
 package com.codewiththiru.platform.updates.ui
 
@@ -20,6 +25,11 @@ import androidx.compose.ui.unit.dp
 fun ForceUpdateScreen(
     onUpdateClicked: () -> Unit,
     modifier: Modifier = Modifier,
+    title: String = "Update Required",
+    message: String =
+        "A critical update is required to continue using the app. " +
+            "Please update to the latest version to ensure security and stability.",
+    buttonText: String = "Update Now",
 ) {
     val focusRequester = remember { FocusRequester() }
 
@@ -43,7 +53,7 @@ fun ForceUpdateScreen(
             verticalArrangement = Arrangement.Center,
         ) {
             Text(
-                text = "Update Required",
+                text = title,
                 style = MaterialTheme.typography.headlineMedium,
                 textAlign = TextAlign.Center,
                 modifier =
@@ -55,7 +65,7 @@ fun ForceUpdateScreen(
             Spacer(modifier = Modifier.height(16.dp))
 
             Text(
-                text = "A critical update is required to continue using the app. Please update to the latest version to ensure security and stability.",
+                text = message,
                 style = MaterialTheme.typography.bodyLarge,
                 textAlign = TextAlign.Center,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
@@ -70,7 +80,7 @@ fun ForceUpdateScreen(
                         .fillMaxWidth()
                         .defaultMinSize(minHeight = 48.dp),
             ) {
-                Text("Update Now")
+                Text(buttonText)
             }
         }
     }

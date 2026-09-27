@@ -19,6 +19,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.codewiththiru.platform.about.AboutDefaults
 import com.codewiththiru.platform.about.AboutEventListener
 import com.codewiththiru.platform.about.model.AboutConfig
 import com.codewiththiru.platform.about.provider.LicenseProvider
@@ -33,6 +34,24 @@ import com.codewiththiru.platform.designsystem.components.CustCard
 import com.codewiththiru.platform.designsystem.components.CustDialog
 import com.codewiththiru.platform.designsystem.components.CustText
 import com.codewiththiru.platform.designsystem.widgets.CustLoading
+
+/**
+ * Turnkey, customizable default About screen.
+ */
+@Composable
+fun DefaultAboutScreen(
+    config: AboutConfig,
+    eventListener: AboutEventListener = AboutDefaults.eventListener(),
+    licenseProvider: LicenseProvider? = null,
+    modifier: Modifier = Modifier,
+) {
+    AboutScreen(
+        uiState = AboutUiState.Success(config),
+        eventListener = eventListener,
+        licenseProvider = licenseProvider,
+        modifier = modifier,
+    )
+}
 
 /**
  * The unified declarative entry point for the About Module.

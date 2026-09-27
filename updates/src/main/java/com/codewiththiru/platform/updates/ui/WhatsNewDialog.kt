@@ -1,4 +1,4 @@
-@file:Suppress("ktlint:standard:no-wildcard-imports", "ktlint:standard:max-line-length")
+@file:Suppress("ktlint:standard:no-wildcard-imports", "ktlint:standard:max-line-length", "LongParameterList")
 
 package com.codewiththiru.platform.updates.ui
 
@@ -23,6 +23,8 @@ fun WhatsNewDialog(
     releaseNotes: String,
     onDismiss: () -> Unit,
     modifier: Modifier = Modifier,
+    title: String = "What's New",
+    confirmButtonText: String = "Got it",
 ) {
     val focusRequester = remember { FocusRequester() }
 
@@ -53,7 +55,7 @@ fun WhatsNewDialog(
                         .semantics { isTraversalGroup = true },
             ) {
                 Text(
-                    text = "What's New",
+                    text = title,
                     style = MaterialTheme.typography.headlineSmall,
                     modifier =
                         Modifier
@@ -82,7 +84,7 @@ fun WhatsNewDialog(
                         onClick = onDismiss,
                         modifier = Modifier.defaultMinSize(minHeight = 48.dp, minWidth = 48.dp),
                     ) {
-                        Text("Got it")
+                        Text(confirmButtonText)
                     }
                 }
             }
