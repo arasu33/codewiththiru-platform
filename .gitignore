@@ -20,6 +20,11 @@ local.properties
 *.jks
 *.keystore
 *.p12
+*.pem
+*.key
+*.pk8
+secrets.properties
+.env*
 
 # OS files
 .DS_Store

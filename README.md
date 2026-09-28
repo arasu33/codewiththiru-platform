@@ -1,20 +1,34 @@
-# CodeWithThiru Platform SDK
+# 🚀 CodeWithThiru Platform SDK
 
-Welcome to the **CodeWithThiru Platform**, the definitive foundation for all future game titles (AquaSort, Sudoku, Chess, 2048, etc.).
+[![CI](https://github.com/arasu33/codewiththiru-platform/actions/workflows/develop-workflow.yml/badge.svg)](https://github.com/arasu33/codewiththiru-platform/actions/workflows/develop-workflow.yml)
+[![Version](https://img.shields.io/badge/version-1.5.0-blue.svg)](gradle.properties)
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
+[![Modules](https://img.shields.io/badge/modules-51%20active-success.svg)](MODULE_STATUS.md)
 
-## Version: v1.0.6
+An enterprise-grade, modular Android library platform powering scalable mobile applications and gaming titles. Built with 100% Kotlin, Jetpack Compose, Coroutines/Flow, and clean modular architecture.
 
-This SDK provides production-grade, highly-testable, and decoupled modules for:
-- **Core Engineering**: Dependency Injection (Hilt), Coroutines, Observability
-- **Game Engine**: Reactive State Management (`:game-events`), Sync (`:game-sync`), Profiles (`:game-profile`)
-- **Game Mechanics**: Achievements (`:game-achievements`), Rewards (`:game-rewards`), Statistics (`:game-statistics`), Leaderboards (`:game-leaderboard`)
-- **Developer Experience**: Fixture Generators (`:developer:game-testing`), Time/Clock Mocks (`:developer:test-utils`)
+---
 
-## Installation & Publishing (GitHub Packages)
+## 📦 What's Inside?
 
-To consume this SDK in your application (e.g., AquaSort), you must authenticate with the GitHub Packages registry.
+The platform consists of **51 active, decoupled modules** organized into four foundational tiers:
 
-1. **Configure your `settings.gradle.kts`:**
+| Layer | Modules | Highlights |
+|---|---|---|
+| **Foundation & UI** | `:core`, `:core-android`, `:designsystem`, `:widgets` | Material 3 tokens, unbranded customizable components (`PlatformTopAppBar`, `EmptyStateView`, `StandardBottomSheet`), AndroidX Startup integration. |
+| **Feature Suite** | `:about`, `:feedback`, `:rating`, `:onboarding`, `:settings`, `:consent`, `:more-apps`, `:updates`, `:coupons` | Ready-to-use Compose screens and flows with zero forced branding—100% customizable out of the box. |
+| **Enterprise Infrastructure** | `:analytics`, `:ads`, `:billing`, `:notifications`, `:identity`, `:security`, `:security-platform`, `:remote-config`, `:sync-backup`, `:observability-platform`, `:growth-platform`, `:ai-platform`, `:platform-framework`, `:platform-governance` | Biometrics, encrypted storage, Keystore encryption, multi-provider auth, dynamic configuration, crash reporting, and deep linking. |
+| **Gaming & Mechanics** | `:game-events`, `:game-sync`, `:game-profile`, `:game-achievements`, `:game-rewards`, `:game-statistics`, `:game-leaderboard`, `:developer:*` | Event-driven architecture, cross-device game saves, leaderboard engine, and automated testing mocks. |
+
+For detailed documentation on every module, see [MODULE_STATUS.md](MODULE_STATUS.md) and [docs/ALL_MODULES_INTEGRATION.md](docs/ALL_MODULES_INTEGRATION.md).
+
+---
+
+## ⚡ Quick Start
+
+### 1. Configure Repository (`settings.gradle.kts`)
+Authenticate with GitHub Packages or Maven Local:
+
 ```kotlin
 dependencyResolutionManagement {
     repositories {
@@ -32,23 +46,49 @@ dependencyResolutionManagement {
 }
 ```
 
-2. **Add the BOM to your `build.gradle.kts`:**
+### 2. Add BOM & Modules (`build.gradle.kts`)
+Use the Bill of Materials (BOM) to align all platform dependency versions:
+
 ```kotlin
 dependencies {
-    // Import the BOM for standardized dependency versions across all platform modules
-    implementation(platform("com.codewiththiru.platform:platform-bom:1.0.6"))
-    
-    // Choose the modules you need
-    implementation("com.codewiththiru.platform:game-events")
-    implementation("com.codewiththiru.platform:game-profile")
-    implementation("com.codewiththiru.platform:game-sync")
+    // Platform BOM (single version source of truth)
+    implementation(platform("com.codewiththiru.platform:platform-bom:1.5.0"))
+
+    // Foundation & UI
+    implementation("com.codewiththiru.platform:designsystem")
+    implementation("com.codewiththiru.platform:widgets")
+
+    // Features
+    implementation("com.codewiththiru.platform:settings")
+    implementation("com.codewiththiru.platform:onboarding")
+    implementation("com.codewiththiru.platform:consent")
+
+    // Security & Infrastructure
+    implementation("com.codewiththiru.platform:security")
+    implementation("com.codewiththiru.platform:analytics")
 }
 ```
 
-## Architecture Principles
-1. **Pure Kotlin**: No Android framework dependencies in the core domain layers.
-2. **Event-Driven**: Modules communicate via the `:game-events` bus, never through tightly-coupled singletons.
-3. **Thread-Safe**: All flows and state operations are designed for highly concurrent environments.
+---
 
-## Contribution Guidelines
-Please read `CONTRIBUTING.md` (coming soon) before submitting any PRs. All code must pass the strict `detekt` and `ktlint` quality gates.
+## 🛡️ Security & Privacy
+
+Security is built into every layer of the platform:
+- **Zero Secrets**: No hardcoded API keys, keystores, or certificates are stored in this repository.
+- **Biometrics & Keystore**: Hardware-backed AES-256-GCM encryption via Android Keystore (`:security`, `:security-platform`).
+- **Private Vulnerability Disclosure**: Please review our [SECURITY.md](SECURITY.md) for instructions on securely reporting vulnerabilities.
+
+---
+
+## 🤝 Contributing
+
+We welcome community contributions, bug reports, and feature proposals!
+- Review [CONTRIBUTING.md](CONTRIBUTING.md) for local setup, development workflows, and PR requirements.
+- Abide by our [Code of Conduct](CODE_OF_CONDUCT.md).
+- Create issues using our [Issue Templates](.github/ISSUE_TEMPLATE/).
+
+---
+
+## 📄 License
+
+This project is licensed under the Apache License 2.0. See the [LICENSE](LICENSE) file for details.
