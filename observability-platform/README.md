@@ -18,7 +18,7 @@ The central nervous system for monitoring, diagnostics, crash reporting, perform
 
 ```kotlin
 dependencies {
-    implementation(platform("com.codewiththiru.platform:platform-bom:1.5.0"))
+    implementation(platform("com.codewiththiru.platform:platform-bom:1.5.1"))
     implementation("com.codewiththiru.platform:observability-platform")
 }
 ```

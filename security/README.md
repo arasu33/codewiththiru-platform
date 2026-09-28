@@ -10,7 +10,7 @@ Hardware-backed security utilities, encrypted key-value storage, and device inte
 ## Quick Start
 ```kotlin
 // 1. Dependency
-implementation(platform("com.codewiththiru.platform:platform-bom:1.5.0"))
+implementation(platform("com.codewiththiru.platform:platform-bom:1.5.1"))
 implementation("com.codewiththiru.platform:security")
 
 // 2. Encrypted Storage

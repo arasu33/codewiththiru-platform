@@ -12,7 +12,7 @@ The `:designsystem` module contains the central, reusable UI components and them
 
 ```kotlin
 dependencies {
-    implementation(platform("com.codewiththiru.platform:platform-bom:1.5.0"))
+    implementation(platform("com.codewiththiru.platform:platform-bom:1.5.1"))
     implementation("com.codewiththiru.platform:designsystem")
 }
 ```

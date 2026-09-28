@@ -45,7 +45,7 @@ Add to your app's `AndroidManifest.xml`:
 ### 3. BOM Dependency (`build.gradle.kts`)
 ```kotlin
 dependencies {
-    implementation(platform("com.codewiththiru.platform:platform-bom:1.5.0"))
+    implementation(platform("com.codewiththiru.platform:platform-bom:1.5.1"))
     implementation("com.codewiththiru.platform:ads")
 }
 ```

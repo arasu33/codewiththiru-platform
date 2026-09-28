@@ -27,7 +27,7 @@ Add the library dependency to your module's `build.gradle.kts` file:
 
 ```kotlin
 dependencies {
-    implementation(platform("com.codewiththiru.platform:platform-bom:1.5.0"))
+    implementation(platform("com.codewiththiru.platform:platform-bom:1.5.1"))
     implementation("com.codewiththiru.platform:core")
 }
 ```

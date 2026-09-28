@@ -31,7 +31,7 @@ To allow the app to detect if featured apps are already installed, declare `<que
 ### 3. BOM Dependency (`build.gradle.kts`)
 ```kotlin
 dependencies {
-    implementation(platform("com.codewiththiru.platform:platform-bom:1.5.0"))
+    implementation(platform("com.codewiththiru.platform:platform-bom:1.5.1"))
     implementation("com.codewiththiru.platform:more-apps")
 }
 ```
