@@ -10,6 +10,7 @@ First-launch onboarding walkthrough carousel and completion tracking for Android
 ## Quick Start
 ```kotlin
 // 1. Dependency
+implementation(platform("com.codewiththiru.platform:platform-bom:1.5.0"))
 implementation("com.codewiththiru.platform:onboarding")
 
 // 2. Render Onboarding Screen

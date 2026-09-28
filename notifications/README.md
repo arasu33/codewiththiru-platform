@@ -68,7 +68,7 @@ if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
 ### 6. BOM Dependency
 ```kotlin
 dependencies {
-    implementation(platform("com.codewiththiru.platform:platform-bom:<version>"))
+    implementation(platform("com.codewiththiru.platform:platform-bom:1.5.0"))
     implementation("com.codewiththiru.platform:notifications")
 }
 ```

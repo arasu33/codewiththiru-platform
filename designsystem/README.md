@@ -8,6 +8,15 @@ The `:designsystem` module contains the central, reusable UI components and them
 - High-fidelity Typography and Shape Tokens
 - Strict Accessibility Defaults
 
+## 📦 Dependency Setup (`build.gradle.kts`)
+
+```kotlin
+dependencies {
+    implementation(platform("com.codewiththiru.platform:platform-bom:1.5.0"))
+    implementation("com.codewiththiru.platform:designsystem")
+}
+```
+
 ## Components
 - **CustText**: Wrapper around Material 3 Text supporting Strings and AnnotatedStrings.
 - **CustButton**: Filled, Outlined, and Text variants with built-in accessibility and a `loading` state.

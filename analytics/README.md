@@ -39,7 +39,7 @@ Add to your app's `AndroidManifest.xml`:
 ### 4. BOM Dependency
 ```kotlin
 dependencies {
-    implementation(platform("com.codewiththiru.platform:platform-bom:<version>"))
+    implementation(platform("com.codewiththiru.platform:platform-bom:1.5.0"))
     implementation("com.codewiththiru.platform:analytics")
 }
 ```
