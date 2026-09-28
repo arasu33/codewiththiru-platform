@@ -17,7 +17,7 @@ Enterprise-grade, provider-agnostic Identity & Authentication SDK for Android ap
 
 ```kotlin
 dependencies {
-    implementation(platform("com.codewiththiru.platform:platform-bom:1.5.0"))
+    implementation(platform("com.codewiththiru.platform:platform-bom:1.5.1"))
     implementation("com.codewiththiru.platform:identity")
 }
 ```

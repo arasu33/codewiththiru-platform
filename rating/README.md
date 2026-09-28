@@ -16,7 +16,7 @@ Behavioral in-app rating prompt engine adhering to Google Play In-App Review gui
 1. Add dependency:
 ```kotlin
 dependencies {
-    implementation(platform("com.codewiththiru.platform:platform-bom:1.5.0"))
+    implementation(platform("com.codewiththiru.platform:platform-bom:1.5.1"))
     implementation("com.codewiththiru.platform:rating")
 }
 ```

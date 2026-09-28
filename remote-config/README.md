@@ -50,7 +50,7 @@ Create `res/xml/remote_config_defaults.xml` in your app module:
 ### 5. BOM Dependency
 ```kotlin
 dependencies {
-    implementation(platform("com.codewiththiru.platform:platform-bom:1.5.0"))
+    implementation(platform("com.codewiththiru.platform:platform-bom:1.5.1"))
     implementation("com.codewiththiru.platform:remote-config")
 }
 ```

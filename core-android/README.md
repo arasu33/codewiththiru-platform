@@ -16,7 +16,7 @@ Android-specific foundational primitives, AndroidX App Startup initializers, and
 
 ```kotlin
 dependencies {
-    implementation(platform("com.codewiththiru.platform:platform-bom:1.5.0"))
+    implementation(platform("com.codewiththiru.platform:platform-bom:1.5.1"))
     implementation("com.codewiththiru.platform:core-android")
 }
 ```

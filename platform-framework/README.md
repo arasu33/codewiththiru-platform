@@ -16,7 +16,7 @@ The foundational orchestration engine and multi-app showcase harness for the Cod
 
 ```kotlin
 dependencies {
-    implementation(platform("com.codewiththiru.platform:platform-bom:1.5.0"))
+    implementation(platform("com.codewiththiru.platform:platform-bom:1.5.1"))
     implementation("com.codewiththiru.platform:platform-framework")
 }
 ```

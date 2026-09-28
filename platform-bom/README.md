@@ -19,7 +19,7 @@ Add the BOM to your app module's `build.gradle.kts` using Gradle's `platform()` 
 ```kotlin
 dependencies {
     // 1. Declare the Platform BOM with the desired release version
-    implementation(platform("com.codewiththiru.platform:platform-bom:1.5.0"))
+    implementation(platform("com.codewiththiru.platform:platform-bom:1.5.1"))
 
     // 2. Add individual modules without specifying versions
     implementation("com.codewiththiru.platform:core")

@@ -14,7 +14,7 @@ Pure contract module with zero dependencies on Firebase Remote Config SDK. Featu
 
 ```kotlin
 dependencies {
-    implementation(platform("com.codewiththiru.platform:platform-bom:1.5.0"))
+    implementation(platform("com.codewiththiru.platform:platform-bom:1.5.1"))
     implementation("com.codewiththiru.platform:remote-config-api")
 }
 ```

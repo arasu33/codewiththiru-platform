@@ -17,7 +17,7 @@ Developer productivity utilities, diagnostic tooling, feature flag debug panels,
 ```kotlin
 dependencies {
     // Typically integrated in debug builds only
-    debugImplementation(platform("com.codewiththiru.platform:platform-bom:1.5.0"))
+    debugImplementation(platform("com.codewiththiru.platform:platform-bom:1.5.1"))
     debugImplementation("com.codewiththiru.platform:developer-platform")
 }
 ```

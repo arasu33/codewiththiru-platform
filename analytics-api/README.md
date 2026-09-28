@@ -14,7 +14,7 @@ Pure contract module with zero external dependencies (no Firebase, Play Services
 
 ```kotlin
 dependencies {
-    implementation(platform("com.codewiththiru.platform:platform-bom:1.5.0"))
+    implementation(platform("com.codewiththiru.platform:platform-bom:1.5.1"))
     implementation("com.codewiththiru.platform:analytics-api")
 }
 ```

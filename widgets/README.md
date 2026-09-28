@@ -11,7 +11,7 @@ Higher-level, reusable presentation components built on top of `:designsystem`.
 ## Quick Start
 ```kotlin
 // 1. Dependency
-implementation(platform("com.codewiththiru.platform:platform-bom:1.5.0"))
+implementation(platform("com.codewiththiru.platform:platform-bom:1.5.1"))
 implementation("com.codewiththiru.platform:widgets")
 
 // 2. Use in Scaffold

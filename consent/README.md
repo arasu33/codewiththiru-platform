@@ -11,7 +11,7 @@ Privacy consent manager and UI components adhering to GDPR, CCPA, and telemetry 
 ## Quick Start
 ```kotlin
 // 1. Dependency
-implementation(platform("com.codewiththiru.platform:platform-bom:1.5.0"))
+implementation(platform("com.codewiththiru.platform:platform-bom:1.5.1"))
 implementation("com.codewiththiru.platform:consent")
 
 // 2. Manager

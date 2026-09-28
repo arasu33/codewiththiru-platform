@@ -1,7 +1,7 @@
 # 🚀 CodeWithThiru Platform SDK
 
 [![CI](https://github.com/arasu33/codewiththiru-platform/actions/workflows/develop-workflow.yml/badge.svg)](https://github.com/arasu33/codewiththiru-platform/actions/workflows/develop-workflow.yml)
-[![Version](https://img.shields.io/badge/version-1.5.0-blue.svg)](gradle.properties)
+[![Version](https://img.shields.io/badge/version-1.5.1-blue.svg)](gradle.properties)
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
 [![Modules](https://img.shields.io/badge/modules-51%20active-success.svg)](MODULE_STATUS.md)
 
@@ -52,7 +52,7 @@ Use the Bill of Materials (BOM) to align all platform dependency versions:
 ```kotlin
 dependencies {
     // Platform BOM (single version source of truth)
-    implementation(platform("com.codewiththiru.platform:platform-bom:1.5.0"))
+    implementation(platform("com.codewiththiru.platform:platform-bom:1.5.1"))
 
     // Foundation & UI
     implementation("com.codewiththiru.platform:designsystem")

@@ -13,7 +13,7 @@ Offline-first feedback and bug reporting collection module built with Jetpack Co
 1. Add dependency:
 ```kotlin
 dependencies {
-    implementation(platform("com.codewiththiru.platform:platform-bom:1.5.0"))
+    implementation(platform("com.codewiththiru.platform:platform-bom:1.5.1"))
     implementation("com.codewiththiru.platform:feedback")
 }
 ```
