@@ -1,15 +1,23 @@
-# Enterprise Security Platform
+# 🛡️ Enterprise Security Platform (`:security-platform`)
 
-Module: `:security-platform`
-Version: 1.0.0
+Enterprise-grade cryptography, Android Keystore management, root/tamper detection, and TLS certificate pinning.
 
-## Capabilities
-- Authentication & Authorization
-- Encryption & Keystore Management
-- Integrity Monitoring (Root, Emulator, Tamper Detection)
-- Network Security (Certificate Pinning)
-- Session Management & Fraud Detection
-- Privacy & Compliance
-- Threat Auditing
+---
 
-## Status: RELEASED
+## 🚀 Capabilities
+
+- **Android Keystore Encryption**: Hardware-backed AES-256-GCM encryption with configurable master key aliases (`AndroidKeystoreEncryptionProvider(keyAlias = "my_custom_key")`).
+- **Integrity & Tamper Monitoring**: Detect rooted environments, hooked processes (Frida/Xposed), emulators, and tampered APK signatures.
+- **Network Security**: OkHttp network interceptors enforcing strict TLS 1.3 and certificate pinning.
+- **Session & Fraud Defense**: Detect rapid request anomalies, injected scripts, and man-in-the-middle attacks.
+
+---
+
+## 📦 Dependency Setup (`build.gradle.kts`)
+
+```kotlin
+dependencies {
+    implementation(platform("com.codewiththiru.platform:platform-bom:1.5.0"))
+    implementation("com.codewiththiru.platform:security-platform")
+}
+```

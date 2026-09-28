@@ -71,6 +71,21 @@ dependencies {
 
 ---
 
+## ⚙️ Consumer Configuration & Prerequisites Checklist
+
+Depending on which modules your application consumes, verify the following prerequisites:
+
+| Module | Prerequisite | Instructions / Required Snippet |
+|---|---|---|
+| `:ads` | **AdMob App ID** | Declare `<meta-data android:name="com.google.android.gms.ads.APPLICATION_ID" android:value="ca-app-pub-..." />` in `AndroidManifest.xml` to prevent startup crash. |
+| `:analytics`, `:notifications` | **Firebase Configuration** | Place `google-services.json` in your app module and apply `id("com.google.gms.google-services")`. |
+| `:notifications` | **Runtime Permission** | Request `android.permission.POST_NOTIFICATIONS` at runtime on Android 13+ (API 33+). |
+| `:more-apps` | **Android 11+ Package Visibility** | Add `<queries><intent><action android:name="android.intent.action.VIEW" /><data android:scheme="market" /></intent></queries>` to manifest. |
+| `:billing` | **Google Play Console** | Configure in-app products/subscriptions in Play Console and test with license testers on a signed internal test track build. |
+| `:core-android` | **Context Initialization** | Auto-initialized via AndroidX App Startup `PlatformInitializer`. Zero boilerplate required. |
+
+---
+
 ## 🛡️ Security & Privacy
 
 Security is built into every layer of the platform:
@@ -84,6 +99,7 @@ Security is built into every layer of the platform:
 
 We welcome community contributions, bug reports, and feature proposals!
 - Review [CONTRIBUTING.md](CONTRIBUTING.md) for local setup, development workflows, and PR requirements.
+- Review [docs/BRANCHING_STRATEGY.md](docs/BRANCHING_STRATEGY.md) for branch topology, lifecycle, and tagging policies.
 - Abide by our [Code of Conduct](CODE_OF_CONDUCT.md).
 - Create issues using our [Issue Templates](.github/ISSUE_TEMPLATE/).
 

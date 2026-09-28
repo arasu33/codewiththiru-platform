@@ -17,6 +17,39 @@ The `ads` module is a fully abstracted, provider-agnostic framework for integrat
 - **Native Advanced**: Customizable ads mapping to custom View hierarchies.
 - **App Open**: Splash screen / app return ads bounded by a strict 4-hour expiration policy.
 
+## ⚠️ Consumer Prerequisites
+
+Before using this module, your consumer app **must** complete the following setup:
+
+### 1. AdMob Application ID (AndroidManifest.xml)
+> ⚠️ **CRITICAL**: The Google Mobile Ads SDK **will crash on startup** (`IllegalStateException`) if this `<meta-data>` tag is missing from your app's `AndroidManifest.xml` inside `<application>`:
+
+```xml
+<application>
+    <!-- Replace with your actual AdMob App ID from Google AdMob Console -->
+    <!-- For testing/development, use the Google test app ID: ca-app-pub-3940256099942544~3347511713 -->
+    <meta-data
+        android:name="com.google.android.gms.ads.APPLICATION_ID"
+        android:value="ca-app-pub-3940256099942544~3347511713"/>
+</application>
+```
+
+### 2. Permissions
+Add to your app's `AndroidManifest.xml`:
+```xml
+<uses-permission android:name="android.permission.INTERNET" />
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+<uses-permission android:name="com.google.android.gms.permission.AD_ID" />
+```
+
+### 3. BOM Dependency (`build.gradle.kts`)
+```kotlin
+dependencies {
+    implementation(platform("com.codewiththiru.platform:platform-bom:1.5.0"))
+    implementation("com.codewiththiru.platform:ads")
+}
+```
+
 ## Usage
 
 ### 1. Initialization

@@ -12,6 +12,9 @@ The `:coupons` module is an enterprise-grade SDK for Android that handles coupon
 ## Usage
 Include the module in your `build.gradle.kts`:
 ```kotlin
-implementation(project(":coupons"))
+dependencies {
+    implementation(platform("com.codewiththiru.platform:platform-bom:1.5.0"))
+    implementation("com.codewiththiru.platform:coupons")
+}
 ```
 For API specifics, refer to [API_GUIDE.md](API_GUIDE.md).
