@@ -27,7 +27,25 @@ For detailed documentation on every module, see [MODULE_STATUS.md](MODULE_STATUS
 ## ⚡ Quick Start
 
 ### 1. Configure Repository (`settings.gradle.kts`)
-Authenticate with GitHub Packages or Maven Local:
+
+#### Option A: Public Maven Repository (Zero Authentication Required — Recommended)
+Any client app can consume artifacts anonymously with **zero tokens or credentials**:
+
+```kotlin
+dependencyResolutionManagement {
+    repositories {
+        google()
+        mavenCentral()
+        maven {
+            name = "CodeWithThiruPlatform"
+            url = uri("https://arasu33.github.io/codewiththiru-platform/maven")
+        }
+    }
+}
+```
+
+#### Option B: GitHub Packages (Requires PAT with `read:packages`)
+If resolving through GitHub's Maven registry (`maven.pkg.github.com`), authentication is strictly required by GitHub even for public repositories:
 
 ```kotlin
 dependencyResolutionManagement {
@@ -38,13 +56,15 @@ dependencyResolutionManagement {
             name = "GitHubPackages"
             url = uri("https://maven.pkg.github.com/arasu33/codewiththiru-platform")
             credentials {
-                username = System.getenv("GPR_USER") ?: "your_github_username"
-                password = System.getenv("GPR_KEY") ?: "your_personal_access_token"
+                username = providers.gradleProperty("gpr.user").orNull ?: System.getenv("GPR_USER")
+                password = providers.gradleProperty("gpr.key").orNull ?: System.getenv("GPR_KEY")
             }
         }
     }
 }
 ```
+> [!NOTE]
+> For Option B, define `gpr.user` and `gpr.key` (a GitHub Personal Access Token with `read:packages` scope) in your global `~/.gradle/gradle.properties` or system environment variables.
 
 ### 2. Add BOM & Modules (`build.gradle.kts`)
 Use the Bill of Materials (BOM) to align all platform dependency versions:

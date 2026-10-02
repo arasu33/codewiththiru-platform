@@ -142,6 +142,10 @@ publishing {
                 password = gprKey ?: ""
             }
         }
+        maven {
+            name = "LocalRepo"
+            url = uri("${rootProject.rootDir}/build/repo")
+        }
     }
 }
 

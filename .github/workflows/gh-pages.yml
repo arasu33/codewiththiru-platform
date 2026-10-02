@@ -1,9 +1,12 @@
-name: Deploy Documentation to GitHub Pages
+name: Deploy Documentation & Maven Repo to GitHub Pages
 
 on:
   push:
     branches:
       - main
+    tags:
+      - 'v*'
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -14,16 +17,49 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v5
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+          cache: 'gradle'
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v3
+
+      - name: Make Gradlew Executable
+        run: chmod +x gradlew
+
+      - name: Build & Publish Maven Artifacts to Local Repo
+        run: ./gradlew publishToLocalRepo -x test -x lintVitalRelease --max-workers=4 --no-daemon
 
       - name: Set up Python
         uses: actions/setup-python@v6
         with:
           python-version: '3.x'
 
-      - name: Install dependencies
+      - name: Install MkDocs Dependencies
         run: |
           pip install mkdocs-material pymdown-extensions
 
-      - name: Build and deploy
+      - name: Build MkDocs Documentation Site
         run: |
-          mkdocs gh-deploy --force
+          mkdocs build
+
+      - name: Stage Maven Artifacts into Site
+        run: |
+          mkdir -p site/maven
+          if [ -d "build/repo" ] && [ "$(ls -A build/repo 2>/dev/null)" ]; then
+            cp -r build/repo/* site/maven/
+          fi
+          touch site/.nojekyll
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./site
+          keep_files: true
