@@ -1,0 +1,89 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.codewiththiru.platform.developer",
+    "module": "inspection",
+    "version": "1.5.1",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "9.7.1"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.jvm.version": 21,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.4.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "inspection-1.5.1.jar",
+          "url": "inspection-1.5.1.jar",
+          "size": 2251,
+          "sha512": "1a59e727ae15bcd8c06887ea6e53a0245157d2cde5d1e3664148f99d0213f9b736ed170c2f178b08086866d15dee58716add1b25df2b5593a6229a34ba0cf13f",
+          "sha256": "d82676cabc38724684b9e52871b827ead1f91279d755f3aaff033fb9273e8e05",
+          "sha1": "9957d5f818fd12543a45918a3b2523a59486c5c4",
+          "md5": "2f050bbf79f163c6cfc3dfb781cb3ac8"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.jvm.version": 21,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-coroutines-core",
+          "version": {
+            "requires": "1.11.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.4.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "inspection-1.5.1.jar",
+          "url": "inspection-1.5.1.jar",
+          "size": 2251,
+          "sha512": "1a59e727ae15bcd8c06887ea6e53a0245157d2cde5d1e3664148f99d0213f9b736ed170c2f178b08086866d15dee58716add1b25df2b5593a6229a34ba0cf13f",
+          "sha256": "d82676cabc38724684b9e52871b827ead1f91279d755f3aaff033fb9273e8e05",
+          "sha1": "9957d5f818fd12543a45918a3b2523a59486c5c4",
+          "md5": "2f050bbf79f163c6cfc3dfb781cb3ac8"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,152 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.codewiththiru.platform",
+    "module": "game-settings",
+    "version": "1.5.1",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "9.7.1"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.jvm.version": 21,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "core",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "game-common",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "game-save",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "game-statistics",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.4.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "game-settings-1.5.1.jar",
+          "url": "game-settings-1.5.1.jar",
+          "size": 73311,
+          "sha512": "5fb1a70cc502111b7bc64dc569e9d492905a13ea6e85ae3b7942e08a49b118959ae351bbf583cd86a772f3d634dc8ceefc151903d977e2eb5015f970804188e3",
+          "sha256": "0d2a05f8a3de2aa1f95a215f749cc2113bfc3884beca47c024412327e83a9e96",
+          "sha1": "ce9169c343ad2298ee02f00e6b9eb635515a93dc",
+          "md5": "d3a80100120407641ccea754d890a4aa"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.jvm.version": 21,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-coroutines-core",
+          "version": {
+            "requires": "1.11.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-serialization-json",
+          "version": {
+            "requires": "1.6.3"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "core",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "game-common",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "game-save",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "game-statistics",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.4.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "game-settings-1.5.1.jar",
+          "url": "game-settings-1.5.1.jar",
+          "size": 73311,
+          "sha512": "5fb1a70cc502111b7bc64dc569e9d492905a13ea6e85ae3b7942e08a49b118959ae351bbf583cd86a772f3d634dc8ceefc151903d977e2eb5015f970804188e3",
+          "sha256": "0d2a05f8a3de2aa1f95a215f749cc2113bfc3884beca47c024412327e83a9e96",
+          "sha1": "ce9169c343ad2298ee02f00e6b9eb635515a93dc",
+          "md5": "d3a80100120407641ccea754d890a4aa"
+        }
+      ]
+    }
+  ]
+}

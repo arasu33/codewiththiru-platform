@@ -1,0 +1,180 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.codewiththiru.platform",
+    "module": "game-profile",
+    "version": "1.5.1",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "9.7.1"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.jvm.version": 21,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "core",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "game-common",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "game-save",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "game-statistics",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "game-achievements",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "game-rewards",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.4.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "game-profile-1.5.1.jar",
+          "url": "game-profile-1.5.1.jar",
+          "size": 70171,
+          "sha512": "e1654f108a07c6141f8e8b6b5e972f9832edd353e871c65b2a5cfd3fcd79f6583501d8a9c8045d7f4b909de29021dd44f00f2baa7b50569ca2312d485c121fc3",
+          "sha256": "27e4407f98327eb199ed1e7fb0af4ed655b7c1c04bc3a79d6ebcb4022f677f90",
+          "sha1": "36db8a786aa605c4eac39544cab1a9e0690ae84b",
+          "md5": "d9e0780b038d219d15ad3e5c05a8b718"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.jvm.version": 21,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-coroutines-core",
+          "version": {
+            "requires": "1.11.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-serialization-json",
+          "version": {
+            "requires": "1.6.3"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "core",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "game-common",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "game-save",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "game-statistics",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "game-achievements",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "game-rewards",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.4.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "game-profile-1.5.1.jar",
+          "url": "game-profile-1.5.1.jar",
+          "size": 70171,
+          "sha512": "e1654f108a07c6141f8e8b6b5e972f9832edd353e871c65b2a5cfd3fcd79f6583501d8a9c8045d7f4b909de29021dd44f00f2baa7b50569ca2312d485c121fc3",
+          "sha256": "27e4407f98327eb199ed1e7fb0af4ed655b7c1c04bc3a79d6ebcb4022f677f90",
+          "sha1": "36db8a786aa605c4eac39544cab1a9e0690ae84b",
+          "md5": "d9e0780b038d219d15ad3e5c05a8b718"
+        }
+      ]
+    }
+  ]
+}

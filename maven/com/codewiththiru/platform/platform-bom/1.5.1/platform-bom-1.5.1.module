@@ -1,0 +1,764 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.codewiththiru.platform",
+    "module": "platform-bom",
+    "version": "1.5.1",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "9.7.1"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "platform",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencyConstraints": [
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "widgets",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "settings",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "security",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "platform-governance",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "onboarding",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "consent",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "ai-native-platform",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "core",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "core-android",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "designsystem",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "about",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "feedback",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "rating",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "more-apps",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "coupons",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "updates",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "analytics-api",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "analytics",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "identity",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "ads-api",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "ads",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "remote-config-api",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "remote-config",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "notifications-api",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "notifications",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "billing-api",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "billing",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "ai-platform",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "security-platform",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "sync-backup",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "gamification",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "growth-platform",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "observability-platform",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "developer-platform",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "platform-framework",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "game-common",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "game-save",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "game-statistics",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "game-achievements",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "game-rewards",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "game-audio",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "game-haptics",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "game-challenges",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "game-profile",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "game-settings",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "game-sync",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "game-leaderboard",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "game-events",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform.developer",
+          "module": "test-utils",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform.developer",
+          "module": "game-testing",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform.developer",
+          "module": "benchmark",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform.developer",
+          "module": "inspection",
+          "version": {
+            "requires": "1.5.1"
+          }
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "platform",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencyConstraints": [
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "widgets",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "settings",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "security",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "platform-governance",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "onboarding",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "consent",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "ai-native-platform",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "core",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "core-android",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "designsystem",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "about",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "feedback",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "rating",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "more-apps",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "coupons",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "updates",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "analytics-api",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "analytics",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "identity",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "ads-api",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "ads",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "remote-config-api",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "remote-config",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "notifications-api",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "notifications",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "billing-api",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "billing",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "ai-platform",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "security-platform",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "sync-backup",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "gamification",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "growth-platform",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "observability-platform",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "developer-platform",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "platform-framework",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "game-common",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "game-save",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "game-statistics",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "game-achievements",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "game-rewards",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "game-audio",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "game-haptics",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "game-challenges",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "game-profile",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "game-settings",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "game-sync",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "game-leaderboard",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "game-events",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform.developer",
+          "module": "test-utils",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform.developer",
+          "module": "game-testing",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform.developer",
+          "module": "benchmark",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform.developer",
+          "module": "inspection",
+          "version": {
+            "requires": "1.5.1"
+          }
+        }
+      ]
+    }
+  ]
+}

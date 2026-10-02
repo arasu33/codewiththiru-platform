@@ -1,0 +1,194 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.codewiththiru.platform",
+    "module": "growth-platform",
+    "version": "1.5.1",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "9.7.1"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.4.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "growth-platform-1.5.1.aar",
+          "url": "growth-platform-1.5.1.aar",
+          "size": 89068,
+          "sha512": "faea6aa4514099265105901f17529d8e06da0701363cff8df5517048b06a842666b1c70b50d7d4a8ffd45932eb76189eaed03200f05b4b3f4b78bbb4c7857386",
+          "sha256": "51a1385c9c8cf696ab6846f0c6309089889b2bffeb55fa3579318dce20249d41",
+          "sha1": "7af7db095f732231d6048c22e28b70a4880e4f3c",
+          "md5": "52dc751c85361a3c511a3809501a7026"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "core",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "analytics",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "remote-config",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "billing",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "coupons",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "notifications",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "gamification",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "ai-platform",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "sync-backup",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "androidx.core",
+          "module": "core-ktx",
+          "version": {
+            "requires": "1.19.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-coroutines-core",
+          "version": {
+            "requires": "1.11.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-serialization-json",
+          "version": {
+            "requires": "1.6.3"
+          }
+        },
+        {
+          "group": "androidx.datastore",
+          "module": "datastore-preferences",
+          "version": {
+            "requires": "1.2.1"
+          }
+        },
+        {
+          "group": "androidx.work",
+          "module": "work-runtime-ktx",
+          "version": {
+            "requires": "2.11.2"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.4.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "growth-platform-1.5.1.aar",
+          "url": "growth-platform-1.5.1.aar",
+          "size": 89068,
+          "sha512": "faea6aa4514099265105901f17529d8e06da0701363cff8df5517048b06a842666b1c70b50d7d4a8ffd45932eb76189eaed03200f05b4b3f4b78bbb4c7857386",
+          "sha256": "51a1385c9c8cf696ab6846f0c6309089889b2bffeb55fa3579318dce20249d41",
+          "sha1": "7af7db095f732231d6048c22e28b70a4880e4f3c",
+          "md5": "52dc751c85361a3c511a3809501a7026"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseSourcePublication",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "growth-platform-1.5.1-sources.jar",
+          "url": "growth-platform-1.5.1-sources.jar",
+          "size": 21042,
+          "sha512": "f919e6e95f84b8ab7603a44832f6c726e8eb65baa134f033d51c838b0553018877d43964a6a809ab704707bf66c0fdb63eed70a2dbefd67368f017546d45fe92",
+          "sha256": "cab2571ba579021ee8ee613e3f35342b95d008e60613d2e766d1c115943802cd",
+          "sha1": "6be2e8c44c88b6c727d9dfe743f124b816152b17",
+          "md5": "5095e45d6dc6af279ba38353618bd3f3"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,138 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.codewiththiru.platform",
+    "module": "observability-platform",
+    "version": "1.5.1",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "9.7.1"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.4.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "observability-platform-1.5.1.aar",
+          "url": "observability-platform-1.5.1.aar",
+          "size": 73109,
+          "sha512": "0e28c2dd16c0f049f8e5876724a2fbf9bd25d25952d98cb41a2cf00fd8de30053a9180d4e1544b1e03fed58e72b2e2181efe8b07e597267ebe38c3d25d75c930",
+          "sha256": "836663effc192f2641f972b7a096e2158c113f41fbf6cd75d5d4ff069645e56a",
+          "sha1": "b0f8cd42fbe44d377d13709a7900074603982df4",
+          "md5": "a2c30087183d81a10bd3b90917a46cd8"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "core",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "analytics-api",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "androidx.core",
+          "module": "core-ktx",
+          "version": {
+            "requires": "1.19.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-coroutines-core",
+          "version": {
+            "requires": "1.11.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-serialization-json",
+          "version": {
+            "requires": "1.6.3"
+          }
+        },
+        {
+          "group": "androidx.work",
+          "module": "work-runtime-ktx",
+          "version": {
+            "requires": "2.11.2"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.4.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "observability-platform-1.5.1.aar",
+          "url": "observability-platform-1.5.1.aar",
+          "size": 73109,
+          "sha512": "0e28c2dd16c0f049f8e5876724a2fbf9bd25d25952d98cb41a2cf00fd8de30053a9180d4e1544b1e03fed58e72b2e2181efe8b07e597267ebe38c3d25d75c930",
+          "sha256": "836663effc192f2641f972b7a096e2158c113f41fbf6cd75d5d4ff069645e56a",
+          "sha1": "b0f8cd42fbe44d377d13709a7900074603982df4",
+          "md5": "a2c30087183d81a10bd3b90917a46cd8"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseSourcePublication",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "observability-platform-1.5.1-sources.jar",
+          "url": "observability-platform-1.5.1-sources.jar",
+          "size": 9674,
+          "sha512": "deb812d5754c7cdd85fb70f45e6a30ddcb4c7d420e41635da6d661096406b1366bd8337357254f9d7a5017baec2bfda8308d742dc1627014bcf9c7bee70ff396",
+          "sha256": "3654d75b97c05c149164cb47f2b921725c70e5946d2cb9272d79e6c2024c2363",
+          "sha1": "2dbc8e23de08dcffb9c71f70498888f3a4980b74",
+          "md5": "14ee8681d01d6c3d841f2aa24b818aee"
+        }
+      ]
+    }
+  ]
+}

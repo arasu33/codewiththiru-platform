@@ -1,0 +1,131 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.codewiththiru.platform",
+    "module": "game-common",
+    "version": "1.5.1",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "9.7.1"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.jvm.version": 21,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.4.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "game-common-1.5.1.jar",
+          "url": "game-common-1.5.1.jar",
+          "size": 152763,
+          "sha512": "b08538645b6e9b91dd20914f65e94f8dc4c40b6b33ce0a536485343bbf78fc796387abec4fd38e03df30d48cbf5bd2a04b047e2c1560da0ccd6c7e67d6ecd090",
+          "sha256": "4b9fa6f0e20effec1b6276b4266c3ef54aa37780b6b90e0ec3ad6c63ffa5030d",
+          "sha1": "6f95461aca8ade7da951272d6c4b775432ec1b7b",
+          "md5": "16ba4c76fb9b8ed30dca8c9676fe0661"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.jvm.version": 21,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "core",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "analytics-api",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "ads-api",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "billing-api",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "remote-config-api",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-coroutines-core",
+          "version": {
+            "requires": "1.11.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-serialization-json",
+          "version": {
+            "requires": "1.6.3"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.4.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "game-common-1.5.1.jar",
+          "url": "game-common-1.5.1.jar",
+          "size": 152763,
+          "sha512": "b08538645b6e9b91dd20914f65e94f8dc4c40b6b33ce0a536485343bbf78fc796387abec4fd38e03df30d48cbf5bd2a04b047e2c1560da0ccd6c7e67d6ecd090",
+          "sha256": "4b9fa6f0e20effec1b6276b4266c3ef54aa37780b6b90e0ec3ad6c63ffa5030d",
+          "sha1": "6f95461aca8ade7da951272d6c4b775432ec1b7b",
+          "md5": "16ba4c76fb9b8ed30dca8c9676fe0661"
+        }
+      ]
+    }
+  ]
+}

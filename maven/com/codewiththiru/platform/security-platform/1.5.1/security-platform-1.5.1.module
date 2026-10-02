@@ -1,0 +1,170 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.codewiththiru.platform",
+    "module": "security-platform",
+    "version": "1.5.1",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "9.7.1"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.4.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "security-platform-1.5.1.aar",
+          "url": "security-platform-1.5.1.aar",
+          "size": 61194,
+          "sha512": "5f519927a3723aeb958ffbf58f7725e6a49870c34bb11fea1aa47f702c6cc2ba4c164c6ce352d403f933746755bcb8b5f03dcb3fd908fc19fdeb677879fbd360",
+          "sha256": "0716c6b8761059aa2eddf3368da5d7550d43563f48ab228645d80941276802a3",
+          "sha1": "b5482b630d3c445f3d7858740737dc8ec881614f",
+          "md5": "a65d5e6329a2c2dc0f62c5fb4c7de43e"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "core",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "androidx.core",
+          "module": "core-ktx",
+          "version": {
+            "requires": "1.19.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-coroutines-core",
+          "version": {
+            "requires": "1.11.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-serialization-json",
+          "version": {
+            "requires": "1.6.3"
+          }
+        },
+        {
+          "group": "androidx.activity",
+          "module": "activity-compose",
+          "version": {
+            "requires": "1.13.0"
+          }
+        },
+        {
+          "group": "androidx.compose",
+          "module": "compose-bom",
+          "version": {
+            "requires": "2026.09.00"
+          },
+          "attributes": {
+            "org.gradle.category": "platform"
+          }
+        },
+        {
+          "group": "androidx.compose.ui",
+          "module": "ui"
+        },
+        {
+          "group": "androidx.compose.material3",
+          "module": "material3"
+        },
+        {
+          "group": "androidx.datastore",
+          "module": "datastore-preferences",
+          "version": {
+            "requires": "1.2.1"
+          }
+        },
+        {
+          "group": "androidx.security",
+          "module": "security-crypto",
+          "version": {
+            "requires": "1.1.0-alpha06"
+          }
+        },
+        {
+          "group": "com.squareup.okhttp3",
+          "module": "okhttp",
+          "version": {
+            "requires": "4.12.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.4.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "security-platform-1.5.1.aar",
+          "url": "security-platform-1.5.1.aar",
+          "size": 61194,
+          "sha512": "5f519927a3723aeb958ffbf58f7725e6a49870c34bb11fea1aa47f702c6cc2ba4c164c6ce352d403f933746755bcb8b5f03dcb3fd908fc19fdeb677879fbd360",
+          "sha256": "0716c6b8761059aa2eddf3368da5d7550d43563f48ab228645d80941276802a3",
+          "sha1": "b5482b630d3c445f3d7858740737dc8ec881614f",
+          "md5": "a65d5e6329a2c2dc0f62c5fb4c7de43e"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseSourcePublication",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "security-platform-1.5.1-sources.jar",
+          "url": "security-platform-1.5.1-sources.jar",
+          "size": 18803,
+          "sha512": "3ff54e2d9a3745446810fc6815af186c4643387af8121b1a5a459d803c6d57fe30015816a2e1fb07ed3d08859076e767efa21fd640240e36c67a00bfaccb2134",
+          "sha256": "36be60521220807748d4986cdb5b633268ea5a9e937389bd41eacbbc30986446",
+          "sha1": "52b5f36dcc83b82843ad3d8edb904ceb3c21ff8e",
+          "md5": "6c06c80717c75e595ce3215270a284b6"
+        }
+      ]
+    }
+  ]
+}

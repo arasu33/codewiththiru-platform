@@ -1,0 +1,96 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.codewiththiru.platform",
+    "module": "analytics-api",
+    "version": "1.5.1",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "9.7.1"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.jvm.version": 21,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.4.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "analytics-api-1.5.1.jar",
+          "url": "analytics-api-1.5.1.jar",
+          "size": 10614,
+          "sha512": "3b694445392b1c32de39ece5957d7b22c26e7fe6a29aa63188b22c94b2ea8875180789b8df8c2e6088a24788dceddace000ff2378f87c44fca433e23aa5fe1ad",
+          "sha256": "dd1b8fdb87ed0b7bb9e16a8bf7e5adb8f35faab4c531ebd83d4402abc4327655",
+          "sha1": "95f18faddd622ee9f760a27f49c576ec68d0a6ae",
+          "md5": "8ec6464db0f11bb98487599e89c03e54"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.jvm.version": 21,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "core",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-coroutines-core",
+          "version": {
+            "requires": "1.11.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.4.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "analytics-api-1.5.1.jar",
+          "url": "analytics-api-1.5.1.jar",
+          "size": 10614,
+          "sha512": "3b694445392b1c32de39ece5957d7b22c26e7fe6a29aa63188b22c94b2ea8875180789b8df8c2e6088a24788dceddace000ff2378f87c44fca433e23aa5fe1ad",
+          "sha256": "dd1b8fdb87ed0b7bb9e16a8bf7e5adb8f35faab4c531ebd83d4402abc4327655",
+          "sha1": "95f18faddd622ee9f760a27f49c576ec68d0a6ae",
+          "md5": "8ec6464db0f11bb98487599e89c03e54"
+        }
+      ]
+    }
+  ]
+}

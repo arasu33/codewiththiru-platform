@@ -1,0 +1,138 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.codewiththiru.platform.developer",
+    "module": "game-testing",
+    "version": "1.5.1",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "9.7.1"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.jvm.version": 21,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "core",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "game-profile",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "game-leaderboard",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.4.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "game-testing-1.5.1.jar",
+          "url": "game-testing-1.5.1.jar",
+          "size": 5178,
+          "sha512": "11ce58e533bd35d76b10546ce7f3a7b63931663406e2130318b561b1251e423702fdd6e97908b93813e263d00a6aa3e7e615f192814ec3760d977412f576eacb",
+          "sha256": "d2c5bc52814f6d9e1e9320c28b3c6141efb1b6e8e73ac0ae4968e894763bf450",
+          "sha1": "7e7902d9a6de9badd678aab5629b00be2008a2dd",
+          "md5": "0646a5aa914b8476b5df439b00a5deb9"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.jvm.version": 21,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-coroutines-core",
+          "version": {
+            "requires": "1.11.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-coroutines-test",
+          "version": {
+            "requires": "1.11.0"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "core",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "game-profile",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "game-leaderboard",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.4.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "game-testing-1.5.1.jar",
+          "url": "game-testing-1.5.1.jar",
+          "size": 5178,
+          "sha512": "11ce58e533bd35d76b10546ce7f3a7b63931663406e2130318b561b1251e423702fdd6e97908b93813e263d00a6aa3e7e615f192814ec3760d977412f576eacb",
+          "sha256": "d2c5bc52814f6d9e1e9320c28b3c6141efb1b6e8e73ac0ae4968e894763bf450",
+          "sha1": "7e7902d9a6de9badd678aab5629b00be2008a2dd",
+          "md5": "0646a5aa914b8476b5df439b00a5deb9"
+        }
+      ]
+    }
+  ]
+}

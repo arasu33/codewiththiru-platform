@@ -1,0 +1,159 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.codewiththiru.platform",
+    "module": "developer-platform",
+    "version": "1.5.1",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "9.7.1"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.4.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "developer-platform-1.5.1.aar",
+          "url": "developer-platform-1.5.1.aar",
+          "size": 74517,
+          "sha512": "0fd28aa3e214fbb9f2087df77e6cd176c2a07b509b9e5b7ce25e7337f62a514e4740fbd921aa14cce45bb45821614cb307998efb6521aa64415272e97f698dbb",
+          "sha256": "deb0069389406fedc1c96e94bae04d16058dfef337ca27863b1c41abccc807f8",
+          "sha1": "30da67384de072fc1403f15bcaf3112c7b8a2419",
+          "md5": "3ad4b79addacdeb7c035d5d92d744dfe"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "core",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "analytics-api",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "ai-platform",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "observability-platform",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "platform-governance",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "security-platform",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "androidx.core",
+          "module": "core-ktx",
+          "version": {
+            "requires": "1.19.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-coroutines-core",
+          "version": {
+            "requires": "1.11.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-serialization-json",
+          "version": {
+            "requires": "1.6.3"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.4.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "developer-platform-1.5.1.aar",
+          "url": "developer-platform-1.5.1.aar",
+          "size": 74517,
+          "sha512": "0fd28aa3e214fbb9f2087df77e6cd176c2a07b509b9e5b7ce25e7337f62a514e4740fbd921aa14cce45bb45821614cb307998efb6521aa64415272e97f698dbb",
+          "sha256": "deb0069389406fedc1c96e94bae04d16058dfef337ca27863b1c41abccc807f8",
+          "sha1": "30da67384de072fc1403f15bcaf3112c7b8a2419",
+          "md5": "3ad4b79addacdeb7c035d5d92d744dfe"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseSourcePublication",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "developer-platform-1.5.1-sources.jar",
+          "url": "developer-platform-1.5.1-sources.jar",
+          "size": 19327,
+          "sha512": "dac45ba6b8fc425d109ae04fa88341d8d6c091eaec075a2ce4b415160a043a66c908ad275f773b8a9e8f1d1603c94adac57888d5ea6172f05f7b110e9412dd79",
+          "sha256": "9956ad856e7011b9774220018d8b95b0d207cc1703ae9b081f337dc304c2094b",
+          "sha1": "66e8bb3a59db39a3f951bb8f17b9f7a0b44cea5b",
+          "md5": "0ffe7d8c8d2bd28f2857c5cd5c519bd7"
+        }
+      ]
+    }
+  ]
+}

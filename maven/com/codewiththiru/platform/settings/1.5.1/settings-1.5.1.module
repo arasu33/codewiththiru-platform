@@ -1,0 +1,160 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.codewiththiru.platform",
+    "module": "settings",
+    "version": "1.5.1",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "9.7.1"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.4.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "settings-1.5.1.aar",
+          "url": "settings-1.5.1.aar",
+          "size": 43455,
+          "sha512": "7b71f62f54cfc30c0efadb544fe14ef58c43ac82f2aa492268d4340e29016c434a7f6c241b1e8e1a20f1257c8fc81bd52ab8ed1486511a5063feacdb58cee987",
+          "sha256": "b9859aa634c16174f33437940a0594f5962017a7513553ae8dda50839ea1521c",
+          "sha1": "3b5983949504200b96046ebd862ed4bb46a3a57f",
+          "md5": "9e6ab485adbb25531ec2138fa664c7d5"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "core",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "core-android",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "designsystem",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "androidx.core",
+          "module": "core-ktx",
+          "version": {
+            "requires": "1.19.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-coroutines-core",
+          "version": {
+            "requires": "1.11.0"
+          }
+        },
+        {
+          "group": "androidx.datastore",
+          "module": "datastore-preferences",
+          "version": {
+            "requires": "1.2.1"
+          }
+        },
+        {
+          "group": "androidx.compose",
+          "module": "compose-bom",
+          "version": {
+            "requires": "2026.09.00"
+          },
+          "attributes": {
+            "org.gradle.category": "platform"
+          }
+        },
+        {
+          "group": "androidx.compose.ui",
+          "module": "ui"
+        },
+        {
+          "group": "androidx.compose.material3",
+          "module": "material3"
+        },
+        {
+          "group": "androidx.compose.ui",
+          "module": "ui-tooling-preview"
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.4.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "settings-1.5.1.aar",
+          "url": "settings-1.5.1.aar",
+          "size": 43455,
+          "sha512": "7b71f62f54cfc30c0efadb544fe14ef58c43ac82f2aa492268d4340e29016c434a7f6c241b1e8e1a20f1257c8fc81bd52ab8ed1486511a5063feacdb58cee987",
+          "sha256": "b9859aa634c16174f33437940a0594f5962017a7513553ae8dda50839ea1521c",
+          "sha1": "3b5983949504200b96046ebd862ed4bb46a3a57f",
+          "md5": "9e6ab485adbb25531ec2138fa664c7d5"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseSourcePublication",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "settings-1.5.1-sources.jar",
+          "url": "settings-1.5.1-sources.jar",
+          "size": 4156,
+          "sha512": "6ff1788151ebe727ddb1a3257910cdf54deb4cc88115f7335b136561edf6735c133ad8cad9dd87a6c2b2aef5fa1dee8762d837cbedd99abdf3c09494d3e18d22",
+          "sha256": "39631f62fe1d1c395b4658af29c6ec3508d670796e16bec3dc23108ccb229b9a",
+          "sha1": "08f9319cebd1f11ceb1596c05d517d13445839f1",
+          "md5": "a6ac46ac13df5f4ae5d351b3ae550979"
+        }
+      ]
+    }
+  ]
+}

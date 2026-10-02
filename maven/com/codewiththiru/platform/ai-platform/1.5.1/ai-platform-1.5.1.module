@@ -1,0 +1,219 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.codewiththiru.platform",
+    "module": "ai-platform",
+    "version": "1.5.1",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "9.7.1"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.4.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "ai-platform-1.5.1.aar",
+          "url": "ai-platform-1.5.1.aar",
+          "size": 64113,
+          "sha512": "0fb92d278bdc22eee9761d4f2f079776fdbb5237a27a02b177115648fd3801a5519c2c9f23753a4d6f2ab8c4a5ca86fba3740b370a662e262dcf07257609385a",
+          "sha256": "c27adc7cecc2f033d8c7e95686b96c3d87106e823f906bc59331c125103d98a3",
+          "sha1": "ea55ff003383902198c66b53e0a8ebe63995e5d2",
+          "md5": "8eceb3453f0b1da804a60c8581679593"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "core",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "analytics-api",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "remote-config-api",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "notifications-api",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "billing-api",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "identity",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "gamification",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "sync-backup",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "designsystem",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "androidx.core",
+          "module": "core-ktx",
+          "version": {
+            "requires": "1.19.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-coroutines-core",
+          "version": {
+            "requires": "1.11.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-serialization-json",
+          "version": {
+            "requires": "1.6.3"
+          }
+        },
+        {
+          "group": "androidx.activity",
+          "module": "activity-compose",
+          "version": {
+            "requires": "1.13.0"
+          }
+        },
+        {
+          "group": "androidx.compose",
+          "module": "compose-bom",
+          "version": {
+            "requires": "2026.09.00"
+          },
+          "attributes": {
+            "org.gradle.category": "platform"
+          }
+        },
+        {
+          "group": "androidx.compose.ui",
+          "module": "ui"
+        },
+        {
+          "group": "androidx.compose.material3",
+          "module": "material3"
+        },
+        {
+          "group": "androidx.datastore",
+          "module": "datastore-preferences",
+          "version": {
+            "requires": "1.2.1"
+          }
+        },
+        {
+          "group": "androidx.lifecycle",
+          "module": "lifecycle-process",
+          "version": {
+            "requires": "2.11.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.4.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "ai-platform-1.5.1.aar",
+          "url": "ai-platform-1.5.1.aar",
+          "size": 64113,
+          "sha512": "0fb92d278bdc22eee9761d4f2f079776fdbb5237a27a02b177115648fd3801a5519c2c9f23753a4d6f2ab8c4a5ca86fba3740b370a662e262dcf07257609385a",
+          "sha256": "c27adc7cecc2f033d8c7e95686b96c3d87106e823f906bc59331c125103d98a3",
+          "sha1": "ea55ff003383902198c66b53e0a8ebe63995e5d2",
+          "md5": "8eceb3453f0b1da804a60c8581679593"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseSourcePublication",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "ai-platform-1.5.1-sources.jar",
+          "url": "ai-platform-1.5.1-sources.jar",
+          "size": 17528,
+          "sha512": "bedc0011f5ca4e674539b43800e50388eeb2a7d3699b68727a5ea9f5d560add969d3af18d9c39e60474eaf7c1e66bd01bd26a5452a592f6ac30384be1ceb8a50",
+          "sha256": "d3c3f172708024e6c8a4fcbc6b37cf646e28e412b7bf8bdbf4075225d6104bb0",
+          "sha1": "847b022865431b1c94ab8486116b19161b2530f8",
+          "md5": "60b4d6928fa1622ae30bd256b668e897"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,152 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.codewiththiru.platform",
+    "module": "sync-backup",
+    "version": "1.5.1",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "9.7.1"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.4.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "sync-backup-1.5.1.aar",
+          "url": "sync-backup-1.5.1.aar",
+          "size": 97388,
+          "sha512": "167c16c84ae84840dbe994a22b006b12ee9f8f5ec05d4bec527f8ca2ec614793817a4e15c9ea380eb120ff4e9f886c63997458a8c186a84353f001cb50cf091f",
+          "sha256": "09d46a0a8fdeaf742833f5a4c34c9c70d81ecbc1b7ca300d45271670fe35cbe6",
+          "sha1": "03b6f17efbe948306077e25fc25cdc1c6c6ec9b6",
+          "md5": "12f4e302789f26be5cddcab1d2694620"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "core",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "analytics-api",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "remote-config-api",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "notifications-api",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "billing-api",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "androidx.core",
+          "module": "core-ktx",
+          "version": {
+            "requires": "1.19.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-coroutines-core",
+          "version": {
+            "requires": "1.11.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-serialization-json",
+          "version": {
+            "requires": "1.6.3"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.4.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "sync-backup-1.5.1.aar",
+          "url": "sync-backup-1.5.1.aar",
+          "size": 97388,
+          "sha512": "167c16c84ae84840dbe994a22b006b12ee9f8f5ec05d4bec527f8ca2ec614793817a4e15c9ea380eb120ff4e9f886c63997458a8c186a84353f001cb50cf091f",
+          "sha256": "09d46a0a8fdeaf742833f5a4c34c9c70d81ecbc1b7ca300d45271670fe35cbe6",
+          "sha1": "03b6f17efbe948306077e25fc25cdc1c6c6ec9b6",
+          "md5": "12f4e302789f26be5cddcab1d2694620"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseSourcePublication",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "sync-backup-1.5.1-sources.jar",
+          "url": "sync-backup-1.5.1-sources.jar",
+          "size": 15566,
+          "sha512": "7f75322d9ed10a18ab273b5a36d62030fa04d43e42693c931dfb900bacd8ded1171bbd51d61af496bea0cbe45466ba151be9dcf97ad5348f1bd1992923d83a66",
+          "sha256": "4cd686e89ec71d91afe184b3d9a70f7e0273eea6498b79a6f0967c11ccd67de6",
+          "sha1": "d3f5e5ab796b7fad6f192a459563c19837b9308f",
+          "md5": "1f5fe4301abaecc675c7ba48589b5354"
+        }
+      ]
+    }
+  ]
+}

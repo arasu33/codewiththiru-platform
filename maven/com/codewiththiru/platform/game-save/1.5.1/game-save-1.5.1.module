@@ -1,0 +1,124 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.codewiththiru.platform",
+    "module": "game-save",
+    "version": "1.5.1",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "9.7.1"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.jvm.version": 21,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "core",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "game-common",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.4.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "game-save-1.5.1.jar",
+          "url": "game-save-1.5.1.jar",
+          "size": 55456,
+          "sha512": "b7a33a427e229f8dd5a5894a15532b6750fe97964e1b731d1dfc38dd8bf4f920ec4151c1e870bc4d6dd959d71de840d1dd0f5db66f6e25a9ae755915eb67e5de",
+          "sha256": "b59639862d66452f434b2f2ac351ba2196e81bdca67393a402fdd20eaea047a3",
+          "sha1": "4004a7712326c6a1e3cace5fa3178b3381f52d24",
+          "md5": "bcfdf25cb797221651f7ae86f32f2640"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.jvm.version": 21,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-coroutines-core",
+          "version": {
+            "requires": "1.11.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-serialization-json",
+          "version": {
+            "requires": "1.6.3"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "core",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "game-common",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.4.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "game-save-1.5.1.jar",
+          "url": "game-save-1.5.1.jar",
+          "size": 55456,
+          "sha512": "b7a33a427e229f8dd5a5894a15532b6750fe97964e1b731d1dfc38dd8bf4f920ec4151c1e870bc4d6dd959d71de840d1dd0f5db66f6e25a9ae755915eb67e5de",
+          "sha256": "b59639862d66452f434b2f2ac351ba2196e81bdca67393a402fdd20eaea047a3",
+          "sha1": "4004a7712326c6a1e3cace5fa3178b3381f52d24",
+          "md5": "bcfdf25cb797221651f7ae86f32f2640"
+        }
+      ]
+    }
+  ]
+}

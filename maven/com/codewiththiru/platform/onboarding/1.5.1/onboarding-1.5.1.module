@@ -1,0 +1,160 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.codewiththiru.platform",
+    "module": "onboarding",
+    "version": "1.5.1",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "9.7.1"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.4.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "onboarding-1.5.1.aar",
+          "url": "onboarding-1.5.1.aar",
+          "size": 32689,
+          "sha512": "a6997da3a0f072fcaaad09100a8f8366b1066a7fd117966830dfc8f4e35d9d9972c24c01a940165f1a67230ddfce948ae023cba0d544ed3e63c23ad80a76139c",
+          "sha256": "066ea1db43cc3dae44640dabe741506c98ec2557f2c8c79a265c4d15008ee64e",
+          "sha1": "85b4e746bf4c20cc3eaafa923ccab47076f65c8e",
+          "md5": "805c81cd9152d78b0d556ea44416d875"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "core",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "core-android",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "designsystem",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "androidx.core",
+          "module": "core-ktx",
+          "version": {
+            "requires": "1.19.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-coroutines-core",
+          "version": {
+            "requires": "1.11.0"
+          }
+        },
+        {
+          "group": "androidx.datastore",
+          "module": "datastore-preferences",
+          "version": {
+            "requires": "1.2.1"
+          }
+        },
+        {
+          "group": "androidx.compose",
+          "module": "compose-bom",
+          "version": {
+            "requires": "2026.09.00"
+          },
+          "attributes": {
+            "org.gradle.category": "platform"
+          }
+        },
+        {
+          "group": "androidx.compose.ui",
+          "module": "ui"
+        },
+        {
+          "group": "androidx.compose.material3",
+          "module": "material3"
+        },
+        {
+          "group": "androidx.compose.ui",
+          "module": "ui-tooling-preview"
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.4.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "onboarding-1.5.1.aar",
+          "url": "onboarding-1.5.1.aar",
+          "size": 32689,
+          "sha512": "a6997da3a0f072fcaaad09100a8f8366b1066a7fd117966830dfc8f4e35d9d9972c24c01a940165f1a67230ddfce948ae023cba0d544ed3e63c23ad80a76139c",
+          "sha256": "066ea1db43cc3dae44640dabe741506c98ec2557f2c8c79a265c4d15008ee64e",
+          "sha1": "85b4e746bf4c20cc3eaafa923ccab47076f65c8e",
+          "md5": "805c81cd9152d78b0d556ea44416d875"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseSourcePublication",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "onboarding-1.5.1-sources.jar",
+          "url": "onboarding-1.5.1-sources.jar",
+          "size": 4512,
+          "sha512": "b0cc585742cbf4dd158791f38c6efbe2064d173b53a3f1d560aa9dea4b5547389364dffc5cbc92769da748e985be5f9e824a2f8fdf2be56cd28a38327f64acb0",
+          "sha256": "d7746783084b17cc15e6c5e1ade2fe03bc810a9ecc17d131c688828fc3361c2b",
+          "sha1": "bde7d6bb6a1cbad9e929f722c8d03dab3bb6ea0e",
+          "md5": "057b0a700efe2f54307a401eb121c1d9"
+        }
+      ]
+    }
+  ]
+}

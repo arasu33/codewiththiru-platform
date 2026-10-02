@@ -1,0 +1,135 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.codewiththiru.platform",
+    "module": "identity",
+    "version": "1.5.1",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "9.7.1"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.4.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "identity-1.5.1.aar",
+          "url": "identity-1.5.1.aar",
+          "size": 81189,
+          "sha512": "b30d787c751f494f3b6bf42d0b0e5d48d543cca2d78af8d275e63ca4419d73bd89259b0ce93c9649c6883dfeda0a85f80c84ba0a6f7f1ae4bf6038900371520f",
+          "sha256": "9319c780a843d9063deeb7129ce3e91c5b903b3d40bdae3e56b107daba0c4032",
+          "sha1": "506769fe6d30e3a5e993a5c533a0d1448e90f60b",
+          "md5": "0b8d4511907844e1537ce7a25941a7b1"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "core",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "core-android",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "androidx.core",
+          "module": "core-ktx",
+          "version": {
+            "requires": "1.19.0"
+          }
+        },
+        {
+          "group": "androidx.compose",
+          "module": "compose-bom",
+          "version": {
+            "requires": "2026.09.00"
+          },
+          "attributes": {
+            "org.gradle.category": "platform"
+          }
+        },
+        {
+          "group": "androidx.compose.ui",
+          "module": "ui"
+        },
+        {
+          "group": "androidx.compose.material3",
+          "module": "material3"
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.4.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "identity-1.5.1.aar",
+          "url": "identity-1.5.1.aar",
+          "size": 81189,
+          "sha512": "b30d787c751f494f3b6bf42d0b0e5d48d543cca2d78af8d275e63ca4419d73bd89259b0ce93c9649c6883dfeda0a85f80c84ba0a6f7f1ae4bf6038900371520f",
+          "sha256": "9319c780a843d9063deeb7129ce3e91c5b903b3d40bdae3e56b107daba0c4032",
+          "sha1": "506769fe6d30e3a5e993a5c533a0d1448e90f60b",
+          "md5": "0b8d4511907844e1537ce7a25941a7b1"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseSourcePublication",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "identity-1.5.1-sources.jar",
+          "url": "identity-1.5.1-sources.jar",
+          "size": 22684,
+          "sha512": "da0668e2b75d8df774ab226eb7512c03c55322e005cf29a35171fdd2c156ce345b95d03b58c6384ab5c8d70b2847748a7151b9a61099335353f0f04f8da7d003",
+          "sha256": "7f995a79da705d3b27aae778a6e537e96506ec3b682e6417289b576d287412a8",
+          "sha1": "fc06962e3410ba2ddc86545bc7f1b0ec43afae43",
+          "md5": "c0fc3f3f7252259694156ba011bf95f9"
+        }
+      ]
+    }
+  ]
+}

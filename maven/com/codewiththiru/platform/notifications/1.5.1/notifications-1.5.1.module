@@ -1,0 +1,202 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.codewiththiru.platform",
+    "module": "notifications",
+    "version": "1.5.1",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "9.7.1"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.4.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "notifications-1.5.1.aar",
+          "url": "notifications-1.5.1.aar",
+          "size": 173387,
+          "sha512": "9c44af1b7162b511f2c57ebb5da0af65c34ad79d8f60a16d78760fc99da6abe53d00918f072ade87bbff7359f0ac3b20d370973923cc939131a5f9bf734caa7a",
+          "sha256": "f8035d719abba3152336c39b093b30f3e3b3ba6b66b95f262d0c018452b02d23",
+          "sha1": "4a31f10603e9c2d627a96d220723aad2ff0957fe",
+          "md5": "deed8c4c0a8ff0c92d0a7dc301a45bd7"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "notifications-api",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "core",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "analytics-api",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "remote-config-api",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "designsystem",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.google.firebase",
+          "module": "firebase-bom",
+          "version": {
+            "requires": "34.19.0"
+          },
+          "attributes": {
+            "org.gradle.category": "platform"
+          }
+        },
+        {
+          "group": "com.google.firebase",
+          "module": "firebase-messaging"
+        },
+        {
+          "group": "androidx.compose",
+          "module": "compose-bom",
+          "version": {
+            "requires": "2026.09.00"
+          },
+          "attributes": {
+            "org.gradle.category": "platform"
+          }
+        },
+        {
+          "group": "androidx.compose.ui",
+          "module": "ui"
+        },
+        {
+          "group": "androidx.compose.ui",
+          "module": "ui-tooling-preview"
+        },
+        {
+          "group": "androidx.compose.material3",
+          "module": "material3"
+        },
+        {
+          "group": "androidx.core",
+          "module": "core-ktx",
+          "version": {
+            "requires": "1.19.0"
+          }
+        },
+        {
+          "group": "androidx.work",
+          "module": "work-runtime-ktx",
+          "version": {
+            "requires": "2.11.2"
+          }
+        },
+        {
+          "group": "androidx.datastore",
+          "module": "datastore-preferences",
+          "version": {
+            "requires": "1.2.1"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-coroutines-core",
+          "version": {
+            "requires": "1.11.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-serialization-json",
+          "version": {
+            "requires": "1.6.3"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.4.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "notifications-1.5.1.aar",
+          "url": "notifications-1.5.1.aar",
+          "size": 173387,
+          "sha512": "9c44af1b7162b511f2c57ebb5da0af65c34ad79d8f60a16d78760fc99da6abe53d00918f072ade87bbff7359f0ac3b20d370973923cc939131a5f9bf734caa7a",
+          "sha256": "f8035d719abba3152336c39b093b30f3e3b3ba6b66b95f262d0c018452b02d23",
+          "sha1": "4a31f10603e9c2d627a96d220723aad2ff0957fe",
+          "md5": "deed8c4c0a8ff0c92d0a7dc301a45bd7"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseSourcePublication",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "notifications-1.5.1-sources.jar",
+          "url": "notifications-1.5.1-sources.jar",
+          "size": 32095,
+          "sha512": "e24df88d5f6945f9504277335da315ee5b4ac8fd3fd81fa22543d7abb8d358d2c34839250308d496d3a96d83d0421ce7923343635fe3a600e3091fc5db308fd1",
+          "sha256": "1322aabab42028976d83d23935ea3ef64d7fb436b6db16f3c55c5efa3e8121c4",
+          "sha1": "9ad3a1753b82fb515505e819bddb1a4d79b5c064",
+          "md5": "59e32c750be3791b4f21a69f3916aae9"
+        }
+      ]
+    }
+  ]
+}

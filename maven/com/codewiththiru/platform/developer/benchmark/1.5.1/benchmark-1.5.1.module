@@ -1,0 +1,103 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.codewiththiru.platform.developer",
+    "module": "benchmark",
+    "version": "1.5.1",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "9.7.1"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.jvm.version": 21,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "com.codewiththiru.platform.developer",
+          "module": "game-testing",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.4.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "benchmark-1.5.1.jar",
+          "url": "benchmark-1.5.1.jar",
+          "size": 2521,
+          "sha512": "5d55c6e2a47a71629dcfe17de9bc9f7749035328d614f2d2951bc0b8d86f8c802d0286c87a7241a21e7d6a83698105f1b76f1d3e8f15dc7e39a27379a8293f11",
+          "sha256": "93462a8ca6cda95a375682b8d5d6f4ea0cf8e3476ffbac7bbb46610c49a8746e",
+          "sha1": "537b42af1dfa51e2db3d4a05c95e80a680e7657a",
+          "md5": "70a9fce48f1e14b5bbfe480fe5c9fc40"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.jvm.version": 21,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-coroutines-core",
+          "version": {
+            "requires": "1.11.0"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform.developer",
+          "module": "game-testing",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.4.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "benchmark-1.5.1.jar",
+          "url": "benchmark-1.5.1.jar",
+          "size": 2521,
+          "sha512": "5d55c6e2a47a71629dcfe17de9bc9f7749035328d614f2d2951bc0b8d86f8c802d0286c87a7241a21e7d6a83698105f1b76f1d3e8f15dc7e39a27379a8293f11",
+          "sha256": "93462a8ca6cda95a375682b8d5d6f4ea0cf8e3476ffbac7bbb46610c49a8746e",
+          "sha1": "537b42af1dfa51e2db3d4a05c95e80a680e7657a",
+          "md5": "70a9fce48f1e14b5bbfe480fe5c9fc40"
+        }
+      ]
+    }
+  ]
+}

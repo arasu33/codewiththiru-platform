@@ -1,0 +1,103 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.codewiththiru.platform",
+    "module": "ads-api",
+    "version": "1.5.1",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "9.7.1"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.jvm.version": 21,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.4.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "ads-api-1.5.1.jar",
+          "url": "ads-api-1.5.1.jar",
+          "size": 28853,
+          "sha512": "b1c924d733bdf7dee8ce4a8430092c6b1abfe69ade0bacbcc0deddab0e0413641b4c2fc558adb8348546b77af0ec292f1d36dfab822b7ce034d9d7bb9e8e994b",
+          "sha256": "0b3b87ea69cc2d1753bf514015ec349afc0689bcf2d9367132a4f0136fe6f9a1",
+          "sha1": "b37c889b7f8ca8f4f9cd8183a6f761d5ac6ec773",
+          "md5": "ac4142a2bab38143c8f7669bcc5c7353"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.jvm.version": 21,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "core",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-coroutines-core",
+          "version": {
+            "requires": "1.11.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-serialization-json",
+          "version": {
+            "requires": "1.6.3"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.4.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "ads-api-1.5.1.jar",
+          "url": "ads-api-1.5.1.jar",
+          "size": 28853,
+          "sha512": "b1c924d733bdf7dee8ce4a8430092c6b1abfe69ade0bacbcc0deddab0e0413641b4c2fc558adb8348546b77af0ec292f1d36dfab822b7ce034d9d7bb9e8e994b",
+          "sha256": "0b3b87ea69cc2d1753bf514015ec349afc0689bcf2d9367132a4f0136fe6f9a1",
+          "sha1": "b37c889b7f8ca8f4f9cd8183a6f761d5ac6ec773",
+          "md5": "ac4142a2bab38143c8f7669bcc5c7353"
+        }
+      ]
+    }
+  ]
+}

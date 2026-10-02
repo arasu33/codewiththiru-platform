@@ -1,0 +1,131 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.codewiththiru.platform",
+    "module": "platform-framework",
+    "version": "1.5.1",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "9.7.1"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.4.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "platform-framework-1.5.1.aar",
+          "url": "platform-framework-1.5.1.aar",
+          "size": 46319,
+          "sha512": "64eecd9f8857282b2bb8a004f5211a13c81b8ed863658fd3d7d3fc456b2917767211dce75c0c31111149bd8e029b770f30691c50792f4e7f379348c33e4de34a",
+          "sha256": "15679c6f5fbc3e54d5d81963ffd75db09cbb8bbf4c39e9c242aa0b87ca6d271c",
+          "sha1": "c674f90af26886fa5430fc975ba8b7cc14808c1d",
+          "md5": "ba82c9c130681e3ca2d8d0e98c4c04f2"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "core",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "designsystem",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "androidx.core",
+          "module": "core-ktx",
+          "version": {
+            "requires": "1.19.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-coroutines-core",
+          "version": {
+            "requires": "1.11.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-serialization-json",
+          "version": {
+            "requires": "1.6.3"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.4.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "platform-framework-1.5.1.aar",
+          "url": "platform-framework-1.5.1.aar",
+          "size": 46319,
+          "sha512": "64eecd9f8857282b2bb8a004f5211a13c81b8ed863658fd3d7d3fc456b2917767211dce75c0c31111149bd8e029b770f30691c50792f4e7f379348c33e4de34a",
+          "sha256": "15679c6f5fbc3e54d5d81963ffd75db09cbb8bbf4c39e9c242aa0b87ca6d271c",
+          "sha1": "c674f90af26886fa5430fc975ba8b7cc14808c1d",
+          "md5": "ba82c9c130681e3ca2d8d0e98c4c04f2"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseSourcePublication",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "platform-framework-1.5.1-sources.jar",
+          "url": "platform-framework-1.5.1-sources.jar",
+          "size": 9023,
+          "sha512": "4e96ef6cbfcc141eb77639bfd193312cdddf0c7126ee404e93e000e962f2afe407183470e8742420e6983e2fef91525a3b279abbd2f7ceb907ccbf470c663401",
+          "sha256": "1bb95b2ec16dac76601d273f117a1a5f7f1da8beb87a94d508ea2bdc1860a2ef",
+          "sha1": "3c6ce604942109064967097977e0914ee4f82eb5",
+          "md5": "86feb8176b98a9cbee018560649f3068"
+        }
+      ]
+    }
+  ]
+}

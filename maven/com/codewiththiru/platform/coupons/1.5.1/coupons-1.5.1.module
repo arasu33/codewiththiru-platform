@@ -1,0 +1,167 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.codewiththiru.platform",
+    "module": "coupons",
+    "version": "1.5.1",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "9.7.1"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.4.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "coupons-1.5.1.aar",
+          "url": "coupons-1.5.1.aar",
+          "size": 130515,
+          "sha512": "35de033b40c943eb40c069bdab6295b29d054cc621e537adabb10315de7498759e273f9fab44f1f5f4a666cf9155f529a655a82b32936b3d28263cb5490d91fc",
+          "sha256": "dedff1b43e528124063d7f77570424e9a5f46c570d5ea0376dd576f1b703826b",
+          "sha1": "6d076582e1ccd7a8459efbd3c13ac883f0dfcb25",
+          "md5": "a93cbda18eff36e60a084eb756050f6e"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "core",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "core-android",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "designsystem",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "androidx.core",
+          "module": "core-ktx",
+          "version": {
+            "requires": "1.19.0"
+          }
+        },
+        {
+          "group": "androidx.lifecycle",
+          "module": "lifecycle-viewmodel-compose",
+          "version": {
+            "requires": "2.11.0"
+          }
+        },
+        {
+          "group": "androidx.lifecycle",
+          "module": "lifecycle-viewmodel-ktx",
+          "version": {
+            "requires": "2.11.0"
+          }
+        },
+        {
+          "group": "androidx.compose",
+          "module": "compose-bom",
+          "version": {
+            "requires": "2026.09.00"
+          },
+          "attributes": {
+            "org.gradle.category": "platform"
+          }
+        },
+        {
+          "group": "androidx.compose.ui",
+          "module": "ui"
+        },
+        {
+          "group": "androidx.compose.material3",
+          "module": "material3"
+        },
+        {
+          "group": "androidx.compose.ui",
+          "module": "ui-tooling-preview"
+        },
+        {
+          "group": "androidx.security",
+          "module": "security-crypto",
+          "version": {
+            "requires": "1.1.0-alpha06"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.4.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "coupons-1.5.1.aar",
+          "url": "coupons-1.5.1.aar",
+          "size": 130515,
+          "sha512": "35de033b40c943eb40c069bdab6295b29d054cc621e537adabb10315de7498759e273f9fab44f1f5f4a666cf9155f529a655a82b32936b3d28263cb5490d91fc",
+          "sha256": "dedff1b43e528124063d7f77570424e9a5f46c570d5ea0376dd576f1b703826b",
+          "sha1": "6d076582e1ccd7a8459efbd3c13ac883f0dfcb25",
+          "md5": "a93cbda18eff36e60a084eb756050f6e"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseSourcePublication",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "coupons-1.5.1-sources.jar",
+          "url": "coupons-1.5.1-sources.jar",
+          "size": 24897,
+          "sha512": "d7d3714d906eb2f679f2b7d16ab77c80f9abade35f165490290049e92dbf194827bddd4c7f52665691634eba22a2d65f6b9a4ab8c4f9adb45f3f7eaeb6341c36",
+          "sha256": "bb5bc23e6c3af3f843cdf6a7febcf9bf8a11687c1eac1cf3281a41cba5b9c297",
+          "sha1": "9e362dddb177f0c5a540887c6047dfc04e6836fd",
+          "md5": "1f02fbddca857f5f21fbd7e0369e1456"
+        }
+      ]
+    }
+  ]
+}

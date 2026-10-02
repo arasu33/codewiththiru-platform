@@ -1,0 +1,96 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.codewiththiru.platform",
+    "module": "remote-config-api",
+    "version": "1.5.1",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "9.7.1"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.jvm.version": 21,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.4.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "remote-config-api-1.5.1.jar",
+          "url": "remote-config-api-1.5.1.jar",
+          "size": 29317,
+          "sha512": "bc9c559e4b9105f0c8e2bfd5e2d3f244d5261e3a816e3c6770e82724459e43f8dafa3471de33e674202e1c2d0879c7f2b35f34762a1e79f8d08696c96db0c148",
+          "sha256": "44bd5f6119434b40b6d9cfc85004ba2f48ced596520c00b5cb65ee0b3df6b2a8",
+          "sha1": "6e73d34b51faca2b0347233220f400ff8717ce65",
+          "md5": "1922aca8a3fcfc869237775b0e0a29e4"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.jvm.version": 21,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "core",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-coroutines-core",
+          "version": {
+            "requires": "1.11.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.4.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "remote-config-api-1.5.1.jar",
+          "url": "remote-config-api-1.5.1.jar",
+          "size": 29317,
+          "sha512": "bc9c559e4b9105f0c8e2bfd5e2d3f244d5261e3a816e3c6770e82724459e43f8dafa3471de33e674202e1c2d0879c7f2b35f34762a1e79f8d08696c96db0c148",
+          "sha256": "44bd5f6119434b40b6d9cfc85004ba2f48ced596520c00b5cb65ee0b3df6b2a8",
+          "sha1": "6e73d34b51faca2b0347233220f400ff8717ce65",
+          "md5": "1922aca8a3fcfc869237775b0e0a29e4"
+        }
+      ]
+    }
+  ]
+}

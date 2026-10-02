@@ -1,0 +1,159 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.codewiththiru.platform",
+    "module": "gamification",
+    "version": "1.5.1",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "9.7.1"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.4.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "gamification-1.5.1.aar",
+          "url": "gamification-1.5.1.aar",
+          "size": 118921,
+          "sha512": "8761c9f4974c8379e2e2d2752e9fb2eb081a58b6936f930e6d3c4ac00e4ff8a51ae74e465c20a1734719ebbfe53af399172c1d33e32925465db255e193de6eb0",
+          "sha256": "a24bed342559b734e209da15021fe4edd52842f4954b7052d9566bfcd6f539f6",
+          "sha1": "bc7f1ea44b6bdc006e351a04dad69f8a59024764",
+          "md5": "6032bf9f8dfa5834b93c56f0f503995a"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "core",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "analytics-api",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "remote-config-api",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "notifications-api",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "androidx.core",
+          "module": "core-ktx",
+          "version": {
+            "requires": "1.19.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-coroutines-core",
+          "version": {
+            "requires": "1.11.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-serialization-json",
+          "version": {
+            "requires": "1.6.3"
+          }
+        },
+        {
+          "group": "androidx.datastore",
+          "module": "datastore-preferences",
+          "version": {
+            "requires": "1.2.1"
+          }
+        },
+        {
+          "group": "androidx.work",
+          "module": "work-runtime-ktx",
+          "version": {
+            "requires": "2.11.2"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.4.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "gamification-1.5.1.aar",
+          "url": "gamification-1.5.1.aar",
+          "size": 118921,
+          "sha512": "8761c9f4974c8379e2e2d2752e9fb2eb081a58b6936f930e6d3c4ac00e4ff8a51ae74e465c20a1734719ebbfe53af399172c1d33e32925465db255e193de6eb0",
+          "sha256": "a24bed342559b734e209da15021fe4edd52842f4954b7052d9566bfcd6f539f6",
+          "sha1": "bc7f1ea44b6bdc006e351a04dad69f8a59024764",
+          "md5": "6032bf9f8dfa5834b93c56f0f503995a"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseSourcePublication",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "gamification-1.5.1-sources.jar",
+          "url": "gamification-1.5.1-sources.jar",
+          "size": 15780,
+          "sha512": "099655c1a5803b0df344c7dffd4ff625beb4a4863ed6db7bcff2bed2ce816341da36987caffaea3e6236183742b21dde2701dbb544169398a9e3425e499df931",
+          "sha256": "bed402416210a42241870dc15e6822eba30b3b73e1720ad5534743d9adefdc26",
+          "sha1": "84b9ea0db257177e142eb2a2cd082c5e1d1f2278",
+          "md5": "e1531377dd372e6fd73af60aec95c3fa"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,174 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.codewiththiru.platform",
+    "module": "feedback",
+    "version": "1.5.1",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "9.7.1"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.4.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "feedback-1.5.1.aar",
+          "url": "feedback-1.5.1.aar",
+          "size": 149404,
+          "sha512": "058a2070ebfca2e259fcfd2a8d9b3d14f8e7fe87a9a9c44d84dc2761d6a03e0f95161d0e2406034b255590ff494f41dd58d247a9db74041bace4af7382c25680",
+          "sha256": "cce4e450d6e60f767fe5d0f0c049a03833c66cf8ca1091503e52eff8ca91b169",
+          "sha1": "289277ae299b449606eee69d35ba75ae41c0d188",
+          "md5": "4bab92d04ba00f33443e6205821ecb99"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "core",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "core-android",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "designsystem",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "androidx.core",
+          "module": "core-ktx",
+          "version": {
+            "requires": "1.19.0"
+          }
+        },
+        {
+          "group": "androidx.compose",
+          "module": "compose-bom",
+          "version": {
+            "requires": "2026.09.00"
+          },
+          "attributes": {
+            "org.gradle.category": "platform"
+          }
+        },
+        {
+          "group": "androidx.compose.ui",
+          "module": "ui"
+        },
+        {
+          "group": "androidx.compose.material3",
+          "module": "material3"
+        },
+        {
+          "group": "androidx.compose.ui",
+          "module": "ui-tooling-preview"
+        },
+        {
+          "group": "androidx.datastore",
+          "module": "datastore-preferences",
+          "version": {
+            "requires": "1.2.1"
+          }
+        },
+        {
+          "group": "androidx.security",
+          "module": "security-crypto",
+          "version": {
+            "requires": "1.1.0-alpha06"
+          }
+        },
+        {
+          "group": "androidx.lifecycle",
+          "module": "lifecycle-viewmodel-compose",
+          "version": {
+            "requires": "2.11.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-coroutines-core",
+          "version": {
+            "requires": "1.11.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.4.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "feedback-1.5.1.aar",
+          "url": "feedback-1.5.1.aar",
+          "size": 149404,
+          "sha512": "058a2070ebfca2e259fcfd2a8d9b3d14f8e7fe87a9a9c44d84dc2761d6a03e0f95161d0e2406034b255590ff494f41dd58d247a9db74041bace4af7382c25680",
+          "sha256": "cce4e450d6e60f767fe5d0f0c049a03833c66cf8ca1091503e52eff8ca91b169",
+          "sha1": "289277ae299b449606eee69d35ba75ae41c0d188",
+          "md5": "4bab92d04ba00f33443e6205821ecb99"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseSourcePublication",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "feedback-1.5.1-sources.jar",
+          "url": "feedback-1.5.1-sources.jar",
+          "size": 15865,
+          "sha512": "74bba035f6536cb61f7e5214d69821d97feca859711380f8212d3a52b1feda9a1a8247eaa3826c351093b33a6a201a79e4f38eaef9d987bb3d0f5a1f0ab3067f",
+          "sha256": "e8dfd6c39dd39f676a1ec777edd92cb2b5796ca08f099282f118be53c5308b5d",
+          "sha1": "d45b8b2566c18a52ca7b57b896e9860cbadb041f",
+          "md5": "b4f257eac342c07d90e5cfe4b6447e4b"
+        }
+      ]
+    }
+  ]
+}

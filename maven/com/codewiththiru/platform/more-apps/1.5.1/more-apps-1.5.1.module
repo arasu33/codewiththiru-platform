@@ -1,0 +1,160 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.codewiththiru.platform",
+    "module": "more-apps",
+    "version": "1.5.1",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "9.7.1"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.4.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "more-apps-1.5.1.aar",
+          "url": "more-apps-1.5.1.aar",
+          "size": 79969,
+          "sha512": "6b6f84dbac1a31c32ca0cf348060e00863fc5a74cc1655d136301c3321f7d61946df6cf109fc04bc7752ae4e5f4f2529ddf389ebf0631c02e89d68a0f395d8b9",
+          "sha256": "bf23e5a494cc2a1c94a58f9ebe7c53ceafad7ce2b89e44ced3bf849a4a15c047",
+          "sha1": "f52334129b78f2aff6d2ffabe0b19f4ae78ccaf1",
+          "md5": "1cba48ae051b6662dd859b9c6a0c58e3"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "core",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "core-android",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "designsystem",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "androidx.core",
+          "module": "core-ktx",
+          "version": {
+            "requires": "1.19.0"
+          }
+        },
+        {
+          "group": "androidx.lifecycle",
+          "module": "lifecycle-viewmodel-compose",
+          "version": {
+            "requires": "2.11.0"
+          }
+        },
+        {
+          "group": "androidx.lifecycle",
+          "module": "lifecycle-viewmodel-ktx",
+          "version": {
+            "requires": "2.11.0"
+          }
+        },
+        {
+          "group": "androidx.compose",
+          "module": "compose-bom",
+          "version": {
+            "requires": "2026.09.00"
+          },
+          "attributes": {
+            "org.gradle.category": "platform"
+          }
+        },
+        {
+          "group": "androidx.compose.ui",
+          "module": "ui"
+        },
+        {
+          "group": "androidx.compose.material3",
+          "module": "material3"
+        },
+        {
+          "group": "androidx.compose.ui",
+          "module": "ui-tooling-preview"
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.4.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "more-apps-1.5.1.aar",
+          "url": "more-apps-1.5.1.aar",
+          "size": 79969,
+          "sha512": "6b6f84dbac1a31c32ca0cf348060e00863fc5a74cc1655d136301c3321f7d61946df6cf109fc04bc7752ae4e5f4f2529ddf389ebf0631c02e89d68a0f395d8b9",
+          "sha256": "bf23e5a494cc2a1c94a58f9ebe7c53ceafad7ce2b89e44ced3bf849a4a15c047",
+          "sha1": "f52334129b78f2aff6d2ffabe0b19f4ae78ccaf1",
+          "md5": "1cba48ae051b6662dd859b9c6a0c58e3"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseSourcePublication",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "more-apps-1.5.1-sources.jar",
+          "url": "more-apps-1.5.1-sources.jar",
+          "size": 16452,
+          "sha512": "665a5f8ae55b51e80612557c14f43e6f349a56f61a831eabd6045fbfb9d6716782726cad78f094b3d8722bf98a949315ebd7027d4ae48911de5ad10a74c5e4ad",
+          "sha256": "c9082ef78b61f87afc8c42bc47c4244bcfbe0142e23c2ee50e6327b38fb5031f",
+          "sha1": "c0d3f9a6de29a05d55c51cf7669bbac626f0eedb",
+          "md5": "6b3b3f27972490a1fb0ef60b7e3e8f44"
+        }
+      ]
+    }
+  ]
+}

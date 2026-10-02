@@ -1,0 +1,110 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.codewiththiru.platform.developer",
+    "module": "test-utils",
+    "version": "1.5.1",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "9.7.1"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.jvm.version": 21,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "core",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.4.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "test-utils-1.5.1.jar",
+          "url": "test-utils-1.5.1.jar",
+          "size": 3742,
+          "sha512": "80bf70f2ebf309dcbfd7abd87ae30c2b7f49b7f4e9ab4caf2f9ed2b5b38841bcd10558f13860cfc0ccae380b31335b168adb09ba54aae24d0510c7ec364d28bc",
+          "sha256": "00f47436da52b77a992f3cf9a38054c515666f3a8a9693a3ff1f9a3694c612c7",
+          "sha1": "7bf0692a6a5491790b7e442c06fe7ef841901a75",
+          "md5": "b78a0b6171c8aaf339ec8d0705dd18de"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.jvm.version": 21,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-coroutines-core",
+          "version": {
+            "requires": "1.11.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-coroutines-test",
+          "version": {
+            "requires": "1.11.0"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "core",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.4.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "test-utils-1.5.1.jar",
+          "url": "test-utils-1.5.1.jar",
+          "size": 3742,
+          "sha512": "80bf70f2ebf309dcbfd7abd87ae30c2b7f49b7f4e9ab4caf2f9ed2b5b38841bcd10558f13860cfc0ccae380b31335b168adb09ba54aae24d0510c7ec364d28bc",
+          "sha256": "00f47436da52b77a992f3cf9a38054c515666f3a8a9693a3ff1f9a3694c612c7",
+          "sha1": "7bf0692a6a5491790b7e442c06fe7ef841901a75",
+          "md5": "b78a0b6171c8aaf339ec8d0705dd18de"
+        }
+      ]
+    }
+  ]
+}

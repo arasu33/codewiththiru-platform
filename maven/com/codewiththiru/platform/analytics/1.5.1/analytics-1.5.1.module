@@ -1,0 +1,138 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.codewiththiru.platform",
+    "module": "analytics",
+    "version": "1.5.1",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "9.7.1"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.4.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "analytics-1.5.1.aar",
+          "url": "analytics-1.5.1.aar",
+          "size": 131250,
+          "sha512": "684b4281790f220a9def6a2bf92aa2cf14ea2e00f1ab8fada38f4b32935b9e6ea0d1677bc25d3a4736273adc19fd5302101d3d2da3c36abdd95544d0698ea23e",
+          "sha256": "0bc0e5cab8746bdfe5f82c96e682832a0af768ee3936047a78c93438dae5b1c0",
+          "sha1": "26c11b624478aa2d1115a33f008c01f5b52fd146",
+          "md5": "748999301eb8f66784e0062bf34ae121"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "analytics-api",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-coroutines-core",
+          "version": {
+            "requires": "1.11.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-serialization-json",
+          "version": {
+            "requires": "1.6.3"
+          }
+        },
+        {
+          "group": "androidx.datastore",
+          "module": "datastore-preferences",
+          "version": {
+            "requires": "1.2.1"
+          }
+        },
+        {
+          "group": "com.google.firebase",
+          "module": "firebase-bom",
+          "version": {
+            "requires": "34.19.0"
+          },
+          "attributes": {
+            "org.gradle.category": "platform"
+          }
+        },
+        {
+          "group": "com.google.firebase",
+          "module": "firebase-analytics"
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.4.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "analytics-1.5.1.aar",
+          "url": "analytics-1.5.1.aar",
+          "size": 131250,
+          "sha512": "684b4281790f220a9def6a2bf92aa2cf14ea2e00f1ab8fada38f4b32935b9e6ea0d1677bc25d3a4736273adc19fd5302101d3d2da3c36abdd95544d0698ea23e",
+          "sha256": "0bc0e5cab8746bdfe5f82c96e682832a0af768ee3936047a78c93438dae5b1c0",
+          "sha1": "26c11b624478aa2d1115a33f008c01f5b52fd146",
+          "md5": "748999301eb8f66784e0062bf34ae121"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseSourcePublication",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "analytics-1.5.1-sources.jar",
+          "url": "analytics-1.5.1-sources.jar",
+          "size": 21590,
+          "sha512": "45a32bed5c40329a5c9ebec7228c5bd0579f79589cca10dedb4e73507fe33d3d8367440b6d8f11b61929ec6ef68c761b6a8688971d340dab5b9654c2753fb68f",
+          "sha256": "85e7aed15d1356ab4f7a728e7e873b85eb144dcdf8482979bc7a4b597d7c42b9",
+          "sha1": "112b72a021487e19f8db5eb9e05178ae509ea536",
+          "md5": "65e5d72d01b2f49a8a2493a16ce591c6"
+        }
+      ]
+    }
+  ]
+}

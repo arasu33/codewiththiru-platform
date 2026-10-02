@@ -1,0 +1,138 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.codewiththiru.platform",
+    "module": "game-audio",
+    "version": "1.5.1",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "9.7.1"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.jvm.version": 21,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "core",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "game-common",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "game-save",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.4.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "game-audio-1.5.1.jar",
+          "url": "game-audio-1.5.1.jar",
+          "size": 41250,
+          "sha512": "9b80a564bcaa5a6847531795104a06b7451be4ce980e611bfb3fa7d5bcba773ef2b8dd23b890eeb0cab4c4260f46c2197cc2e758097ea7c4c44e3ee44ea5d53c",
+          "sha256": "576f2ce884bdb18178d396d712dcaed3687910996988980d04f15de2ddfb008e",
+          "sha1": "19932166aa029252a64fc284d7e34f052c00aa8c",
+          "md5": "fa9ab21cfb44a62a9182e90bf9a27497"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.jvm.version": 21,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-coroutines-core",
+          "version": {
+            "requires": "1.11.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-serialization-json",
+          "version": {
+            "requires": "1.6.3"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "core",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "game-common",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "game-save",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.4.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "game-audio-1.5.1.jar",
+          "url": "game-audio-1.5.1.jar",
+          "size": 41250,
+          "sha512": "9b80a564bcaa5a6847531795104a06b7451be4ce980e611bfb3fa7d5bcba773ef2b8dd23b890eeb0cab4c4260f46c2197cc2e758097ea7c4c44e3ee44ea5d53c",
+          "sha256": "576f2ce884bdb18178d396d712dcaed3687910996988980d04f15de2ddfb008e",
+          "sha1": "19932166aa029252a64fc284d7e34f052c00aa8c",
+          "md5": "fa9ab21cfb44a62a9182e90bf9a27497"
+        }
+      ]
+    }
+  ]
+}

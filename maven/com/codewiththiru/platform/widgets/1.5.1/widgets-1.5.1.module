@@ -1,0 +1,153 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.codewiththiru.platform",
+    "module": "widgets",
+    "version": "1.5.1",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "9.7.1"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.4.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "widgets-1.5.1.aar",
+          "url": "widgets-1.5.1.aar",
+          "size": 35968,
+          "sha512": "faa7427ba39f7c311cc17e6a46c21bd53fb3fc47de9645e68712c483ae5a457e4de0e09ffecc58412c43aedbb67e4eda961c397d9e1cba6e572cf00accce85f0",
+          "sha256": "802af46d4aba9932fe58eab16b6ae3c5aee39a81dff259e11f59b535c3db6924",
+          "sha1": "d04b8fb1f1cf091911b89cb5522363c81355631e",
+          "md5": "5cb06170bde6cfa1c59389bae70572bb"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "core",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "core-android",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "designsystem",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "androidx.core",
+          "module": "core-ktx",
+          "version": {
+            "requires": "1.19.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-coroutines-core",
+          "version": {
+            "requires": "1.11.0"
+          }
+        },
+        {
+          "group": "androidx.compose",
+          "module": "compose-bom",
+          "version": {
+            "requires": "2026.09.00"
+          },
+          "attributes": {
+            "org.gradle.category": "platform"
+          }
+        },
+        {
+          "group": "androidx.compose.ui",
+          "module": "ui"
+        },
+        {
+          "group": "androidx.compose.material3",
+          "module": "material3"
+        },
+        {
+          "group": "androidx.compose.ui",
+          "module": "ui-tooling-preview"
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.4.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "widgets-1.5.1.aar",
+          "url": "widgets-1.5.1.aar",
+          "size": 35968,
+          "sha512": "faa7427ba39f7c311cc17e6a46c21bd53fb3fc47de9645e68712c483ae5a457e4de0e09ffecc58412c43aedbb67e4eda961c397d9e1cba6e572cf00accce85f0",
+          "sha256": "802af46d4aba9932fe58eab16b6ae3c5aee39a81dff259e11f59b535c3db6924",
+          "sha1": "d04b8fb1f1cf091911b89cb5522363c81355631e",
+          "md5": "5cb06170bde6cfa1c59389bae70572bb"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseSourcePublication",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "widgets-1.5.1-sources.jar",
+          "url": "widgets-1.5.1-sources.jar",
+          "size": 5546,
+          "sha512": "f88d8844b3ab918df7d6619879c8fdc11f132472a5e079ec7b1d1c16e2916dca2416cecea5270345e7da1c07d541acbcd225b65b348fd93558298e8a9a8a8155",
+          "sha256": "cb6a9bcf73b8b2d03ca56fa6adbf7846cd358d6292cab33799a4343a4cb84e03",
+          "sha1": "9ba63050004653708e5fa80f75e477e2a049d9da",
+          "md5": "7f9e08a765fc168d0d94f40d9907f09e"
+        }
+      ]
+    }
+  ]
+}

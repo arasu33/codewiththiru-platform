@@ -1,0 +1,166 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.codewiththiru.platform",
+    "module": "remote-config",
+    "version": "1.5.1",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "9.7.1"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.4.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "remote-config-1.5.1.aar",
+          "url": "remote-config-1.5.1.aar",
+          "size": 187058,
+          "sha512": "bc722498de364b70cada0c7bfcc5698646c107406a4a6b01a674b63bb2710719015bb608dfbe52d217a31bf6f7018ac18ff2fabd4395d9749917e5809074b1a1",
+          "sha256": "133ffb19fce9dd89437231a95bed7955e0b1085d6882fab63ab9c1f43861e679",
+          "sha1": "7329fa4198c98bc4f1b0a109f01ad1f3967e20a2",
+          "md5": "2bd26320630222317bd012539a22df82"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "remote-config-api",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "core",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "analytics-api",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "com.google.firebase",
+          "module": "firebase-bom",
+          "version": {
+            "requires": "34.19.0"
+          },
+          "attributes": {
+            "org.gradle.category": "platform"
+          }
+        },
+        {
+          "group": "com.google.firebase",
+          "module": "firebase-config"
+        },
+        {
+          "group": "androidx.core",
+          "module": "core-ktx",
+          "version": {
+            "requires": "1.19.0"
+          }
+        },
+        {
+          "group": "androidx.datastore",
+          "module": "datastore-preferences",
+          "version": {
+            "requires": "1.2.1"
+          }
+        },
+        {
+          "group": "androidx.security",
+          "module": "security-crypto",
+          "version": {
+            "requires": "1.1.0-alpha06"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-coroutines-core",
+          "version": {
+            "requires": "1.11.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-serialization-json",
+          "version": {
+            "requires": "1.6.3"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.4.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "remote-config-1.5.1.aar",
+          "url": "remote-config-1.5.1.aar",
+          "size": 187058,
+          "sha512": "bc722498de364b70cada0c7bfcc5698646c107406a4a6b01a674b63bb2710719015bb608dfbe52d217a31bf6f7018ac18ff2fabd4395d9749917e5809074b1a1",
+          "sha256": "133ffb19fce9dd89437231a95bed7955e0b1085d6882fab63ab9c1f43861e679",
+          "sha1": "7329fa4198c98bc4f1b0a109f01ad1f3967e20a2",
+          "md5": "2bd26320630222317bd012539a22df82"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseSourcePublication",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "remote-config-1.5.1-sources.jar",
+          "url": "remote-config-1.5.1-sources.jar",
+          "size": 29493,
+          "sha512": "a864d6ffcb36344997ffaf4a91c041d1fe44366e434b19b7b419458e0c15d0cb891a9d29ea4f2012586f080724f99d215c3b1bab240a19bcc0a4a5c99d5616cc",
+          "sha256": "4b28ba3e8eaecb3613eb1e11f4be951db0245ff80e0d2a447bf37cab81cc5082",
+          "sha1": "2ca499149714e498a5a6598de5d8e07ee8d5fcd8",
+          "md5": "35c7fb67be0afaf064be5605be53b11e"
+        }
+      ]
+    }
+  ]
+}

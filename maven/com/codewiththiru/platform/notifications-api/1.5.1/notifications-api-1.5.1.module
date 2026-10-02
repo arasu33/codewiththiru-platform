@@ -1,0 +1,103 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.codewiththiru.platform",
+    "module": "notifications-api",
+    "version": "1.5.1",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "9.7.1"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.jvm.version": 21,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.4.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "notifications-api-1.5.1.jar",
+          "url": "notifications-api-1.5.1.jar",
+          "size": 33965,
+          "sha512": "aaf862d459ed7abddc40df553f75952a691088c7b3cfa5d5fce525b9707e2494828cadab0a51341966808444ba2fcb8c5f98285a1f370817942cb73c6bac6e01",
+          "sha256": "5bf4d6f86eccdc4df4d6c306f6e88db0f05226fac0ce127dd24214c32b31eb07",
+          "sha1": "8a2709c827d274782e257f6864eb1ec318f73d7e",
+          "md5": "7c488e23ad0aa6f6271fc6c7b22b942a"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.jvm.version": 21,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "com.codewiththiru.platform",
+          "module": "core",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-coroutines-core",
+          "version": {
+            "requires": "1.11.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-serialization-json",
+          "version": {
+            "requires": "1.6.3"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.4.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "notifications-api-1.5.1.jar",
+          "url": "notifications-api-1.5.1.jar",
+          "size": 33965,
+          "sha512": "aaf862d459ed7abddc40df553f75952a691088c7b3cfa5d5fce525b9707e2494828cadab0a51341966808444ba2fcb8c5f98285a1f370817942cb73c6bac6e01",
+          "sha256": "5bf4d6f86eccdc4df4d6c306f6e88db0f05226fac0ce127dd24214c32b31eb07",
+          "sha1": "8a2709c827d274782e257f6864eb1ec318f73d7e",
+          "md5": "7c488e23ad0aa6f6271fc6c7b22b942a"
+        }
+      ]
+    }
+  ]
+}
