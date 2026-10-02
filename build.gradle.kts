@@ -9,6 +9,14 @@ allprojects {
     version = (project.findProperty("PLATFORM_VERSION_NAME") as? String) ?: "1.0.0"
 }
 
+tasks.register("publishToLocalRepo") {
+    description = "Publishes all publications from all subprojects to the local Maven repository at build/repo"
+    group = "publishing"
+    dependsOn(subprojects.map { subproject ->
+        subproject.tasks.matching { it.name == "publishAllPublicationsToLocalRepoRepository" }
+    })
+}
+
 tasks.register("bumpPatchVersion") {
     notCompatibleWithConfigurationCache("Modifies gradle.properties file")
     doLast { bumpVersion("patch") }

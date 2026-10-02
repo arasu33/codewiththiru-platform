@@ -12,7 +12,10 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-        maven { url = uri("https://maven.codewiththiru.com/releases") }
+        maven {
+            name = "CodeWithThiruPlatform"
+            url = uri("https://arasu33.github.io/codewiththiru-platform/maven")
+        }
     }
 }
 ```
@@ -21,13 +24,17 @@ Next, include the required dependencies in your app-level `build.gradle.kts`:
 
 ```kotlin
 dependencies {
+    // Platform BOM (aligns versions)
+    implementation(platform("com.codewiththiru.platform:platform-bom:1.5.1"))
+    
     // Core Platform
-    implementation("com.codewiththiru.platform:core:2.4.0")
+    implementation("com.codewiththiru.platform:core")
+    implementation("com.codewiththiru.platform:core-android")
     
     // Optional Modules
-    implementation("com.codewiththiru.platform:ads:2.4.0")
-    implementation("com.codewiththiru.platform:billing:2.4.0")
-    implementation("com.codewiththiru.platform:analytics:2.4.0")
+    implementation("com.codewiththiru.platform:ads")
+    implementation("com.codewiththiru.platform:billing")
+    implementation("com.codewiththiru.platform:analytics")
 }
 ```
 
