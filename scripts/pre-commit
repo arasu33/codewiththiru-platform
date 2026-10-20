@@ -4,6 +4,11 @@
 # This prevents CI from failing due to style violations.
 #
 
+if [ "$SKIP_KTLINT" = "1" ]; then
+    echo "⏩ SKIP_KTLINT is set. Skipping ktlint format."
+    exit 0
+fi
+
 echo "🔍 Running Self-Healing Ktlint Format..."
 
 # Only check staged files
@@ -14,8 +19,15 @@ if [ -z "$staged_files" ]; then
     exit 0
 fi
 
-# Run the ktlintFormat gradle task
-./gradlew ktlintFormat --quiet
+# Run the ktlintFormat gradle task with --no-daemon to avoid terminal deadlocks
+case "$(uname -s)" in
+    MINGW*|MSYS*|CYGWIN*)
+        cmd.exe //c "gradlew.bat ktlintFormat --no-daemon --quiet"
+        ;;
+    *)
+        ./gradlew ktlintFormat --no-daemon --quiet
+        ;;
+esac
 
 if [ $? -ne 0 ]; then
     echo "❌ Ktlint failed to format the code. Please fix the errors manually."

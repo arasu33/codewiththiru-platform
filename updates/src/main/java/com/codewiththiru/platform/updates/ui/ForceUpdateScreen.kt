@@ -38,7 +38,7 @@ fun ForceUpdateScreen(
             modifier
                 .fillMaxSize()
                 .semantics {
-                    isContainer = true
+                    isTraversalGroup = true
                     liveRegion = LiveRegionMode.Polite
                 },
         color = MaterialTheme.colorScheme.background,

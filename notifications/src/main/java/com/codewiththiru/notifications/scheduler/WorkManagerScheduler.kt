@@ -52,8 +52,8 @@ class WorkManagerScheduler(private val context: Context) : NotificationScheduler
         )
     }
 
-    override fun cancel(notificationId: String) {
-        workManager.cancelUniqueWork(notificationId)
+    override fun cancel(id: String) {
+        workManager.cancelUniqueWork(id)
     }
 
     override fun cancelAll() {

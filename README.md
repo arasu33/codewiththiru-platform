@@ -39,6 +39,9 @@ dependencyResolutionManagement {
         maven {
             name = "CodeWithThiruPlatform"
             url = uri("https://arasu33.github.io/codewiththiru-platform/maven")
+            content {
+                includeGroupByRegex("com\\.codewiththiru(\\..*)?")
+            }
         }
     }
 }

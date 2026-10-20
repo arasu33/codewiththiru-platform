@@ -44,7 +44,7 @@ fun WhatsNewDialog(
                     .fillMaxWidth()
                     .padding(16.dp)
                     .semantics {
-                        isContainer = true
+                        isTraversalGroup = true
                         liveRegion = LiveRegionMode.Polite
                     },
         ) {
